@@ -1,0 +1,96 @@
+.layout-3-column {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.pet_animal_card {
+    border-radius: 5px;
+    border: 1px solid $color-hover;
+    //border-image: $color-default;
+    margin-bottom: 20px;
+
+}
+
+.animal_photo {
+    border: none;
+    border-radius: 5px;
+}
+
+.card_title {
+    @include font(16px, 140%, 500);
+    text-transform: uppercase;
+    color: $color-dark;
+    margin: 0;
+}
+
+.card_text {
+    @include font(15px, 120%, 300);
+    margin: 0;
+    color: $color-dark;
+}
+
+.pets__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 12px 12px 16px;
+}
+
+.pets_button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.pets__wrapper{
+    position: relative;
+}
+
+.left_slider_button {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: none;
+    background: $color-default;
+    position: absolute;
+    top: 403px;
+    left: -82px;
+    cursor: pointer;
+}
+
+.right_slider_button {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: none;
+    background: $color-default;
+    position: absolute;
+    top: 403px;
+    right: -82px;
+    cursor: pointer;
+}
+
+.left_slider_button:hover {
+    background-color: $color-hover;
+}
+
+.right_slider_button:hover {
+    background-color: $color-hover;
+}
+
+// .pets {
+//     background-image: url(/assets/images/palm_foto.jpg);
+//     background-image: url(/assets/images/strelitzia\ 1.jpg);
+//     background-repeat: no-repeat;
+//     background-position: bottom;
+// }
+
+.background_photo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: -3;
+    margin-top: -480px;
+}
