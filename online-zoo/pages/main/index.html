@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online-zoo</title>
+    <title>Petstory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/sass/style.css">
 </head>
 <body>
     <header class="header">
-        <div class="wrapper">
-            <a href="#" class="logo"><h1>PetStory Online</h1></a>
-            <nav class="header__navigation">
-                <ul class="navigation">
-                    <li>About</li>
-                    <li>Map</li>
-                    <li>Zoos</li>
-                    <li>Donate</li>
-                    <li>Contact us</li>
-                </ul>
-            </nav>
+        <div class="wrapper header__wrapper">
+            <div class="header__content">
+                <a href="#" class="logo">
+                    <object type="image/svg+xml" data="/assets/icons/bamboo.svg" class="logo-object"></object>
+                    <h1>PetStory<br> online</h1>
+                </a>
+                <nav class="header__navigation">
+                    <ul class="navigation">
+                        <li class="navigation__link active_link">About</li>
+                        <li class="navigation__link">Map</li>
+                        <li class="navigation__link">Zoos</li>
+                        <li class="navigation__link">Donate</li>
+                        <li class="navigation__link">Contact us</li>
+                    </ul>
+                </nav>
+            </div>
+            
             <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="header__design_link">Designed by ©</a>
         </div>
     </header>
     <section class="promo">
-        <div class="wrapper">
-            <p class="promo__text">Watch your favorite animal online</p>
-            <button class="button_circle">watch online</button>
+        <div class="wrapper promo__wrapper">
+            <div class="ellipse ">
+                <p class="promo__text">Watch<br> your<br> <span class="yellow_word">favorite</span><br> animal<br> online</p>
+            </div>
+            <button class="button button_circle promo_button">watch online</button>
         </div>
     </section>
     <section class="backstage">
@@ -98,7 +110,7 @@
                 </div>
             </div>
             <div class="pets_button">
-                <button class="button_circle">choose your favorite</button>
+                <button class="button button_circle">choose your favorite</button>
             </div>
         </div>
     </section>
@@ -127,7 +139,7 @@
                     </div>
                 </div>
                 <div class="feed_button">
-                    <button class="button_circle">Feed a friend now</button>
+                    <button class="button button_circle">Feed a friend now</button>
                 </div>
             </div>
         </div>
@@ -192,7 +204,7 @@
 
             </div>
             <div class="testimonials_button">
-                <button class="button_rectangle">leave feedback</button>
+                <button class="button button_rectangle">leave feedback</button>
             </div>
         </div>
     </section>
@@ -207,7 +219,7 @@
                 </div>
             </div>
             <div class="fotter_button">
-                <button class="button_rectangle">donate for volunteers</button>
+                <button class="button button_rectangle">donate for volunteers</button>
             </div>
             <div class="layout-3-columns">
                 <ul class="footer_social-networks">
