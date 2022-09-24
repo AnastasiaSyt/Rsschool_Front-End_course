@@ -1,0 +1,108 @@
+.footer {
+    background-color: #111115;
+}
+
+.logo_footer {
+    position: relative;
+    text-decoration: none;
+    color: $color-light;
+    text-align: center;
+    border: 1px solid $color-light;
+    border-radius: 2px;
+    width: 82px;
+    height: 52px;
+    margin-right: -6px;
+}
+
+.logo-object_footer {
+    position: absolute;
+    top: 23px;
+    left: 9px;;
+}
+
+.logo_footer_text {
+    margin: 0.3rem 0;
+    @include font(19px, 120%);
+}
+
+.layout-2-columns_footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 36px;
+}
+
+.footer-title {
+    @include font(24px, 120%);
+    color: $color-light;
+    margin: 0;
+}
+
+.input_email {
+    margin: 14px 10px 0 0;
+    padding: 10px;
+    background-color: #111115;
+    border: 0.7px solid #F9804B;
+    border-radius: 2px;
+}
+
+.input_email::placeholder {
+    color: #BDBDBD;
+}
+
+.button_submit {
+    padding: 10px 39px;
+    border: 1px solid $color-active;
+    border-radius: 5px;
+    background-color: $color-gray_light;
+    color: $color-active;
+}
+
+.fotter_button {
+    padding-bottom: 44px;
+}
+
+.layout-3-columns_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer_social-networks {
+    list-style: none;
+    color: $color-light;
+    @include font(16px, 140%, 400);
+    padding: 0;
+}
+
+.social-networks {
+    vertical-align: middle;
+    padding-right: 12px;
+}
+
+.footer_social-networks_item {
+    padding-bottom: 10px;
+}
+
+.footer_social-networks_item:last-child {
+    padding-bottom: 0;
+}
+
+.footer__navigation_items {
+    display: flex;
+    list-style: none;
+    color: $color-light;
+}
+
+.footer__navigation_link {
+    padding-right: 58px;
+}
+
+.footer__navigation_link:last-child {
+    padding-right: 0px;
+}
+
+.footer_text {
+    @include font(16px, 130%, 100);
+    color: $color-light;
+}

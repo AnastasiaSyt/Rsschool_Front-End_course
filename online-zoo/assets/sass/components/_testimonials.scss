@@ -1,0 +1,95 @@
+
+.gradient_border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 268px;
+    height: 391px;
+    background: $color-pink_gradient;
+    border-radius: 20px;
+}
+
+.testimonials_card {
+   width: calc(100% - 4px);
+   height: calc(100% - 4px);
+   border-radius: 18px;
+   background-color: $color-gray_light;
+   padding: 4px;
+}
+
+.layout-4-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.testimonials_title_card {
+    @include font(16px, 120%);
+    color: $color-dark;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.testimonials_subtitle {
+    @include font(15px, 120%, 300);
+    color: #BDBDBD;
+    margin: 0;
+}
+
+.testimonials_card_head {
+    display: flex;
+    //justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 37px;
+    height: 37px;
+    margin: 15px 10px 11px 16px;
+}
+
+.testimonials_text {
+    @include font(15px, 120%, 300);
+    color: $color-gray;
+    margin: 10px 15px 19px 16px;
+}
+
+.line_scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 599px;
+    height: 8px;
+    background: $color-pink_gradient;
+    border-radius: 5px;
+}
+
+.scroll_background {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 4px;
+    background-color: #F5F7F6;
+    padding: 2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.scroll {
+    margin-top: 21px;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonials_button {
+    margin-top: 31px;
+    margin-bottom: 180px;
+    display: flex;
+    justify-content: center;
+}
+
+.scroll_control{
+    width: 115px;
+    height: 6px;
+    border-radius: 4px;
+    background-color: #FE9013;
+}

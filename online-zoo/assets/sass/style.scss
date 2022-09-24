@@ -13,9 +13,11 @@
 //Layouts
 @import 'layouts/wrapper';
 @import 'layouts/header';
+@import 'layouts/footer';
 
 //Components
 @import "components/pick_and_feed";
 @import "components/promo";
 @import "components/backstage";
 @import "components/pets";
+@import "components/testimonials";
