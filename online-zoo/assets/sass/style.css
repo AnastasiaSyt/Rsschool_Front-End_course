@@ -375,7 +375,7 @@ h4 {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   border: none;
   color: #ffffff;
-  transition: all 0.3s;
+  transition: 0.3s all linear;
 }
 
 .button_circle {
@@ -410,6 +410,8 @@ h4 {
 .header {
   background: #000000;
   padding: 14px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .header__wrapper {
@@ -440,6 +442,17 @@ h4 {
   width: 82px;
   height: 52px;
   margin-right: -6px;
+  transition: 0.2s all linear;
+}
+
+.logo:hover {
+  color: #E47209;
+  border: 1px solid #E47209;
+}
+
+.logo:active {
+  color: #4B9200;
+  border: 1px solid #4B9200;
 }
 
 .header__design_link {
@@ -449,10 +462,19 @@ h4 {
   font-size: 16px;
   line-height: 140%;
   color: #ffffff;
+  transition: 0.2s all linear;
 }
 
 .header__design_link:first-child {
   padding-right: 0;
+}
+
+.header__design_link:hover {
+  color: #E47209;
+}
+
+.header__design_link:active {
+  color: #4B9200;
 }
 
 .logo-object {
@@ -469,6 +491,21 @@ h4 {
 
 .active_link {
   color: #E47209;
+  text-decoration: none;
+}
+
+.nav_link {
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.2s all linear;
+}
+
+.nav_link:hover {
+  color: #E47209;
+}
+
+.nav_link:active {
+  color: #4B9200;
 }
 
 .footer {
@@ -639,11 +676,20 @@ h4 {
   padding-bottom: 25px;
 }
 
-.feed_link:link {
+.feed_link {
   color: #333B41;
   text-decoration: none;
   border-bottom: 1px solid #FE9013;
   cursor: pointer;
+}
+
+.feed_link:hover {
+  color: #E47209;
+}
+
+.feed_link:active {
+  color: #4B9200;
+  border-bottom: 1px solid #4B9200;
 }
 
 .icon_card {
@@ -669,7 +715,7 @@ h4 {
   display: flex;
   justify-content: center;
   padding-bottom: 59px;
-  padding-top: 72px;
+  padding-top: 61px;
 }
 
 .pick_and_feed_background {
@@ -688,14 +734,20 @@ h4 {
   left: 693px;
 }
 
+.feed_card {
+  padding-top: 3px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
+}
+
 .promo {
   background-image: url(/assets/images/GiantPanda.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 780px;
   margin-top: -80px;
-  position: relative;
-  z-index: -2;
 }
 
 .promo__wrapper {
@@ -793,6 +845,8 @@ h4 {
   border-radius: 5px;
   border: 1px solid #E47209;
   margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .animal_photo {
@@ -845,6 +899,7 @@ h4 {
   top: 403px;
   left: -82px;
   cursor: pointer;
+  transition: 0.2s all linear;
 }
 
 .right_slider_button {
@@ -857,14 +912,23 @@ h4 {
   top: 403px;
   right: -82px;
   cursor: pointer;
+  transition: 0.2s all linear;
 }
 
 .left_slider_button:hover {
-  background-color: #E47209;
+  background: #E47209;
 }
 
 .right_slider_button:hover {
-  background-color: #E47209;
+  background: #E47209;
+}
+
+.left_slider_button:active {
+  background: #4B9200;
+}
+
+.right_slider_button:active {
+  background: #4B9200;
 }
 
 .background_photo {
@@ -874,6 +938,88 @@ h4 {
   position: relative;
   z-index: -3;
   margin-top: -480px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container::before, .container::after {
+  content: "";
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000000;
+  opacity: 0.1;
+  transition: 0.8s;
+}
+
+.container::before {
+  transform: translateX(-120%) rotate(45deg);
+}
+
+.container::after {
+  transform: translateX(112%) rotate(45deg);
+}
+
+.cont_title, .cont_text {
+  margin: 0;
+  position: absolute;
+  color: #ffffff;
+  text-align: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.cont_title {
+  font-size: 24px;
+  text-transform: uppercase;
+  transform: translateY(2000%) scale(1);
+  transition: 0.5s;
+}
+
+.cont_text {
+  font-size: 16px;
+  transition: 0.5s;
+  transform: translateY(3000%) scale(1);
+}
+
+.pet_animal_card img {
+  transition: 0.5s;
+}
+
+.pet_animal_card:hover .animal_photo {
+  transform: scale(1.35);
+}
+
+.pet_animal_card:hover .container::before {
+  transform: translateX(40%) rotate(45deg) scale(1.5);
+  transition: 0.5s;
+  opacity: 0.6;
+}
+
+.pet_animal_card:hover .container::after {
+  transform: translateX(-50%) rotate(45deg) scale(1.5);
+  transition: 0.5s;
+  opacity: 0.6;
+}
+
+.pet_animal_card:hover .cont_title {
+  transform: translateY(600%) scale(1.5);
+  transition: 0.5s;
+}
+
+.pet_animal_card:hover .cont_text {
+  transform: translateY(1100%) scale(1.5);
+  transition: 0.5s;
 }
 
 .gradient_border {
@@ -906,7 +1052,7 @@ h4 {
   line-height: 120%;
   color: #000000;
   margin: 0;
-  margin-top: 15px;
+  margin-top: 9px;
 }
 
 .testimonials_subtitle {
@@ -926,7 +1072,7 @@ h4 {
 .avatar {
   width: 37px;
   height: 37px;
-  margin: 15px 10px 11px 16px;
+  margin: 9px 10px 0px 11px;
 }
 
 .testimonials_text {
@@ -936,6 +1082,7 @@ h4 {
   line-height: 120%;
   color: #767474;
   margin: 10px 15px 19px 16px;
+  letter-spacing: -0.3px;
 }
 
 .line_scroll {
@@ -977,6 +1124,10 @@ h4 {
   height: 6px;
   border-radius: 4px;
   background-color: #FE9013;
+}
+
+.testimonials__title {
+  padding: 106px 0 10px 0;
 }
 
 .donate_photo {

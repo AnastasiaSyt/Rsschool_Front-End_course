@@ -37,11 +37,20 @@
     padding-bottom: 25px;
 }
 
-.feed_link:link {
+.feed_link {
     color: $color-black_blue;
     text-decoration: none;
     border-bottom: 1px solid #FE9013;
     cursor: pointer;
+}
+
+.feed_link:hover {
+    color: $color-hover;
+}
+
+.feed_link:active {
+    color: $color-active;
+    border-bottom: 1px solid $color-active;
 }
 
 .icon_card {
@@ -67,7 +76,7 @@
     display: flex;
     justify-content: center;
     padding-bottom: 59px;
-    padding-top: 72px;
+    padding-top: 61px;
 }
 
 .pick_and_feed_background {
@@ -84,4 +93,12 @@
     position: absolute;
     top: 480px;
     left: 693px;
+}
+
+.feed_card {
+    padding-top: 3px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #333B41;
 }

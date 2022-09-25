@@ -1,6 +1,8 @@
 .header {
     background: $color-dark;
     padding: 14px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .header__wrapper {
@@ -31,6 +33,17 @@
     width: 82px;
     height: 52px;
     margin-right: -6px;
+    transition: 0.2s all linear;
+}
+
+.logo:hover {
+    color: $color-hover;
+    border: 1px solid $color-hover;
+}
+
+.logo:active {
+    color: $color-active;
+    border: 1px solid $color-active;
 }
 
 .header__design_link {
@@ -40,11 +53,21 @@
     font-size: 16px;
     line-height: 140%;
     color: $color-light;
+    transition: 0.2s all linear;
 }
 
 .header__design_link:first-child {
     padding-right: 0;
 }
+
+.header__design_link:hover {
+    color: $color-hover;
+}
+
+.header__design_link:active {
+    color: $color-active;
+}
+
 
 .logo-object {
     position: absolute;
@@ -60,4 +83,19 @@
 
 .active_link {
     color: $color-hover;
+    text-decoration: none;
+}
+
+.nav_link {
+    text-decoration: none;
+    color: $color-light;
+    transition: 0.2s all linear;
+}
+
+.nav_link:hover {
+    color: $color-hover;
+}
+
+.nav_link:active {
+    color: $color-active;
 }
