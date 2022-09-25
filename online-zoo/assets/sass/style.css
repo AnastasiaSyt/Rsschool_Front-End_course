@@ -524,6 +524,11 @@ h4 {
   margin-right: -6px;
 }
 
+.logo_footer:hover {
+  color: #E47209;
+  border: 1px solid #E47209;
+}
+
 .logo-object_footer {
   position: absolute;
   top: 23px;
@@ -542,7 +547,7 @@ h4 {
   display: flex;
   justify-content: space-between;
   padding-top: 40px;
-  padding-bottom: 36px;
+  padding-bottom: 39px;
 }
 
 .footer-title {
@@ -552,11 +557,14 @@ h4 {
   line-height: 120%;
   color: #ffffff;
   margin: 0;
+  margin-right: 126px;
+  margin-top: 2px;
 }
 
 .input_email {
-  margin: 14px 10px 0 0;
+  margin: 14px 7px 0 0;
   padding: 10px;
+  padding-right: 34px;
   background-color: #111115;
   border: 0.7px solid #F9804B;
   border-radius: 2px;
@@ -567,15 +575,15 @@ h4 {
 }
 
 .button_submit {
-  padding: 10px 39px;
+  padding: 10px 38px;
   border: 1px solid #4B9200;
   border-radius: 5px;
   background-color: #F1F3F2;
   color: #4B9200;
 }
 
-.fotter_button {
-  padding-bottom: 44px;
+.footer_button {
+  padding-bottom: 27px;
 }
 
 .layout-3-columns_footer {
@@ -587,10 +595,10 @@ h4 {
 .footer_social-networks {
   list-style: none;
   color: #ffffff;
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
+  color: #FFFFFF;
   padding: 0;
 }
 
@@ -601,19 +609,32 @@ h4 {
 
 .footer_social-networks_item {
   padding-bottom: 10px;
+  transition: opacity 0.4s;
 }
 
 .footer_social-networks_item:last-child {
   padding-bottom: 0;
 }
 
+.footer_social-networks_item:hover {
+  color: #E47209;
+}
+
+.footer_social-networks_item:active {
+  color: #4B9200;
+}
+
 .footer__navigation_items {
   display: flex;
   list-style: none;
   color: #ffffff;
+  padding-left: 115px;
 }
 
 .footer__navigation_link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
   padding-right: 58px;
 }
 
@@ -625,7 +646,7 @@ h4 {
   font-style: normal;
   font-weight: 100;
   font-size: 16px;
-  line-height: 130%;
+  line-height: 115%;
   color: #ffffff;
 }
 
@@ -1076,13 +1097,21 @@ h4 {
 }
 
 .testimonials_text {
-  font-style: normal;
   font-weight: 300;
   font-size: 15px;
   line-height: 120%;
   color: #767474;
-  margin: 10px 15px 19px 16px;
-  letter-spacing: -0.3px;
+  margin: 10px 8px 0px 11px;
+  letter-spacing: 0.3px;
+}
+
+.testimonials_text_1 {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #767474;
+  margin: 10px 10px 0px 11px;
+  letter-spacing: 0.7px;
 }
 
 .line_scroll {
@@ -1090,7 +1119,7 @@ h4 {
   justify-content: center;
   align-items: center;
   width: 599px;
-  height: 8px;
+  height: 10px;
   background: linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
   border-radius: 5px;
 }
@@ -1107,27 +1136,69 @@ h4 {
 }
 
 .scroll {
-  margin-top: 21px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
 .testimonials_button {
-  margin-top: 31px;
+  margin-top: 30px;
   margin-bottom: 180px;
-  display: flex;
-  justify-content: center;
-}
-
-.scroll_control {
-  width: 115px;
-  height: 6px;
-  border-radius: 4px;
-  background-color: #FE9013;
 }
 
 .testimonials__title {
   padding: 106px 0 10px 0;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 599px;
+  height: 7px;
+  background: #F5F7F6;
+  border-radius: 5px;
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 115px; /* Set a specific slider handle width */
+  height: 7px; /* Slider handle height */
+  background: #FE9013;
+  border-radius: 5px;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 115px; /* Set a specific slider handle width */
+  height: 7px; /* Slider handle height */
+  background: #FE9013;
+  border-radius: 5px;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.testimonials_background_photo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  z-index: -3;
+  margin-top: -275px;
 }
 
 .donate_photo {

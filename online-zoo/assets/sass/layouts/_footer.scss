@@ -14,6 +14,11 @@
     margin-right: -6px;
 }
 
+.logo_footer:hover {
+    color: $color-hover;
+    border: 1px solid $color-hover;
+}
+
 .logo-object_footer {
     position: absolute;
     top: 23px;
@@ -29,18 +34,21 @@
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
-    padding-bottom: 36px;
+    padding-bottom: 39px;
 }
 
 .footer-title {
     @include font(24px, 120%);
     color: $color-light;
     margin: 0;
+    margin-right: 126px;
+    margin-top: 2px;
 }
 
 .input_email {
-    margin: 14px 10px 0 0;
+    margin: 14px 7px 0 0;
     padding: 10px;
+    padding-right: 34px;
     background-color: #111115;
     border: 0.7px solid #F9804B;
     border-radius: 2px;
@@ -51,15 +59,15 @@
 }
 
 .button_submit {
-    padding: 10px 39px;
+    padding: 10px 38px;
     border: 1px solid $color-active;
     border-radius: 5px;
     background-color: $color-gray_light;
     color: $color-active;
 }
 
-.fotter_button {
-    padding-bottom: 44px;
+.footer_button {
+    padding-bottom: 27px;
 }
 
 .layout-3-columns_footer {
@@ -71,9 +79,14 @@
 .footer_social-networks {
     list-style: none;
     color: $color-light;
-    @include font(16px, 140%, 400);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #FFFFFF;
     padding: 0;
 }
+
+
 
 .social-networks {
     vertical-align: middle;
@@ -82,19 +95,32 @@
 
 .footer_social-networks_item {
     padding-bottom: 10px;
+    transition: opacity .4s;
 }
 
 .footer_social-networks_item:last-child {
     padding-bottom: 0;
 }
 
+.footer_social-networks_item:hover {
+    color: $color-hover;
+}
+
+.footer_social-networks_item:active {
+    color: $color-active;
+}
+
 .footer__navigation_items {
     display: flex;
     list-style: none;
     color: $color-light;
+    padding-left: 115px;
 }
 
 .footer__navigation_link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
     padding-right: 58px;
 }
 
@@ -103,6 +129,6 @@
 }
 
 .footer_text {
-    @include font(16px, 130%, 100);
+    @include font(16px, 115%, 100);
     color: $color-light;
 }
