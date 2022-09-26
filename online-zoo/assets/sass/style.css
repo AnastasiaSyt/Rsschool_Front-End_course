@@ -826,7 +826,7 @@ h4 {
 }
 
 .promo {
-  background-image: url(/assets/images/GiantPanda.jpg);
+  background-image: url(../../assets/images/GiantPanda.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 780px;
@@ -871,7 +871,7 @@ h4 {
 }
 
 .backstage {
-  background-image: url(/assets/images/flower_foto1.png);
+  background-image: url(../../assets/images/flower_foto1.png);
   background-repeat: no-repeat;
   background-position: right;
   color: #333B41;
@@ -1213,45 +1213,42 @@ h4 {
 }
 
 .slidecontainer {
-  width: 100%; /* Width of the outside container */
+  width: 100%;
 }
 
-/* The slider itself */
 .slider {
-  -webkit-appearance: none; /* Override default CSS styles */
+  -webkit-appearance: none;
   appearance: none;
   width: 599px;
   height: 7px;
   background: #F5F7F6;
   border-radius: 5px;
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
   transition: opacity 0.2s;
 }
 
-/* Mouse-over effects */
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+  opacity: 1;
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
   appearance: none;
-  width: 115px; /* Set a specific slider handle width */
-  height: 7px; /* Slider handle height */
+  width: 115px;
+  height: 7px;
   background: #FE9013;
   border-radius: 5px;
-  cursor: pointer; /* Cursor on hover */
+  cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 115px; /* Set a specific slider handle width */
-  height: 7px; /* Slider handle height */
+  width: 115px;
+  height: 7px;
   background: #FE9013;
   border-radius: 5px;
-  cursor: pointer; /* Cursor on hover */
+  cursor: pointer;
 }
 
 .testimonials_background_photo {
@@ -1264,7 +1261,7 @@ h4 {
 }
 
 .donate_photo {
-  background-image: url(/assets/images/panda_bg.jpg);
+  background-image: url(../../assets/images/panda_bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 386px;
