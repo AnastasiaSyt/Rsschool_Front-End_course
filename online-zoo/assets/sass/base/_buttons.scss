@@ -1,0 +1,37 @@
+.button {
+    padding: 16px 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
+    width: 298px;
+    height: 54px;
+    left: calc(50% - 298px/2);
+    background: $color-default;
+    border: none;
+    color: $color-light;
+    transition: 0.3s all linear;
+}
+
+.button_circle {
+    border-radius: 25px;
+}
+
+.button_rectangle {
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: $color-hover;
+}
+
+.button:active {
+    background: $color-active;
+}
+
+.button:disabled {
+    background: $color-gray;
+}

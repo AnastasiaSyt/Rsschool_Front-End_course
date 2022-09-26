@@ -1,0 +1,104 @@
+.pick_and_feed {
+    background: $color-orange_gradient;
+    padding: 69px 0 100px 0;
+}
+
+.pick_and_feed__wrapper {
+    background: rgba(253, 253, 255, 0.52);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+}
+
+.pick_and_feed_title {
+    @include font(48px, 120%);
+    text-align: center;
+    color: #FE9013;
+    padding: 41px 0 0px 0;
+}
+
+.pick_and_feed_text {
+    color: $color-black_blue;
+    //text-align: center;
+    padding-left: 99px;
+}
+
+.feed_subtitle {
+    @include font(16px, 130%, 500);
+    color: $color-black_blue;
+    padding-left: 99px;
+    margin-top: 40px;
+}
+
+.feed_text {
+    @include font(16px, 130%);
+    color: $color-black_blue;
+    padding-left: 99px;
+    margin-top: -5px;
+    padding-bottom: 25px;
+}
+
+.feed_link {
+    color: $color-black_blue;
+    text-decoration: none;
+    border-bottom: 1px solid #FE9013;
+    cursor: pointer;
+}
+
+.feed_link:hover {
+    color: $color-hover;
+}
+
+.feed_link:active {
+    color: $color-active;
+    border-bottom: 1px solid $color-active;
+}
+
+.icon_card {
+    width: 168px;
+    height: 168px;
+    background: $color-light;
+    border-radius: 5px;
+    border: 1px solid #FE9013;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.feed__layout-3-column {
+    display: flex;
+    justify-content: space-between;
+    color: $color-black_blue;
+    padding: 0 198px;
+}
+
+.feed_button {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 59px;
+    padding-top: 61px;
+}
+
+.pick_and_feed_background {
+    position: relative;
+}
+
+.feed_arrow {
+    position: absolute;
+    top: 480px;
+    left: 395px;
+}
+
+.feed_arrow_next {
+    position: absolute;
+    top: 480px;
+    left: 693px;
+}
+
+.feed_card {
+    padding-top: 3px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #333B41;
+}

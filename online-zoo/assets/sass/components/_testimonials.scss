@@ -1,0 +1,175 @@
+
+.gradient_border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 268px;
+    height: 391px;
+    background: $color-pink_gradient;
+    border-radius: 20px;
+}
+
+.testimonials_card {
+   width: calc(100% - 4px);
+   height: calc(100% - 4px);
+   border-radius: 18px;
+   background-color: $color-gray_light;
+   padding: 4px;
+}
+
+.layout-4-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.testimonials_title_card {
+    @include font(16px, 120%);
+    color: $color-dark;
+    margin: 0;
+    margin-top: 9px;
+}
+
+.testimonials_subtitle {
+    @include font(15px, 120%, 300);
+    color: #BDBDBD;
+    margin: 0;
+}
+
+.testimonials_card_head {
+    display: flex;
+    //justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 37px;
+    height: 37px;
+    margin: 9px 10px 0px 11px;
+}
+
+.testimonials_text {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 120%;
+    color: #767474;
+    margin: 10px 8px 0px 11px;
+    letter-spacing: 0.3px;
+}
+
+.testimonials_text_1 {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 120%;
+    color: #767474;
+    margin: 10px 10px 0px 11px;
+    letter-spacing: 0.7px;
+}
+
+.line_scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 599px;
+    height: 10px;
+    background: $color-pink_gradient;
+    border-radius: 5px;
+}
+
+.scroll_background {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 4px;
+    background-color: #F5F7F6;
+    padding: 2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.scroll {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonials_button {
+    margin-top: 30px;
+    margin-bottom: 180px;
+    // display: flex;
+    // justify-content: center;
+}
+
+// .scroll_control{
+//     width: 115px;
+//     height: 6px;
+//     border-radius: 4px;
+//     background-color: #FE9013;
+// }
+
+.testimonials__title {
+    padding: 106px 0 10px 0;
+}
+
+
+//___________________________________________________
+// .hello {
+//     background: $color-default;
+// }
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+
+    width: 599px;
+    height: 7px;
+
+    // width: 100%; /* Full-width */
+    // height: 25px; /* Specified height */
+    //background: #d3d3d3; /* Grey background */
+
+    background: #F5F7F6;
+    border-radius: 5px;
+
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 115px; /* Set a specific slider handle width */
+    height: 7px; /* Slider handle height */
+    background: #FE9013;
+    border-radius: 5px; 
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 115px; /* Set a specific slider handle width */
+    height: 7px; /* Slider handle height */
+    background: #FE9013;
+    border-radius: 5px; 
+    cursor: pointer; /* Cursor on hover */
+}
+
+.testimonials_background_photo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    z-index: -3;
+    margin-top: -275px;
+}
