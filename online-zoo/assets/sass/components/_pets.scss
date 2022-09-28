@@ -8,19 +8,26 @@
 .pet_animal_card {
     border-radius: 5px;
     border: 1px solid $color-hover;
-    //border-image: $color-default;
     margin-bottom: 20px;
-    //transition: all 1s;
-
     position: relative;
     overflow: hidden;
-    // transition: transform 1s;
-
 }
 
 .animal_photo {
     border: none;
     border-radius: 5px;
+    @include media-desktopsmall {
+        width: 294px;
+        height: 294px;
+    }
+    @include media-tablet {
+        width: 285.24px;
+        height: 285.24px;
+    }
+    @include media-mobile {
+        width: 285.24px;
+        height: 285.24px;
+    }
 }
 
 .card_title {
@@ -28,12 +35,35 @@
     text-transform: uppercase;
     color: $color-dark;
     margin: 0;
+    @include media-tablet {
+        @include font(12.4695px, 140%, 500);
+    }
+    @include media-mobile {
+        @include font(12.4695px, 140%, 500);
+    }
 }
 
 .card_text {
     @include font(15px, 120%, 300);
     margin: 0;
     color: $color-dark;
+    @include media-tablet {
+        @include font(11.6901px, 120%, 300);
+    }
+    @include media-mobile {
+        @include font(11.6901px, 120%, 300);
+    }
+}
+
+.icon_food {
+    @include media-tablet {
+        width: 25.72px;
+        height: 28.84px;
+    }
+    @include media-mobile {
+        width: 25.72px;
+        height: 28.84px;
+    }
 }
 
 .pets__content {
@@ -63,6 +93,15 @@
     left: -82px;
     cursor: pointer;
     transition: 0.2s all linear;
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
 }
 
 .right_slider_button {
@@ -76,6 +115,15 @@
     right: -82px;
     cursor: pointer;
     transition: 0.2s all linear;
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
 }
 
 .left_slider_button:hover {
@@ -102,15 +150,6 @@
     z-index: -3;
     margin-top: -480px;
 }
-
-// img {
-//     transition: transform 0.4s;
-// }
-
-// .pet_animal_card:hover img { 
-//     transform: scale(1.05); 
-
-// }
 
 //__________________________________________________________________________________________________________
 
@@ -147,8 +186,6 @@
 .cont_title, .cont_text {
     margin: 0;
     position: absolute;
-    // top: 20%;
-    // left: 20%;
     color: $color-light;
     text-align: center;
     justify-content: center;
@@ -158,18 +195,13 @@
 .cont_title {
     font-size: 24px;
     text-transform: uppercase;
-    //transform: scale(3);
     transform: translateY(2000%) scale(1);
     transition: .5s;
-    //opacity: 0;
 }
 
 .cont_text {
-    //left: 27%;
     font-size: 16px;
-    //transform: scale(2);
     transition: .5s;
-    //opacity: 0;
     transform: translateY(3000%) scale(1);
 }
 

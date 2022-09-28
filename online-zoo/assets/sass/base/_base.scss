@@ -15,6 +15,9 @@ html {
   h2 {
     @include font(48px, 120%);
     margin: 0;
+    @include media-mobile {
+      @include font(24px, 120%);
+    }
   }
 
   h3 {

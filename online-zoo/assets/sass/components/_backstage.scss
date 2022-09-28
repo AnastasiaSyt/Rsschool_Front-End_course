@@ -4,6 +4,15 @@
     background-position: right;
     color: $color-black_blue;
     margin-bottom: 40px;
+    @include media-desktopsmall {
+        background-image: none;
+    }
+    @include media-tablet {
+        background-image: url(../../assets/images/flower_foto1_tablet.png);
+    }
+    @include media-tablet {
+        background-image: url(../../assets/images/flower_foto1_mobile.png);
+    }
 }
 
 .layout-2-column {
@@ -15,16 +24,46 @@
 .backstage_photo {
     backdrop-filter: blur(2px);
     padding: 140px 87px 140px 0;
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.backstage_photo_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+        backdrop-filter: blur(2px);
+        padding: 109px 31px 140px 0;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
 }
 
 .backstage__content {
     padding-top: 140px;
+    @include media-desktopsmall {
+        padding-top: 100px;
+    }
 }
 
 .backstage_text {
     @include font(16px, 130%);
     padding: 20px 20px 20px 0;
     margin: 0;
+    @include media-desktopsmall {
+        padding: 22px 7px 20px 0;
+    }
 }
 
 .backstage_subtitle {
@@ -36,4 +75,7 @@
 .backstage_maintext {
     @include font(16px, 140%);
     margin: 0;
+    @include media-desktopsmall {
+        @include font(16px, 136%);
+    }
 }

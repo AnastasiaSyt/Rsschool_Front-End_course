@@ -15,12 +15,18 @@
     display: flex;
     list-style: none;
     font-weight: 500;
+    @include media-desktopsmall {
+        padding-left: 43px;
+    }
 }
 
 .navigation__link {
     padding: 0 29px;
     cursor: pointer;
     color: $color-light;
+    @include media-desktopsmall {
+        padding: 0 24.3px;
+    }
 }
 
 .logo {
@@ -34,6 +40,16 @@
     height: 52px;
     margin-right: -6px;
     transition: 0.2s all linear;
+    @include media-tablet {
+        width: 46.93px;
+        height: 29.03px;
+        border: none;
+    }
+    @include media-mobile {
+        width: 46.93px;
+        height: 29.03px;
+        border: none;
+    }
 }
 
 .logo:hover {
@@ -54,6 +70,12 @@
     line-height: 140%;
     color: $color-light;
     transition: 0.2s all linear;
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
 }
 
 .header__design_link:first-child {
@@ -98,4 +120,13 @@
 
 .nav_link:active {
     color: $color-active;
+}
+
+.header__navigation {
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
 }
