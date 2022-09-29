@@ -4,6 +4,9 @@
     @include media-desktopsmall {
         padding: 69px 0 50px 0;
     }
+    @include media-tablet {
+        padding: 58px 0 20px 0;
+    }
 }
 
 .pick_and_feed__wrapper {
@@ -12,6 +15,9 @@
     border-radius: 20px;
     @include media-desktopsmall {
         margin: 0 30px;
+    }
+    @include media-tablet {
+        margin: 0;
     }
 }
 
@@ -23,6 +29,10 @@
     @include media-desktopsmall {
         padding: 29px 0 0px 0;
     }
+    @include media-tablet {
+        @include font(42px, 120%);
+        padding: 9px 0 0px 0;
+    }
 }
 
 .pick_and_feed_text {
@@ -32,6 +42,10 @@
         padding-left: 19px;
         margin-top: 22px;
         margin-bottom: 20px;
+    }
+    @include media-tablet {
+        padding-left: 0px;
+        margin-top: 20px;
     }
 }
 
@@ -45,11 +59,27 @@
         margin-top: 0px;
         line-height: 128%;
     }
+    @include media-tablet {
+        padding-left: 0;
+        line-height: 130%;
+    }
 }
 
 .br_small {
     display: none;
     @include media-desktopsmall {
+        display: inline;
+    }
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.br_small_zoo {
+    @include media-desktopsmall {
+        display: inline;
+    }
+    @include media-tablet {
         display: inline;
     }
 }
@@ -64,6 +94,9 @@
     @include media-desktopsmall {
         margin-top: 0px;
     }
+    @include media-tablet {
+        margin-bottom: 18px;
+    }
 }
 
 .feed_text {
@@ -74,6 +107,10 @@
     padding-bottom: 25px;
     @include media-desktopsmall {
         padding-left: 19px;
+    }
+    @include media-tablet {
+        padding-left: 0;
+        padding-bottom: 13px;
     }
 }
 
@@ -113,6 +150,9 @@
     @include media-desktopsmall {
         padding: 0 58px;
     }
+    @include media-tablet {
+        padding: 0;
+    }
 }
 
 .feed_button {
@@ -123,6 +163,10 @@
     @include media-desktopsmall {
         padding-bottom: 50px;
         padding-top: 72px;
+    }
+    @include media-tablet {
+        padding-top: 41px;
+        padding-bottom: 60px;
     }
 }
 
@@ -138,6 +182,9 @@
         top: 438px;
         left: 256px;
     }
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .feed_arrow_next {
@@ -147,6 +194,33 @@
     @include media-desktopsmall {
         top: 438px;
         left: 553px;
+    }
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.green_arrows {
+    display: none;
+    @include media-tablet {
+        display: block;
+        position: relative;
+    }
+}
+
+.green_arrow {
+    @include media-tablet {
+        position: absolute;
+        top: -259px;
+        left: 137px;
+    }
+}
+
+.green_arrow_next {
+    @include media-tablet {
+        position: absolute;
+        top: -259px;
+        left: 357px;
     }
 }
 

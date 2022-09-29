@@ -3,6 +3,9 @@
     padding: 14px 0;
     position: relative;
     z-index: 1;
+    @include media-tablet {
+        padding: 0 0 5px 0;
+    }
 }
 
 .header__wrapper {
@@ -94,7 +97,12 @@
 .logo-object {
     position: absolute;
     top: 23px;
-    left: 9px;;
+    left: 9px;
+    @include media-tablet {
+        scale: 0.65;
+        top: 12px;
+        left: 1px;
+    }
 }
 
 .header__content {

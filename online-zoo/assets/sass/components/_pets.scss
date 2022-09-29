@@ -6,6 +6,9 @@
     @include media-desktopsmall {
         margin-bottom: 15px;
     }
+    @include media-tablet {
+        margin-bottom: 11px;
+    }
 }
 
 .pet_animal_card {
@@ -63,7 +66,7 @@
 
 .icon_food {
     @include media-tablet {
-        width: 25.72px;
+        //width: 25.72px;
         height: 28.84px;
     }
     @include media-mobile {
@@ -76,6 +79,9 @@
     display: flex;
     justify-content: space-between;
     padding: 2px 12px 12px 16px;
+    @include media-tablet {
+        padding: 2px 11px 8px 13px;
+    }
 }
 
 .pets_button {
@@ -85,6 +91,9 @@
     @include media-desktopsmall {
         margin-top: 80px;
         margin-bottom: 418px;
+    }
+    @include media-tablet {
+        margin-top: 59px;
     }
 }
 
@@ -161,6 +170,9 @@
     position: relative;
     z-index: -3;
     margin-top: -480px;
+    @include media-tablet {
+        margin-top: -519px;
+    }
 }
 
 .palm {
@@ -174,12 +186,29 @@
     @include media-desktopsmall {
         display: block;
     }
+    @include media-tablet {
+       display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.palm_foto_tablet {
+    display: none;
+    @include media-tablet {
+        display: block;
+    }
 }
 
 .strelitzia {
     @include media-desktopsmall {
         width: 241px;
         height: 180px;
+    }
+    @include media-tablet {
+        width: 175px;
+        height: 131px;
     }
 }
 
@@ -280,6 +309,7 @@
     }
     @include media-tablet {
         display: flex;
+        padding-bottom: 19px;
     }
     @include media-mobile {
         display: none;
@@ -308,6 +338,7 @@
         background: $color-default;
         cursor: pointer;
         transition: 0.2s all linear;
+        margin-right: 30px;
     }
     @include media-mobile {
         display: none;
@@ -345,6 +376,9 @@
     @include media-desktopsmall {
         display: none;
     }
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .sloth {
@@ -377,11 +411,20 @@
     @include media-desktopsmall {
         display: block;
     }
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .alligators {
     display: none;
     @include media-desktopsmall {
         display: block;
+    }
+}
+
+.penguins {
+    @include media-tablet {
+        display: none;
     }
 }

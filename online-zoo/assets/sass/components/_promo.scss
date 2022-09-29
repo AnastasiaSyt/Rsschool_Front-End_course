@@ -13,6 +13,7 @@
         background-image: url(../../assets/images/GiantPanda_tablet.jpg);
         height: 373px;
         margin-top: -34px;
+        margin-left: -9px;
     }
     @include media-mobile {
         background-image: url(../../assets/images/GiantPanda_mobile.jpg);
@@ -45,6 +46,8 @@
     }
     @include media-tablet {
         font-size: 54.3px;
+        top: -15px;
+        left: 42px;
     }
     @include media-mobile {
         font-size: 28px;
@@ -70,6 +73,7 @@
     @include media-tablet {
         width: 237.6px;
         height: 237.6px;
+        margin: 44px 51px 0px 0px;
     }
     @include media-mobile {
         width: 119.09px;
@@ -81,5 +85,8 @@
     margin: 69px 99px 0 0;
     @include media-desktopsmall {
         margin: 48px 106px 0 0;
+    }
+    @include media-tablet {
+        margin: -3px 302px 0 0;
     }
 }

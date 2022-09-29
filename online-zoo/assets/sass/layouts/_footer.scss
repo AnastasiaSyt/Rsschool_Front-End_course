@@ -134,12 +134,10 @@
 
 .footer_social-networks_item:hover {
     color: $color-hover;
-    //background: $color-hover;
 }
 
 .footer_social-networks_item:active {
     color: $color-active;
-    //background: $color-active;
 }
 
 .icon_social:hover {
@@ -162,6 +160,9 @@
     font-size: 16px;
     line-height: 140%;
     padding-right: 58px;
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .footer__navigation_link:last-child {

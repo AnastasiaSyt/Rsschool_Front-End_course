@@ -9,16 +9,16 @@
     }
     @include media-tablet {
         background-image: url(../../assets/images/flower_foto1_tablet.png);
+        padding-bottom: 40px;
+        background-position-y: top;
     }
-    @include media-tablet {
+    @include media-mobile {
         background-image: url(../../assets/images/flower_foto1_mobile.png);
     }
 }
 
 .layout-2-column {
     display: flex;
-    //align-content: flex-start;
-    //vertical-align: top;
 }
 
 .backstage_photo {
@@ -55,6 +55,9 @@
     @include media-desktopsmall {
         padding-top: 100px;
     }
+    @include media-tablet {
+        padding-top: 60px;
+    }
 }
 
 .backstage_text {
@@ -64,12 +67,19 @@
     @include media-desktopsmall {
         padding: 22px 7px 20px 0;
     }
+    @include media-tablet {
+        padding: 21px 7px 20px 0;
+    }
 }
 
 .backstage_subtitle {
     @include font(24px, 120%);
     margin: 0;
     padding: 34px 0;
+    @include media-tablet {
+        padding: 11px 0;
+        margin-left: 4px;
+    }
 }
 
 .backstage_maintext {
@@ -77,5 +87,22 @@
     margin: 0;
     @include media-desktopsmall {
         @include font(16px, 136%);
+    }
+    @include media-tablet {
+        margin: 9px 0 0 0;
+        padding-right: 101px;
+    }
+}
+
+.backstage_h2 {
+    @include media-tablet {
+        margin-left: 4px;
+    }
+}
+
+.br_tablet {
+    display: none;
+    @include media-tablet {
+        display: inline;
     }
 }

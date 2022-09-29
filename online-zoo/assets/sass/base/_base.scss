@@ -10,6 +10,9 @@ html {
   h1 {
     margin: 0.3rem 0;
     @include font(19px, 120%);
+    @include media-tablet {
+      @include font(12.2899px, 120%);
+    }
   }
 
   h2 {
@@ -28,4 +31,7 @@ html {
 
   h4 {
     @include font(24px, 120%);
+    @include media-tablet {
+      @include font(22px, 120%);
+    }
   }
