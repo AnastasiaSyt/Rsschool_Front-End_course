@@ -83,12 +83,18 @@
 
 .footer_button {
     padding-bottom: 33px;
+    @include media-desktopsmall {
+        padding-bottom: 28px;
+    }
 }
 
 .layout-3-columns_footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    @include media-desktopsmall {
+        padding-bottom: 50px;
+    }
 }
 
 .footer_social-networks {
@@ -100,13 +106,6 @@
     color: #FFFFFF;
     padding: 0;
 }
-
-
-
-// .social-networks {
-//     //vertical-align: middle;
-//     //padding-right: 12px;
-// }
 
 .footer_social-networks_item {
     padding-bottom: 10px;

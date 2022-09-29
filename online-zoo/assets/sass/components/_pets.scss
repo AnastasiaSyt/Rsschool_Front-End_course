@@ -3,6 +3,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 60px;
+    @include media-desktopsmall {
+        margin-bottom: 15px;
+    }
 }
 
 .pet_animal_card {
@@ -11,6 +14,9 @@
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
+    @include media-desktopsmall {
+        margin-bottom: 0px;
+    }
 }
 
 .animal_photo {
@@ -76,6 +82,10 @@
     display: flex;
     justify-content: center;
     margin-bottom: 117px;
+    @include media-desktopsmall {
+        margin-top: 80px;
+        margin-bottom: 418px;
+    }
 }
 
 .pets__wrapper{
@@ -126,6 +136,8 @@
     }
 }
 
+
+
 .left_slider_button:hover {
     background: $color-hover;
 }
@@ -150,6 +162,27 @@
     z-index: -3;
     margin-top: -480px;
 }
+
+.palm {
+    @include media-desktopsmall {
+        display: none;
+    }
+}
+
+.palm_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
+}
+
+.strelitzia {
+    @include media-desktopsmall {
+        width: 241px;
+        height: 180px;
+    }
+}
+
 
 //__________________________________________________________________________________________________________
 
@@ -226,7 +259,6 @@
 }
 
 .pet_animal_card:hover .cont_title {
-    //opacity: 1;
     transform: translateY(600%)scale(1.5);
     transition: .5s;
 }
@@ -234,4 +266,122 @@
 .pet_animal_card:hover .cont_text {
     transform: translateY(1100%)scale(1.5);
     transition: .5s;
+}
+
+//_____________________________________________
+
+.buttons_small_desktop {
+    display: none;
+    @include media-desktopsmall {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+    @include media-tablet {
+        display: flex;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.left_slider_button_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+        margin-right: 171px;
+    }
+    @include media-tablet {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.right_slider_button_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+    }
+    @include media-tablet {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.gorillas {
+    @include media-desktopsmall {
+        display: none;
+    }
+}
+
+.sloth {
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile{
+        display: none;
+    }
+}
+
+.gorillas_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
+}
+
+.cheetahs {
+    @include media-desktopsmall {
+        display: none;
+    }
+}
+
+.cheetahs_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
+}
+
+.alligators {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
 }

@@ -7,6 +7,9 @@
     height: 391px;
     background: $color-pink_gradient;
     border-radius: 20px;
+    @include media-desktopsmall {
+        width: 293px;
+    }
 }
 
 .testimonials_card {
@@ -37,7 +40,6 @@
 
 .testimonials_card_head {
     display: flex;
-    //justify-content: flex-end;
     align-items: flex-start;
 }
 
@@ -73,6 +75,10 @@
     height: 10px;
     background: $color-pink_gradient;
     border-radius: 5px;
+    @include media-desktopsmall {
+        width: 390px;
+        height: 8px;
+    }
 }
 
 .scroll_background {
@@ -84,6 +90,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    @include media-desktopsmall {
+        padding: 0.5px;
+    }
 }
 
 .scroll {
@@ -95,11 +104,25 @@
 .testimonials_button {
     margin-top: 30px;
     margin-bottom: 180px;
+    @include media-desktopsmall {
+        margin-top: 51px;
+        margin-bottom: 142px;
+    }
 }
 
 
 .testimonials__title {
     padding: 106px 0 10px 0;
+    @include media-desktopsmall {
+        padding: 64px 0 0 0;
+        margin-bottom: 30px;
+    }
+}
+
+.forth_card {
+    @include media-desktopsmall {
+        display: none;
+    }
 }
 
 
@@ -121,6 +144,10 @@
     opacity: 0.7; 
     -webkit-transition: .2s; 
     transition: opacity .2s;
+    @include media-desktopsmall {
+        width: 390px;
+        height: 6px;
+    }
 }
 
 .slider:hover {
@@ -135,6 +162,11 @@
     background: #FE9013;
     border-radius: 5px; 
     cursor: pointer; 
+    @include media-desktopsmall {
+        width: 75px; 
+        height: 6px; 
+        border-radius: 4px; 
+    }
 }
 
 .slider::-moz-range-thumb {
@@ -152,4 +184,24 @@
     position: relative;
     z-index: -3;
     margin-top: -275px;
+    overflow: hidden;
+    @include media-desktopsmall {
+        margin-top: -240px;
+        margin-right: -82px;
+        overflow: hidden;
+        display: none;
+    }
+}
+
+.leav {
+    @include media-desktopsmall {
+        display: none;
+    }
+}
+
+.leav_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
 }
