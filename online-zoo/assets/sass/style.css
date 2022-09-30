@@ -1010,6 +1010,15 @@ h4 {
     padding: 9px 0 0px 0;
   }
 }
+@media (max-width: 320px) {
+  .pick_and_feed_title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    padding: 21px 0 0px 0;
+  }
+}
 
 .pick_and_feed_text {
   color: #333B41;
@@ -1026,6 +1035,17 @@ h4 {
   .pick_and_feed_text {
     padding-left: 0px;
     margin-top: 20px;
+  }
+}
+@media (max-width: 320px) {
+  .pick_and_feed_text {
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    margin-top: 10px;
+    margin-left: -2px;
   }
 }
 
@@ -1049,6 +1069,11 @@ h4 {
   .feed_subtitle {
     padding-left: 0;
     line-height: 130%;
+  }
+}
+@media (max-width: 320px) {
+  .feed_subtitle {
+    display: none;
   }
 }
 
@@ -1093,6 +1118,14 @@ h4 {
     margin-bottom: 18px;
   }
 }
+@media (max-width: 320px) {
+  .pick_and_feed_title_h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+  }
+}
 
 .feed_text {
   font-style: normal;
@@ -1113,6 +1146,11 @@ h4 {
   .feed_text {
     padding-left: 0;
     padding-bottom: 13px;
+  }
+}
+@media (max-width: 320px) {
+  .feed_text {
+    display: none;
   }
 }
 
@@ -1143,6 +1181,18 @@ h4 {
   justify-content: center;
   margin-bottom: 30px;
 }
+@media (max-width: 320px) {
+  .icon_card {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .pick_and_feed_mobile {
+    margin-bottom: 40px;
+    line-height: 120%;
+  }
+}
 
 .feed__layout-3-column {
   display: flex;
@@ -1162,7 +1212,14 @@ h4 {
 }
 @media (max-width: 320px) {
   .feed__layout-3-column {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
   }
 }
 
@@ -1292,9 +1349,10 @@ h4 {
 }
 @media (max-width: 320px) {
   .promo {
-    background-image: url(../../assets/images/GiantPanda_mobile.jpg);
+    background-image: url(../../assets/images/section1.jpg);
     height: 187px;
     margin-top: 0;
+    margin-left: 0;
   }
 }
 
@@ -1333,6 +1391,8 @@ h4 {
 @media (max-width: 320px) {
   .promo__text {
     font-size: 28px;
+    top: -9px;
+    left: 20px;
   }
 }
 
@@ -1366,6 +1426,7 @@ h4 {
   .ellipse {
     width: 119.09px;
     height: 119.09px;
+    margin: 22px 28px 0px 0px;
   }
 }
 
@@ -1380,6 +1441,32 @@ h4 {
 @media (max-width: 640px) {
   .promo_button {
     margin: -3px 302px 0 0;
+  }
+}
+@media (max-width: 320px) {
+  .promo_button {
+    display: none;
+  }
+}
+
+.promo_button_mobile {
+  display: none;
+}
+@media (max-width: 320px) {
+  .promo_button_mobile {
+    display: block;
+    margin: 20px 0 0 0;
+  }
+}
+
+.wrapper_button_promo {
+  display: none;
+}
+@media (max-width: 320px) {
+  .wrapper_button_promo {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
   }
 }
 
@@ -1405,6 +1492,8 @@ h4 {
 @media (max-width: 320px) {
   .backstage {
     background-image: url(../../assets/images/flower_foto1_mobile.png);
+    background-position: 100% 6%;
+    margin-bottom: 0;
   }
 }
 
@@ -1466,6 +1555,11 @@ h4 {
     padding-top: 60px;
   }
 }
+@media (max-width: 320px) {
+  .backstage__content {
+    padding-top: 30px;
+  }
+}
 
 .backstage_text {
   font-style: normal;
@@ -1485,6 +1579,11 @@ h4 {
     padding: 21px 7px 20px 0;
   }
 }
+@media (max-width: 320px) {
+  .backstage_text {
+    padding: 10px 2px 10px 0;
+  }
+}
 
 .backstage_subtitle {
   font-style: normal;
@@ -1498,6 +1597,12 @@ h4 {
   .backstage_subtitle {
     padding: 11px 0;
     margin-left: 4px;
+  }
+}
+@media (max-width: 320px) {
+  .backstage_subtitle {
+    margin-left: 2px;
+    padding-bottom: 1px;
   }
 }
 
@@ -1522,10 +1627,21 @@ h4 {
     padding-right: 101px;
   }
 }
+@media (max-width: 320px) {
+  .backstage_maintext {
+    padding-right: 0;
+    line-height: 138%;
+  }
+}
 
 @media (max-width: 640px) {
   .backstage_h2 {
     margin-left: 4px;
+  }
+}
+@media (max-width: 320px) {
+  .backstage_h2 {
+    margin-left: 0;
   }
 }
 
@@ -1535,6 +1651,11 @@ h4 {
 @media (max-width: 640px) {
   .br_tablet {
     display: inline;
+  }
+}
+@media (max-width: 320px) {
+  .br_tablet {
+    display: none;
   }
 }
 
@@ -1554,6 +1675,13 @@ h4 {
     margin-bottom: 11px;
   }
 }
+@media (max-width: 320px) {
+  .layout-3-column {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -14px;
+  }
+}
 
 .pet_animal_card {
   border-radius: 5px;
@@ -1565,6 +1693,12 @@ h4 {
 @media (max-width: 1000px) {
   .pet_animal_card {
     margin-bottom: 0px;
+  }
+}
+@media (max-width: 320px) {
+  .pet_animal_card {
+    margin-bottom: 7px;
+    margin-top: 13px;
   }
 }
 
@@ -1649,7 +1783,6 @@ h4 {
 }
 @media (max-width: 320px) {
   .icon_food {
-    width: 25.72px;
     height: 28.84px;
   }
 }
@@ -1679,6 +1812,12 @@ h4 {
 @media (max-width: 640px) {
   .pets_button {
     margin-top: 59px;
+  }
+}
+@media (max-width: 320px) {
+  .pets_button {
+    margin-top: 13px;
+    margin-bottom: 508px;
   }
 }
 
@@ -1805,6 +1944,20 @@ h4 {
     display: block;
   }
 }
+@media (max-width: 320px) {
+  .palm_foto_tablet {
+    display: none;
+  }
+}
+
+.palm_foto_mobile {
+  display: none;
+}
+@media (max-width: 320px) {
+  .palm_foto_mobile {
+    display: block;
+  }
+}
 
 @media (max-width: 1000px) {
   .strelitzia {
@@ -1816,6 +1969,12 @@ h4 {
   .strelitzia {
     width: 175px;
     height: 131px;
+  }
+}
+@media (max-width: 320px) {
+  .strelitzia {
+    width: 85px;
+    height: 71px;
   }
 }
 

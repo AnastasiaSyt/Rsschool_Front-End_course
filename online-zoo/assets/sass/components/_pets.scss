@@ -9,6 +9,11 @@
     @include media-tablet {
         margin-bottom: 11px;
     }
+    @include media-mobile {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: -14px;
+    }
 }
 
 .pet_animal_card {
@@ -19,6 +24,10 @@
     overflow: hidden;
     @include media-desktopsmall {
         margin-bottom: 0px;
+    }
+    @include media-mobile {
+        margin-bottom: 7px;
+        margin-top: 13px;
     }
 }
 
@@ -66,11 +75,9 @@
 
 .icon_food {
     @include media-tablet {
-        //width: 25.72px;
         height: 28.84px;
     }
     @include media-mobile {
-        width: 25.72px;
         height: 28.84px;
     }
 }
@@ -94,6 +101,10 @@
     }
     @include media-tablet {
         margin-top: 59px;
+    }
+    @include media-mobile {
+        margin-top: 13px;
+        margin-bottom: 508px
     }
 }
 
@@ -199,6 +210,16 @@
     @include media-tablet {
         display: block;
     }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.palm_foto_mobile {
+    display: none;
+    @include media-mobile {
+        display: block;
+    }
 }
 
 .strelitzia {
@@ -209,6 +230,10 @@
     @include media-tablet {
         width: 175px;
         height: 131px;
+    }
+    @include media-mobile {
+        width: 85px;
+        height: 71px;
     }
 }
 

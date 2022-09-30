@@ -16,9 +16,10 @@
         margin-left: -9px;
     }
     @include media-mobile {
-        background-image: url(../../assets/images/GiantPanda_mobile.jpg);
+        background-image: url(../../assets/images/section1.jpg);
         height: 187px;
         margin-top: 0;
+        margin-left: 0;
     }
 }
 
@@ -51,6 +52,8 @@
     }
     @include media-mobile {
         font-size: 28px;
+        top: -9px;
+        left: 20px;
     }
 }
 
@@ -78,6 +81,7 @@
     @include media-mobile {
         width: 119.09px;
         height: 119.09px;
+        margin: 22px 28px 0px 0px;
     }
 }
 
@@ -88,5 +92,25 @@
     }
     @include media-tablet {
         margin: -3px 302px 0 0;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.promo_button_mobile {
+    display: none;
+    @include media-mobile {
+        display: block;
+        margin: 20px 0 0 0;
+    }
+}
+
+.wrapper_button_promo {
+    display: none;
+    @include media-mobile {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
     }
 }
