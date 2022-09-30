@@ -153,6 +153,9 @@
     @include media-tablet {
         padding: 0;
     }
+    @include media-mobile { //!!!!!!!!!!!!!!!!!!!!!!
+        display: none;
+    }
 }
 
 .feed_button {
@@ -205,6 +208,9 @@
     @include media-tablet {
         display: block;
         position: relative;
+    }
+    @include media-mobile {
+        display: none; //!!!!!!!!!!!!!!!!!!!!!!
     }
 }
 

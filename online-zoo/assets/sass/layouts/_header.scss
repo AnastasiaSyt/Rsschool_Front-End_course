@@ -138,3 +138,9 @@
         display: none;
     }
 }
+
+.header__logo-lines {
+    @include media-mobile {
+        padding-top: 4px;
+    }
+}

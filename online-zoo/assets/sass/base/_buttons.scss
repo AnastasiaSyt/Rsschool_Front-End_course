@@ -24,6 +24,15 @@
     border-radius: 5px;
 }
 
+.button_rectangle_testimonials {
+    display: none;
+    @include media-tablet {
+        display: block;
+        width: 240px;
+        height: 54px;
+    }
+}
+
 .button:hover {
     background: $color-hover;
 }

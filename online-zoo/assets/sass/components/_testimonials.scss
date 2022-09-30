@@ -161,7 +161,10 @@
         margin-bottom: 142px;
     }
     @include media-tablet {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        margin-bottom: 80px;
     }
 }
 
@@ -262,6 +265,9 @@
 .leav_small {
     display: none;
     @include media-desktopsmall {
+        display: block;
+    }
+    @include media-tablet {
         display: block;
     }
 }

@@ -22,12 +22,19 @@
 .logo-object_footer {
     position: absolute;
     top: 23px;
-    left: 9px;;
+    left: 9px;
+    @include media-tablet {
+        top: 19px;
+        left: 11px;
+    }
 }
 
 .logo_footer_text {
     margin: 0.3rem 0;
     @include font(19px, 120%);
+    @include media-tablet {
+        margin: 0;
+    }
 }
 
 .layout-2-columns_footer {
@@ -35,6 +42,10 @@
     justify-content: space-between;
     padding-top: 40px;
     padding-bottom: 35px;
+    @include media-tablet {
+        padding-top: 13px;
+        padding-bottom: 32px;
+    }
 }
 
 .footer-title {
@@ -85,6 +96,10 @@
     padding-bottom: 33px;
     @include media-desktopsmall {
         padding-bottom: 28px;
+        margin-top: -112px;
+    }
+    @include media-tablet {
+        padding-bottom: 50px;
     }
 }
 
@@ -94,6 +109,9 @@
     align-items: flex-end;
     @include media-desktopsmall {
         padding-bottom: 50px;
+    }
+    @include media-tablet {
+        padding-bottom: 12px;
     }
 }
 
@@ -105,6 +123,9 @@
     line-height: 140%;
     color: #FFFFFF;
     padding: 0;
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .footer_social-networks_item {
@@ -112,6 +133,9 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    @include media-tablet {
+        padding-bottom: 20px;
+    }
 }
 
 .icon_social {
@@ -126,6 +150,9 @@
     padding-top: 2px;
     margin-right: 12px;
     cursor: pointer;
+    @include media-tablet {
+        margin-right: 0;
+    }
 }
 
 .footer_social-networks_item:last-child {
@@ -153,6 +180,9 @@
     list-style: none;
     color: $color-light;
     padding-left: 115px;
+    @include media-tablet {
+        padding-left: 0;
+    }
 }
 
 .footer__navigation_link {
@@ -161,7 +191,7 @@
     line-height: 140%;
     padding-right: 58px;
     @include media-tablet {
-        display: none;
+        padding-right: 37px;
     }
 }
 
@@ -201,3 +231,29 @@
 .social_network_link:active {
     color: $color-active;
 }
+
+.email-form {
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.footer_social-networks_tablet {
+    display: none;
+    @include media-tablet{
+        display: block;
+        list-style: none;
+        color: $color-light;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: #FFFFFF;
+        padding: 0;
+    }
+}
+
+.footer_link {
+    @include media-mobile {
+        display: none;
+    }
+} 
