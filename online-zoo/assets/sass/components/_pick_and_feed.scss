@@ -19,6 +19,10 @@
     @include media-tablet {
         margin: 0;
     }
+    @include media-mobile {
+        margin: 0 10px;
+        padding: 0;
+        }
 }
 
 .pick_and_feed_title {
@@ -112,6 +116,7 @@
     }
     @include media-mobile {
         @include font(24px, 120%);
+        margin-bottom: 17px;
     }
 }
 
@@ -167,7 +172,7 @@
 .pick_and_feed_mobile {
     @include media-mobile {
         margin-bottom: 40px;
-        line-height: 120%;
+        line-height: 132%;
     }
 }
 
@@ -203,6 +208,10 @@
     @include media-tablet {
         padding-top: 41px;
         padding-bottom: 60px;
+    }
+    @include media-mobile {
+        padding-top: 0px;
+        padding-bottom: 41px;
     }
 }
 
@@ -243,7 +252,8 @@
         position: relative;
     }
     @include media-mobile {
-        display: none; //!!!!!!!!!!!!!!!!!!!!!!
+        display: block;
+        position: relative;
     }
 }
 
@@ -253,6 +263,12 @@
         top: -259px;
         left: 137px;
     }
+    @include media-mobile {
+        position: absolute;
+        transform: rotate(85deg);
+        top: -564px;
+        left: 204px;
+    }
 }
 
 .green_arrow_next {
@@ -260,6 +276,12 @@
         position: absolute;
         top: -259px;
         left: 357px;
+    }
+    @include media-mobile {
+        position: absolute;
+        transform: rotate(85deg);
+        top: -316px;
+        left: 204px;
     }
 }
 
@@ -269,6 +291,12 @@
     font-size: 16px;
     line-height: 140%;
     color: #333B41;
+}
+
+.feed_card:last-child {
+    @include media-mobile {
+        margin-top: -13px;
+    }
 }
 
 .pick_and_feed_background {

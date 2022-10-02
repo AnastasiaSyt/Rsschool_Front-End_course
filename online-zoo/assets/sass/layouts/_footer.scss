@@ -12,6 +12,11 @@
     width: 82px;
     height: 52px;
     margin-right: -6px;
+    @include media-mobile {
+        border: none;
+        width: 128px;
+        margin-right: 0px;
+    }
 }
 
 .logo_footer:hover {
@@ -27,6 +32,10 @@
         top: 19px;
         left: 11px;
     }
+    @include media-mobile {
+        top: 15px;
+        left: 72px;
+    }
 }
 
 .logo_footer_text {
@@ -34,6 +43,17 @@
     @include font(19px, 120%);
     @include media-tablet {
         margin: 0;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.logo_footer_text_mobile {
+    display: none;
+    @include media-mobile {
+        display: inline-flex;
+        @include font(19.0145px, 120%);
     }
 }
 
@@ -45,6 +65,11 @@
     @include media-tablet {
         padding-top: 13px;
         padding-bottom: 32px;
+    }
+    @include media-mobile {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2px;
     }
 }
 
@@ -101,6 +126,9 @@
     @include media-tablet {
         padding-bottom: 50px;
     }
+    @include media-mobile {
+        margin-top: -18px;
+    }
 }
 
 .layout-3-columns_footer {
@@ -136,6 +164,10 @@
     @include media-tablet {
         padding-bottom: 20px;
     }
+    @include media-mobile {
+        padding-bottom: 0;
+        padding-right: 30px;
+    }
 }
 
 .icon_social {
@@ -157,6 +189,7 @@
 
 .footer_social-networks_item:last-child {
     padding-bottom: 0;
+    padding-right: 0px;
 }
 
 .footer_social-networks_item:hover {
@@ -202,6 +235,9 @@
 .footer_text {
     @include font(16px, 115%, 100);
     color: $color-light;
+    @include media-mobile {
+        margin: 16px 0;
+    }
 }
 
 .footer_link:hover .footer_text {
@@ -250,6 +286,11 @@
         color: #FFFFFF;
         padding: 0;
     }
+    @include media-mobile {
+        display: flex;
+        flex-direction: row;
+        margin-top: 19px;
+    }
 }
 
 .footer_link {
@@ -257,3 +298,19 @@
         display: none;
     }
 } 
+
+.footer_link_mobile {
+    display: none;
+    @include media-mobile {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: -36px;
+        font-weight: 100;
+        font-size: 15px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+        padding-right: 9px;
+    }
+}
