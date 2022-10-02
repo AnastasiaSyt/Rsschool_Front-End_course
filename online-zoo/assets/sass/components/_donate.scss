@@ -1,7 +1,10 @@
 
 .donate {
     background: $color-orange_gradient;
-    padding-bottom: 180px
+    padding-bottom: 180px;
+    @include media-desktopsmall {
+        padding-bottom: 28px;
+    }
 }
 
 .donate_title {
@@ -9,6 +12,25 @@
     margin: 0;
     padding-top: 40px;
     color: $color-light;
+    @include media-desktopsmall {
+        text-align: start;
+        padding-right: 113px;
+    }
+    @include media-tablet {
+        @include font(24px, 120%);
+        padding-top: 32px;
+        padding-right: 9px;
+    }
+}
+
+.br_donate_small {
+    display: none;
+    @include media-desktopsmall {
+        display: inline-block;
+    }
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .donate_title_text {
@@ -16,6 +38,12 @@
     margin: 0;
     padding-top: 10px;
     color: $color-light;
+    @include media-desktopsmall {
+        padding-top: 30px;
+    }
+    @include media-tablet {
+        padding-top: 16px;
+    }
 }
 
 .donate_information {
@@ -24,6 +52,13 @@
     color: #FE9013;
     margin-top: 43px;
     margin-bottom: 58px;
+    @include media-desktopsmall {
+        margin-bottom: 38px;
+    }
+    @include media-tablet {
+        margin-top: 27px;
+        margin-bottom: 29px;
+    }
 }
 
 .donate_feed {
@@ -32,6 +67,13 @@
     padding-top: 40px;
     text-align: center;
     margin-left: -13px;
+    @include media-desktopsmall {
+        padding-top: 20px;
+    }
+    @include media-tablet {
+        padding-top: 30px;
+        margin-left: 1px;
+    }
 }
 
 .donate_feed_text {
@@ -40,6 +82,15 @@
     color: #333B41;
     padding-left: 92px;
     margin-bottom: 57px;
+    @include media-desktopsmall {
+        margin-top: 11px;
+        padding-left: 48px;
+    }
+    @include media-tablet {
+        text-align: center;
+        margin-top: 20px;
+        padding-left: 0px;
+    }
 }
 
 .number_text {
@@ -51,6 +102,9 @@
     color: $color-dark;
     margin: 0;
     padding: 45px 13px 0px 0px;
+    @include media-desktopsmall {
+        padding: 50px 9px 0px 0px;
+    }
 }
 
 .donate_layout_text {
@@ -70,16 +124,31 @@
 
 .donate_layout_2column_content {
     margin-left: 307px;
+    @include media-desktopsmall {
+        margin-left: 195px;
+    }
 }
 
 .x_icon {
     padding: 27px 62px 0 0px;
+    @include media-desktopsmall {
+        padding: 31px 61px 0 0px;
+    }
+}
+
+.animal-widget {
+    @include media-desktopsmall {
+        padding-top: 3px;
+    }
 }
 
 .donate_amount_text {
     padding-left: 96px;
     color: $color-dark;
     padding-bottom: 2px;
+    @include media-desktopsmall {
+        padding-left: 66px;
+    }
 }
 
 .donate_amount {
@@ -94,6 +163,9 @@
 
 .progress {
     padding-left: 92px;
+    @include media-desktopsmall {
+        padding-left: 66px;
+    }
 }
 
 .progress-bar-sum {
@@ -113,6 +185,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include media-desktopsmall {
+        width: 810px;
+    }
 }
 
 .line_progress_bar {
@@ -122,6 +197,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include media-desktopsmall {
+        width: 810px;
+    }
 }
 
 .roller {
@@ -180,7 +258,10 @@
     justify-content: flex-start;
     margin-left: 474px;
     margin-top: -2px;
-
+    @include media-desktopsmall {
+        margin-left: 363px;
+        margin-top: 0px;
+    }
 }
 
 // .donate_radio {
@@ -234,6 +315,9 @@
     color: #333B41;
     margin-right: 52px;
     padding: 1px 0px 0px 5px;
+    @include media-desktopsmall {
+        margin-right: 50px;
+    }
 }
 
 .donate_radio_label:last-child {
@@ -244,6 +328,9 @@
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+    @include media-desktopsmall {
+        margin-bottom: 27px;
+    }
 }
 
 .donate_link {
@@ -254,6 +341,9 @@
     text-align: center;
     padding-bottom: 62px;
     margin-bottom: 0;
+    @include media-desktopsmall {
+        padding-bottom: 48px;
+    }
 }
 
 //________________________________________________________
@@ -263,6 +353,9 @@ $number-of-options: 7;
 
 .progress_bar {
 	width: 915px;
+    @include media-desktopsmall {
+        width: 810px;
+    }
 	
 	#amount-slider {
 		display: flex;
@@ -273,6 +366,9 @@ $number-of-options: 7;
 		width: 915px;
 		height: 62px;
 		user-select: none;
+        @include media-desktopsmall {
+            width: 810px;
+        }
 		&::before {
 			content: " ";
 			position: absolute;
@@ -286,6 +382,9 @@ $number-of-options: 7;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			//background: #000;
+            @include media-desktopsmall {
+                width: 785px;
+            }
 		}
 		input, label {
 			box-sizing: border-box;

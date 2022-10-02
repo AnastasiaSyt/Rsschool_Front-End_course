@@ -12,6 +12,10 @@
     width: 82px;
     height: 52px;
     margin-right: -6px;
+    @include media-desktopsmall {
+        margin-top: 2px;
+        margin-left: 2px;
+    }
     @include media-mobile {
         border: none;
         width: 128px;
@@ -41,6 +45,9 @@
 .logo_footer_text {
     margin: 0.3rem 0;
     @include font(19px, 120%);
+    @include media-desktopsmall {
+        margin-top: 0px;
+    }
     @include media-tablet {
         margin: 0;
     }
@@ -62,6 +69,9 @@
     justify-content: space-between;
     padding-top: 40px;
     padding-bottom: 35px;
+    @include media-desktopsmall {
+        padding-bottom: 150px;
+    }
     @include media-tablet {
         padding-top: 13px;
         padding-bottom: 32px;
@@ -141,6 +151,9 @@
     @include media-tablet {
         padding-bottom: 12px;
     }
+    @include media-mobile {
+        justify-content: center;
+    }
 }
 
 .footer_social-networks {
@@ -213,6 +226,9 @@
     list-style: none;
     color: $color-light;
     padding-left: 115px;
+    @include media-desktopsmall {
+        padding-left: 119px; 
+    }
     @include media-tablet {
         padding-left: 0;
     }
@@ -223,8 +239,14 @@
     font-size: 16px;
     line-height: 140%;
     padding-right: 58px;
+    @include media-desktopsmall {
+        padding-right: 48px;
+    }
     @include media-tablet {
         padding-right: 37px;
+    }
+    @include media-mobile {
+        padding-right: 30px;
     }
 }
 
@@ -238,6 +260,13 @@
     @include media-mobile {
         margin: 16px 0;
     }
+}
+
+.footer_text2 {
+    margin-left: 0;
+    margin-top: -4px;
+    margin-right: -8px;
+    margin-bottom: 13px;
 }
 
 .footer_link:hover .footer_text {
@@ -269,6 +298,9 @@
 }
 
 .email-form {
+    @include media-desktopsmall {
+        margin-right: 32px;
+    }
     @include media-tablet {
         display: none;
     }
