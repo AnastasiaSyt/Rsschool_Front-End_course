@@ -4,6 +4,15 @@
     position: relative;
     z-index: 1;
     @include media-tablet {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 0 0 5px 0;
+    }
+    @include media-mobile {
+        position: fixed;
+        top: 0;
+        width: 100%;
         padding: 0 0 5px 0;
     }
 }

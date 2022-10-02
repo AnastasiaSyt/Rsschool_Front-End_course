@@ -58,7 +58,7 @@
     @include media-mobile {
         text-align: center;
         @include font(18px, 120%);
-        margin-top: 10px;
+        margin-top: 11px;
         margin-left: -2px;
     }
 }
@@ -186,6 +186,7 @@
     }
     @include media-tablet {
         padding: 0;
+        padding-right: 13px;
     }
     @include media-mobile {
         display: flex;
@@ -193,6 +194,7 @@
         flex-direction: column;
         align-items: center;
         @include font(16px, 140%);
+        padding-right: 0px;
     }
 }
 
@@ -275,7 +277,7 @@
     @include media-tablet {
         position: absolute;
         top: -259px;
-        left: 357px;
+        left: 346px;
     }
     @include media-mobile {
         position: absolute;
@@ -291,6 +293,9 @@
     font-size: 16px;
     line-height: 140%;
     color: #333B41;
+    @include media-mobile {
+        padding-top: 3.5px;
+    }
 }
 
 .feed_card:last-child {

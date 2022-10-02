@@ -1,4 +1,16 @@
 .testimonials {
+    @include media-desktopsmall {
+        background-image: url(../images/leav_foto_small_dsk.png);
+        background-position: 100% 118%;
+        background-repeat: no-repeat;
+        padding-bottom: 104px;
+    }
+    @include media-tablet {
+        background-image: url(../images/leav_foto_tablet.png);
+        background-position: 100% 116%;
+        background-repeat: no-repeat;
+        padding-bottom: 32px;
+    }
     @include media-mobile {
         background-image: url(../images/leav_foto_mobile.png);
         background-position: 100% 107%;
@@ -191,18 +203,18 @@
     margin-bottom: 180px;
     @include media-desktopsmall {
         margin-top: 51px;
-        margin-bottom: 142px;
+        margin-bottom: 36px;
     }
     @include media-tablet {
         display: flex;
         justify-content: center;
         margin-top: 25px;
-        margin-bottom: 80px;
+        margin-bottom: 48px;
     }
     @include media-mobile {
         margin-top: 14px;
         margin-bottom: 0px;
-        padding-bottom: 62px;
+        padding-bottom: 28px;
     }
 }
 
@@ -303,15 +315,5 @@
 .leav {
     @include media-desktopsmall {
         display: none;
-    }
-}
-
-.leav_small {
-    display: none;
-    @include media-desktopsmall {
-        display: block;
-    }
-    @include media-tablet {
-        display: block;
     }
 }

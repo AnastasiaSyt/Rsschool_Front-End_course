@@ -10,6 +10,7 @@
     @include media-tablet {
         background-image: url(../../assets/images/panda_bg_tablet.jpg);
         height: 335px;
+        margin-top: 34px;
     }
     @include media-mobile {
         background-image: url(../../assets/images/panda_bg_mobile.jpg);

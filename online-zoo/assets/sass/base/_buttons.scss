@@ -25,7 +25,6 @@
 }
 
 .button_rectangle_testimonials {
-    display: none;
     @include media-tablet {
         display: block;
         width: 240px;

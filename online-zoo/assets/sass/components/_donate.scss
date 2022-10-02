@@ -5,6 +5,12 @@
     @include media-desktopsmall {
         padding-bottom: 28px;
     }
+    @include media-tablet {
+        padding-bottom: 46px;
+    }
+    @include media-mobile {
+        padding-bottom: 22px;
+    }
 }
 
 .donate_title {
@@ -12,14 +18,18 @@
     margin: 0;
     padding-top: 40px;
     color: $color-light;
+    letter-spacing: 0px;
+    padding-right: 0px;
     @include media-desktopsmall {
         text-align: start;
         padding-right: 113px;
+        letter-spacing: 0px;
     }
     @include media-tablet {
         @include font(24px, 120%);
         padding-top: 32px;
         padding-right: 9px;
+        letter-spacing: 0px;
     }
 }
 
@@ -59,10 +69,12 @@
         margin-top: 27px;
         margin-bottom: 29px;
     }
+    @include media-mobile {
+        @include font(24px, 120%, 400);
+    }
 }
 
 .donate_feed {
-    //@include font(48px, 12%);
     color: #FE9013;
     padding-top: 40px;
     text-align: center;
@@ -73,6 +85,9 @@
     @include media-tablet {
         padding-top: 30px;
         margin-left: 1px;
+    }
+    @include media-mobile {
+        padding-top: 22px;
     }
 }
 
@@ -91,6 +106,11 @@
         margin-top: 20px;
         padding-left: 0px;
     }
+    @include media-mobile {
+        @include font(16px, 140%, 400);
+        margin-top: 8px;
+        margin-bottom: 18px;
+    }
 }
 
 .number_text {
@@ -105,6 +125,15 @@
     @include media-desktopsmall {
         padding: 50px 9px 0px 0px;
     }
+    @include media-tablet {
+        padding: 40px 9px 0px 0px;
+    }
+    @include media-mobile {
+        font-weight: 500;
+        font-size: 40.6015px;
+        line-height: 80%;
+        padding: 20px 9px 0px 6px;
+    }
 }
 
 .donate_layout_text {
@@ -114,6 +143,13 @@
     text-align: center;
     color: #333B41;
     margin: 20px 14px 0 0px;
+    @include media-tablet {
+        margin: 20px 14px 0 3px;
+    }
+    @include media-mobile {
+        font-size: 9.02255px;
+        margin: 13px 14px 0px 10px;
+    }
 }
 
 .donate_layout_2column {
@@ -127,6 +163,12 @@
     @include media-desktopsmall {
         margin-left: 195px;
     }
+    @include media-tablet {
+        margin-left: 24px;
+    }
+    @include media-mobile {
+        margin-left: -10px;
+    }
 }
 
 .x_icon {
@@ -134,11 +176,28 @@
     @include media-desktopsmall {
         padding: 31px 61px 0 0px;
     }
+    @include media-tablet {
+        padding: 24px 59px 0 0px;
+    }
+    @include media-mobile {
+        padding: 24px 33px 0 0px;
+        width: 7.89px;
+        height: 7.89px;
+    }
 }
 
 .animal-widget {
     @include media-desktopsmall {
         padding-top: 3px;
+    }
+    @include media-tablet {
+        padding-top: 0px;
+        margin-top: -8px;
+        margin-left: 3px;
+    }
+    @include media-mobile {
+        width: 160.15px;
+        height: 138.72px;
     }
 }
 
@@ -149,10 +208,24 @@
     @include media-desktopsmall {
         padding-left: 66px;
     }
+    @include media-tablet {
+        padding-left: 10px;
+        margin-bottom: 8px;
+    }
+    @include media-mobile {
+        padding-left: 0px;
+        margin-bottom: 0px;
+    }
 }
 
 .donate_amount {
     padding-top: 34px;
+    @include media-tablet {
+        padding-top: 28px;
+    }
+    @include media-mobile {
+        padding-top: 6px;
+    }
 }
 
 .donate_sum {
@@ -166,6 +239,9 @@
     @include media-desktopsmall {
         padding-left: 66px;
     }
+    @include media-tablet {
+        padding-left: 0px;
+    }
 }
 
 .progress-bar-sum {
@@ -177,52 +253,15 @@
     margin: 0;
 }
 
-.progress_bar {
-    width: 976px;
-    height: 27px;
-    background-color:#404950;
-    border-radius: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include media-desktopsmall {
-        width: 810px;
-    }
-}
-
-.line_progress_bar {
-    width: 915px;
-    height: 2px;
-    background: #72828E;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @include media-desktopsmall {
-        width: 810px;
-    }
-}
-
-.roller {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: $color-yellow;
-}
-
-.progress-bar_items {
-    width: 952px;
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0 50px 0;
-}
-
 .donate_input {
     display: flex;
     justify-content: center;
     padding-top: 98px;
     padding-left: 9px;
     position: relative;
-
+    @include media-mobile {
+        padding-top: 28px;
+    }
 }
 
 .donate_input::after {
@@ -233,6 +272,11 @@
     scale: 1.4;
     z-index: 10;
     color: #929699;
+    @include media-tablet {
+        top: 19px;
+        scale: 1.3;
+    }
+   
 }
 
 .another_amount {
@@ -244,6 +288,14 @@
     position: relative;
     width: 268px;
     height: 54px;
+    @include media-tablet {
+        width: 180px;
+        height: 42px;
+        padding: 11px 17px 15px 6px;
+    }
+    @include media-mobile {
+        padding: 15px 17px 15px 6px;
+    }
 }
 
 .icon_dollar {
@@ -262,25 +314,15 @@
         margin-left: 363px;
         margin-top: 0px;
     }
+    @include media-tablet {
+        margin-left: 192px;
+        margin-top: 4px;
+    }
+    @include media-mobile {
+        margin-left: 41px;
+        margin-top: -1px;
+    }
 }
-
-// .donate_radio {
-//     // -webkit-appearance: none;
-//     // -moz-appearance: none;
-//     // appearance: none;
-
-//     border-radius: 50%;
-//     width: 16px;
-//     height: 16px;
-
-//     border: 1px solid #FE9013;
-//     transition: 0.2s all linear;
-//     outline: none;
-//     margin-right: 10px;
-
-//     position: relative;
-//     top: 2px;
-// }
 
 .donate_radio {
     -webkit-appearance: none;
@@ -331,6 +373,13 @@
     @include media-desktopsmall {
         margin-bottom: 27px;
     }
+    @include media-tablet {
+        margin-top: -2px;
+        margin-bottom: 29px;
+    }
+    @include media-mobile {
+        margin-top: -4px;
+    }
 }
 
 .donate_link {
@@ -344,160 +393,169 @@
     @include media-desktopsmall {
         padding-bottom: 48px;
     }
+    @include media-tablet {
+        padding-bottom: 32px;
+    }
+    @include media-mobile {
+        letter-spacing: -0.01px;
+        padding-bottom: 21px;
+    }
 }
 
-//________________________________________________________
 
+//_______________________________________________________ Slider
 
 $number-of-options: 7;
 
 .progress_bar {
-	width: 915px;
+    width: 976px;
+    height: 27px;
+    background-color:#404950;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include media-desktopsmall {
         width: 810px;
     }
-	
-	#amount-slider {
-		display: flex;
-		flex-direction: row;
-		align-content: stretch;
-        //justify-content: space-between;
-		position: relative;
-		width: 915px;
-		height: 62px;
-		user-select: none;
-        @include media-desktopsmall {
-            width: 810px;
-        }
-		&::before {
-			content: " ";
-			position: absolute;
-			height: 4px;
-			//background: #404950;
-			background: #72828E;
-			border-radius: 2px;
-			width: 915px;
-			//width: calc(100% * (#{$number-of-options - 1} / #{$number-of-options}));
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			//background: #000;
-            @include media-desktopsmall {
-                width: 785px;
-            }
-		}
-		input, label {
-			box-sizing: border-box;
-			flex: 1;
-			user-select: none;
-			cursor: pointer;
-		}
-		label {
-			display: inline-block;
-            // display: flex;
-            // justify-content: space-between;
-			position: relative;
-			width: 20%; //
-			height: 100%; //
-			user-select: none;
-			&::before {
-				content: attr(data-amount);
-				position: absolute;
-				left: 50%;
-				padding-top: 12px;
-				transform: translate(-50%, 45px);
-				font-weight: 500;
-				font-size: 26px;
-				line-height: 140%;
-				text-transform: uppercase;
-				color: #333B41;
-				white-space: nowrap;
-				opacity: 0.85;
-				transition: all 0.15s ease-in-out;
-			}
-			&::after {
-				content: " ";
-				position: absolute;
-                
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-				width: 10px;
-				height: 10px;
-				//border: 2px solid #000;
-				background: #FFEE2E;
-				border-radius: 50%;
-				pointer-events: none;
-				user-select: none;
-				z-index: 1;
-				cursor: pointer;
-				transition: all 0.15s ease-in-out;
-			}
-			&:hover::after {
-				transform: translate(-50%, -50%) scale(1.25);
-				width: 40px;
-				height: 40px;
-				background: none;
-				border: 1px solid #FE9013;
-				outline: 1px solid #FE9013;
-  				outline-offset: -8px;
-			}
-		}
-		input {
-			display: none;
-			&:checked {
-				+ label::before {
-					font-weight: 500;
-                    color: $color-hover;
-					opacity: 1;
+}
+
+.amount-slider {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-between;
+    position: relative;
+    width: 915px;
+    height: 4px;
+    user-select: none;
+    @include media-desktopsmall {
+        width: 785px;
+        height: 2px;
+    }
+}
+
+.amount-slider::before {
+    content: " ";
+    position: absolute;
+    height: 4px;
+    background: #72828E;
+    border-radius: 2px;
+    width: 915px;
+    //width: calc(100% * (#{$number-of-options - 1} / #{$number-of-options}));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include media-desktopsmall {
+        width: 785px;
+    }
+}
+
+.input_slider {
+    box-sizing: border-box;
+	//flex: 1;
+	user-select: none;
+	cursor: pointer;
+}
+
+.label_slider {
+    box-sizing: border-box;
+	//flex: 1; 
+	user-select: none;
+	cursor: pointer;
+    display: inline-block;
+// display: flex;
+// justify-content: space-between;
+    position: relative;
+    width: 1%; 
+    height: 100%; 
+    user-select: none;
+}
+ .label_slider::before {
+    content: attr(data-amount);
+	position: absolute;
+	left: 50%;
+	padding-top: 0px;
+    margin-top: -16px;
+	transform: translate(-50%, 45px);
+	font-weight: 500;
+	font-size: 26px;
+	line-height: 140%;
+	text-transform: uppercase;
+	color: #333B41;
+	white-space: nowrap;
+	opacity: 0.85;
+	transition: all 0.15s ease-in-out;
+ }
+
+ .label_slider::after {
+    content: " ";
+	position: absolute;
+    left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 10px;
+	height: 10px;
+	background: #FFEE2E;
+	border-radius: 50%;
+	pointer-events: none;
+	user-select: none;
+	z-index: 1;
+	cursor: pointer;
+	transition: all 0.15s ease-in-out;
+ }
+
+ .label_slider:hover::after {
+    transform: translate(-50%, -50%) scale(0.75);
+	width: 40px;
+	height: 40px;
+	background: none;
+	border: 2px solid #FE9013;
+	outline: 2px solid #FE9013;
+  	outline-offset: -12px;
+ }
+
+ .input_slider {
+    display: none;
+        &:checked {
+			+ label::before {
+ 			font-weight: 500;
+            color: #FE9013;
+			opacity: 1;
 				}
-				+ label::after {
-					border-width: 4px;
-					transform: translate(-50%, -50%) scale(0.75);
+ 			+ label::after {
+            //border-width: 4px;
+            background-color: #FE9013;
+ 			transform: translate(-50%, -50%) scale(1.0);
 				}
-				~ #amount-pos {
-                    display: none;
-					opacity: 1;
-				}
-				@for $i from 1 through $number-of-options {
+ 		    ~ #amount-pos {
+             display: none;
+ 		 	 opacity: 1;
+ 				}
+ 		    @for $i from 1 through $number-of-options {
 				 	&:nth-child(#{$i * 2 - 1}) ~ #amount-pos {
 				 		left: #{($i * 20%) + 10%};
-					}
-				}
-			}
-		}
-		#amount-pos {
-			display: block;
-			position: absolute;
-			top: 50%;
-			width: 10px;
-			height: 10px;
-			background: #FFEE2E;
-			border-radius: 50%;
-			transition: all 0.15s ease-in-out;
-			transform: translate(-50%, -50%);
-			//border: 2px solid #fff;
-			opacity: 0;
-			z-index: 2;
-		}
-	}
-	&:valid {
-		#amount-slider {
-			input {
-				+ label::before {
-					transform: translate(-50%, 45px) scale(0.9);
-					transition: all 0.15s linear;
-				}
-				&:checked + label::before {
-					transform: translate(-50%, 45px) scale(1.1);
-					transition: all 0.15s linear;
-				}
-			}
-		}
-	}
-	
-}
-@keyframes spin {
+ 					}
+ 				}
+ 			}
+ }
+
+ .amount-pos {
+    display: block;
+	position: absolute;
+	top: 50%;
+	width: 20px;
+	height: 20px;
+	background: #FFEE2E;
+	border-radius: 50%;
+	transition: all 0.15s ease-in-out;
+	transform: translate(-50%, -50%);
+	//border: 2px solid #fff;
+	opacity: 1;
+	z-index: 2;
+ }
+
+ @keyframes spin {
 	from {
 		transform: rotate(0deg);
 		width: 24px;

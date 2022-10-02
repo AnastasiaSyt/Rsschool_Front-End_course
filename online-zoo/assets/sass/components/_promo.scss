@@ -12,13 +12,13 @@
     @include media-tablet {
         background-image: url(../../assets/images/GiantPanda_tablet.jpg);
         height: 373px;
-        margin-top: -34px;
+        margin-top: 0px;
         margin-left: -9px;
     }
     @include media-mobile {
         background-image: url(../../assets/images/section1.jpg);
         height: 187px;
-        margin-top: 0;
+        margin-top: 34px;
         margin-left: 0;
     }
 }

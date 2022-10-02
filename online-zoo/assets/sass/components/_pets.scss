@@ -232,8 +232,17 @@
         height: 131px;
     }
     @include media-mobile {
-        width: 85px;
-        height: 71px;
+        display: none;
+        // width: 86px;
+        // height: 63px;
+        // margin-right: -17px;
+    }
+}
+
+.strelitzia_mobile {
+    display: none;
+    @include media-mobile {
+        display: block;
     }
 }
 

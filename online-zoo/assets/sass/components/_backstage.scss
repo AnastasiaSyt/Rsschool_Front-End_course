@@ -10,7 +10,7 @@
     @include media-tablet {
         background-image: url(../../assets/images/flower_foto1_tablet.png);
         padding-bottom: 40px;
-        background-position-y: top;
+        background-position-y: 30%;
     }
     @include media-mobile {
         background-image: url(../../assets/images/flower_foto1_mobile.png);
@@ -76,7 +76,7 @@
         padding: 21px 7px 20px 0;
     }
     @include media-mobile {
-        padding: 10px 2px 10px 0;
+        padding: 10px 2px 10px 2px;
     }
 }
 

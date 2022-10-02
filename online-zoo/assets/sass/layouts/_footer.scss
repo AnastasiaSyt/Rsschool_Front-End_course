@@ -16,6 +16,10 @@
         margin-top: 2px;
         margin-left: 2px;
     }
+    @include media-tablet {
+        margin-top: 0px;
+        margin-left: 0px;
+    }
     @include media-mobile {
         border: none;
         width: 128px;
@@ -67,7 +71,7 @@
 .layout-2-columns_footer {
     display: flex;
     justify-content: space-between;
-    padding-top: 40px;
+    padding-top: 39px;
     padding-bottom: 35px;
     @include media-desktopsmall {
         padding-bottom: 150px;
@@ -79,7 +83,8 @@
     @include media-mobile {
         flex-direction: column;
         align-items: center;
-        padding-top: 2px;
+        padding-top: 0px;
+        padding-bottom: 31px;
     }
 }
 
@@ -128,7 +133,7 @@
 }
 
 .footer_button {
-    padding-bottom: 33px;
+    padding-bottom: 31px;
     @include media-desktopsmall {
         padding-bottom: 28px;
         margin-top: -112px;
@@ -137,7 +142,7 @@
         padding-bottom: 50px;
     }
     @include media-mobile {
-        margin-top: -18px;
+        margin-top: 0px;
     }
 }
 
@@ -145,6 +150,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    padding-bottom: 32px;
     @include media-desktopsmall {
         padding-bottom: 50px;
     }
@@ -230,7 +236,7 @@
         padding-left: 119px; 
     }
     @include media-tablet {
-        padding-left: 0;
+        padding-left: 1px;
     }
 }
 
@@ -257,6 +263,9 @@
 .footer_text {
     @include font(16px, 115%, 100);
     color: $color-light;
+    @include media-tablet {
+        @include font(16px, 120%, 100);
+    }
     @include media-mobile {
         margin: 16px 0;
     }
@@ -267,6 +276,9 @@
     margin-top: -4px;
     margin-right: -8px;
     margin-bottom: 13px;
+    @include media-mobile {
+        margin-bottom: 12px;
+    }
 }
 
 .footer_link:hover .footer_text {
@@ -317,6 +329,8 @@
         line-height: 140%;
         color: #FFFFFF;
         padding: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
     @include media-mobile {
         display: flex;
