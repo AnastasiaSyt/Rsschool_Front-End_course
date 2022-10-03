@@ -4,8 +4,23 @@
     background-repeat: no-repeat;
     height: 780px;
     margin-top: -80px;
-    //position: relative;
-    //z-index: -2;
+    @include media-desktopsmall {
+        background-image: url(../../assets/images/GiantPanda_small_desktop.jpg);
+        height: 584px;
+        margin-left: -101px;
+    }
+    @include media-tablet {
+        background-image: url(../../assets/images/GiantPanda_tablet.jpg);
+        height: 373px;
+        margin-top: 0px;
+        margin-left: -9px;
+    }
+    @include media-mobile {
+        background-image: url(../../assets/images/section1.jpg);
+        height: 187px;
+        margin-top: 34px;
+        margin-left: 0;
+    }
 }
 
 .promo__wrapper {
@@ -26,6 +41,20 @@
     position: absolute;
     top: -31px;
     left: 84px;
+    @include media-desktopsmall {
+        font-size: 85px;
+        left: 67px;
+    }
+    @include media-tablet {
+        font-size: 54.3px;
+        top: -15px;
+        left: 42px;
+    }
+    @include media-mobile {
+        font-size: 28px;
+        top: -9px;
+        left: 20px;
+    }
 }
 
 .yellow_word {
@@ -39,8 +68,49 @@
     background: $color-default;
     position: relative;
     margin: 91px 109px 0px 0px;
+    @include media-desktopsmall {
+        width: 367px;
+        height: 367px;
+        margin: 69px 147px 0px 0px;
+    }
+    @include media-tablet {
+        width: 237.6px;
+        height: 237.6px;
+        margin: 44px 51px 0px 0px;
+    }
+    @include media-mobile {
+        width: 119.09px;
+        height: 119.09px;
+        margin: 22px 28px 0px 0px;
+    }
 }
 
 .promo_button {
     margin: 69px 99px 0 0;
+    @include media-desktopsmall {
+        margin: 48px 106px 0 0;
+    }
+    @include media-tablet {
+        margin: -3px 302px 0 0;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.promo_button_mobile {
+    display: none;
+    @include media-mobile {
+        display: block;
+        margin: 20px 0 0 0;
+    }
+}
+
+.wrapper_button_promo {
+    display: none;
+    @include media-mobile {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+    }
 }

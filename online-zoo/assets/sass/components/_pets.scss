@@ -3,24 +3,49 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 60px;
+    @include media-desktopsmall {
+        margin-bottom: 15px;
+    }
+    @include media-tablet {
+        margin-bottom: 11px;
+    }
+    @include media-mobile {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: -14px;
+    }
 }
 
 .pet_animal_card {
     border-radius: 5px;
     border: 1px solid $color-hover;
-    //border-image: $color-default;
     margin-bottom: 20px;
-    //transition: all 1s;
-
     position: relative;
     overflow: hidden;
-    // transition: transform 1s;
-
+    @include media-desktopsmall {
+        margin-bottom: 0px;
+    }
+    @include media-mobile {
+        margin-bottom: 7px;
+        margin-top: 13px;
+    }
 }
 
 .animal_photo {
     border: none;
     border-radius: 5px;
+    @include media-desktopsmall {
+        width: 294px;
+        height: 294px;
+    }
+    @include media-tablet {
+        width: 285.24px;
+        height: 285.24px;
+    }
+    @include media-mobile {
+        width: 285.24px;
+        height: 285.24px;
+    }
 }
 
 .card_title {
@@ -28,24 +53,59 @@
     text-transform: uppercase;
     color: $color-dark;
     margin: 0;
+    @include media-tablet {
+        @include font(12.4695px, 140%, 500);
+    }
+    @include media-mobile {
+        @include font(12.4695px, 140%, 500);
+    }
 }
 
 .card_text {
     @include font(15px, 120%, 300);
     margin: 0;
     color: $color-dark;
+    @include media-tablet {
+        @include font(11.6901px, 120%, 300);
+    }
+    @include media-mobile {
+        @include font(11.6901px, 120%, 300);
+    }
+}
+
+.icon_food {
+    @include media-tablet {
+        height: 28.84px;
+    }
+    @include media-mobile {
+        height: 28.84px;
+    }
 }
 
 .pets__content {
     display: flex;
     justify-content: space-between;
     padding: 2px 12px 12px 16px;
+    @include media-tablet {
+        padding: 2px 11px 8px 13px;
+    }
 }
 
 .pets_button {
     display: flex;
     justify-content: center;
     margin-bottom: 117px;
+    @include media-desktopsmall {
+        margin-top: 80px;
+        margin-bottom: 418px;
+    }
+    @include media-tablet {
+        margin-top: 59px;
+    }
+    @include media-mobile {
+        margin-top: 13px;
+        margin-bottom: 508px
+    }
 }
 
 .pets__wrapper{
@@ -63,6 +123,15 @@
     left: -82px;
     cursor: pointer;
     transition: 0.2s all linear;
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
 }
 
 .right_slider_button {
@@ -76,7 +145,18 @@
     right: -82px;
     cursor: pointer;
     transition: 0.2s all linear;
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
 }
+
+
 
 .left_slider_button:hover {
     background: $color-hover;
@@ -101,16 +181,71 @@
     position: relative;
     z-index: -3;
     margin-top: -480px;
+    @include media-tablet {
+        margin-top: -519px;
+    }
 }
 
-// img {
-//     transition: transform 0.4s;
-// }
+.palm {
+    @include media-desktopsmall {
+        display: none;
+    }
+}
 
-// .pet_animal_card:hover img { 
-//     transform: scale(1.05); 
+.palm_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
+    @include media-tablet {
+       display: none;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
 
-// }
+.palm_foto_tablet {
+    display: none;
+    @include media-tablet {
+        display: block;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.palm_foto_mobile {
+    display: none;
+    @include media-mobile {
+        display: block;
+    }
+}
+
+.strelitzia {
+    @include media-desktopsmall {
+        width: 241px;
+        height: 180px;
+    }
+    @include media-tablet {
+        width: 175px;
+        height: 131px;
+    }
+    @include media-mobile {
+        display: none;
+        // width: 86px;
+        // height: 63px;
+        // margin-right: -17px;
+    }
+}
+
+.strelitzia_mobile {
+    display: none;
+    @include media-mobile {
+        display: block;
+    }
+}
+
 
 //__________________________________________________________________________________________________________
 
@@ -147,8 +282,6 @@
 .cont_title, .cont_text {
     margin: 0;
     position: absolute;
-    // top: 20%;
-    // left: 20%;
     color: $color-light;
     text-align: center;
     justify-content: center;
@@ -158,18 +291,13 @@
 .cont_title {
     font-size: 24px;
     text-transform: uppercase;
-    //transform: scale(3);
     transform: translateY(2000%) scale(1);
     transition: .5s;
-    //opacity: 0;
 }
 
 .cont_text {
-    //left: 27%;
     font-size: 16px;
-    //transform: scale(2);
     transition: .5s;
-    //opacity: 0;
     transform: translateY(3000%) scale(1);
 }
 
@@ -194,7 +322,6 @@
 }
 
 .pet_animal_card:hover .cont_title {
-    //opacity: 1;
     transform: translateY(600%)scale(1.5);
     transition: .5s;
 }
@@ -202,4 +329,136 @@
 .pet_animal_card:hover .cont_text {
     transform: translateY(1100%)scale(1.5);
     transition: .5s;
+}
+
+//_____________________________________________
+
+.buttons_small_desktop {
+    display: none;
+    @include media-desktopsmall {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+    @include media-tablet {
+        display: flex;
+        padding-bottom: 19px;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.left_slider_button_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+        margin-right: 171px;
+    }
+    @include media-tablet {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+        margin-right: 30px;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.right_slider_button_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+    }
+    @include media-tablet {
+        display: block;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: none;
+        background: $color-default;
+        cursor: pointer;
+        transition: 0.2s all linear;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.gorillas {
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.sloth {
+    @include media-desktopsmall {
+        display: none;
+    }
+    @include media-tablet {
+        display: none;
+    }
+    @include media-mobile{
+        display: none;
+    }
+}
+
+.gorillas_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
+}
+
+.cheetahs {
+    @include media-desktopsmall {
+        display: none;
+    }
+}
+
+.cheetahs_small {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.alligators {
+    display: none;
+    @include media-desktopsmall {
+        display: block;
+    }
+}
+
+.penguins {
+    @include media-tablet {
+        display: none;
+    }
 }

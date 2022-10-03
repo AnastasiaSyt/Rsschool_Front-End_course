@@ -28,6 +28,11 @@
                     </ul>
                 </nav>
             </div>
+            <div class="header__logo-lines">
+                <span class="hamburger">
+                    <span class="hamburger_line"></span>
+                </span>
+            </div>
             <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="header__design_link">Designed by ©</a>
         </div>
     </header>
@@ -41,11 +46,13 @@
     </section>
     <section class="backstage">
         <div class="wrapper">
+            <button class="button button_circle promo_button_mobile">watch online</button>
             <div class="layout-2-column">
                 <img src="../../assets/images/bamboo-cap.jpg" alt="bamboo-cap" class="backstage_photo">
+                <img src="../../assets/images/bamboo-cap_small_desktop.jpg" alt="bamboo-cap" class="backstage_photo_small">
                 <div class="backstage__content">
-                    <h2>The Backstage of the Wilderness World.</h2>
-                    <p class="backstage_text">The site was founded on the basis of a volunteer movement to protect and care for animals.</p>
+                    <h2 class="backstage_h2">The Backstage of the Wilderness World.</h2>
+                    <p class="backstage_text">The site was founded on the basis of a volunteer movement to<br class="br_tablet"> protect and care for animals.</p>
                     <h4 class="backstage_subtitle">How it works </h4>
                     <p class="backstage_maintext">The main goal is to help the animals, as well as the nature reserves and zoos where they are kept.
                         We are currently working on video projects targeting pandas in China, eagles on an island near Los
@@ -88,7 +95,7 @@
                         <img src="../../assets/icons/meet-fish_icon.svg" alt="meet-fish_icon" class="icon_food">
                     </div>
                 </div>
-                <div class="pet_animal_card">
+                <div class="pet_animal_card gorillas">
                     <img src="../../assets/images/animals_card/gorillas_366.jpg" alt="gorillas" class="animal_photo">
                     <div class="container">
                         <p class="cont_title">Gorillas</p>
@@ -102,21 +109,7 @@
                         <img src="../../assets/icons/banana-bamboo_icon.svg" alt="banana-bamboo_icon" class="icon_food">
                     </div>
                 </div>
-                <div class="pet_animal_card">
-                    <img src="../../assets/images/animals_card/sloth_366.jpg" alt="sloth" class="animal_photo">
-                    <div class="container">
-                        <p class="cont_title">Two-toed Sloth</p>
-                        <p class="cont_text">Mesoamerica, South America</p>
-                    </div>
-                    <div class="pets__content">
-                        <div class="content__card">
-                            <p class="card_title">Two-toed Sloth</p>
-                            <p class="card_text">Mesoamerica, South America</p>
-                        </div>
-                        <img src="../../assets/icons/banana-bamboo_icon.svg" alt="banana-bamboo_icon" class="icon_food">
-                    </div>
-                </div>
-                <div class="pet_animal_card">
+                <div class="pet_animal_card cheetahs_small">
                     <img src="../../assets/images/animals_card/cheetahs_366.jpg" alt="cheetahs" class="animal_photo">
                     <div class="container">
                         <p class="cont_title">Cheetahs</p>
@@ -130,7 +123,69 @@
                         <img src="../../assets/icons/meet-fish_icon.svg" alt="meet-fish_icon" class="icon_food">
                     </div>
                 </div>
-                <div class="pet_animal_card">
+            </div>
+            <div class="buttons_small_desktop">
+                <button class="left_slider_button_small" data-slide="prev"><img src="../../assets/icons/arrow_left.svg" alt="arrow" class="arrow"></button>
+                <button class="right_slider_button_small" data-slide="prev"><img src="../../assets/icons/arrow_right.svg" alt="arrow" class="arrow"></button>
+            </div>
+            <div class="layout-3-column">
+                <div class="pet_animal_card gorillas_small">
+                    <img src="../../assets/images/animals_card/gorillas_366.jpg" alt="gorillas" class="animal_photo">
+                    <div class="container">
+                        <p class="cont_title">Gorillas</p>
+                        <p class="cont_text">Native to Congo</p>
+                    </div>
+                    <div class="pets__content">
+                        <div class="content__card">
+                            <p class="card_title">Gorillas</p>
+                            <p class="card_text">Native to Congo</p>
+                        </div>
+                        <img src="../../assets/icons/banana-bamboo_icon.svg" alt="banana-bamboo_icon" class="icon_food">
+                    </div>
+                </div>
+                <div class="pet_animal_card sloth">
+                    <img src="../../assets/images/animals_card/sloth_366.jpg" alt="sloth" class="animal_photo">
+                    <div class="container">
+                        <p class="cont_title">Two-toed Sloth</p>
+                        <p class="cont_text">Mesoamerica, South America</p>
+                    </div>
+                    <div class="pets__content">
+                        <div class="content__card">
+                            <p class="card_title">Two-toed Sloth</p>
+                            <p class="card_text">Mesoamerica, South America</p>
+                        </div>
+                        <img src="../../assets/icons/banana-bamboo_icon.svg" alt="banana-bamboo_icon" class="icon_food">
+                    </div>
+                </div>
+                <div class="pet_animal_card alligators">
+                    <img src="../../assets/images/animals_card/alligators.jpg" alt="alligators" class="animal_photo">
+                    <div class="container">
+                        <p class="cont_title">Alligators</p>
+                        <p class="cont_text">Native to Southeastern U. S.</p>
+                    </div>
+                    <div class="pets__content">
+                        <div class="content__card">
+                            <p class="card_title">Alligators</p>
+                            <p class="card_text">Native to Southeastern U. S.</p>
+                        </div>
+                        <img src="../../assets/icons/meet-fish_icon.svg" alt="meet-fish_icon" class="icon_food">
+                    </div>
+                </div>
+                <div class="pet_animal_card cheetahs">
+                    <img src="../../assets/images/animals_card/cheetahs_366.jpg" alt="cheetahs" class="animal_photo">
+                    <div class="container">
+                        <p class="cont_title">Cheetahs</p>
+                        <p class="cont_text">Native to Africa</p>
+                    </div>
+                    <div class="pets__content">
+                        <div class="content__card">
+                            <p class="card_title">cheetahs</p>
+                            <p class="card_text">Native to Africa</p>
+                        </div>
+                        <img src="../../assets/icons/meet-fish_icon.svg" alt="meet-fish_icon" class="icon_food">
+                    </div>
+                </div>
+                <div class="pet_animal_card penguins">
                     <img src="../../assets/images/animals_card/penguins_366.jpg" alt="penguins" class="animal_photo">
                     <div class="container">
                         <p class="cont_title">Penguins</p>
@@ -152,7 +207,11 @@
         </div>
         <div class="background_photo">
             <img src="../../assets/images/palm_foto.jpg" alt="palm" class="palm">
+            <img src="../../assets/images/palm_foto_small.png" alt="palm" class="palm_small">
+            <img src="../../assets/images/palm_foto_tablet.png" alt="palm" class="palm_foto_tablet">
+            <img src="../../assets/images/palm_foto_mob.png" alt="palm" class="palm_foto_mobile">
             <img src="../../assets/images/strelitzia 1.jpg" alt="strelitzia" class="strelitzia">
+            <img src="../../assets/images/strelitzia_mob.png" alt="strelitzia" class="strelitzia_mobile">
         </div>
     </section>
     <section class="pick_and_feed">
@@ -161,28 +220,28 @@
                 <h2 class="pick_and_feed_title">Pick and feed a friend</h2>
                 <h4 class="pick_and_feed_text">We know the animals bring you joy, and in these extraordinary times, we&#8242;re glad.</h4>
                 <p class="feed_subtitle">During a time when the COVID-19 epidemic is touching all of our lives, we&#8242;re proud 
-                    and glad that people around the world find joy in PetStory.</p>
+                    and glad that people around<br class="br_small"> the world find joy in PetStory.</p>
                 <p class="feed_text">Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. 
-                    Please consider<br> a gift to our <a href="../donate/index.html" class="feed_link">Emergency Support Fund.</a></p>
-                <h3>How it works</h3>
+                    Please consider<br class="br_big"> a gift to our <a href="../donate/index.html" class="feed_link">Emergency Support Fund.</a></p>
+                <h3 class="pick_and_feed_title_h3">How it works</h3>
                 <div class="feed__layout-3-column">
                     <div class="feed_card">
                         <div class="icon_card">
                             <img src="../../assets/icons/pay.svg" alt="paying_card">
                         </div>
-                        Pay with card
+                        <div class="pick_and_feed_mobile">Pay with card</div>
                     </div>
                     <div class="feed_card">
                         <div class="icon_card">
-                            <img src="../../assets/icons/hand.svg" alt="paying_card">
+                            <img src="../../assets/icons/hand.svg" alt="hand">
                         </div>
-                        Payment goes to the zoo
+                        <div class="pick_and_feed_mobile">Payment goes to the<br class="br_small_zoo"> zoo</div>
                     </div>
                     <div class="feed_card">
                         <div class="icon_card">
-                            <img src="../../assets/icons/monkey.svg" alt="paying_card">
+                            <img src="../../assets/icons/monkey.svg" alt="monkey">
                         </div>
-                        Your favourite animal<br> gets delicious dish
+                        <div class="pick_and_feed_mobile">Your favourite animal<br> gets delicious dish</div>
                     </div>
                 </div>
                 <div class="feed_arrow">
@@ -191,8 +250,16 @@
                 <div class="feed_arrow_next">
                     <img src="../../assets/icons/Vector_arrov_ico.svg" alt="arrow" class="arrow_ico">
                 </div>
+                <div class="green_arrows">
+                    <div class="green_arrow">
+                        <img src="../../assets/icons/green_arrow.svg" alt="green_arrow" class="green_arrow_ico">
+                    </div>
+                    <div class="green_arrow_next">
+                        <img src="../../assets/icons/green_arrow.svg" alt="green_arrow">
+                    </div>
+                </div>
                 <form class="feed_button" action="../donate/index.html" target="_blank">
-                    <button class="button button_circle">Feed a friend now</button>
+                    <button class="button button_circle button_circle_feed">Feed a friend now</button>
                 </form>
             </div>
         </div>
@@ -243,7 +310,7 @@
                                 </p>
                     </div>
                 </div>
-                <div class="gradient_border">
+                <div class="gradient_border forth_card">
                     <div class="testimonials_card">
                         <div class="testimonials_card_head">
                             <img src="../../assets/images/avatars/Ellipse 4.png" alt="avatar" class="avatar">
@@ -258,6 +325,52 @@
                     </div>
                 </div>
             </div>
+            <div class="layout_rows">
+                <div class="gradient_border_rows">
+                    <div class="testimonials_card_rows">
+                        <div class="testimonials_card_head">
+                            <img src="../../assets/icons/user_icon.png" alt="avatar" class="avatar">
+                            <div class="title_content">
+                                <p class="testimonials_title_card">Michael John</p>
+                                <p class="testimonials_subtitle">Local Austria &bull; Today</p>
+                            </div>
+                        </div>
+                            <p class="testimonials_text">The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. 
+                                Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met.</p>
+                                <p class="testimonials_text_mobile">The best online zoo I’ve met. My son delighted very much ljves to watch....</p>
+                    </div>
+                </div>
+                <div class="gradient_border_rows">
+                    <div class="testimonials_card_rows">
+                        <div class="testimonials_card_head">
+                            <img src="../../assets/images/avatars/Ellipse 4.png" alt="avatar" class="avatar">
+                            <div class="title_content">
+                                <p class="testimonials_title_card">Oska Samborska</p>
+                                <p class="testimonials_subtitle">Local Austria &bull; Yesterday</p>
+                            </div>
+                        </div>
+                            <p class="testimonials_text"> My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways 
+                                to instill a love for animals.The best online zoo I’ve met.The best online zoo I’ve met. My
+                            </p>
+                            <p class="testimonials_text_mobile">My son delighted very much ljves to watch.... gouillas.The best online zoo I’</p>
+                    </div>
+                </div>
+                <div class="gradient_border_rows">
+                    <div class="testimonials_card_rows">
+                        <div class="testimonials_card_head">
+                            <img src="../../assets/images/avatars/Ellipse 3.png" alt="avatar" class="avatar">
+                            <div class="title_content">
+                                <p class="testimonials_title_card">Fredericka Michelin</p>
+                                <p class="testimonials_subtitle">Local Austria &bull; Yesterday</p>
+                            </div>
+                        </div>
+                            <p class="testimonials_text">Online zoo is one jf the ways to instill a love for animals.The best online 
+                                zoo I’ve met. My son delighted very much ljves to watch gouillas. The best online zoo I’ve met. My
+                            </p>
+                            <p class="testimonials_text_mobile">Best online zoo I’ve met. My son deligh very much ljves to watch.... gouillas. Or </p>
+                    </div>
+                </div>
+            </div>
             <div class="scroll slidecontainer">
                 <div class="line_scroll">
                     <div class="scroll_background">
@@ -266,7 +379,7 @@
                 </div>
             </div>
             <div class="testimonials_button">
-                <button class="button button_rectangle">leave feedback</button>
+                <button class="button button_rectangle button_rectangle_testimonials">leave feedback</button>
             </div>
         </div>
         <div class="testimonials_background_photo">
@@ -279,7 +392,14 @@
                 <a href="index.html" class="logo_footer">
                     <object type="image/svg+xml" data="../../assets/icons/bamboo.svg" class="logo-object_footer"></object>
                     <p class="logo_footer_text">PetStory<br> online</p>
+                    <p class="logo_footer_text_mobile">PetStory online</p>
                 </a>
+                <ul class="footer_social-networks_tablet">
+                    <li class="footer_social-networks_item"><a href="https://www.facebook.com" class="social_network_link"><div class="icon_social"><img src="../../assets/icons/social_network/facebook_1.svg" alt="social-networks" class="social-networks"></div></a></li>
+                    <li class="footer_social-networks_item"><a href="https://www.twitter.com" class="social_network_link"><div class="icon_social"><img src="../../assets/icons/social_network/twitter_1.svg" alt="social-networks" class="social-networks"></div></a></li>
+                    <li class="footer_social-networks_item"><a href="https://www.instagram.com" class="social_network_link"><div class="icon_social"><img src="../../assets/icons/social_network/instagram_1.svg" alt="social-networks" class="social-networks"></div></a></li>
+                    <li class="footer_social-networks_item"><a href="https://www.youtube.com" class="social_network_link"><div class="icon_social"><img src="../../assets/icons/social_network/youtube_1.svg" alt="social-networks" class="social-networks"></div></a></li>
+                </ul>
                 <div class="email-form">
                     <h4 class="footer-title">Subscribe to our news</h4>
                     <form action="#" class="email_data">
@@ -291,6 +411,10 @@
             <form class="footer_button" action="../donate/index.html" target="_blank">
                 <button class="button button_rectangle">donate for volunteers</button>
             </form>
+            <div class="footer_link_mobile">
+                <p class="footer_text">Designed by Alisa Samborskaya</p>
+                <p class="footer_text footer_text2">©RSSchool & ©Yem Digital 2021</p>
+            </div>
             <div class="layout-3-columns_footer">
                 <ul class="footer_social-networks">
                     <li class="footer_social-networks_item"><a href="https://www.facebook.com" class="social_network_link"><div class="icon_social"><img src="../../assets/icons/social_network/facebook_1.svg" alt="social-networks" class="social-networks"></div>Facebook</a></li>
