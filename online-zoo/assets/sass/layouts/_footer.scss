@@ -16,9 +16,18 @@
         margin-top: 2px;
         margin-left: 2px;
     }
+    @include media-tablet-765 {
+        margin-top: 0px;
+        margin-left: 0px;
+    }
     @include media-tablet {
         margin-top: 0px;
         margin-left: 0px;
+    }
+    @include media-mobile-470 {
+        border: none;
+        width: 128px;
+        margin-right: 0px;
     }
     @include media-mobile {
         border: none;
@@ -36,9 +45,17 @@
     position: absolute;
     top: 23px;
     left: 9px;
+    @include media-tablet-765 {
+        top: 19px;
+        left: 11px;
+    }
     @include media-tablet {
         top: 19px;
         left: 11px;
+    }
+    @include media-mobile-470 {
+        top: 15px;
+        left: 72px;
     }
     @include media-mobile {
         top: 15px;
@@ -52,8 +69,14 @@
     @include media-desktopsmall {
         margin-top: 0px;
     }
+    @include media-tablet-765 {
+        margin: 0;
+    }
     @include media-tablet {
         margin: 0;
+    }
+    @include media-mobile-470 {
+        display: none;
     }
     @include media-mobile {
         display: none;
@@ -62,6 +85,10 @@
 
 .logo_footer_text_mobile {
     display: none;
+    @include media-mobile-470 {
+        display: inline-flex;
+        @include font(19.0145px, 120%);
+    }
     @include media-mobile {
         display: inline-flex;
         @include font(19.0145px, 120%);
@@ -76,9 +103,19 @@
     @include media-desktopsmall {
         padding-bottom: 150px;
     }
+    @include media-tablet-765 {
+        padding-top: 13px;
+        padding-bottom: 32px;
+    }
     @include media-tablet {
         padding-top: 13px;
         padding-bottom: 32px;
+    }
+    @include media-mobile-470 {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0px;
+        padding-bottom: 31px;
     }
     @include media-mobile {
         flex-direction: column;
@@ -138,8 +175,14 @@
         padding-bottom: 28px;
         margin-top: -112px;
     }
+    @include media-tablet-765 {
+        padding-bottom: 50px;
+    }
     @include media-tablet {
         padding-bottom: 50px;
+    }
+    @include media-mobile-470 {
+        margin-top: 0px;
     }
     @include media-mobile {
         margin-top: 0px;
@@ -154,8 +197,14 @@
     @include media-desktopsmall {
         padding-bottom: 50px;
     }
+    @include media-tablet-765 {
+        padding-bottom: 12px;
+    }
     @include media-tablet {
         padding-bottom: 12px;
+    }
+    @include media-mobile-470 {
+        justify-content: center;
     }
     @include media-mobile {
         justify-content: center;
@@ -170,6 +219,9 @@
     line-height: 140%;
     color: #FFFFFF;
     padding: 0;
+    @include media-tablet-765 {
+        display: none;
+    }
     @include media-tablet {
         display: none;
     }
@@ -180,8 +232,15 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    @include media-tablet-765 {
+        padding-bottom: 20px;
+    }
     @include media-tablet {
         padding-bottom: 20px;
+    }
+    @include media-mobile-470 {
+        padding-bottom: 0;
+        padding-right: 30px;
     }
     @include media-mobile {
         padding-bottom: 0;
@@ -201,6 +260,9 @@
     padding-top: 2px;
     margin-right: 12px;
     cursor: pointer;
+    @include media-tablet-765 {
+        margin-right: 0;
+    }
     @include media-tablet {
         margin-right: 0;
     }
@@ -235,6 +297,9 @@
     @include media-desktopsmall {
         padding-left: 119px; 
     }
+    @include media-tablet-765 {
+        padding-left: 0px;
+    }
     @include media-tablet {
         padding-left: 1px;
     }
@@ -248,8 +313,14 @@
     @include media-desktopsmall {
         padding-right: 48px;
     }
+    @include media-tablet-765 {
+        padding-right: 37px;
+    }
     @include media-tablet {
         padding-right: 37px;
+    }
+    @include media-mobile-470 {
+        padding-right: 30px;
     }
     @include media-mobile {
         padding-right: 30px;
@@ -263,8 +334,14 @@
 .footer_text {
     @include font(16px, 115%, 100);
     color: $color-light;
+    @include media-tablet-765 {
+        @include font(16px, 120%, 100);
+    }
     @include media-tablet {
         @include font(16px, 120%, 100);
+    }
+    @include media-mobile-470 {
+        margin: 16px 0;
     }
     @include media-mobile {
         margin: 16px 0;
@@ -276,6 +353,9 @@
     margin-top: -4px;
     margin-right: -8px;
     margin-bottom: 13px;
+    @include media-mobile-470 {
+        margin-bottom: 12px;
+    }
     @include media-mobile {
         margin-bottom: 12px;
     }
@@ -313,6 +393,9 @@
     @include media-desktopsmall {
         margin-right: 32px;
     }
+    @include media-tablet-765 {
+        display: none;
+    }
     @include media-tablet {
         display: none;
     }
@@ -320,6 +403,18 @@
 
 .footer_social-networks_tablet {
     display: none;
+    @include media-tablet-765 {
+        display: block;
+        list-style: none;
+        color: $color-light;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: #FFFFFF;
+        padding: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
     @include media-tablet{
         display: block;
         list-style: none;
@@ -332,6 +427,11 @@
         margin-top: 0px;
         margin-bottom: 0px;
     }
+    @include media-mobile-470 {
+        display: flex;
+        flex-direction: row;
+        margin-top: 19px;
+    }
     @include media-mobile {
         display: flex;
         flex-direction: row;
@@ -340,6 +440,9 @@
 }
 
 .footer_link {
+    @include media-mobile-470 {
+        display: none;
+    }
     @include media-mobile {
         display: none;
     }
@@ -347,6 +450,18 @@
 
 .footer_link_mobile {
     display: none;
+    @include media-mobile-470 {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: -36px;
+        font-weight: 100;
+        font-size: 15px;
+        line-height: 120%;
+        letter-spacing: -0.5px;
+        padding-right: 9px;
+    }
     @include media-mobile {
         display: flex;
         justify-content: flex-end;

@@ -8,15 +8,47 @@
 @mixin media-desktop {
     @media (max-width: $desktop-with) { @content; }
 }
-
 @mixin media-desktopsmall {
     @media (max-width: $desktop-small-width) { @content; }
 }
-
 @mixin media-tablet {
     @media (max-width: $tablet-width) { @content; }
 }
-
 @mixin media-mobile {
     @media (max-width: $mobile-width) { @content; }
+}
+
+
+//__________________________________________________________
+
+@mixin media-desktop-1500 {
+    @media (max-width: $desktop-1500) { @content; }
+}
+@mixin media-desktop-1330 {
+    @media (max-width: $desktop-1330) { @content; }
+}
+@mixin media-desktop-1200 {
+    @media (max-width: $desktop-1200) { @content; }
+}
+
+
+@mixin media-tablet-954 {
+    @media (max-width: $tablet-954) { @content; }
+}
+@mixin media-tablet-850 {
+    @media (max-width: $tablet-850) { @content; }
+}
+@mixin media-tablet-765 {
+    @media (max-width: $tablet-765) { @content; }
+}
+
+
+@mixin media-mobile-620 {
+    @media (max-width: $mobile-620) { @content; }
+}
+@mixin media-mobile-570 {
+    @media (max-width: $mobile-570) { @content; }
+}
+@mixin media-mobile-470 {
+    @media (max-width: $mobile-470) { @content; }
 }

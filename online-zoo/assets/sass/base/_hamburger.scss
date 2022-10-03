@@ -14,6 +14,9 @@
     position: relative;
     width: 18px;
     height: 10px;
+    @include media-tablet-765 {
+        display: inline-block;
+    }
     @include media-tablet {
         display: inline-block;
     }

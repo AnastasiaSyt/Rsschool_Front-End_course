@@ -1,6 +1,9 @@
 .wrapper {
     max-width: $content-with;
     margin: auto;
+    @include media-desktop-1200 {
+        padding: 0 30px;
+    }
     @include media-desktopsmall {
         padding: 0 30px;
     }

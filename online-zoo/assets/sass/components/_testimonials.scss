@@ -5,12 +5,23 @@
         background-repeat: no-repeat;
         padding-bottom: 104px;
     }
+    @include media-tablet-850 {
+        background-image: url(../images/leav_foto_tablet.png);
+        background-position: 100% 116%;
+        background-repeat: no-repeat;
+        padding-bottom: 32px;
+    }
     @include media-tablet {
         background-image: url(../images/leav_foto_tablet.png);
         background-position: 100% 116%;
         background-repeat: no-repeat;
         padding-bottom: 32px;
     }
+    @include media-mobile-470 {
+        background-image: url(../images/leav_foto_mobile.png);
+        background-position: 100% 107%;
+        background-repeat: no-repeat;
+    } 
     @include media-mobile {
         background-image: url(../images/leav_foto_mobile.png);
         background-position: 100% 107%;
@@ -42,6 +53,9 @@
 .layout-4-column {
     display: flex;
     justify-content: space-between;
+    @include media-tablet-954 {
+        display: none;
+    }
     @include media-tablet {
         display: none;
     }
@@ -49,6 +63,11 @@
 
 .layout_rows {
     display: none;
+    @include media-tablet-954 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
     @include media-tablet {
         display: flex;
         flex-direction: row;
@@ -57,6 +76,17 @@
 }
 
 .gradient_border_rows {
+    @include media-tablet-954 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 109px;
+        background: $color-pink_gradient;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        margin-bottom: 15px;
+    }
     @include media-tablet {
         display: flex;
         justify-content: center;
@@ -71,12 +101,24 @@
 }
 
 .testimonials_card_rows {
+    @include media-tablet-954 {
+        width: calc(100% - 3px);
+        height: calc(100% - 3px);
+        border-radius: 19px;
+        background-color: $color-gray_light;
+        padding: 3px;
+    }
     @include media-tablet {
         width: calc(100% - 3px);
         height: calc(100% - 3px);
         border-radius: 19px;
         background-color: $color-gray_light;
         padding: 3px;
+    }
+    @include media-mobile-620 {
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        padding: 4px;
     }
     @include media-mobile {
         width: calc(100% - 4px);
@@ -90,8 +132,14 @@
     color: $color-dark;
     margin: 0;
     margin-top: 9px;
+    @include media-tablet-954 {
+        margin-top: 10px;
+    }
     @include media-tablet {
         margin-top: 10px;
+    }
+    @include media-mobile-620 {
+        margin-top: 4px;
     }
     @include media-mobile {
         margin-top: 4px;
@@ -102,6 +150,9 @@
     @include font(15px, 120%, 300);
     color: #BDBDBD;
     margin: 0;
+    @include media-tablet-954 {
+        margin-top: 1px;
+    }
     @include media-tablet {
         margin-top: 1px;
     }
@@ -116,8 +167,14 @@
     width: 37px;
     height: 37px;
     margin: 9px 10px 0px 11px;
+    @include media-tablet-954 {
+        margin: 11px 8px 0px 9px;
+    }
     @include media-tablet {
         margin: 11px 8px 0px 9px;
+    }
+    @include media-mobile-620 {
+        margin: 3px 6px 0px 7px;
     }
     @include media-mobile {
         margin: 3px 6px 0px 7px;
@@ -131,9 +188,16 @@
     color: #767474;
     margin: 10px 8px 0px 11px;
     letter-spacing: 0.3px;
+    @include media-tablet-954 {
+        margin: 11px 11px 0px 14px;
+        letter-spacing: 0px;
+    }
     @include media-tablet {
         margin: 11px 11px 0px 14px;
         letter-spacing: 0px;
+    }
+    @include media-mobile-620 {
+        display: none;
     }
     @include media-mobile {
         display: none;
@@ -142,6 +206,14 @@
 
 .testimonials_text_mobile {
     display: none;
+    @include media-mobile-620 {
+        display: inline-block;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 120%;
+        color: #767474;
+        margin: 10px 0px 0px 13px;
+    }
     @include media-mobile {
         display: inline-block;
         font-weight: 300;
@@ -239,6 +311,9 @@
 }
 
 .forth_card {
+    @include media-desktop-1200 {
+        display: none;
+    }
     @include media-desktopsmall {
         display: none;
     }
