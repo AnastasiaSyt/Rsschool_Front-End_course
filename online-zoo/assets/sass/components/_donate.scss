@@ -97,6 +97,10 @@
     color: #333B41;
     padding-left: 92px;
     margin-bottom: 57px;
+    @include media-desktop-1200 {
+        margin-top: 11px;
+        padding-left: 48px;
+    }
     @include media-desktopsmall {
         margin-top: 11px;
         padding-left: 48px;
@@ -122,11 +126,23 @@
     color: $color-dark;
     margin: 0;
     padding: 45px 13px 0px 0px;
+    @include media-desktop-1200 {
+        padding: 50px 9px 0px 0px;
+    }
     @include media-desktopsmall {
         padding: 50px 9px 0px 0px;
     }
+    @include media-tablet-850 {
+        padding: 40px 9px 0px 0px;
+    }
     @include media-tablet {
         padding: 40px 9px 0px 0px;
+    }
+    @include media-mobile-620 {
+        font-weight: 500;
+        font-size: 40.6015px;
+        line-height: 80%;
+        padding: 20px 9px 0px 6px;
     }
     @include media-mobile {
         font-weight: 500;
@@ -143,8 +159,15 @@
     text-align: center;
     color: #333B41;
     margin: 20px 14px 0 0px;
+    @include media-tablet-850 {
+        margin: 20px 14px 0 3px;
+    }
     @include media-tablet {
         margin: 20px 14px 0 3px;
+    }
+    @include media-mobile-620 {
+        font-size: 9.02255px;
+        margin: 13px 14px 0px 10px;
     }
     @include media-mobile {
         font-size: 9.02255px;
@@ -156,15 +179,27 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    @include media-mobile-620 {
+        justify-content: center;
+    }
 }
 
 .donate_layout_2column_content {
     margin-left: 307px;
+    @include media-desktop-1200{
+        margin-left: 195px;
+    }
     @include media-desktopsmall {
         margin-left: 195px;
     }
+    @include media-tablet-850 {
+        margin-left: 24px;
+    }
     @include media-tablet {
         margin-left: 24px;
+    }
+    @include media-mobile-620 {
+        margin-left: -10px;
     }
     @include media-mobile {
         margin-left: -10px;
@@ -173,11 +208,22 @@
 
 .x_icon {
     padding: 27px 62px 0 0px;
+    @include media-desktop-1200 {
+        padding: 31px 61px 0 0px;
+    }
     @include media-desktopsmall {
         padding: 31px 61px 0 0px;
     }
+    @include media-tablet-850 {
+        padding: 24px 59px 0 0px;
+    }
     @include media-tablet {
         padding: 24px 59px 0 0px;
+    }
+    @include media-mobile-620 {
+        padding: 24px 33px 0 0px;
+        width: 7.89px;
+        height: 7.89px;
     }
     @include media-mobile {
         padding: 24px 33px 0 0px;
@@ -187,13 +233,25 @@
 }
 
 .animal-widget {
+    @include media-desktop-1200 {
+        padding-top: 3px;
+    }
     @include media-desktopsmall {
         padding-top: 3px;
+    }
+    @include media-tablet-850 {
+        padding-top: 0px;
+        margin-top: -8px;
+        margin-left: 3px;
     }
     @include media-tablet {
         padding-top: 0px;
         margin-top: -8px;
         margin-left: 3px;
+    }
+    @include media-mobile-620 {
+        width: 160.15px;
+        height: 138.72px;
     }
     @include media-mobile {
         width: 160.15px;
@@ -246,8 +304,8 @@
 .progress_small {
     display: none; 
     @include media-desktopsmall {
-        display: block;
-        padding-left: 66px;
+        display: flex;
+        justify-content: center;
     }
     @include media-tablet {
         display: none;
@@ -257,7 +315,8 @@
 .progress_taablet {
     display: none;
     @include media-tablet {
-        display: block;
+        display: flex;
+        justify-content: center;
         padding-left: 0px;
     }
 }
@@ -340,6 +399,10 @@ input::-webkit-inner-spin-button {
     @include media-tablet {
         margin-left: 192px;
         margin-top: 4px;
+    }
+    @include media-mobile-470 {
+        margin-left: 41px;
+        margin-top: -1px;
     }
     @include media-mobile {
         margin-left: 41px;
@@ -428,6 +491,7 @@ input::-webkit-inner-spin-button {
 
 //_______________________________________________________ Slider
 
+
 $number-of-options: 7;
 
 .progress_bar {
@@ -438,11 +502,22 @@ $number-of-options: 7;
     display: flex;
     justify-content: center;
     align-items: center;
+    @include media-desktop-1200 {
+        width: 810px;
+    }
     @include media-desktopsmall {
         width: 810px;
     }
+    @include media-tablet-954 {
+        width: 600px;
+    }
     @include media-tablet {
         width: 600px;
+    }
+    @include media-mobile-620 {
+        width: 300px;
+        height: 13.5px;
+        border-radius: 1px;
     }
     @include media-mobile {
         width: 300px;
@@ -460,13 +535,25 @@ $number-of-options: 7;
     width: 915px;
     height: 4px;
     user-select: none;
+    @include media-desktop-1200 {
+        width: 785px;
+        height: 2px;
+    }
     @include media-desktopsmall {
         width: 785px;
+        height: 2px;
+    }
+    @include media-tablet-954 {
+        width: 524px;
         height: 2px;
     }
     @include media-tablet {
         width: 524px;
         height: 2px;
+    }
+    @include media-mobile-620 {
+        width: 262px;
+        height: 1px;
     }
     @include media-mobile {
         width: 262px;
@@ -485,11 +572,21 @@ $number-of-options: 7;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @include media-desktop-1200 {
+        width: 785px;
+    }
     @include media-desktopsmall {
         width: 785px;
     }
+    @include media-tablet-954 {
+        width: 524px;
+    }
     @include media-tablet {
         width: 524px;
+    }
+    @include media-mobile-620 {
+        width: 262px;
+        border-radius: none;
     }
     @include media-mobile {
         width: 262px;
@@ -532,8 +629,17 @@ $number-of-options: 7;
 	white-space: nowrap;
 	opacity: 0.85;
 	transition: all 0.15s ease-in-out;
+    @include media-tablet-954 {
+        margin-top: -19px;
+    }
     @include media-tablet {
         margin-top: -19px;
+    }
+    @include media-mobile-620 {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 140%;
+        margin-top: -32px;
     }
     @include media-mobile {
         font-weight: 500;
@@ -558,6 +664,10 @@ $number-of-options: 7;
 	z-index: 1;
 	cursor: pointer;
 	transition: all 0.15s ease-in-out;
+    @include media-mobile-620 {
+        width: 5px;
+        height: 5px;
+    }
     @include media-mobile {
         width: 5px;
         height: 5px;
@@ -572,6 +682,13 @@ $number-of-options: 7;
 	border: 2px solid #FE9013;
 	outline: 2px solid #FE9013;
   	outline-offset: -12px;
+    @include media-mobile-620 {
+        width: 20px;
+	    height: 20px;
+        border: 1px solid #FE9013;
+        outline: 1px solid #FE9013;
+        outline-offset: -5px;
+    }
     @include media-mobile {
         width: 20px;
 	    height: 20px;
