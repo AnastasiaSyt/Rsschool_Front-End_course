@@ -3,4 +3,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 386px;
+    @include media-desktopsmall {
+        background-image: url(../../assets/images/panda_bg_small_dst.jpg);
+        height: 390px;
+    }
+    @include media-tablet {
+        background-image: url(../../assets/images/panda_bg_tablet.jpg);
+        height: 335px;
+        margin-top: 34px;
+    }
+    @include media-mobile {
+        background-image: url(../../assets/images/panda_bg_mobile.jpg);
+        height: 187px;
+    }
 }

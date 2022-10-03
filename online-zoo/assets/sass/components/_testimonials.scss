@@ -1,3 +1,22 @@
+.testimonials {
+    @include media-desktopsmall {
+        background-image: url(../images/leav_foto_small_dsk.png);
+        background-position: 100% 118%;
+        background-repeat: no-repeat;
+        padding-bottom: 104px;
+    }
+    @include media-tablet {
+        background-image: url(../images/leav_foto_tablet.png);
+        background-position: 100% 116%;
+        background-repeat: no-repeat;
+        padding-bottom: 32px;
+    }
+    @include media-mobile {
+        background-image: url(../images/leav_foto_mobile.png);
+        background-position: 100% 107%;
+        background-repeat: no-repeat;
+    } 
+}
 
 .gradient_border {
     display: flex;
@@ -7,6 +26,9 @@
     height: 391px;
     background: $color-pink_gradient;
     border-radius: 20px;
+    @include media-desktopsmall {
+        width: 293px;
+    }
 }
 
 .testimonials_card {
@@ -20,6 +42,47 @@
 .layout-4-column {
     display: flex;
     justify-content: space-between;
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.layout_rows {
+    display: none;
+    @include media-tablet {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.gradient_border_rows {
+    @include media-tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 109px;
+        background: $color-pink_gradient;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+.testimonials_card_rows {
+    @include media-tablet {
+        width: calc(100% - 3px);
+        height: calc(100% - 3px);
+        border-radius: 19px;
+        background-color: $color-gray_light;
+        padding: 3px;
+    }
+    @include media-mobile {
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        padding: 4px;
+    }
 }
 
 .testimonials_title_card {
@@ -27,17 +90,25 @@
     color: $color-dark;
     margin: 0;
     margin-top: 9px;
+    @include media-tablet {
+        margin-top: 10px;
+    }
+    @include media-mobile {
+        margin-top: 4px;
+    }
 }
 
 .testimonials_subtitle {
     @include font(15px, 120%, 300);
     color: #BDBDBD;
     margin: 0;
+    @include media-tablet {
+        margin-top: 1px;
+    }
 }
 
 .testimonials_card_head {
     display: flex;
-    //justify-content: flex-end;
     align-items: flex-start;
 }
 
@@ -45,6 +116,12 @@
     width: 37px;
     height: 37px;
     margin: 9px 10px 0px 11px;
+    @include media-tablet {
+        margin: 11px 8px 0px 9px;
+    }
+    @include media-mobile {
+        margin: 3px 6px 0px 7px;
+    }
 }
 
 .testimonials_text {
@@ -54,6 +131,25 @@
     color: #767474;
     margin: 10px 8px 0px 11px;
     letter-spacing: 0.3px;
+    @include media-tablet {
+        margin: 11px 11px 0px 14px;
+        letter-spacing: 0px;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.testimonials_text_mobile {
+    display: none;
+    @include media-mobile {
+        display: inline-block;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 120%;
+        color: #767474;
+        margin: 10px 0px 0px 13px;
+    }
 }
 
 .testimonials_text_1 {
@@ -73,6 +169,10 @@
     height: 10px;
     background: $color-pink_gradient;
     border-radius: 5px;
+    @include media-desktopsmall {
+        width: 390px;
+        height: 8px;
+    }
 }
 
 .scroll_background {
@@ -84,22 +184,64 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    @include media-desktopsmall {
+        padding: 0.5px;
+    }
 }
 
 .scroll {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .testimonials_button {
     margin-top: 30px;
     margin-bottom: 180px;
+    @include media-desktopsmall {
+        margin-top: 51px;
+        margin-bottom: 36px;
+    }
+    @include media-tablet {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        margin-bottom: 48px;
+    }
+    @include media-mobile {
+        margin-top: 14px;
+        margin-bottom: 0px;
+        padding-bottom: 28px;
+    }
 }
 
 
 .testimonials__title {
     padding: 106px 0 10px 0;
+    @include media-desktopsmall {
+        padding: 64px 0 0 0;
+        margin-bottom: 30px;
+    }
+    @include media-tablet {
+        padding: 24px 0 0 0;
+        margin-bottom: 30px;
+        margin-right: 3px;
+    }
+    @include media-mobile {
+        @include font(24px, 120%);
+        margin-bottom: 20px;
+        padding: 7px 0 0 0;
+        margin-right: 0px;
+    }
+}
+
+.forth_card {
+    @include media-desktopsmall {
+        display: none;
+    }
 }
 
 
@@ -121,6 +263,10 @@
     opacity: 0.7; 
     -webkit-transition: .2s; 
     transition: opacity .2s;
+    @include media-desktopsmall {
+        width: 390px;
+        height: 6px;
+    }
 }
 
 .slider:hover {
@@ -135,6 +281,11 @@
     background: #FE9013;
     border-radius: 5px; 
     cursor: pointer; 
+    @include media-desktopsmall {
+        width: 75px; 
+        height: 6px; 
+        border-radius: 4px; 
+    }
 }
 
 .slider::-moz-range-thumb {
@@ -152,4 +303,17 @@
     position: relative;
     z-index: -3;
     margin-top: -275px;
+    overflow: hidden;
+    @include media-desktopsmall {
+        margin-top: -240px;
+        margin-right: -82px;
+        overflow: hidden;
+        display: none;
+    }
+}
+
+.leav {
+    @include media-desktopsmall {
+        display: none;
+    }
 }
