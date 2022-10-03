@@ -4,13 +4,26 @@
     background-position: right;
     color: $color-black_blue;
     margin-bottom: 40px;
+    @include media-desktop-1500 {
+        background-image: none;
+    }
     @include media-desktopsmall {
         background-image: none;
+    }
+    @include media-tablet-850 {
+        background-image: url(../../assets/images/flower_foto1_tablet.png);
+        padding-bottom: 40px;
+        background-position-y: 30%;
     }
     @include media-tablet {
         background-image: url(../../assets/images/flower_foto1_tablet.png);
         padding-bottom: 40px;
         background-position-y: 30%;
+    }
+    @include media-mobile-470 {
+        background-image: url(../../assets/images/flower_foto1_mobile.png);
+        background-position: 100% 6%;
+        margin-bottom: 0;
     }
     @include media-mobile {
         background-image: url(../../assets/images/flower_foto1_mobile.png);
@@ -26,6 +39,9 @@
 .backstage_photo {
     backdrop-filter: blur(2px);
     padding: 140px 87px 140px 0;
+    @include media-desktop-1200 {
+        display: none;
+    }
     @include media-desktopsmall {
         display: none;
     }
@@ -39,10 +55,18 @@
 
 .backstage_photo_small {
     display: none;
+    @include media-desktop-1200 {
+        display: block;
+        backdrop-filter: blur(2px);
+        padding: 109px 31px 112px 0;
+    }
     @include media-desktopsmall {
         display: block;
         backdrop-filter: blur(2px);
         padding: 109px 31px 112px 0;
+    }
+    @include media-tablet-850 {
+        display: none;
     }
     @include media-tablet {
         display: none;
@@ -60,6 +84,9 @@
     @include media-tablet {
         padding-top: 60px;
     }
+    @include media-mobile-470 {
+        padding-top: 30px;
+    }
     @include media-mobile {
         padding-top: 30px;
     }
@@ -72,8 +99,17 @@
     @include media-desktopsmall {
         padding: 22px 7px 20px 0;
     }
+    @include media-tablet-850 {
+        padding: 21px 95px 20px 0;
+    }
     @include media-tablet {
         padding: 21px 7px 20px 0;
+    }
+    @include media-mobile-620 {
+        padding: 21px 103px 20px 0;
+    }
+    @include media-mobile-470 {
+        padding: 10px 2px 10px 2px;
     }
     @include media-mobile {
         padding: 10px 2px 10px 2px;
@@ -88,6 +124,10 @@
         padding: 11px 0;
         margin-left: 4px;
     }
+    @include media-mobile-470 {
+        margin-left: 2px;
+        padding-bottom: 1px;
+    }
     @include media-mobile {
         margin-left: 2px;
         padding-bottom: 1px;
@@ -100,9 +140,17 @@
     @include media-desktopsmall {
         @include font(16px, 136%);
     }
+    @include media-tablet-850 {
+        margin: 9px 0 0 0;
+        padding-right: 101px;
+    }
     @include media-tablet {
         margin: 9px 0 0 0;
         padding-right: 101px;
+    }
+    @include media-mobile-470 {
+        padding-right: 0;
+        line-height: 138%;
     }
     @include media-mobile {
         padding-right: 0;
@@ -111,8 +159,15 @@
 }
 
 .backstage_h2 {
+    @include media-tablet-850 {
+       padding-right: 70px;
+    }
     @include media-tablet {
+        padding-right: 0;
         margin-left: 4px;
+    }
+    @include media-mobile-620 {
+        padding-right: 68px;
     }
     @include media-mobile {
         margin-left: 0;
@@ -123,6 +178,9 @@
     display: none;
     @include media-tablet {
         display: inline;
+    }
+    @include media-mobile-620 {
+        display: none;
     }
     @include media-mobile {
         display: none;

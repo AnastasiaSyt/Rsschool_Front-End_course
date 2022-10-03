@@ -3,6 +3,12 @@
     padding: 14px 0;
     position: relative;
     z-index: 1;
+    @include media-tablet-765 {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 0 0 5px 0;
+    }
     @include media-tablet {
         position: fixed;
         top: 0;
@@ -52,6 +58,11 @@
     height: 52px;
     margin-right: -6px;
     transition: 0.2s all linear;
+    @include media-tablet-765 {
+        width: 46.93px;
+        height: 29.03px;
+        border: none;
+    }
     @include media-tablet {
         width: 46.93px;
         height: 29.03px;
@@ -82,6 +93,9 @@
     line-height: 140%;
     color: $color-light;
     transition: 0.2s all linear;
+    @include media-tablet-765 {
+        display: none;
+    }
     @include media-tablet {
         display: none;
     }
@@ -107,6 +121,11 @@
     position: absolute;
     top: 23px;
     left: 9px;
+    @include media-tablet-765 {
+        scale: 0.65;
+        top: 12px;
+        left: 1px;
+    }
     @include media-tablet {
         scale: 0.65;
         top: 12px;
@@ -140,6 +159,9 @@
 }
 
 .header__navigation {
+    @include media-tablet-765 {
+        display: none;
+    }
     @include media-tablet {
         display: none;
     }

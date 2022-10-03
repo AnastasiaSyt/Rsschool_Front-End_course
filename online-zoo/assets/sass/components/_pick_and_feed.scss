@@ -13,6 +13,9 @@
     background: rgba(253, 253, 255, 0.52);
     backdrop-filter: blur(2px);
     border-radius: 20px;
+    @include media-desktop-1200 {
+        margin: 0 30px;
+    }
     @include media-desktopsmall {
         margin: 0 30px;
     }
@@ -37,6 +40,10 @@
         @include font(42px, 120%);
         padding: 9px 0 0px 0;
     }
+    @include media-mobile-470 {
+        @include font(36px, 120%);
+        padding: 21px 0 0px 0;
+    }
     @include media-mobile {
         @include font(24px, 120%);
         padding: 21px 0 0px 0;
@@ -54,6 +61,12 @@
     @include media-tablet {
         padding-left: 0px;
         margin-top: 20px;
+    }
+    @include media-mobile-470 {
+        text-align: center;
+        @include font(18px, 120%);
+        margin-top: 11px;
+        margin-left: -2px;
     }
     @include media-mobile {
         text-align: center;
@@ -76,6 +89,9 @@
     @include media-tablet {
         padding-left: 0;
         line-height: 130%;
+    }
+    @include media-mobile-470 {
+        display: none;
     }
     @include media-mobile {
         display: none;
@@ -114,6 +130,10 @@
     @include media-tablet {
         margin-bottom: 18px;
     }
+    @include media-mobile-470 {
+        @include font(24px, 120%);
+        margin-bottom: 17px;
+    }
     @include media-mobile {
         @include font(24px, 120%);
         margin-bottom: 17px;
@@ -132,6 +152,9 @@
     @include media-tablet {
         padding-left: 0;
         padding-bottom: 13px;
+    }
+    @include media-mobile-470 {
+        display: none;
     }
     @include media-mobile {
         display: none;
@@ -164,12 +187,19 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+    @include media-mobile-620 {
+        margin-bottom: 10px;
+    }
     @include media-mobile {
         margin-bottom: 10px;
     }
 }
 
 .pick_and_feed_mobile {
+    @include media-mobile-620 {
+        margin-bottom: 40px;
+        line-height: 132%;
+    }
     @include media-mobile {
         margin-bottom: 40px;
         line-height: 132%;
@@ -181,12 +211,27 @@
     justify-content: space-between;
     color: $color-black_blue;
     padding: 0 198px;
+    @include media-desktop-1200 {
+        padding: 0 58px;
+    }
     @include media-desktopsmall {
         padding: 0 58px;
+    }
+    @include media-tablet-765 {
+        padding: 0;
+        padding-right: 13px;
     }
     @include media-tablet {
         padding: 0;
         padding-right: 13px;
+    }
+    @include media-mobile-620 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        @include font(16px, 140%);
+        padding-right: 0px;
     }
     @include media-mobile {
         display: flex;
@@ -211,6 +256,10 @@
         padding-top: 41px;
         padding-bottom: 60px;
     }
+    @include media-mobile-470 {
+        padding-top: 0px;
+        padding-bottom: 41px;
+    }
     @include media-mobile {
         padding-top: 0px;
         padding-bottom: 41px;
@@ -225,9 +274,16 @@
     position: absolute;
     top: 480px;
     left: 395px;
+    @include media-desktop-1200 {
+        top: 507px;
+        left: 27%;
+    }
     @include media-desktopsmall {
         top: 438px;
-        left: 256px;
+        left: 29%;
+    }
+    @include media-tablet-765 {
+        display: none;
     }
     @include media-tablet {
         display: none;
@@ -238,9 +294,16 @@
     position: absolute;
     top: 480px;
     left: 693px;
+    @include media-desktop-1200 {
+        top: 507px;
+        left: 64%;
+    }
     @include media-desktopsmall {
         top: 438px;
-        left: 553px;
+        left: 63%;
+    }
+    @include media-tablet-765 {
+        display: none;
     }
     @include media-tablet {
         display: none;
@@ -249,6 +312,10 @@
 
 .green_arrows {
     display: none;
+    @include media-tablet-765 {
+        display: block;
+        position: relative;
+    }
     @include media-tablet {
         display: block;
         position: relative;
@@ -260,10 +327,21 @@
 }
 
 .green_arrow {
+    @include media-tablet-765{
+        position: absolute;
+        top: -259px;
+        left: 137px;
+    }
     @include media-tablet {
         position: absolute;
         top: -259px;
         left: 137px;
+    }
+    @include media-mobile-620 {
+        position: absolute;
+        transform: rotate(85deg);
+        top: -564px;
+        left: 58%;
     }
     @include media-mobile {
         position: absolute;
@@ -274,10 +352,21 @@
 }
 
 .green_arrow_next {
+    @include media-tablet-765 {
+        position: absolute;
+        top: -259px;
+        left: 346px;
+    }
     @include media-tablet {
         position: absolute;
         top: -259px;
         left: 346px;
+    }
+    @include media-mobile-620 {
+        position: absolute;
+        transform: rotate(85deg);
+        top: -316px;
+        left: 58%;
     }
     @include media-mobile {
         position: absolute;
@@ -293,12 +382,18 @@
     font-size: 16px;
     line-height: 140%;
     color: #333B41;
+    @include media-mobile-470 {
+        padding-top: 3.5px;
+    }
     @include media-mobile {
         padding-top: 3.5px;
     }
 }
 
 .feed_card:last-child {
+    @include media-mobile-620 {
+        margin-top: -13px;
+    }
     @include media-mobile {
         margin-top: -13px;
     }
