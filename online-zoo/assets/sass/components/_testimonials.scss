@@ -48,6 +48,7 @@
    border-radius: 18px;
    background-color: $color-gray_light;
    padding: 4px;
+   overflow:hidden;
 }
 
 .layout-4-column {
@@ -391,4 +392,10 @@
     @include media-desktopsmall {
         display: none;
     }
+}
+
+//_________________________________________________________________
+
+.test_card {
+    display: none;
 }

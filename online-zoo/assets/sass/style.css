@@ -3331,6 +3331,7 @@ h4 {
   border-radius: 18px;
   background-color: #F1F3F2;
   padding: 4px;
+  overflow: hidden;
 }
 
 .layout-4-column {
@@ -3752,6 +3753,10 @@ h4 {
   .leav {
     display: none;
   }
+}
+
+.test_card {
+  display: none;
 }
 
 .donate_photo {
@@ -4727,21 +4732,6 @@ input::-webkit-inner-spin-button {
   transform: translate(-50%, -50%);
   opacity: 1;
   z-index: 2;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-    width: 24px;
-    opacity: 1;
-    margin-right: 12px;
-  }
-  to {
-    transform: rotate(360deg);
-    width: 24px;
-    opacity: 1;
-    margin-right: 12px;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
