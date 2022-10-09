@@ -1,6 +1,6 @@
 import {Review} from './js/Review';
 import dataReview from './js/dataReview';
-import dataPhothAnimals from './js/dataPhotoAnimal';
+import dataPhotoAnimals from './js/dataPhotoAnimal';
 import {pages} from './js/Pages';
 
 window.onload = function()  {
@@ -66,35 +66,37 @@ if (reviewParent) {
 //---------------Amount sider ---------
 
 const progressBar = document.getElementById('progress');
-const inputs = progressBar.getElementsByTagName('input');
+if (progressBar) {
+    const inputs = progressBar.getElementsByTagName('input');
 
-const amounts = Array.prototype.reduce.call(inputs, (acc, input) => {
-    const value = input.getAttribute('value');
-    acc[value] = input;
-    return acc;
-}, {});
-
-const amountInput = document.getElementById('amount');
-progressBar.addEventListener('change', (event) => {
-    const currentRadio = event.target.value;
-    amountInput.setAttribute('value', currentRadio);
-});
-
-amountInput.addEventListener('change', (event) => {
-    const value = event.target.value;
-    const radioInput = amounts[value];
-    if (radioInput) {
-        radioInput.setAttribute('checked', true);
-    }
-});
-
-amountInput.addEventListener('input', (event) => {
-    event.target.value = event.target.value.replace(/[^\d]/gm, '');
-});
-
-
-amountInput.setAttribute('value', 100);
-amounts['100'].setAttribute('checked', true);
+    const amounts = Array.prototype.reduce.call(inputs, (acc, input) => {
+        const value = input.getAttribute('value');
+        acc[value] = input;
+        return acc;
+    }, {});
+    
+    const amountInput = document.getElementById('amount');
+    progressBar.addEventListener('change', (event) => {
+        const currentRadio = event.target.value;
+        amountInput.setAttribute('value', currentRadio);
+    });
+    
+    amountInput.addEventListener('change', (event) => {
+        const value = event.target.value;
+        const radioInput = amounts[value];
+        if (radioInput) {
+            radioInput.setAttribute('checked', true);
+        }
+    });
+    
+    amountInput.addEventListener('input', (event) => {
+        event.target.value = event.target.value.replace(/[^\d]/gm, '');
+    });
+    
+    
+    amountInput.setAttribute('value', 100);
+    amounts['100'].setAttribute('checked', true);    
+}
 
 
 
@@ -102,5 +104,8 @@ amounts['100'].setAttribute('checked', true);
 
 
 const sliderPet = document.getElementById('pet_slider');
+if (sliderPet) {
+    // TODO: add work with Photo slider here
+}
 
 

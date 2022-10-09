@@ -1,4 +1,4 @@
-const dataPhothAnimals = [
+const dataPhotoAnimals = [
     {
         id: 1,
         animal: 'Giant Panda',
@@ -85,4 +85,4 @@ const dataPhothAnimals = [
     },
 ]
 
-export default dataPhothAnimals
+export default dataPhotoAnimals;
