@@ -30,7 +30,8 @@
 }
 
 .gradient_border {
-    display: flex;
+    display: none;
+    //display: flex;
     justify-content: center;
     align-items: center;
     width: 268px;
@@ -40,6 +41,10 @@
     @include media-desktopsmall {
         width: 293px;
     }
+}
+
+.gradient_border.active {
+    display: flex;
 }
 
 .testimonials_card {
@@ -167,6 +172,7 @@
 .avatar {
     width: 37px;
     height: 37px;
+    border-radius: 50%;
     margin: 9px 10px 0px 11px;
     @include media-tablet-954 {
         margin: 11px 8px 0px 9px;

@@ -3311,7 +3311,7 @@ h4 {
 }
 
 .gradient_border {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 268px;
@@ -3323,6 +3323,10 @@ h4 {
   .gradient_border {
     width: 293px;
   }
+}
+
+.gradient_border.active {
+  display: flex;
 }
 
 .testimonials_card {
@@ -3484,6 +3488,7 @@ h4 {
 .avatar {
   width: 37px;
   height: 37px;
+  border-radius: 50%;
   margin: 9px 10px 0px 11px;
 }
 @media (max-width: 954px) {
