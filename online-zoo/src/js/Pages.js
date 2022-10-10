@@ -30,6 +30,7 @@ export class Pages {
             idsSet.add(this.getRandomId(0, count));
         }
 
+        console.log(Array.from(idsSet))
         return Array.from(idsSet);
     }
 

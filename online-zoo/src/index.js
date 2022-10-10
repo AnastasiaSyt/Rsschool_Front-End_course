@@ -53,7 +53,7 @@ const getWindowType = () => {
 const reviewParent = document.getElementById('test_one');
 
 if (reviewParent) {
-    console.log(window.innerWidth);
+    //console.log(window.innerWidth);
     const review = new Review(dataReview, reviewParent, getWindowType());
     const reviewSlider = document.getElementById('reviewSlider');
     reviewSlider.setAttribute('max', review.getReviewsCount());
@@ -74,9 +74,7 @@ function addReviewClickHandler() {
         console.log(e.target);
         if (e.target.closest('.gradient_border_rows')) {
             const clickedId = e.target.closest('.gradient_border_rows').getAttribute('data-id');
-            //console.log(clickedId);
             const clickedReviewData = getClickedData(clickedId);
-            //console.log(clickedReviewData);
             new ReviewModal ('review-modal', clickedReviewData);
         }
     })
@@ -128,7 +126,24 @@ if (progressBar) {
 
 
 const sliderPet = document.getElementById('pet_slider');
-if (sliderPet) {
-    // TODO: add work with Photo slider here
-}
+// if (sliderPet) {
+//     const page  = new Pages(dataPhotoAnimals, sliderPet);
+//     page.addPageToContainer();
+    
+//     const buttonPrev = document.querySelector('.left_slider_button');
+//     const buttonNext = document.querySelector('.right_slider_button');
+
+//     buttonPrev.addEventListener('click', () => {
+//         if (page.currentPage == 1) {
+//             buttonPrev.classList.add('disabled');
+//         } else {
+//             page.currentPage -= 1;
+
+//         }
+//     });
+
+//     buttonNext.addEventListener('click', () => {
+//         page.currentPage += 1;
+//     });
+// }
 
