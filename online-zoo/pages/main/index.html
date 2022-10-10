@@ -12,6 +12,24 @@
 </head>
 <body>
     <header class="header">
+        <div class="darken_bg_ham"></div>
+                <div class="burger_menu">
+                    <a href="index.html" class="logo_hamburger">
+                        <object type="image/svg+xml" data="../../assets/icons/bamboo_orange.svg" class="logo-object_hamburger"></object>
+                        <p class="text_logo_hamburger">PetStory<br> online</p>
+                    </a>
+                    <nav class="header__navigation_hamburger">
+                        <ul class="navigation_hamburger">
+                            <li class="navigation__link_hamburger"><a href="index.html" class="nav_link_ham">About</a></li>
+                            <li class="navigation__link_hamburger"><a href="#" class="nav_link_ham">Map</a></li>
+                            <li class="navigation__link_hamburger"><a href="#" class="nav_link_ham">Zoos</a></li>
+                            <li class="navigation__link_hamburger" ><a href="../donate/index.html" class="nav_link_ham">Donate</a></li>
+                            <li class="navigation__link_hamburger"><a href="#" class="nav_link_ham">Contact us</a></li>
+                            <li class="navigation__link_hamburger"><a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks" class="nav_link_ham">Designed by ©</a></li>
+                        </ul>
+                    </nav>
+                    <span class="close_ham"></span>
+                </div>
         <div class="wrapper header__wrapper">
             <div class="header__content">
                 <a href="index.html" class="logo">
@@ -66,7 +84,7 @@
     <section class="pets">
         <div class="wrapper pets__wrapper">
             <button class="left_slider_button" data-slide="prev"><img src="../../assets/icons/arrow_left.svg" alt="arrow" class="arrow"></button>
-            <div class="layout-3-column">
+            <div class="layout-3-column" id="pet_slider">
                 <div class="pet_animal_card">
                     <img src="../../assets/images/animals_card/pandas_366.jpg" alt="pandas" class="animal_photo">
                     <div class="container">
@@ -267,69 +285,13 @@
     <section class="testimonials">
         <div class="wrapper">
             <h3 class="testimonials__title">Testimonials</h3>
-            <div class="layout-4-column">
-                <div class="gradient_border">
-                    <div class="testimonials_card">
-                        <div class="testimonials_card_head">
-                            <img src="../../assets/icons/user_icon.png" alt="user" class="avatar">
-                            <div class="title_content">
-                                <p class="testimonials_title_card">Michael John </p>
-                                <p class="testimonials_subtitle">Local Austria &bull; Today</p>
-                            </div>
-                        </div>
-                            <p class="testimonials_text">The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.
-                                The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.
-                                </p>
-                    </div>
-                </div>
-                <div class="gradient_border">
-                    <div class="testimonials_card">
-                        <div class="testimonials_card_head">
-                            <img src="../../assets/images/avatars/Ellipse 2.png" alt="avatar" class="avatar">
-                            <div class="title_content">
-                                <p class="testimonials_title_card">Oskar Samborsky </p>
-                                <p class="testimonials_subtitle">Local Austria &bull; Yesterday</p>
-                            </div>
-                        </div>
-                            <p class="testimonials_text">Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. 
-                                The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love </p>
-                    </div>
-                </div>
-                <div class="gradient_border">
-                    <div class="testimonials_card">
-                        <div class="testimonials_card_head">
-                            <img src="../../assets/images/avatars/Ellipse 3.png" alt="avatar" class="avatar">
-                            <div class="title_content">
-                                <p class="testimonials_title_card">Fredericka Michelin </p>
-                                <p class="testimonials_subtitle">Local Austria &bull; Yesterday</p>
-                            </div>
-                        </div>
-                            <p class="testimonials_text_1"> The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.
-                                The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met.<br>
-                                The best online zoo I’ve met. My son delighted very much ljves to 
-                                </p>
-                    </div>
-                </div>
-                <div class="gradient_border forth_card">
-                    <div class="testimonials_card">
-                        <div class="testimonials_card_head">
-                            <img src="../../assets/images/avatars/Ellipse 4.png" alt="avatar" class="avatar">
-                            <div class="title_content">
-                                <p class="testimonials_title_card">Mila Riksha </p>
-                                <p class="testimonials_subtitle">Local Austria &bull; Yesterday</p>
-                            </div>
-                        </div>
-                            <p class="testimonials_text">My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas.
-                                The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo
-                            </p>
-                    </div>
-                </div>
+            <div class="layout-4-column testimonials_wrapper" id="test_one">
             </div>
             <div class="layout_rows">
-                <div class="gradient_border_rows">
+                <div class="gradient_border_rows" data-id="1">
                     <div class="testimonials_card_rows">
                         <div class="testimonials_card_head">
-                            <img src="../../assets/icons/user_icon.png" alt="avatar" class="avatar">
+                            <img src="../../assets/images/avatars/Ellipse 1.jpg" alt="avatar" class="avatar">
                             <div class="title_content">
                                 <p class="testimonials_title_card">Michael John</p>
                                 <p class="testimonials_subtitle">Local Austria &bull; Today</p>
@@ -340,7 +302,7 @@
                                 <p class="testimonials_text_mobile">The best online zoo I’ve met. My son delighted very much ljves to watch....</p>
                     </div>
                 </div>
-                <div class="gradient_border_rows">
+                <div class="gradient_border_rows" data-id="4">
                     <div class="testimonials_card_rows">
                         <div class="testimonials_card_head">
                             <img src="../../assets/images/avatars/Ellipse 4.png" alt="avatar" class="avatar">
@@ -355,7 +317,7 @@
                             <p class="testimonials_text_mobile">My son delighted very much ljves to watch.... gouillas.The best online zoo I’</p>
                     </div>
                 </div>
-                <div class="gradient_border_rows">
+                <div class="gradient_border_rows" data-id="3">
                     <div class="testimonials_card_rows">
                         <div class="testimonials_card_head">
                             <img src="../../assets/images/avatars/Ellipse 3.png" alt="avatar" class="avatar">
@@ -374,7 +336,7 @@
             <div class="scroll slidecontainer">
                 <div class="line_scroll">
                     <div class="scroll_background">
-                        <input type="range" id="volume" name="volume" min="0" max="5" step="1" value="0" class="slider">
+                        <input type="range" id="reviewSlider" name="volume" min="0" max="0" step="1" value="0" class="slider">
                     </div>
                 </div>
             </div>
@@ -437,5 +399,6 @@
             </div>
         </div>
     </footer>
+    <script src="../../dist/bundle.js"></script>
 </body>
 </html>

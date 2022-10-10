@@ -12,6 +12,24 @@
 </head>
 <body>
     <header class="header">
+        <div class="darken_bg_ham"></div>
+                <div class="burger_menu">
+                    <a href="../main/index.html" class="logo_hamburger">
+                        <object type="image/svg+xml" data="../../assets/icons/bamboo_orange.svg" class="logo-object_hamburger"></object>
+                        <p class="text_logo_hamburger">PetStory<br> online</p>
+                    </a>
+                    <nav class="header__navigation_hamburger">
+                        <ul class="navigation_hamburger">
+                            <li class="navigation__link_hamburger"><a href="../main/index.html" class="nav_link_ham">About</a></li>
+                            <li class="navigation__link_hamburger"><a href="#" class="nav_link_ham">Map</a></li>
+                            <li class="navigation__link_hamburger"><a href="#" class="nav_link_ham">Zoos</a></li>
+                            <li class="navigation__link_hamburger" ><a href="index.html" class="nav_link_ham">Donate</a></li>
+                            <li class="navigation__link_hamburger"><a href="#" class="nav_link_ham">Contact us</a></li>
+                            <li class="navigation__link_hamburger"><a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks" class="nav_link_ham">Designed by ©</a></li>
+                        </ul>
+                    </nav>
+                    <span class="close_ham"></span>
+                </div>
         <div class="wrapper header__wrapper">
             <div class="header__content">
                 <a href="../main/index.html" class="logo">
@@ -65,23 +83,23 @@
                     <div class="donate_amount">
                         <p class="donate_amount_text">Amount</p>
                         <div class="progress">
-                            <form class="progress_bar">
+                            <form class="progress_bar" id="progress">
                                 <div id="amount-slider" class="amount-slider">
-                                    <input type="radio" name="amount" id="1" value="1" required class="input_slider">
+                                    <input type="radio" name="amount" id="1" value="5000" required class="input_slider">
                                     <label for="1" data-amount="$5000" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="2" value="2" required class="input_slider">
+                                    <input type="radio" name="amount" id="2" value="2000" required class="input_slider">
                                     <label for="2" data-amount="$2000" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="3" value="3" required class="input_slider">
+                                    <input type="radio" name="amount" id="3" value="1000" required class="input_slider">
                                     <label for="3" data-amount="$1000" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="4" value="4" required class="input_slider">
+                                    <input type="radio" name="amount" id="4" value="500" required class="input_slider">
                                     <label for="4" data-amount="$500" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="5" value="5" required class="input_slider">
+                                    <input type="radio" name="amount" id="5" value="250" required class="input_slider">
                                     <label for="5" data-amount="$250" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="6" value="6" required class="input_slider">
+                                    <input type="radio" name="amount" id="6" value="100" required class="input_slider">
                                     <label for="6" data-amount="$100" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="7" value="7" required class="input_slider">
+                                    <input type="radio" name="amount" id="7" value="50" required class="input_slider">
                                     <label for="7" data-amount="$50" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="8" value="8" required class="input_slider">
+                                    <input type="radio" name="amount" id="8" value="25" required class="input_slider">
                                     <label for="8" data-amount="$25" class="label_slider"></label>
                                     <div id="amount-pos" class="amount-pos"></div>
                                 </div>
@@ -90,19 +108,19 @@
                         <div class="progress_small">
                             <form class="progress_bar">
                                 <div id="amount-slider" class="amount-slider">
-                                    <input type="radio" name="amount" id="1" value="1" required class="input_slider tablet_input_slider">
+                                    <input type="radio" name="amount" id="1" value="2000" required class="input_slider tablet_input_slider">
                                     <label for="1" data-amount="$2000" class="label_slider tablet_label_slider"></label>
-                                    <input type="radio" name="amount" id="2" value="2" required class="input_slider tablet_input_slider">
+                                    <input type="radio" name="amount" id="2" value="1000" required class="input_slider tablet_input_slider">
                                     <label for="2" data-amount="$1000" class="label_slider tablet_label_slider"></label>
-                                    <input type="radio" name="amount" id="3" value="3" required class="input_slider tablet_input_slider">
+                                    <input type="radio" name="amount" id="3" value="500" required class="input_slider tablet_input_slider">
                                     <label for="3" data-amount="$500" class="label_slider tablet_label_slider"></label>
-                                    <input type="radio" name="amount" id="4" value="4" required class="input_slider">
+                                    <input type="radio" name="amount" id="4" value="250" required class="input_slider">
                                     <label for="4" data-amount="$250" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="5" value="5" required class="input_slider">
+                                    <input type="radio" name="amount" id="5" value="100" required class="input_slider">
                                     <label for="5" data-amount="$100" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="6" value="6" required class="input_slider">
+                                    <input type="radio" name="amount" id="6" value="50" required class="input_slider">
                                     <label for="6" data-amount="$50" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="7" value="7" required class="input_slider">
+                                    <input type="radio" name="amount" id="7" value="25" required class="input_slider">
                                     <label for="7" data-amount="$25" class="label_slider"></label>
                                     <div id="amount-pos" class="amount-pos"></div>
                                 </div>
@@ -111,22 +129,32 @@
                         <div class="progress_taablet">
                             <form class="progress_bar">
                                 <div id="amount-slider" class="amount-slider">
-                                    <input type="radio" name="amount" id="1" value="1" required class="input_slider">
+                                    <input type="radio" name="amount" id="1" value="500" required class="input_slider">
                                     <label for="1" data-amount="$500" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="2" value="2" required class="input_slider">
+                                    <input type="radio" name="amount" id="2" value="250" required class="input_slider">
                                     <label for="2" data-amount="$250" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="3" value="3" required class="input_slider">
+                                    <input type="radio" name="amount" id="3" value="100" required class="input_slider">
                                     <label for="3" data-amount="$100" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="4" value="4" required class="input_slider">
+                                    <input type="radio" name="amount" id="4" value="50" required class="input_slider">
                                     <label for="4" data-amount="$50" class="label_slider"></label>
-                                    <input type="radio" name="amount" id="5" value="5" required class="input_slider">
+                                    <input type="radio" name="amount" id="5" value="25" required class="input_slider">
                                     <label for="5" data-amount="$25" class="label_slider"></label>
                                     <div id="amount-pos" class="amount-pos"></div>
                                 </div>
                             </form>
                         </div>
                         <div class="donate_input">
-                            <input type="number" class="another_amount" placeholder="Another amount" min="0" max="9999" onkeypress="this.value=this.value.substring(0,3)">
+                            <input
+                                type="text"
+                                inputmode="numeric"
+                                pattern="\d*"
+                                class="another_amount"
+                                id="amount"
+                                placeholder="Another amount"
+                                min="0"
+                                max="9999"
+                                maxlength="4"
+                             >
                         </div>
                         <div class="donate_radiobuttons">
                             <input type="radio" id="choice1"
@@ -148,7 +176,7 @@
         <footer class="footer">
             <div class="wrapper">
                 <div class="layout-2-columns_footer">
-                    <a href="index.html" class="logo_footer">
+                    <a href="../main/index.html" class="logo_footer">
                         <object type="image/svg+xml" data="../../assets/icons/bamboo.svg" class="logo-object_footer"></object>
                         <p class="logo_footer_text">PetStory<br> online</p>
                         <p class="logo_footer_text_mobile">PetStory online</p>
@@ -197,5 +225,6 @@
             </div>
         </footer>
     </main>
+    <script src="../../dist/bundle.js"></script>
 </body>
 </html>

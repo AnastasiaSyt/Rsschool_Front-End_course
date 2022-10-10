@@ -1,0 +1,88 @@
+const dataPhotoAnimals = [
+    {
+        id: 1,
+        animal: 'Giant Panda',
+        text: 'Native to Southwest China',
+        img: '../../assets/images/animals_card/pandas_366.jpg',
+        icon: '../../assets/icons/banana-bamboo_icon.svg',
+    },
+    {
+        id: 2,
+        animal: 'Eagles',
+        text: 'Native to South America',
+        img: '../../assets/images/animals_card/eagles_366.jpg',
+        icon: '../../assets/icons/meet-fish_icon.svg',
+    },
+    {
+        id: 3,
+        animal: 'Gorillas',
+        text: 'Native to Congo',
+        img: '../../assets/images/animals_card/gorillas_366.jpg',
+        icon: '../../assets/icons/meet-fish_icon.svg',
+    },
+    {
+        id: 4,
+        animal: 'Cheetahs',
+        text: 'Native to Africa',
+        img: '../../assets/images/animals_card/cheetahs_366.jpg',
+        icon: '../../assets/icons/meet-fish_icon.svg',
+    },
+    {
+        id: 5,
+        animal: 'Two-toed Sloth',
+        text: 'Mesoamerica, South America',
+        img: '../../assets/images/animals_card/sloth_366.jpg',
+        icon: '../../assets/icons/banana-bamboo_icon.svg',
+    },
+    {
+        id: 6,
+        animal: 'Alligators',
+        text: 'Native to Southeastern U. S.',
+        img: '../../assets/images/animals_card/alligators.jpg',
+        icon: '../../assets/icons/meet-fish_icon.svg',
+    },
+    {
+        id: 7,
+        animal: 'Penguins',
+        text: 'Native to Antarctica',
+        img: '../../assets/images/animals_card/penguins_366.jpg',
+        icon: '../../assets/icons/meet-fish_icon.svg',
+    },
+    {
+        id: 8,
+        animal: 'Squirrel',
+        text: 'Native to Europe',
+        img: '../../assets/images/animals_card/squirell.jpg',
+        icon: '../../assets/icons/banana-bamboo_icon.svg',
+    },
+    {
+        id: 9,
+        animal: 'Polar bear',
+        text: 'Native to Antarctica',
+        img: '../../assets/images/animals_card/polar_bear.jpg',
+        icon: '../../assets/icons/meet-fish_icon.svg',
+    },
+    {
+        id: 10,
+        animal: 'Zebra',
+        text: 'Native to Africa',
+        img: '../../assets/images/animals_card/zebra.jpg',
+        icon: '../../assets/icons/banana-bamboo_icon.svg',
+    },
+    {
+        id: 11,
+        animal: 'Parrot',
+        text: 'Native to Amazonia',
+        img: '../../assets/images/animals_card/parrot.jpg',
+        icon: '../../assets/icons/banana-bamboo_icon.svg',
+    },
+    {
+        id: 12,
+        animal: 'Doe',
+        text: 'Native to North America',
+        img: '../../assets/images/animals_card/doa.jpg',
+        icon: '../../assets/icons/banana-bamboo_icon.svg',
+    },
+]
+
+export default dataPhotoAnimals;
