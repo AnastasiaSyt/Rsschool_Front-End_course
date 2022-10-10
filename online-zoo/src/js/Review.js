@@ -61,7 +61,7 @@ export class Review {
                         <p class="testimonials_subtitle">Local ${reviewItem.local} &bull; Today</p>
                     </div>
                 </div>
-                    <p class="testimonials_text">${reviewItem.content}<</p>
+                    <p class="testimonials_text">${reviewItem.content}</p>
             </div>
         `;
     }

@@ -297,7 +297,6 @@
     padding-left: 92px;
     @include media-desktopsmall {
         display: none;
-        //padding-left: 66px;
     }
 }
 
@@ -568,7 +567,6 @@ $number-of-options: 7;
     background: #72828E;
     border-radius: 2px;
     width: 915px;
-    //width: calc(100% * (#{$number-of-options - 1} / #{$number-of-options}));
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -596,19 +594,15 @@ $number-of-options: 7;
 
 .input_slider {
     box-sizing: border-box;
-	//flex: 1;
 	user-select: none;
 	cursor: pointer;
 }
 
 .label_slider {
     box-sizing: border-box;
-	//flex: 1; 
 	user-select: none;
 	cursor: pointer;
     display: inline-block;
-// display: flex;
-// justify-content: space-between;
     position: relative;
     width: 1%; 
     height: 100%; 
@@ -707,7 +701,6 @@ $number-of-options: 7;
 			opacity: 1;
 				}
  			+ label::after {
-            //border-width: 4px;
             color: #FE9013;
  			transform: translate(-50%, -50%) scale(1.0);
 				}

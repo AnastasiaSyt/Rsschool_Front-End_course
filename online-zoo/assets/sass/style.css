@@ -315,7 +315,7 @@ section, main, footer, header, article {
   box-sizing: border-box;
 }
 
-.darken_bg_ham, .logo-path {
+.modalBackground, .darken_bg_ham, .logo-path {
   transition: all 0.3s ease-out;
 }
 
@@ -613,12 +613,12 @@ h4 {
 }
 
 .darken_bg_ham {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   margin: 0 auto;
   width: 100%;
-  height: 5000%;
+  height: 100%;
   z-index: -100;
   pointer-events: none;
   background: rgba(0, 0, 0, 0);

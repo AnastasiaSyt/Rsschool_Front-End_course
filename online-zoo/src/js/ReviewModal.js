@@ -1,21 +1,10 @@
 import { Modal } from './Modal';
 
 export class ReviewModal extends Modal {
-    constructor (classes, { reviews, parent, currentSize }) {
+    constructor (classes, content) {
         super(classes);
-        this.reviews = reviews.map((review, index) => {
-            const reviewHTML =  this.generateReview(review);
-            const element = document.createElement('div');
-            element.classList.add('gradient_border');
-            element.setAttribute('data-id', review.id);
-            element.innerHTML = reviewHTML;
-            parent.append(element);
+        this.renderModal(content);
 
-            return element;
-        });
-
-        this.changeStepsCount(currentSize);
-        this.setCurrentActive(1);
     }
 
     generateReview(reviewItem) {
@@ -35,8 +24,8 @@ export class ReviewModal extends Modal {
         `;
     }
 
-    renderModal() {
-        const content  = this.generateReview();
+    renderModal(dataReview) {
+        const content  = this.generateReview(dataReview);
         super.generateModal(content);
     }
 }
