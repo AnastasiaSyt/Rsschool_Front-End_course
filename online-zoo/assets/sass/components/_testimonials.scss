@@ -30,7 +30,8 @@
 }
 
 .gradient_border {
-    display: flex;
+    display: none;
+    //display: flex;
     justify-content: center;
     align-items: center;
     width: 268px;
@@ -42,12 +43,17 @@
     }
 }
 
+.gradient_border.active {
+    display: flex;
+}
+
 .testimonials_card {
    width: calc(100% - 4px);
    height: calc(100% - 4px);
    border-radius: 18px;
    background-color: $color-gray_light;
    padding: 4px;
+   overflow:hidden;
 }
 
 .layout-4-column {
@@ -166,6 +172,7 @@
 .avatar {
     width: 37px;
     height: 37px;
+    border-radius: 50%;
     margin: 9px 10px 0px 11px;
     @include media-tablet-954 {
         margin: 11px 8px 0px 9px;
@@ -391,4 +398,10 @@
     @include media-desktopsmall {
         display: none;
     }
+}
+
+//_________________________________________________________________
+
+.test_card {
+    display: none;
 }
