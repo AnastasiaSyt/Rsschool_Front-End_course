@@ -1,11 +1,15 @@
-import {Review} from './js/Review';
+import { Review } from './js/Review';
 import dataReview from './js/dataReview';
 import dataPhotoAnimals from './js/dataPhotoAnimal';
-import {pages} from './js/Pages';
+import { Pages } from './js/Pages';
+import { Modal } from './js/Modal';
+import { ReviewModal } from './js/ReviewModal';
 
 window.onload = function()  {
     console.log("Hello!");
 }
+
+
 
 //--------------- Burger menu ---------------
 
@@ -61,9 +65,34 @@ if (reviewParent) {
         const type = getWindowType();
         review.changeStepsCount(type);
     })
+
+    addReviewClickHandler();
 }
 
-//---------------Amount sider ---------
+function addReviewClickHandler() {
+    document.querySelector('.layout_rows').addEventListener('click', (e) => {
+        console.log(e.target);
+        if (e.target.closest('.gradient_border_rows')) {
+            const clickedId = e.target.closest('.gradient_border_rows').getAttribute('data-id');
+            //console.log(clickedId);
+            const clickedReviewData = getClickedData(clickedId);
+            //console.log(clickedReviewData);
+            renderReviewModal(clickedReviewData);
+        }
+    })
+}
+
+function getClickedData(id) {
+    return dataReview.find( review => review.id == id);
+}
+
+function renderReviewModal(content) {
+    const modal = new ReviewModal ('review-modal', content);
+    //console.log(modal);
+    modal.renderModalWindow();
+}
+
+//---------------Amount slider ---------
 
 const progressBar = document.getElementById('progress');
 if (progressBar) {
@@ -109,3 +138,37 @@ if (sliderPet) {
 }
 
 
+//____________________
+
+//generate base modal from modal class
+addToolsClickHandler();
+
+// const addToolsClickHandler = () => {
+//   document.querySelector('div.testimonials_button button').addEventListener('click', () =>{
+//     generateToolsModal();
+//   })
+// }
+
+function addToolsClickHandler() {
+  document.querySelector('div.testimonials_button button').addEventListener('click', () =>{
+    generateToolsModal();
+  })
+}
+
+// const generateToolsModal = () => {
+//   renderModalWindow("content text");
+// }
+
+function generateToolsModal() {
+  renderModalWindow("content text");
+}
+
+const renderModalWindow = (content) => {
+  let modal = new Modal ('modal_popup');
+  modal.generateModal(content); 
+}
+
+// function renderModalWindow(content) {
+//   let modal = new Modal ('tools-modal');
+//   modal.buildModal(content); 
+// }

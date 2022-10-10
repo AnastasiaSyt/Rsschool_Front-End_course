@@ -15,14 +15,14 @@ const dataReview = [
     },
     {
         id: 3,
-        nameUser: 'Phillip D',
+        nameUser: 'Fredericka Michelin',
         local: 'Belarus',
         content: 'Came to the zoo as we alway try and visit one when on holiday. Lots of animals to see, particularly like the penguins, seals and walrus\’ It was a cold day so lots of the animals where trying to keep warm, but still plenty to see.Also visited the aquarium,it was nice but we have been to better, but plenty to look at.',
         avatar: '../../assets/images/avatars/Ellipse 3.png',
     },
     {
         id: 4,
-        nameUser: 'Adrian L',
+        nameUser: 'Oska Samborska',
         local: 'China',
         content: 'My godson and his little brother really love zoos and their parents and I brought them to this famous zoo in Germany. The parents told me that they had the best array of animals, and they were allowed to feed certain animals such as monkeys, elephants and lamas. They have stalls providing food after passing the entrance and the min-car/trolley area. There are no fees but you are encouraged to make a donations, which most people do. Even one or two euros are appreciated by the staff. The kids have a fun times feeding the elephants and other animals.',
         avatar: '../../assets/images/avatars/Ellipse 4.png',
