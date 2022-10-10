@@ -226,6 +226,10 @@
     background: $color-active;
 }
 
+.left_slider_button.disabled {
+    background: $color-gray;
+}
+
 .background_photo {
     display: flex;
     align-items: flex-end;
