@@ -34,7 +34,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
-    padding-bottom: 39px;
+    padding-bottom: 35px;
 }
 
 .footer-title {
@@ -66,8 +66,23 @@
     color: $color-active;
 }
 
+.button_submit:hover {
+    border: 1px solid $color-hover;
+    color: $color-hover;
+}
+
+.button_submit:active {
+    border: 1px solid $color-active;
+    color: $color-active;
+}
+
+.sumbit_mistake {
+    border: 1px solid $color-red;
+    color: $color-red;
+}
+
 .footer_button {
-    padding-bottom: 27px;
+    padding-bottom: 33px;
 }
 
 .layout-3-columns_footer {
@@ -88,14 +103,30 @@
 
 
 
-.social-networks {
-    vertical-align: middle;
-    padding-right: 12px;
-}
+// .social-networks {
+//     //vertical-align: middle;
+//     //padding-right: 12px;
+// }
 
 .footer_social-networks_item {
     padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon_social {
     transition: opacity .4s;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(196, 196, 196, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2px;
+    margin-right: 12px;
+    cursor: pointer;
 }
 
 .footer_social-networks_item:last-child {
@@ -104,10 +135,20 @@
 
 .footer_social-networks_item:hover {
     color: $color-hover;
+    //background: $color-hover;
 }
 
 .footer_social-networks_item:active {
     color: $color-active;
+    //background: $color-active;
+}
+
+.icon_social:hover {
+    background: $color-hover;
+}
+
+.icon_social:active {
+    background: $color-active;
 }
 
 .footer__navigation_items {
@@ -131,4 +172,32 @@
 .footer_text {
     @include font(16px, 115%, 100);
     color: $color-light;
+}
+
+.footer_link:hover .footer_text {
+    color: $color-hover;
+    text-decoration: underline;
+}
+
+.footer_link:active .footer_text {
+    color: $color-active;
+    text-decoration: underline;
+}
+
+.social_network_link {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+.social_network_link:hover {
+    color: $color-hover;
+}
+
+.social_network_link:active {
+    color: $color-active;
 }

@@ -261,11 +261,9 @@
             <div class="scroll slidecontainer">
                 <div class="line_scroll">
                     <div class="scroll_background">
-                        <!-- <div class="scroll_control"></div> -->
                         <input type="range" id="volume" name="volume" min="0" max="5" step="1" value="0" class="slider">
                     </div>
                 </div>
-                <!-- <input type="range" id="volume" name="volume" min="0" max="5" step="1" class="slider"> -->
             </div>
             <div class="testimonials_button">
                 <button class="button button_rectangle">leave feedback</button>
@@ -284,8 +282,10 @@
                 </a>
                 <div class="email-form">
                     <h4 class="footer-title">Subscribe to our news</h4>
-                    <input type="email" name="email" placeholder="Enter your email" class="input_email">
-                    <button type="submit" class="button_submit">Submit</button>
+                    <form action="#" class="email_data">
+                        <input type="email" name="email" required="required" placeholder="Enter your email" class="input_email">
+                        <button type="submit" class="button_submit sumbit_mistake">Submit</button>
+                    </form>
                 </div>
             </div>
             <form class="footer_button" action="/pages/donate/index.html" target="_blank">
@@ -293,17 +293,17 @@
             </form>
             <div class="layout-3-columns_footer">
                 <ul class="footer_social-networks">
-                    <li class="footer_social-networks_item"><img src="/assets/icons/social_network/facebook.svg" alt="social-networks" class="social-networks">Facebook</li>
-                    <li class="footer_social-networks_item"><img src="/assets/icons/social_network/twitter.svg" alt="social-networks" class="social-networks">Twitter</li>
-                    <li class="footer_social-networks_item"><img src="/assets/icons/social_network/instagram.svg" alt="social-networks" class="social-networks">Instagram</li>
-                    <li class="footer_social-networks_item"><img src="/assets/icons/social_network/youtube.svg" alt="social-networks" class="social-networks">YouTube</li>
+                    <li class="footer_social-networks_item"><a href="https://www.facebook.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/facebook_1.svg" alt="social-networks" class="social-networks"></div>Facebook</a></li>
+                    <li class="footer_social-networks_item"><a href="https://www.twitter.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/twitter_1.svg" alt="social-networks" class="social-networks"></div>Twitter</a></li>
+                    <li class="footer_social-networks_item"><a href="https://www.instagram.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/instagram_1.svg" alt="social-networks" class="social-networks"></div>Instagram</a></li>
+                    <li class="footer_social-networks_item"><a href="https://www.youtube.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/youtube_1.svg" alt="social-networks" class="social-networks"></div>YouTube</a></li>
                 </ul>
                 <nav class="footer__navigation">
                     <ul class="footer__navigation_items">
                         <li class="footer__navigation_link"><a href="/pages/main/index.html" class="active_link">About</a></li>
-                        <li class="footer__navigation_link">Map</li>
-                        <li class="footer__navigation_link">Zoos</li>
-                        <li class="footer__navigation_link">Contact us</li>
+                        <li class="footer__navigation_link"><a href="#" class="nav_link">Map</a></li>
+                        <li class="footer__navigation_link"><a href="#" class="nav_link">Zoos</a></li>
+                        <li class="footer__navigation_link"><a href="#" class="nav_link">Contact us</a></li>
                     </ul>
                 </nav>
                 <div class="footer_link">

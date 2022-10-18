@@ -58,40 +58,43 @@
                         <img src="/assets/icons/animals_widget/panda-widget.svg" alt="panda-widget" class="animal-widget">
                     </div>
                     <div class="donate_amount">
-                        <p class="donate_amoumnt_text">Amount</p>
+                        <p class="donate_amount_text">Amount</p>
                         <div class="progress">
-                            <div class="progress_bar">
-                                <div class="line_progress_bar">
-                                    <div class="roller"></div>
-                                    <div class="roller"></div>
-                                    <div class="roller"></div>
-                                    <div class="roller"></div>
-                                    <div class="roller"></div>
-                                    <div class="roller"></div>
-                                    <div class="roller"></div>
-                                    <div class="roller"></div>
+                            <form class="progress_bar">
+                                <div id="amount-slider">
+                                    <input type="radio" name="amount" id="1" value="1" required>
+                                    <label for="1" data-amount="5000$"></label>
+                                    <input type="radio" name="amount" id="2" value="2" required>
+                                    <label for="2" data-amount="2000$"></label>
+                                    <input type="radio" name="amount" id="3" value="3" required>
+                                    <label for="3" data-amount="1000$"></label>
+                                    <input type="radio" name="amount" id="4" value="4" required>
+                                    <label for="4" data-amount="500$"></label>
+                                    <input type="radio" name="amount" id="5" value="5" required>
+                                    <label for="5" data-amount="250$"></label>
+                                    <input type="radio" name="amount" id="6" value="6" required>
+                                    <label for="6" data-amount="100$"></label>
+                                    <input type="radio" name="amount" id="7" value="7" required>
+                                    <label for="7" data-amount="50$"></label>
+                                    <div id="amount-pos"></div>
                                 </div>
-                            </div>
-                            <div class="progress-bar_items">
-                                <p class="progress-bar-sum">$5000</p>
-                                <p class="progress-bar-sum">$2000</p>
-                                <p class="progress-bar-sum">$1000</p>
-                                <p class="progress-bar-sum">$500</p>
-                                <p class="progress-bar-sum">$250</p>
-                                <p class="progress-bar-sum">$100</p>
-                                <p class="progress-bar-sum">$50</p>
-                                <p class="progress-bar-sum">$25</p>
-                            </div>
+                            </form>
                         </div>
                         <div class="donate_input">
-                            <input type="text" class="another_amount" placeholder="Another amount">
-                            <img src="/assets/icons/dollar.svg" alt="dollar" class="icon_dollar">
+                            <input type="number" class="another_amount" placeholder="Another amount" min="0" max="9999" onkeypress="this.value=this.value.substring(0,3)">
                         </div>
                         <div class="donate_radiobuttons">
-                            <input type="radio" id="monthly" name="monthly" class="donate_radio">
+                            <!-- <input type="radio" id="monthly" name="monthly" class="donate_radio">
                             <label for="monthly" class="donate_radio_label">Monthly</label>
                             <input type="radio" id="once" name="once" class="donate_radio">
-                            <label for="once" class="donate_radio_label">Once</label>
+                            <label for="once" class="donate_radio_label">Once</label> -->
+                            <input type="radio" id="choice1"
+                            name="how_often" value="monthly" class="donate_radio">
+                            <label for="choice1" class="donate_radio_label">Monthly</label>
+
+                            <input type="radio" id="choice2"
+                            name="how_often" value="once" checked class="donate_radio">
+                            <label for="choice2" class="donate_radio_label">Once</label>
                         </div>
                     </div>
                     <div class="donate_button">
@@ -110,26 +113,28 @@
                     </a>
                     <div class="email-form">
                         <h4 class="footer-title">Subscribe to our news</h4>
-                        <input type="email" name="email" placeholder="Enter your email" class="input_email">
-                        <button type="submit" class="button_submit">Submit</button>
+                        <form action="#" class="email_data">
+                            <input type="email" name="email" required="required" placeholder="Enter your email" class="input_email">
+                            <button type="submit" class="button_submit sumbit_mistake">Submit</button>
+                        </form>
                     </div>
                 </div>
-                <div class="fotter_button">
+                <form class="footer_button" action="/pages/donate/index.html" target="_blank">
                     <button class="button button_rectangle">donate for volunteers</button>
-                </div>
+                </form>
                 <div class="layout-3-columns_footer">
                     <ul class="footer_social-networks">
-                        <li class="footer_social-networks_item"><img src="/assets/icons/social_network/facebook.svg" alt="social-networks" class="social-networks">Facebook</li>
-                        <li class="footer_social-networks_item"><img src="/assets/icons/social_network/twitter.svg" alt="social-networks" class="social-networks">Twitter</li>
-                        <li class="footer_social-networks_item"><img src="/assets/icons/social_network/instagram.svg" alt="social-networks" class="social-networks">Instagram</li>
-                        <li class="footer_social-networks_item"><img src="/assets/icons/social_network/youtube.svg" alt="social-networks" class="social-networks">YouTube</li>
+                        <li class="footer_social-networks_item"><a href="https://www.facebook.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/facebook_1.svg" alt="social-networks" class="social-networks"></div>Facebook</a></li>
+                        <li class="footer_social-networks_item"><a href="https://www.twitter.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/twitter_1.svg" alt="social-networks" class="social-networks"></div>Twitter</a></li>
+                        <li class="footer_social-networks_item"><a href="https://www.instagram.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/instagram_1.svg" alt="social-networks" class="social-networks"></div>Instagram</a></li>
+                        <li class="footer_social-networks_item"><a href="https://www.youtube.com" class="social_network_link"><div class="icon_social"><img src="/assets/icons/social_network/youtube_1.svg" alt="social-networks" class="social-networks"></div>YouTube</a></li>
                     </ul>
                     <nav class="footer__navigation">
                         <ul class="footer__navigation_items">
-                            <li class="footer__navigation_link">About</li>
-                            <li class="footer__navigation_link">Map</li>
-                            <li class="footer__navigation_link">Zoos</li>
-                            <li class="footer__navigation_link">Contact us</li>
+                            <li class="footer__navigation_link"><a href="/pages/main/index.html" class="nav_link">About</a></li>
+                            <li class="footer__navigation_link"><a href="#" class="nav_link">Map</a></li>
+                            <li class="footer__navigation_link"><a href="#" class="nav_link">Zoos</a></li>
+                            <li class="footer__navigation_link"><a href="#" class="nav_link">Contact us</a></li>
                         </ul>
                     </nav>
                     <div class="footer_link">
