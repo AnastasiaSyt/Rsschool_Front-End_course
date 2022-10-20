@@ -1,4 +1,27 @@
 
+//_____________add layout______________________________
+
+const wrapper = document.createElement("div");
+wrapper.classList.add("wrapper");
+document.body.appendChild(wrapper);
+
+const playField = document.createElement("div");
+playField.classList.add("playField");
+wrapper.append(playField);
+
+const buttons = document.createElement("div");
+buttons.classList.add("buttons");
+playField.append(buttons);
+
+const start = document.createElement("button");
+start.classList.add("start");
+buttons.append(start);
+
+const startText = document.createTextNode("Shuffle and start");
+start.appendChild(startText);
+
+
+
 //_____________Create the canvas area__________________
 
 const widthArea = 400;
@@ -8,7 +31,8 @@ const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = widthArea;
 canvas.height = heightArea;
-document.body.appendChild(canvas);
+playField.appendChild(canvas);
+//document.body.appendChild(canvas);
 
 
 
@@ -23,21 +47,51 @@ let finalTiles = []; //выигрышное положение плиточек
 
 let hoveredTile = null; 
 
+//image
 
+
+// const img = new Image();
+// img.src = "./Assets/img/test2.png";
 
 //_______________Events _____________________________________________________
+
+start.addEventListener('click', startGame);
 
 canvas.addEventListener('mousemove', (e) => {
     const clientX = e.offsetX;
     const clientY = e.offsetY;
-    if (currentHover(clientX, clientY)) {
-        return
-    }
+    // if (currentHover(clientX, clientY)) {
+    //     return;
+    // } //если мы уже над плиткой?
     hoveredTile = getHoveredTile(clientX, clientY);
 })
 
 canvas.addEventListener('mouseout', () => {
     hoveredTile = null;
+})
+
+
+//_______________Click to move tiles_____________________________________________
+
+canvas.addEventListener('click', (e) => {
+    const clientX = e.offsetX;
+    const clientY = e.offsetY;
+
+    if (currentHover(clientX, clientY)) {
+        const tileUp = tilesValue[hoveredTile.i]?.[hoveredTile.j + 1] === 0 && { i: hoveredTile.i, j: hoveredTile.j + 1 };
+        const tileDown = tilesValue[hoveredTile.i]?.[hoveredTile.j - 1] === 0 && { i: hoveredTile.i, j: hoveredTile.j - 1 };
+        const tileLeft = tilesValue[hoveredTile.i - 1]?.[hoveredTile.j] === 0 && { i: hoveredTile.i - 1, j: hoveredTile.j };
+        const tileRight = tilesValue[hoveredTile.i + 1]?.[hoveredTile.j] === 0 && { i: hoveredTile.i + 1, j: hoveredTile.j };
+
+        const emptyTile = (tileUp || tileDown || tileLeft || tileRight);
+
+        if (emptyTile) {
+            const currentTile = tilesValue[hoveredTile.i][hoveredTile.j];
+            tilesValue[hoveredTile.i][hoveredTile.j] = 0;
+            tilesValue[emptyTile.i][emptyTile.j] = currentTile;
+            hoveredTile = null;
+        }
+    }
 })
 
 
@@ -121,7 +175,7 @@ function getCoordinates() {
 // _______________________Renders________________________
 
 function drawTiles() {
-    //ctx.clearRect(0, 0, widthArea, heightArea);
+    ctx.clearRect(0, 0, widthArea, heightArea); //чтобы очищалось место сдвинутой ячейки
 
     for (let i = 0; i < tilesValue.length; i++) {
         for (let j = 0; j < tilesValue.length; j++) {
@@ -137,6 +191,7 @@ function drawTiles() {
                 }
 
                 ctx.rect( dx, dy, tileSize, tileSize);
+                //ctx.drawImage(img, dx, dy);
                 ctx.fill();
 
                 ctx.strokeStyle = '#AAAAAA';

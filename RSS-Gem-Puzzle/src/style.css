@@ -25,3 +25,25 @@ canvas {
 canvas:hover {
   cursor: pointer;
 }
+
+.start {
+  padding: 8px 8px;
+  width: 137px;
+  height: 40px;
+
+  background: #0D9095;
+  border-style: none;
+  border-radius: 5px;
+
+  margin-bottom: 20px;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 16px;
+  transition: all .5s ease-out;
+}
+
+.start:hover {
+  background: #0c6a6d;
+}
