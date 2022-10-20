@@ -1,17 +1,18 @@
 
-// Create the canvas
+//_____________Create the canvas area__________________
 
 const widthArea = 400;
 const heightArea = 400;
 
 const canvas = document.createElement("canvas");
-const  ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 canvas.width = widthArea;
 canvas.height = heightArea;
 document.body.appendChild(canvas);
 
 
-// Variable
+
+//_______________Variable___________________________________
 
 const tileCount = 4; //разрядность матрицы потом надо будет изменить на LET
 const tileSize = widthArea/tileCount; //размер плиточки
@@ -20,7 +21,43 @@ let tilesValue = []; //рандомные значения плиточек
 let coordinates = []; //кординаты плиточек 
 let finalTiles = []; //выигрышное положение плиточек
 
+let hoveredTile = null; 
 
+
+
+//_______________Events _____________________________________________________
+
+canvas.addEventListener('mousemove', (e) => {
+    const clientX = e.offsetX;
+    const clientY = e.offsetY;
+    if (currentHover(clientX, clientY)) {
+        return
+    }
+    hoveredTile = getHoveredTile(clientX, clientY);
+})
+
+canvas.addEventListener('mouseout', () => {
+    hoveredTile = null;
+})
+
+
+
+//________________________________________Hover tiles____________________________________
+
+function getHoveredTile(clientX, clientY) {
+    return coordinates.find((coord) => {
+        return (clientX > coord.x) && (clientX < coord.x + tileSize) && (clientY > coord.y) && (clientY < coord.y + tileSize);
+    })
+}
+
+function currentHover(clientX, clientY) {
+    const currentTileHover = hoveredTile && (clientX > hoveredTile.x) && (clientX < hoveredTile.x + tileSize) && (clientY > hoveredTile.y) && (clientY < hoveredTile.y + tileSize);
+    return currentTileHover;
+}
+
+
+
+//_________________________________ Arrays_______________________________________________________
 
 /**
  * Функция генерирует исходный массив, для игры
@@ -69,7 +106,6 @@ function initTilesValue() {
 /**
  * Функция возвращает координаты верхнего левого угла каждой будущей ячейки
  */
-
 function getCoordinates() {
     const result = [];
     for (let i = 0; i < tileCount; i++) {
@@ -82,12 +118,57 @@ function getCoordinates() {
 
 
 
+// _______________________Renders________________________
+
+function drawTiles() {
+    //ctx.clearRect(0, 0, widthArea, heightArea);
+
+    for (let i = 0; i < tilesValue.length; i++) {
+        for (let j = 0; j < tilesValue.length; j++) {
+            const dx = j * tileSize; //получение горизонтальной координаты
+            const dy = i * tileSize; //Получение вертикальной координаты
+            if (tilesValue[i][j]) {
+                ctx.beginPath();
+
+                if (hoveredTile && hoveredTile.x === dx && hoveredTile.y === dy) {
+                    ctx.fillStyle = '#0D9095';
+                } else {
+                    ctx.fillStyle ='white';
+                }
+
+                ctx.rect( dx, dy, tileSize, tileSize);
+                ctx.fill();
+
+                ctx.strokeStyle = '#AAAAAA';
+                ctx.lineWidth = 8;
+                ctx.stroke();
+
+                ctx.font = 'bold 52px Arial';
+                ctx.fillStyle = '#BBBBBB';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+
+                const text = tilesValue[i][j];
+                const measuredText = ctx.measureText(text);
+                const centeredText = tileSize - measuredText.width; //центрирование текста в плиточке
+
+                ctx.fillText(tilesValue[i][j], dx + centeredText/2, dy + tileSize/2);
+            }
+        }
+    }
+    requestAnimationFrame(drawTiles);
+}
+
+
+
+//_____________________START__________________________
+
 function startGame() {
     
     tilesValue = initTilesValue();
     coordinates = getCoordinates();
     finalTiles = getFinalTiles();
-    
+    drawTiles();
     console.log(tilesValue, coordinates, finalTiles);
 }
 
