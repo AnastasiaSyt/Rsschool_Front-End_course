@@ -1,4 +1,22 @@
-html {
+:root {
+  --color1: #ff7171; /* Red */
+  --color2: #ffc862; /* Orange */
+  --color3: #ffff65; /* Yellow */
+  --color4: #7dff7d; /* Green */
+  --color5: #a2a2ff; /* Blue */
+  --color6: #e5c0ff; /* Indigo */
+  --color7: #d39aff; /* Violet */
+
+  /* :root {
+  /*  --color1: #ff0000; /* Red */
+  /* --color2: #ffa500; /* Orange */
+  /*  --color3: #ffff00; /* Yellow */
+  /*  --color4: #00ff00; /* Green */
+  /*  --color5: #0000ff; /* Blue */
+  /*  --color6: #4b0082; /* Indigo */
+  /*  --color7: #8f00ff; Violet */
+
+}html {
     font-size: 10px;
     height: 100%;
   }
@@ -10,6 +28,13 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(45deg, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7));
+    background-size: 1400% 1400%;
+    -webkit-animation: gradient 30s ease infinite;
+    -moz-animation: gradient 30s ease infinite;
+    -o-animation: gradient 30s ease infinite;
+    animation: gradient 30s ease infinite;
+    overflow: hidden;
   }
 
 .wrapper {
@@ -18,8 +43,10 @@ html {
 }
 
 canvas {
-    background-color: #E5E5E5;
-    border: 9px solid #AAAAAA;
+    /*background-color: #E5E5E5;*/
+    background-color: #e5e5e5;
+    border: 9px solid #e5e5e5;
+    /*border: 9px solid #AAAAAA;*/
 }
 
 canvas:hover {
@@ -57,8 +84,48 @@ canvas:hover {
 ul {
   list-style: none;
   display: flex;
+  padding: 0;
+  justify-content: space-between;
+
+  font-weight: bold;
 }
 
 li {
-  margin-right: 10px;
+  color: #0D9095;
+  cursor: pointer;
+}
+
+li:hover {
+  color: #0c6a6d;
+  text-decoration: underline;
+}
+
+li:active {
+  color: darkorange;
+}
+
+@media (max-width: 480px) {
+  canvas {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  canvas {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
