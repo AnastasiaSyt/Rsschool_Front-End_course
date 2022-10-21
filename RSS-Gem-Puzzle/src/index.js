@@ -20,6 +20,30 @@ buttons.append(start);
 const startText = document.createTextNode("Shuffle and start");
 start.appendChild(startText);
 
+const counts = document.createElement("div");
+counts.classList.add("counts");
+playField.appendChild(counts);
+
+const moves = document.createElement("div");
+moves.classList.add("moves");
+counts.appendChild(moves);
+
+const movesTitle = document.createElement("h3");
+moves.appendChild(movesTitle);
+
+const movesText = document.createTextNode("Moves: 0");
+movesTitle.appendChild(movesText);
+
+const time = document.createElement("div");
+time.classList.add("time");
+counts.appendChild(time);
+
+const timeTitle = document.createElement("h3");
+time.appendChild(timeTitle);
+
+const timeText = document.createTextNode("Time: 00:00");
+timeTitle.appendChild(timeText);
+
 
 
 //_____________Create the canvas area__________________
@@ -33,6 +57,22 @@ canvas.width = widthArea;
 canvas.height = heightArea;
 playField.appendChild(canvas);
 //document.body.appendChild(canvas);
+
+
+const frameSize = document.createElement("div");
+frameSize.classList.add("frameSize");
+playField.appendChild(frameSize);
+
+const ul = document.createElement('ul');
+frameSize.appendChild(ul);
+ 
+const dataFrame = ["3x3", "4x4", "5x5", "6x6", "7x7", "8x8"];
+
+for (let i = 0; i < dataFrame.length; i++) {
+  const li = document.createElement('li');
+  li.innerHTML = dataFrame[i];
+  ul.appendChild(li);
+}
 
 
 
@@ -52,6 +92,8 @@ let hoveredTile = null;
 
 // const img = new Image();
 // img.src = "./Assets/img/test2.png";
+
+
 
 //_______________Events _____________________________________________________
 
@@ -198,7 +240,7 @@ function drawTiles() {
                 ctx.lineWidth = 8;
                 ctx.stroke();
 
-                ctx.font = 'bold 52px Arial';
+                ctx.font = 'bold 32px Arial';
                 ctx.fillStyle = '#BBBBBB';
                 ctx.textAlign = 'left';
                 ctx.textBaseline = 'middle';

@@ -28,14 +28,14 @@ canvas:hover {
 
 .start {
   padding: 8px 8px;
-  width: 137px;
+  width: 144px;
   height: 40px;
 
   background: #0D9095;
   border-style: none;
   border-radius: 5px;
 
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   cursor: pointer;
 
@@ -46,4 +46,19 @@ canvas:hover {
 
 .start:hover {
   background: #0c6a6d;
+}
+
+.counts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+  margin-right: 10px;
 }
