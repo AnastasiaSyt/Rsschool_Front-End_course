@@ -1,10 +1,12 @@
 import { Timer } from './Timer';
+import { Storage } from './Storage';
 
 export class Drawing {
     tilesValue = []; //рандомные значения плиточек
     coordinates = []; //кординаты плиточек
     finalTiles = []; //выигрышное положение плиточек
     hoveredTile = null;
+    isEnabled = true;
     tileCount = 4;
     canvasSize = 400;
     moves = 0;
@@ -18,6 +20,25 @@ export class Drawing {
         this.addEventHandlers();
         this.tileSize = this.widthArea / this.tileCount;
         this.timer = new Timer(timerContainer);
+        this.storage = new Storage();
+    }
+
+    resumeGame() {
+        if (this.storage.lastGame.length) {
+            this.tilesValue = this.storage.lastGame;
+        }
+        if (this.storage.lastTime) {
+            this.seconds = this.storage.lastTime;
+            this.timer.continueTimer(this.seconds);
+        }
+        if (this.storage.lastMoves) {
+            this.moves = this.storage.lastMoves;
+            this.drawMovies(this.moves);
+        }
+    }
+
+    saveGame() {
+        this.storage.saveGame(this.tilesValue, this.moves, this.timer.seconds);
     }
 
     updateSize() {
@@ -274,14 +295,16 @@ export class Drawing {
     }
 
     getAudio() {
-        const audioClick = new Audio('././Assets/audio/click.mp3');
-        audioClick.play();
+        // ONLY if property for sound is enabled -> play song
+        if (this.isEnabled) {
+            const audioClick = new Audio('././Assets/audio/click.mp3');
+            audioClick.play();
+        }
     }
 
-    // moves() {
-    //     const moveCount = document.getElementsByClassName('moves');
-    //     let moves = 0;
-    //     moves++;
-    //     moveCount.innerHTML = `<h3>Moves: ${moves}<h3>`;
-    // }
+    setAudioState(value) {
+        this.isEnabled = value;
+    }
+
+    gameOver() {}
 }

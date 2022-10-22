@@ -26,22 +26,51 @@ const save = document.createElement('button');
 save.classList.add('save_button');
 buttons.append(save);
 
+save.addEventListener('click', () => {
+    drawer.saveGame();
+});
+
 const saveText = document.createTextNode('Save');
 save.appendChild(saveText);
 
-const sound = document.createElement('button');
-sound.classList.add('sound_button');
-buttons.append(sound);
+const resume = document.createElement('button');
+resume.classList.add('resume_button');
+buttons.append(resume);
+resume.addEventListener('click', () => {
+    drawer.resumeGame();
+});
 
-const soundText = document.createTextNode('Sound off');
-sound.appendChild(soundText);
+const resumeText = document.createTextNode('Resume');
+resume.appendChild(resumeText);
 
 const scors = document.createElement('button');
 scors.classList.add('scors_button');
 buttons.append(scors);
-
 const scorsText = document.createTextNode('Scors');
 scors.appendChild(scorsText);
+
+const soundSet = document.createElement('div');
+soundSet.classList.add('soundSet');
+buttons.append(soundSet);
+
+const sound = document.createElement('label');
+sound.classList.add('switch');
+soundSet.append(sound);
+
+const soundInput = document.createElement('input');
+soundInput.type = 'checkbox';
+soundInput.checked = true;
+soundInput.addEventListener('change', (ev) => {
+    drawer.setAudioState(soundInput.checked);
+});
+sound.append(soundInput);
+
+const soundSpan = document.createElement('span');
+soundSpan.classList.add('round_toggle');
+sound.append(soundSpan);
+
+const soundText = document.createTextNode('Sound');
+soundSet.append(soundText);
 
 const counts = document.createElement('div');
 counts.classList.add('counts');

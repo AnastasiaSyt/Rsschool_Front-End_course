@@ -20,6 +20,13 @@ export class Timer {
         clearInterval(this.intervalId);
     }
 
+    continueTimer(seconds) {
+        this.startTimer();
+        this.seconds = seconds;
+        this.minutes = this.seconds > 59 ? Math.floor(this.seconds / 60) : 0;
+        this.setTimeText();
+    }
+
     resetTimer() {
         clearInterval(this.intervalId);
         this.minutes = 0;
