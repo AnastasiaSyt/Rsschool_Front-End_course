@@ -1,27 +1,68 @@
+import { Timer } from './Timer';
+
 export class Drawing {
     tilesValue = []; //рандомные значения плиточек
     coordinates = []; //кординаты плиточек
     finalTiles = []; //выигрышное положение плиточек
     hoveredTile = null;
-    widthArea = 400;
-    heightArea = 400;
     tileCount = 4;
+    canvasSize = 400;
     moves = 0;
     time = 0;
+    movesContainer;
 
-    constructor(container, moves) {
+    constructor(container, moves, timerContainer) {
         this.container = container;
         this.movesContainer = moves;
-        this.tileSize = this.widthArea / this.tileCount;
         this.drawCanvas();
         this.addEventHandlers();
+        this.tileSize = this.widthArea / this.tileCount;
+        this.timer = new Timer(timerContainer);
+    }
+
+    updateSize() {
+        if (this.heightArea !== this.canvas.clientHeight) {
+            this.heightArea = this.canvas.clientHeight;
+            this.widthArea = this.canvas.clientWidth;
+            this.tileSize = this.widthArea / this.tileCount;
+            this.getCoordinates();
+        }
+    }
+
+    /**
+     * Start new game with setted tiles count
+     * @param {number} count
+     */
+    startNew(count = null) {
+        this.drawMovies(0);
+        if (count) {
+            this.setupValues(count);
+        }
+        //start game
+        this.initTilesValue();
+        this.getCoordinates();
+        this.getFinalTiles();
+        this.drawTiles();
+        this.timer.startTimer();
+    }
+
+    drawMovies(moves) {
+        this.moves = moves;
+        this.movesContainer.textContent = `Moves: ${moves}`;
+    }
+
+    setupValues(count) {
+        this.tileCount = count;
+        this.tileSize = this.widthArea / this.tileCount;
     }
 
     drawCanvas() {
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
-        this.canvas.width = this.widthArea;
-        this.canvas.height = this.heightArea;
+        this.canvas.width = this.canvasSize;
+        this.canvas.height = this.canvasSize;
+        this.widthArea = this.canvas.width;
+        this.heightArea = this.canvas.height;
         this.container.appendChild(this.canvas);
     }
 
@@ -52,12 +93,13 @@ export class Drawing {
     }
 
     drawTiles() {
-        this.ctx.clearRect(0, 0, this.widthArea, this.heightArea); //чтобы очищалось место сдвинутой ячейки
+        this.ctx.clearRect(0, 0, this.canvasSize, this.canvasSize);
+        const tileSize = this.canvasSize / this.tileCount;
 
         for (let i = 0; i < this.tilesValue.length; i++) {
             for (let j = 0; j < this.tilesValue.length; j++) {
-                const dx = j * this.tileSize; //получение горизонтальной координаты
-                const dy = i * this.tileSize; //Получение вертикальной координаты
+                const dx = j * tileSize; //получение горизонтальной координаты
+                const dy = i * tileSize; //Получение вертикальной координаты
                 if (this.tilesValue[i][j]) {
                     this.ctx.beginPath();
 
@@ -71,7 +113,7 @@ export class Drawing {
                         this.ctx.fillStyle = 'white';
                     }
 
-                    this.ctx.rect(dx, dy, this.tileSize, this.tileSize);
+                    this.ctx.rect(dx, dy, tileSize, tileSize);
                     //this.ctx.drawImage(img, dx, dy);
                     this.ctx.fill();
 
@@ -87,12 +129,12 @@ export class Drawing {
 
                     const text = this.tilesValue[i][j];
                     const measuredText = this.ctx.measureText(text);
-                    const centeredText = this.tileSize - measuredText.width; //центрирование текста в плиточке
+                    const centeredText = tileSize - measuredText.width; //центрирование текста в плиточке
 
                     this.ctx.fillText(
                         this.tilesValue[i][j],
                         dx + centeredText / 2,
-                        dy + this.tileSize / 2
+                        dy + tileSize / 2
                     );
                 }
             }
@@ -153,7 +195,6 @@ export class Drawing {
         //_______________Click to move tiles_____________________________________________
 
         this.canvas.addEventListener('click', (e) => {
-            console.log('handle');
             const clientX = e.offsetX;
             const clientY = e.offsetY;
 
@@ -185,7 +226,6 @@ export class Drawing {
                     j: this.hoveredTile.j,
                 };
 
-                console.log(tileUp, tileDown, tileLeft, tileRight);
                 const emptyTile = tileUp || tileDown || tileLeft || tileRight;
 
                 if (emptyTile) {
@@ -195,9 +235,7 @@ export class Drawing {
                     this.tilesValue[emptyTile.i][emptyTile.j] = currentTile;
                     this.hoveredTile = null;
 
-                    this.moves++;
-                    console.log(this.moves);
-                    this.movesContainer.innerHTML = `<h3>Moves: ${this.moves}<h3>`;
+                    this.drawMovies(this.moves + 1);
                 }
             }
         });

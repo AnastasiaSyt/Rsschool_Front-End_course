@@ -1,45 +1,41 @@
 :root {
-  --color1: #ff7171; /* Red */
-  --color2: #ffc862; /* Orange */
-  --color3: #ffff65; /* Yellow */
-  --color4: #7dff7d; /* Green */
-  --color5: #a2a2ff; /* Blue */
-  --color6: #e5c0ff; /* Indigo */
-  --color7: #d39aff; /* Violet */
+  --color1: #ff7171; 
+  --color2: #ffc862; 
+  --color3: #ffff65; 
+  --color4: #7dff7d; 
+  --color5: #a2d4ff; 
+  --color6: #e5c0ff; 
+  --color7: #d39aff; 
+} 
 
-  /* :root {
-  /*  --color1: #ff0000; /* Red */
-  /* --color2: #ffa500; /* Orange */
-  /*  --color3: #ffff00; /* Yellow */
-  /*  --color4: #00ff00; /* Green */
-  /*  --color5: #0000ff; /* Blue */
-  /*  --color6: #4b0082; /* Indigo */
-  /*  --color7: #8f00ff; Violet */
-
-}html {
-    font-size: 10px;
-    height: 100%;
-  }
+html {
+   font-size: 10px;
+}
   
-  body {
-    font-size: 1.6rem;
-    font-family: "Roboto", sans-serif;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7));
-    background-size: 1400% 1400%;
-    -webkit-animation: gradient 30s ease infinite;
-    -moz-animation: gradient 30s ease infinite;
-    -o-animation: gradient 30s ease infinite;
-    animation: gradient 30s ease infinite;
-    overflow: hidden;
-  }
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(45deg, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7));
+  background-size: 1400% 1400%;
+  -webkit-animation: gradient 30s ease infinite;
+  -moz-animation: gradient 30s ease infinite;
+  -o-animation: gradient 30s ease infinite;
+  animation: gradient 30s ease infinite;
+
+  overflow: hidden;
+}
 
 .wrapper {
     max-width: 1280px;
     margin: auto;
+}
+
+.playField {
+  display: flex;
+  flex-direction: column;
 }
 
 canvas {
@@ -53,6 +49,11 @@ canvas:hover {
   cursor: pointer;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .start {
   padding: 8px 8px;
   width: 144px;
@@ -62,13 +63,71 @@ canvas:hover {
   border-style: none;
   border-radius: 5px;
 
-  margin-bottom: 10px;
+  cursor: pointer;
+
+  color: white;
+  font-size: 16px;
+  transition: all .5s ease-out;
+}
+
+.save_button {
+  padding: 8px 8px;
+  width: 55px;
+  height: 40px;
+
+  background: #0D9095;
+  border-style: none;
+  border-radius: 5px;
 
   cursor: pointer;
 
   color: white;
   font-size: 16px;
   transition: all .5s ease-out;
+}
+
+.sound_button {
+  padding: 8px 8px;
+  width: 86px;
+  height: 40px;
+
+  background: #0D9095;
+  border-style: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 16px;
+  transition: all .5s ease-out;
+}
+
+.scors_button {
+  padding: 8px 8px;
+  width: 60px;
+  height: 40px;
+
+  background: #0D9095;
+  border-style: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 16px;
+  transition: all .5s ease-out;
+}
+
+.scors_button:hover {
+  background: #0c6a6d;
+}
+
+.sound_button:hover {
+  background: #0c6a6d;
+}
+
+.save_button:hover {
+  background: #0c6a6d;
 }
 
 .start:hover {
@@ -104,6 +163,18 @@ li:active {
   color: darkorange;
 }
 
+canvas {
+  width: 400px;
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  canvas {
+    width: 360px;
+    height: 360px;
+  }
+}
+
 @media (max-width: 480px) {
   canvas {
     width: 300px;
@@ -115,6 +186,13 @@ li:active {
   canvas {
     width: 270px;
     height: 270px;
+  }
+}
+
+@media (max-width: 320px) {
+  canvas {
+    width: 250px;
+    height: 250px;
   }
 }
 
