@@ -64,6 +64,7 @@ export class Drawing {
         this.getCoordinates();
         this.getFinalTiles();
         this.drawTiles();
+        
         this.timer.startTimer();
     }
 
@@ -129,22 +130,22 @@ export class Drawing {
                         this.hoveredTile.x === dx &&
                         this.hoveredTile.y === dy
                     ) {
-                        this.ctx.fillStyle = '#0D9095';
+                        this.ctx.fillStyle = '#eb7d1e';
                     } else {
                         this.ctx.fillStyle = 'white';
                     }
 
-                    this.ctx.rect(dx, dy, tileSize, tileSize);
+                    this.ctx.rect(dx, dy, tileSize - 5, tileSize - 5);
                     //this.ctx.drawImage(img, dx, dy);
                     this.ctx.fill();
 
                     //this.ctx.strokeStyle = '#AAAAAA';
-                    this.ctx.strokeStyle = '#e5e5e5';
-                    this.ctx.lineWidth = 8;
-                    this.ctx.stroke();
+                    // this.ctx.strokeStyle = 'gray';
+                    // this.ctx.lineWidth = 8;
+                    // this.ctx.stroke();
 
                     this.ctx.font = 'bold 32px Arial';
-                    this.ctx.fillStyle = '#BBBBBB';
+                    this.ctx.fillStyle = 'gray';
                     this.ctx.textAlign = 'left';
                     this.ctx.textBaseline = 'middle';
 

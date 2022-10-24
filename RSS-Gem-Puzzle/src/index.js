@@ -7,20 +7,114 @@ const wrapper = document.createElement('div');
 wrapper.classList.add('wrapper');
 document.body.appendChild(wrapper);
 
+//___________Burger Menu________________________
+const backgroundBurger = document.createElement('div');
+backgroundBurger.classList.add('background_burger');
+wrapper.append(backgroundBurger);
+
+const burgerMenu = document.createElement('div');
+burgerMenu.classList.add('burger_menu');
+backgroundBurger.append(burgerMenu);
+
+const burgerActions = document.createElement('ul');
+burgerActions.classList.add('action_burger');
+burgerMenu.append(burgerActions);
+
+const saveBurger = document.createElement('li');
+saveBurger.classList.add('link_burger');
+burgerActions.append(saveBurger);
+const textSaveBurger = document.createTextNode('Save')
+saveBurger.append(textSaveBurger);
+
+const resumeBurger = document.createElement('li');
+resumeBurger.classList.add('link_burger');
+burgerActions.append(resumeBurger);
+const textResumeBurger = document.createTextNode('Resume')
+resumeBurger.append(textResumeBurger);
+
+const scorsBurger = document.createElement('li');
+scorsBurger.classList.add('link_burger');
+burgerActions.append(scorsBurger);
+const textScorsBurger = document.createTextNode('Scors')
+scorsBurger.append(textScorsBurger);
+
+const soundBurger = document.createElement('li');
+soundBurger.classList.add('link_burger');
+burgerActions.append(soundBurger);
+
+const soundSetBurger = document.createElement('div');
+soundSetBurger.classList.add('soundSet');
+soundBurger.append(soundSetBurger);
+
+const soundLabelBurger = document.createElement('label');
+soundLabelBurger.classList.add('switch');
+soundSetBurger.append(soundLabelBurger);
+
+const soundInputBurger = document.createElement('input');
+soundInputBurger.type = 'checkbox';
+soundInputBurger.checked = true;
+soundInputBurger.addEventListener('change', (ev) => {
+    drawer.setAudioState(soundInputBurger.checked);
+});
+soundLabelBurger.append(soundInputBurger);
+
+const soundSpanBurger = document.createElement('span');
+soundSpanBurger.classList.add('round_toggle');
+soundLabelBurger.append(soundSpanBurger);
+
+const soundTextBurger = document.createTextNode('Sound');
+soundSetBurger.append(soundTextBurger);
+
+const closeBurger = document.createElement('span');
+closeBurger.classList.add('close_burger');
+burgerActions.append(closeBurger);
+
+
+//_____________________End Burger menu___________________
+
 const playField = document.createElement('div');
 playField.classList.add('playField');
 wrapper.append(playField);
+
+const gameName = document.createElement('div');
+gameName.classList.add('gameName');
+playField.append(gameName);
+
+const textGameName = document.createTextNode('Game of Fifteen')
+gameName.append(textGameName);
+
+//_______________Burger Icon_____________________
+const startContainer = document.createElement('div');
+startContainer.classList.add('burger_menu_container');
+playField.append(startContainer);
+
+const burgerIcon = document.createElement('div');
+burgerIcon.classList.add('burger_icon');
+startContainer.append(burgerIcon);
+
+const burger = document.createElement('span');
+burger.classList.add('burger');
+burgerIcon.append(burger);
+
+const burgerLine = document.createElement('span');
+burgerLine.classList.add('burger_line');
+burger.append(burgerLine);
+
+
+
+
+const start = document.createElement('button');
+start.classList.add('start');
+startContainer.append(start);
+
+const startText = document.createTextNode('Shuffle and start');
+start.appendChild(startText);
+
 
 const buttons = document.createElement('div');
 buttons.classList.add('buttons');
 playField.append(buttons);
 
-const start = document.createElement('button');
-start.classList.add('start');
-buttons.append(start);
-
-const startText = document.createTextNode('Shuffle and start');
-start.appendChild(startText);
 
 const save = document.createElement('button');
 save.classList.add('save_button');
@@ -125,6 +219,27 @@ for (let i = 0; i < dataFrame.length; i++) {
 }
 
 //_______________Events ___________________________
+
+//______________ Burger menu_________________
+
+(function () {
+
+    burgerIcon.addEventListener('click', openMenu);
+    backgroundBurger.addEventListener('click', closeMenu);
+    closeBurger.addEventListener('click', closeMenu);
+
+    function openMenu() {
+        backgroundBurger.classList.add('active');
+        burgerMenu.classList.add('active');
+    }
+
+    function closeMenu() {
+        backgroundBurger.classList.remove('active');
+        burgerMenu.classList.remove('active');
+    }
+
+}());
+
 
 start.addEventListener('click', startGame);
 
