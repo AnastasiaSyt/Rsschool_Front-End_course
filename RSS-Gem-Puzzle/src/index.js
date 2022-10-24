@@ -99,8 +99,7 @@ burgerIcon.append(burger);
 const burgerLine = document.createElement('span');
 burgerLine.classList.add('burger_line');
 burger.append(burgerLine);
-
-
+//____________End Burger Icon_______________________
 
 
 const start = document.createElement('button');
@@ -110,11 +109,9 @@ startContainer.append(start);
 const startText = document.createTextNode('Shuffle and start');
 start.appendChild(startText);
 
-
 const buttons = document.createElement('div');
 buttons.classList.add('buttons');
 playField.append(buttons);
-
 
 const save = document.createElement('button');
 save.classList.add('save_button');

@@ -1,8 +1,3 @@
-// class with
-// 1. Save some info to storage
-// 2. Get some info from storage
-// 3. Get leader board
-// 4. Add result to leader board
 
 export class Storage {
     board = [];

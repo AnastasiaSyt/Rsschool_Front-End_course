@@ -2,9 +2,9 @@ import { Timer } from './Timer';
 import { Storage } from './Storage';
 
 export class Drawing {
-    tilesValue = []; //рандомные значения плиточек
-    coordinates = []; //кординаты плиточек
-    finalTiles = []; //выигрышное положение плиточек
+    tilesValue = []; //random tile values
+    coordinates = []; 
+    finalTiles = []; 
     hoveredTile = null;
     isEnabled = true;
     tileCount = 4;
@@ -89,24 +89,22 @@ export class Drawing {
     }
 
     /**
-     * Функция генерирует исходный массив, для игры
-     *
+     * The function generates the initial array, for the game
      */
     initTilesValue() {
         this.tilesValue = [];
         const tempValues = [];
-        // проходим по строкам i
+        
         for (let i = 0; i < this.tileCount; i++) {
             const rowTiles = [];
-            //по столбцам
             for (let j = 0; j < this.tileCount; j++) {
                 while (rowTiles.length !== this.tileCount) {
                     const randomValue = Math.floor(
                         Math.random() * this.tileCount ** 2
                     );
                     if (!tempValues.includes(randomValue)) {
-                        rowTiles.push(randomValue); //добавляем рандомные значения в строки
-                        tempValues.push(randomValue); //добавляем уникальные значения к уже существующим
+                        rowTiles.push(randomValue); 
+                        tempValues.push(randomValue);
                     }
                 }
             }
@@ -120,8 +118,8 @@ export class Drawing {
 
         for (let i = 0; i < this.tilesValue.length; i++) {
             for (let j = 0; j < this.tilesValue.length; j++) {
-                const dx = j * tileSize; //получение горизонтальной координаты
-                const dy = i * tileSize; //Получение вертикальной координаты
+                const dx = j * tileSize;
+                const dy = i * tileSize;
                 if (this.tilesValue[i][j]) {
                     this.ctx.beginPath();
 
@@ -136,13 +134,7 @@ export class Drawing {
                     }
 
                     this.ctx.rect(dx, dy, tileSize - 5, tileSize - 5);
-                    //this.ctx.drawImage(img, dx, dy);
                     this.ctx.fill();
-
-                    //this.ctx.strokeStyle = '#AAAAAA';
-                    // this.ctx.strokeStyle = 'gray';
-                    // this.ctx.lineWidth = 8;
-                    // this.ctx.stroke();
 
                     this.ctx.font = 'bold 32px Arial';
                     this.ctx.fillStyle = 'gray';
@@ -151,7 +143,7 @@ export class Drawing {
 
                     const text = this.tilesValue[i][j];
                     const measuredText = this.ctx.measureText(text);
-                    const centeredText = tileSize - measuredText.width; //центрирование текста в плиточке
+                    const centeredText = tileSize - measuredText.width; //center text in tiles
 
                     this.ctx.fillText(
                         this.tilesValue[i][j],
@@ -165,7 +157,7 @@ export class Drawing {
     }
 
     /**
-     * Функция возвращает координаты верхнего левого угла каждой будущей ячейки
+     * The function returns the coordinates of the upper left corner of each future tile
      */
     getCoordinates() {
         this.coordinates = [];
@@ -182,12 +174,12 @@ export class Drawing {
     }
 
     /**
-     * Функция возвращает массив, который нужно получить в итоге
-     * та раскладка, которая означает выигрыш
+     * The function returns an array, which you need to get as a result
+     * that means winning
      */
     getFinalTiles() {
         const result = [];
-        let counter = 1; // counter 1 для того чтобы финальная матрица начиналась с 1 в верхнем левом углу, а пустая ячейка была в нижнем правом
+        let counter = 1; // so that the final matrix starts with 1 in the upper left corner and an empty cell is in the lower right
         for (let i = 0; i < this.tileCount; i++) {
             const finalStateRow = [];
             for (let j = 0; j < this.tileCount; j++) {
@@ -196,7 +188,7 @@ export class Drawing {
             }
             result.push(finalStateRow);
         }
-        result[result.length - 1][this.tileCount - 1] = 0; //для того чтобы финальная матрица начиналась с 1 в верхнем левом углу, а пустая ячейка была в нижнем правом
+        result[result.length - 1][this.tileCount - 1] = 0; //so that the final matrix starts with 1 in the upper left corner and an empty cell is in the lower right
         return result;
     }
 
@@ -204,9 +196,6 @@ export class Drawing {
         this.canvas.addEventListener('mousemove', (e) => {
             const clientX = e.offsetX;
             const clientY = e.offsetY;
-            // if (currentHover(clientX, clientY)) {
-            //     return;
-            // } //если мы уже над плиткой?
             this.hoveredTile = this.getHoveredTile(clientX, clientY);
         });
 
@@ -214,7 +203,7 @@ export class Drawing {
             this.hoveredTile = null;
         });
 
-        //_______________Click to move tiles_____________________________________________
+        //_______________Click to move tiles______________
 
         this.canvas.addEventListener('click', (e) => {
             const clientX = e.offsetX;
