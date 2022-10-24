@@ -83,9 +83,11 @@ export class Drawing {
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = this.canvasSize;
         this.canvas.height = this.canvasSize;
-        this.widthArea = this.canvas.width;
-        this.heightArea = this.canvas.height;
+        
         this.container.appendChild(this.canvas);
+
+        this.widthArea = this.canvas.clientWidth;
+        this.heightArea = this.canvas.clientHeight;
     }
 
     /**
@@ -236,7 +238,7 @@ export class Drawing {
                     i: this.hoveredTile.i + 1,
                     j: this.hoveredTile.j,
                 };
-
+        
                 const emptyTile = tileUp || tileDown || tileLeft || tileRight;
 
                 if (emptyTile) {
