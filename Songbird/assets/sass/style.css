@@ -1,0 +1,110 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Exo 2", sans-serif;
+  background: linear-gradient(346.45deg, #B2AAE9 31.75%, #FFFFFF 102.92%);
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 125%;
+  color: #3F3098;
+}
+
+.button {
+  padding: 14px 67px 16px;
+  font-family: "Exo 2", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 3.1rem;
+  color: #0B0B0C;
+  background: #FCDF23;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), inset 0px 2px 8px rgba(255, 247, 179, 0.5);
+  border-radius: 30px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #fc8c23;
+}
+
+.wrapper {
+  max-width: 1110px;
+  margin: auto;
+}
+
+.header {
+  background: #3F3098;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 13px 0 10px 0;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation {
+  display: flex;
+  list-style: none;
+}
+
+.navigation_item {
+  padding: 0 30px;
+  color: white;
+}
+
+.main__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.navigation__link:hover {
+  color: #FCDF23;
+}
+
+.footer {
+  background: #3F3098;
+  padding: 21px 0;
+}
+
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__content {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.footer__link {
+  padding-left: 20px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #FCDF23;
+}
+
+/*# sourceMappingURL=style.css.map */

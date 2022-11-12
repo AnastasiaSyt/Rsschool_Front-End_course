@@ -1,0 +1,16 @@
+.main__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: $color-light;
+  transition: all .3s ease;
+}
+
+.navigation__link:hover {
+    color: $color-secondary;
+}

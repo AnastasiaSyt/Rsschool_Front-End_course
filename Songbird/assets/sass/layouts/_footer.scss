@@ -1,0 +1,26 @@
+.footer {
+  background: $color-primary;
+  padding: 21px 0;
+}
+
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__content {
+  display: flex;
+  color: $color-light;
+  align-items: center;
+}
+
+.footer__link {
+  padding-left: 20px;
+  color: $color-light;
+  transition: all .3s ease;
+}
+
+.footer__link:hover {
+    color: $color-secondary;
+}
