@@ -1,0 +1,121 @@
+.counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+//counter pages
+
+.counter__pages {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 730px;
+}
+
+.counter__pages::before {
+    content: '';
+    background-color: $color-primary-transparent;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 100%;
+    z-index: -1;
+    transition: 1.5s ease;
+}
+
+.progress {
+    background-color: $color-primary;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: 2s ease;
+}
+
+.circle {
+    //background-color: white;
+    background-color: #E2DFF6;
+    color: $color-primary;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $color-primary-transparent;
+}
+
+.circle.active {
+    background-color: $color-primary;
+    color: $color-light;
+    box-shadow: 0px 4px 8px rgba(22, 10, 72, 0.15);
+}
+
+// answers
+
+.quiz-list {
+    list-style: none;
+    display: inline-block;
+	overflow: hidden;
+    font-size: 2.0rem;
+
+    padding: 30px 0;
+}
+
+// .answer__bird {
+//     display: inline-block;
+// 	float: left;  
+// }
+
+.answer__bird input[type=radio] {
+	display: none;
+}
+
+.answer__bird  label {
+	display: inline-block;
+	cursor: pointer;
+	padding: 10px 100px;
+    width: 100%;
+	line-height: 44px;
+	border: 2px solid $color-primary-transparent;
+	border-bottom: none;
+	user-select: none;
+}
+
+.quiz-list .answer__bird:first-child label {
+	border-radius: 15px 15px 0 0;
+}
+.quiz-list .answer__bird:last-child label {
+	border-radius: 0 0 15px 15px;
+	border-bottom: 2px solid $color-primary-transparent;
+}
+
+/* Checked */
+.answer__bird input[type=radio]:checked + label {
+	background: $color-primary;
+}
+ 
+/* Hover */
+.answer__bird label:hover {
+	color: $color-light;
+    background-color: $color-primary-transparent;
+}
+
+/* Correct */
+.correct {
+    color: $color-light;
+    background: #7eeb8c;
+}
+
+.uncorrect {
+    color: $color-light;
+    background: #eb7ea8;
+}

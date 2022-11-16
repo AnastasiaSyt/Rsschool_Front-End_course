@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 10px;
 }
@@ -105,6 +111,119 @@ h1 {
 
 .footer__link:hover {
   color: #FCDF23;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter__pages {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 730px;
+}
+
+.counter__pages::before {
+  content: "";
+  background-color: rgba(63, 48, 152, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 2px;
+  width: 100%;
+  z-index: -1;
+  transition: 1.5s ease;
+}
+
+.progress {
+  background-color: #3F3098;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 2s ease;
+}
+
+.circle {
+  background-color: #E2DFF6;
+  color: #3F3098;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(63, 48, 152, 0.6);
+}
+
+.circle.active {
+  background-color: #3F3098;
+  color: white;
+  box-shadow: 0px 4px 8px rgba(22, 10, 72, 0.15);
+}
+
+.quiz-list {
+  list-style: none;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 2rem;
+  padding: 30px 0;
+}
+
+.answer__bird input[type=radio] {
+  display: none;
+}
+
+.answer__bird label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 100px;
+  width: 100%;
+  line-height: 44px;
+  border: 2px solid rgba(63, 48, 152, 0.6);
+  border-bottom: none;
+  user-select: none;
+}
+
+.quiz-list .answer__bird:first-child label {
+  border-radius: 15px 15px 0 0;
+}
+
+.quiz-list .answer__bird:last-child label {
+  border-radius: 0 0 15px 15px;
+  border-bottom: 2px solid rgba(63, 48, 152, 0.6);
+}
+
+/* Checked */
+.answer__bird input[type=radio]:checked + label {
+  background: #3F3098;
+}
+
+/* Hover */
+.answer__bird label:hover {
+  color: white;
+  background-color: rgba(63, 48, 152, 0.6);
+}
+
+/* Correct */
+.correct {
+  color: white;
+  background: #7eeb8c;
+}
+
+.uncorrect {
+  color: white;
+  background: #eb7ea8;
 }
 
 /*# sourceMappingURL=style.css.map */
