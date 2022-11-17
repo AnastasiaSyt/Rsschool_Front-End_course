@@ -146,3 +146,53 @@
 
     color: $color-dark;
 }
+
+//_____bird-content
+
+.bird__content {
+  width: 540px;
+  height: 590px;
+
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+
+  margin-bottom: 30px;
+}
+
+.bird__name {
+  font-size: 38px;
+  line-height: 46px;
+  color: $color-dark;
+}
+
+.bird__species {
+  font-size: 16px;
+  line-height: 19px;
+  color: #987CB9;
+}
+
+.bird__title {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px 20px;
+
+}
+
+.bird__image {
+  display: block;
+  object-fit: cover;
+    
+  width: 310px;
+  height: 220px;
+  border: none;
+  border-radius: 20px;
+}
+
+.bird__description { 
+  font-size: 24px;
+  line-height: 142.5%;
+  color: $color-dark;
+
+  padding: 20px;
+}
