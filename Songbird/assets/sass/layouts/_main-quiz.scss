@@ -1,3 +1,9 @@
+.quiz__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .counter {
     display: flex;
     justify-content: space-between;
@@ -118,4 +124,25 @@
 .uncorrect {
     color: $color-light;
     background: #eb7ea8;
+}
+
+.quiz-button {
+    padding: 14px 52px 16px;
+    gap: 10px;
+
+    width: 350px;
+    height: 61px;
+    
+    background: #FCDF23;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), inset 0px 2px 8px rgba(255, 247, 179, 0.5);
+    border-radius: 40px;
+    border: none;
+
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+
+    color: $color-dark;
 }
