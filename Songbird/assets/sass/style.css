@@ -256,6 +256,7 @@ h1 {
 
 .quiz-button:disabled {
   background: gray;
+  color: white;
 }
 
 .bird__content {

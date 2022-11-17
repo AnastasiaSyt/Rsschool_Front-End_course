@@ -114,6 +114,7 @@ function checkAnswer() {
     console.log("score", score);
     getCorrectAudio();
     showBird();
+    nextSongButton.disabled = false;
   } else {
     labelStyle.classList.add("uncorrect");
     score = score - 1;
@@ -132,6 +133,7 @@ function nextQuestion() {
     clearPage();
     showQuestion();
     showUnknown();
+    nextSongButton.disabled = true;
   } else {
     console.log("А теперь результат");
     clearPage();
