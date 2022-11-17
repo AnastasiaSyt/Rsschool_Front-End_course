@@ -1,0 +1,41 @@
+.birds-birds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+
+.birds_information {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.birds-birds__image {
+    width: 350px;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+      
+    border: none;
+    border-radius: 20px;
+
+    //margin: 20px 0;
+}
+
+.bird-name {
+    font-size: 24px;
+    padding-left: 34px;
+    padding-top: 20px;
+}
+
+.birds-audio {
+    margin: 10px auto;
+}

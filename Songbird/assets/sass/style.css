@@ -199,6 +199,7 @@ h1 {
   border: 2px solid rgba(63, 48, 152, 0.6);
   border-bottom: none;
   user-select: none;
+  transition: all 0.3s ease;
 }
 
 .quiz-list .answer__bird:first-child label {
@@ -241,12 +242,20 @@ h1 {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), inset 0px 2px 8px rgba(255, 247, 179, 0.5);
   border-radius: 40px;
   border: none;
-  font-family: "Exo 2";
-  font-style: normal;
   font-weight: 600;
   font-size: 26px;
   line-height: 31px;
   color: #0B0B0C;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quiz-button:hover {
+  background: #fc8c23;
+}
+
+.quiz-button:disabled {
+  background: gray;
 }
 
 .bird__content {
@@ -289,6 +298,42 @@ h1 {
   line-height: 142.5%;
   color: #0B0B0C;
   padding: 20px;
+}
+
+.birds-birds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.birds_information {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.birds-birds__image {
+  width: 350px;
+  height: 260px;
+  display: block;
+  object-fit: cover;
+  border: none;
+  border-radius: 20px;
+}
+
+.bird-name {
+  font-size: 24px;
+  padding-left: 34px;
+  padding-top: 20px;
+}
+
+.birds-audio {
+  margin: 10px auto;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -94,6 +94,8 @@
 	border: 2px solid $color-primary-transparent;
 	border-bottom: none;
 	user-select: none;
+
+    transition: all .3s ease;
 }
 
 .quiz-list .answer__bird:first-child label {
@@ -138,13 +140,21 @@
     border-radius: 40px;
     border: none;
 
-    font-family: 'Exo 2';
-    font-style: normal;
     font-weight: 600;
     font-size: 26px;
     line-height: 31px;
 
     color: $color-dark;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.quiz-button:hover {
+    background: $color-hover;
+}
+
+.quiz-button:disabled {
+    background: gray;
 }
 
 //_____bird-content
