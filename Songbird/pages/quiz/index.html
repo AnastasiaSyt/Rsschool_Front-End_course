@@ -56,42 +56,48 @@
         </div>
         <div class="counter__score" id="score">Score: 0</div>
       </div>
-      <div class="quiz__wrapper">
-        <div class="quiz" id="quiz">
-          <div class="quiz-header" id="header">
-            <audio id="audio" src="#" controls></audio>
-          </div>
-          <ul class="quiz-list" id="list">
-            <li>
-              <label for="">
-                <input type="radio" class="answer" name="answer">
-                <span>Ответ</span>
-              </label>
-            </li>
-            <li>
-              <label for="">
-                <input type="radio" class="answer" name="answer">
-                <span>Ответ</span>
-              </label>
-            </li>
-          </ul>
-          <button class="quiz-submit submit quiz-button" id="submit" disabled>Следующая птица</button>
-        </div>
-        <div class="bird" id="bird">
-          <img src="../../assets/img/bird_question.png" alt="unknown bird" class="bird__unknown">
-          <!-- <div class="bird__content">
-            <div class="bird__title">
-              <div class="bird__title_text">
-                <h2 class="bird__name">Синица</h2>
-                <h3 class="bird__species">Parus major</h3>
-              </div>
-              <img src="https://live.staticflickr.com//65535//49366042493_c48c81d58d.jpg" alt="Parus major image" class="bird__image">
+      <div class="quiz__cont">
+        <div class="quiz__wrapper">
+          <div class="quiz" id="quiz">
+            <div class="quiz-header" id="header">
+              <!-- <div class="audio" id="audio_player">
+                <div class="audio__title">
+                    <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" id="audio_image"></div>
+                    <div class="audio__bird_content">
+                        <div class="audio__bird">*****</div>
+                        <div class="audio__buttons">
+                            <audio src="#" id="song"></audio>
+                            <div class="button_play" id="play"><img class="img__src" src="../../assets/icons/play.svg" alt="button play"></div>
+                            <div class="button_volume"><img class="img__src" src="../../assets/icons/volume.svg" alt="button volume"></div>
+                        </div>
+                        <div class="audio__progress">
+                            <div class="progress_val"></div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
-            <p class="bird__description">В щебетании синиц различают более 40 различных звуковых сочетаний. Поют они практически круглый год, 
-                                         немного затихая только зимой. Синицы настоящие санитары леса. Одна пара синиц в период гнездования 
-                                         оберегает от вредителей десятки деревьев.</p>
-          </div> -->
-        </div>
+              <!-- <audio id="audio" src="#" controls></audio> -->
+            </div>
+            <ul class="quiz-list" id="list">
+              <li>
+                <label for="">
+                  <input type="radio" class="answer" name="answer">
+                  <span>Ответ</span>
+                </label>
+              </li>
+              <li>
+                <label for="">
+                  <input type="radio" class="answer" name="answer">
+                  <span>Ответ</span>
+                </label>
+              </li>
+            </ul>
+            <button class="quiz-submit submit quiz-button" id="submit" disabled>Следующая птица</button>
+          </div>
+          <div class="bird" id="bird">
+            <img src="../../assets/img/bird_question.png" alt="unknown bird" class="bird__unknown">
+          </div>
+      </div>
       </div>
     </div>
   </main>
@@ -101,7 +107,7 @@
         <p class="footer__text">© 2022</p>
         <a href="https://github.com/AnastasiaSyt" class="footer__link">GitHub: Anastasia Syt</a>
       </div>
-      <a href="https://rs.school/js/" class="rs-logo"><img src="../../assets/icons/rs_school_js 1.svg" alt="rolling scopes school logo"></a>
+      <a href="https://rs.school/js/" class="rs_logo_footer"><img src="../../assets/icons/rs_school_js 1.svg" alt="rolling scopes school logo" class="rs-logo"></a>
     </div>
   </footer>
   <script src="../../dist/bundle.js"></script>

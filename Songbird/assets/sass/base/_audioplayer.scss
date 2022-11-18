@@ -1,0 +1,48 @@
+
+.audio {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    max-width: 540px;
+    width: 100%;
+}
+
+.audio__title {
+    display: flex;
+    padding-top: 20px;
+}
+
+.audio__bird {
+    font-size: 40px;
+    margin-left: 20px;
+    width: 200px;
+}
+
+.audio__buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.audio_image {
+    padding: 20px;
+}
+
+.audio__progress {
+    background: rgba(63, 48, 152, 0.4);
+    border-radius: 5px;
+    width: 100%;
+    height: 10px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.progress_val {
+    background: rgba(63, 48, 152);
+    border-radius: 4px;
+    height: 10px;
+    width: 50px;
+    
+}

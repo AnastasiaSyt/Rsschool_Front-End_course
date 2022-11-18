@@ -63,7 +63,22 @@ function showQuestion() {
   const audioPath = birdsData[questionNumber][numberBird]["audio"];
   const idBird = birdsData[questionNumber][numberBird]["id"];
 
-  const headerTemplate = `<audio id="%id%" src="%audio%" controls></audio>`;
+  // const headerTemplate = `<audio id="%id%" src="%audio%" controls></audio>`;
+  const headerTemplate = `<div class="audio" id="audio_player">
+  <div class="audio__title">
+      <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" id="audio_image"></div>
+      <div class="audio__bird_content">
+          <div class="audio__bird">*****</div>
+          <div class="audio__buttons">
+              <audio src="%audio%" id="%id%"></audio>
+              <div class="button_play" id="play"><img class="img__src" src="../../assets/icons/play.svg" alt="button play"></div>
+              <div class="button_volume"><img class="img__src" src="../../assets/icons/volume.svg" alt="button volume"></div>
+          </div>
+          <div class="audio__progress">
+              <div class="progress_val"></div>
+          </div>
+      </div>
+  </div>`;
   const audio = headerTemplate
     .replace("%audio%", audioPath)
     .replace("%id%", idBird);
@@ -108,8 +123,9 @@ function checkAnswer() {
   const labelStyle = document.getElementById(`label-${userAnswer}`);
   document.getElementById(`radio-${userAnswer}`).checked = false;
 
+  let unit = 0;
   if (userAnswer + 1 === currentBird) {
-    score = score + 5;
+    unit = unit + 5;
     labelStyle.classList.add("correct");
     console.log("score", score);
     getCorrectAudio();
@@ -117,10 +133,13 @@ function checkAnswer() {
     nextSongButton.disabled = false;
   } else {
     labelStyle.classList.add("uncorrect");
-    score = score - 1;
+    unit = unit - 1;
     getUncorrectAudio();
   }
-
+  score = unit;
+  if (score < 0) {
+    score = 0;
+  }
   scoreHTML.textContent = `Score: ${score}`;
 }
 
@@ -192,3 +211,36 @@ function getUncorrectAudio() {
   const audioClick = new Audio("../../assets/audio/uncorrect.mp3");
   audioClick.play();
 }
+
+//__________Audioplayer
+
+const audioPlayer = document.getElementById("audio_player");
+const playButton = document.getElementById("play");
+const song = document.getElementById("song"); //тут будет айди из даты
+
+const progressContainer = document.getElementsByClassName("audio__progress");
+const progressAudio = document.getElementsByClassName("progress_val");
+
+const nameBird = document.getElementsByClassName("audio__bird");
+const birdImg = document.getElementsByClassName("audio_image");
+
+const icons = document.getElementsByClassName("img__src");
+
+function playSong() {
+  audioPlayer.classList.add("play");
+  audio.play();
+}
+
+function pauseSong() {
+  audioPlayer.classList.remove("play");
+  audio.pause();
+}
+
+playButton.addEventListener("click", () => {
+  const isPlay = audioPlayer.classList.contains("play");
+  if (isPlay) {
+    pauseSong();
+  } else {
+    playSong();
+  }
+});
