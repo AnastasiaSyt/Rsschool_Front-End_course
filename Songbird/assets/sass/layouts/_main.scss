@@ -14,3 +14,23 @@
 .navigation__link:hover {
     color: $color-secondary;
 }
+
+.main__notes {
+  background: url(../img/notes.png);
+  background-size: cover;
+}
+
+.main__img {
+  @include media-laptop {
+    width: 80%;
+  }
+  @include laptop-small {
+    width: 60%;
+  }
+  @include media-tablet-small {
+    width: 50%;
+  }
+  @include media-mobile {
+    width: 40%;
+  }
+}

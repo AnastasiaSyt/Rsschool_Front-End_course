@@ -13,15 +13,33 @@
 <body>
   <header class="header">
     <div class="wrapper header__wrapper">
-      <a href="../main/index.html" class="logo"><img src="../../assets/icons/Union.svg" alt="Songbird logo"></a>
+      <a href="index.html" class="logo"><img src="../../assets/icons/Union.svg" alt="Songbird logo" class="logo-img"></a>
       <nav class="header__navigation">
         <ul class="navigation">
           <li class="navigation_item"><a href="../main/index.html" class="navigation__link">Главная</a></li>
           <li class="navigation_item"><a href="../quiz/index.html" class="navigation__link">Викторина</a></li>
-          <li class="navigation_item"><a href="../birds/index.html" class="navigation__link">Все птицы</a></li>
+          <li class="navigation_item"><a href="../quiz/index.html" class="navigation__link">Все птицы</a></li>
           <li class="navigation_item"><a href="index.html" class="navigation__link">Результаты</a></li>
         </ul>
       </nav>
+      <div class="burger_menu_container">
+        <div class="burger_icon" id="burger">
+          <span class="burger">
+            <span class="burger_line"></span>
+          </span>
+        </div>
+      </div>
+      <div class="background_burger" id="background_burger">
+        <div class="burger_menu" id="burger_menu">
+          <ul class="action_burger">
+            <li class="link_burger"><a href="../main/index.html" class="link_burger_text">Главная</a></li>
+            <li class="link_burger"><a href="../quiz/index.html" class="link_burger_text">Викторина</a></li>
+            <li class="link_burger"><a href="../quiz/index.html" class="link_burger_text">Птицы</a></li>
+            <li class="link_burger"><a href="index.html" class="link_burger_text">Результаты</a></li>
+            <span class="close_burger" id="close"></span>
+          </ul>
+        </div>
+      </div>
     </div>
   </header>
   <main class="main">
@@ -38,5 +56,6 @@
       <a href="https://rs.school/js/" class="rs-logo"><img src="../../assets/icons/rs_school_js 1.svg" alt="rolling scopes school logo"></a>
     </div>
   </footer>
+  <script src="../../src/js/burger.js"></script>
 </body>
 </html>

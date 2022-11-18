@@ -13,14 +13,35 @@
   display: flex;
   color: $color-light;
   align-items: center;
+  @include media-mobile-small {
+    font-size: 1.4rem;
+  }
 }
 
 .footer__link {
   padding-left: 20px;
   color: $color-light;
   transition: all .3s ease;
+  @include media-mobile-small {
+    padding-left: 8px;
+  }
 }
 
 .footer__link:hover {
     color: $color-secondary;
+}
+
+.rs-logo {
+  @include media-laptop {
+    width: 90%;
+  }
+  @include media-tablet-small {
+    width: 60%;
+  }
+  @include media-mobile {
+    width: 40%;
+  }
+  @include media-mobile-small {
+    width: 40%;
+  }
 }

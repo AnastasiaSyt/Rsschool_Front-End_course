@@ -22,4 +22,14 @@ h1 {
   font-size: 72px;
   line-height: 125%;
   color: $color-primary;
+  margin-bottom: 30px;
+  @include media-laptop {
+    font-size: 52px;
+  }
+  @include laptop-small {
+    font-size: 44px;
+  }
+  @include media-tablet-small {
+    font-size: 38px;
+  }
 }
