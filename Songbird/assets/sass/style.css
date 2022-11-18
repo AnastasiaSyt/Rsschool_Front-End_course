@@ -18,24 +18,40 @@ body {
 h1 {
   font-style: normal;
   font-weight: 900;
-  font-size: 72px;
+  font-size: 7.2rem;
   line-height: 125%;
   color: #3F3098;
   margin-bottom: 30px;
 }
 @media (max-width: 1170px) {
   h1 {
-    font-size: 52px;
+    font-size: 5.2rem;
   }
 }
 @media (max-width: 1070px) {
   h1 {
-    font-size: 44px;
+    font-size: 4.4rem;
   }
 }
 @media (max-width: 700px) {
   h1 {
-    font-size: 38px;
+    font-size: 3.8rem;
+  }
+}
+@media (max-width: 586px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 420px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 320px) {
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
   }
 }
 
@@ -74,9 +90,36 @@ h1 {
     line-height: 1.8rem;
   }
 }
+@media (max-width: 586px) {
+  .button {
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+  }
+}
+@media (max-width: 420px) {
+  .button {
+    padding: 10px 35px;
+    font-size: 1.6rem;
+    line-height: 1.7rem;
+  }
+}
+@media (max-width: 320px) {
+  .button {
+    padding: 10px 35px;
+    font-size: 1.6rem;
+    line-height: 1.7rem;
+  }
+}
 
 .button:hover {
   background: #fc8c23;
+}
+
+@media (max-width: 420px) {
+  .button_span {
+    display: none;
+  }
 }
 
 .burger_menu_container {
@@ -236,6 +279,16 @@ h1 {
     padding: 0 25px;
   }
 }
+@media (max-width: 586px) {
+  .wrapper {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 320px) {
+  .wrapper {
+    padding: 0 12px;
+  }
+}
 
 .header {
   background: #3F3098;
@@ -298,6 +351,11 @@ h1 {
   align-items: center;
   padding-top: 60px;
 }
+@media (max-width: 420px) {
+  .main__wrapper {
+    padding-bottom: 60px;
+  }
+}
 
 .navigation__link {
   text-decoration: none;
@@ -331,8 +389,22 @@ h1 {
 }
 @media (max-width: 586px) {
   .main__img {
-    width: 40%;
+    display: none;
   }
+}
+
+.main__img_small {
+  display: none;
+}
+@media (max-width: 586px) {
+  .main__img_small {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.button_link {
+  text-decoration: none;
 }
 
 .footer {
@@ -345,11 +417,22 @@ h1 {
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 586px) {
+  .footer__wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 
 .footer__content {
   display: flex;
   color: white;
   align-items: center;
+}
+@media (max-width: 586px) {
+  .footer__content {
+    padding-bottom: 20px;
+  }
 }
 @media (max-width: 320px) {
   .footer__content {
@@ -390,6 +473,12 @@ h1 {
 @media (max-width: 320px) {
   .rs-logo {
     width: 40%;
+  }
+}
+
+@media (max-width: 586px) {
+  .rs_logo_footer {
+    margin-right: -60px;
   }
 }
 

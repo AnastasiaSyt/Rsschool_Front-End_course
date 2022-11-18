@@ -1,8 +1,11 @@
 .main__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 60px;
+  @include media-mobile-middle {
+    padding-bottom: 60px;
+  }
 }
 
 .navigation__link {
@@ -12,7 +15,7 @@
 }
 
 .navigation__link:hover {
-    color: $color-secondary;
+  color: $color-secondary;
 }
 
 .main__notes {
@@ -31,6 +34,18 @@
     width: 50%;
   }
   @include media-mobile {
-    width: 40%;
+    display: none;
   }
+}
+
+.main__img_small {
+  display: none;
+  @include media-mobile {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.button_link {
+  text-decoration: none;
 }
