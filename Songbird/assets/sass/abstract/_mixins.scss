@@ -6,6 +6,10 @@
     @media (max-width: $laptop-small) { @content; }
 }
 
+@mixin laptop-small-small {
+    @media (max-width: $laptop-small-small) { @content; }
+}
+
 @mixin media-tablet {
     @media (max-width: $tablet-width) { @content; }
 }
@@ -24,4 +28,7 @@
 
 @mixin media-mobile-middle {
     @media (max-width: $mobile-middle) { @content; }
+}
+@mixin media-mobile-340 {
+    @media (max-width: $mobile-small) { @content; }
 }

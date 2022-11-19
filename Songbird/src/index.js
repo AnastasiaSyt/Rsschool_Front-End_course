@@ -69,6 +69,8 @@ function showQuestion() {
   // const headerTemplate = `<audio id="%id%" src="%audio%" controls></audio>`;
   const headerTemplate = `<div class="audio" id="audio_player">
   <div class="audio__title">
+    <div class="bird_table_text">Послушайте плеер.<br>Выберите птицу из списка</div>
+    <div class="audio_wrap_table">
       <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" class="audio_image_bird"></div>
       <div class="audio__bird_content">
           <div class="audio__bird"><p class="audio_bird_name">*****</p></div>
@@ -89,6 +91,8 @@ function showQuestion() {
               <div class="progress_val"></div>
           </div>
       </div>
+    </div>
+    <p class="bird__description_tablet"></p>
   </div>`;
   const audio = headerTemplate
     .replace("%audio%", audioPath)
@@ -218,6 +222,7 @@ function showBird() {
   const audioPlayer = document.getElementById("audio_player");
   const nameBirdTitle = audioPlayer.querySelector(".audio__bird");
   const birdImg = audioPlayer.querySelector(".audio_image");
+  const desriptTablet = document.querySelector(".audio__title");
 
   birdContainer.textContent = "";
   birdImg.textContent = "";
@@ -238,6 +243,8 @@ function showBird() {
 
   const imgTemplate = `<img src="%image%" alt="bird image" alt="bird image" class="audio_image_bird">`;
   const nameTemplate = `<p class="audio_bird_name">%name%</p>`;
+
+  const descriptTabletTemplate = `<p class="bird__description_tablet">%description%</p>`
 
   const correctAnswer = listContainer.querySelector(".correct");
   console.log(correctAnswer);
@@ -267,12 +274,16 @@ function showBird() {
   console.log(nameTitle);
   nameBirdTitle.insertAdjacentHTML("beforeend", nameTitle);
   console.log(nameBirdTitle);
+
+  const descrBirdTable = descriptTabletTemplate.replace("%description%", descriptionBird);
+  desriptTablet.insertAdjacentHTML("beforeend", descrBirdTable);
 }
 
 function showUnknown() {
   birdContainer.textContent = "";
 
-  const unknownImage = `<img src="../../assets/img/bird_question.png" alt="unknown bird" class="bird__unknown">`;
+  const unknownImage = `<p class="bird__text">Послушайте плеер.<br>Выберите птицу из списка</p>
+                       <img src="../../assets/img/bird_question.png" alt="unknown bird" class="bird__unknown">`;
   birdContainer.insertAdjacentHTML("beforeend", unknownImage);
 }
 
