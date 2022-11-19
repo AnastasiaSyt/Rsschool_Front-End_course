@@ -22,10 +22,35 @@
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
+
+    
+}
+
+.img__src {
+    width: 70px;
+    height: 70px;
+    background-image: url(../icons/play.svg);
+    background-size: contain;
+}
+
+.pause {
+    width: 70px;
+    height: 70px;
+    background-image: url(../icons/pause.svg);
+    background-size: contain;
 }
 
 .audio_image {
     padding: 20px;
+}
+
+.audio_image_bird {
+  display: block;
+  object-fit: cover;
+
+  width: 255px;
+  //height: 166px;
+  border-radius: 20px;
 }
 
 .audio__progress {
@@ -43,6 +68,50 @@
     background: rgba(63, 48, 152);
     border-radius: 4px;
     height: 10px;
-    width: 50px;
+    // width: 50px;
     
 }
+
+
+.button_play {
+    width: 70px;
+    height: 70px;
+}
+
+//_____________
+
+.volume-container {
+    cursor: pointer;
+    .volume-button {
+      height: 26px;
+      display: flex;
+      align-items: center;
+      .volume {
+        transform: scale(0.7);
+      }
+    }
+    
+    position: relative;
+    z-index: 2;
+    .volume-slider {
+      position: absolute;
+      left: -3px; top: 15px;
+      z-index: -1;
+      width: 0;
+      height: 15px;
+      background: white;
+      box-shadow: 0 0 20px #000a;
+      transition: .25s;
+      .volume-percentage {
+        background: coral;
+        height: 100%;
+        width: 75%;
+      }
+    }
+    &:hover {
+      .volume-slider {
+        left: -123px;
+        width: 120px;
+      }
+    }
+  }

@@ -16,6 +16,8 @@ function getRandomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+
 //____Progress bar__________
 
 const progress = document.getElementById("progress");
@@ -52,6 +54,7 @@ function updateProgress() {
 //_____________________________
 
 function clearPage() {
+  clearSongEvents();
   headerContainer.textContent = "";
   listContainer.textContent = "";
 }
@@ -66,13 +69,21 @@ function showQuestion() {
   // const headerTemplate = `<audio id="%id%" src="%audio%" controls></audio>`;
   const headerTemplate = `<div class="audio" id="audio_player">
   <div class="audio__title">
-      <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" id="audio_image"></div>
+      <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" class="audio_image_bird"></div>
       <div class="audio__bird_content">
-          <div class="audio__bird">*****</div>
+          <div class="audio__bird"><p class="audio_bird_name">*****</p></div>
           <div class="audio__buttons">
-              <audio src="%audio%" id="%id%"></audio>
-              <div class="button_play" id="play"><img class="img__src" src="../../assets/icons/play.svg" alt="button play"></div>
-              <div class="button_volume"><img class="img__src" src="../../assets/icons/volume.svg" alt="button volume"></div>
+              <audio src="%audio%" id="%id%" class="audio__song"></audio> 
+              <div class="button_play img__src" id="play"></div>
+              <div class="volume-container">
+                <div class="volume-button">
+                  <div class="volume icono-volumeMedium"></div>
+                </div>
+                <div class="volume-slider">
+                <div class="volume-percentage"></div>
+                </div>
+              </div>
+              <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
           </div>
           <div class="audio__progress">
               <div class="progress_val"></div>
@@ -83,11 +94,11 @@ function showQuestion() {
     .replace("%audio%", audioPath)
     .replace("%id%", idBird);
   console.log(audio);
-
+  
   headerContainer.insertAdjacentHTML("afterbegin", audio);
 
   for (let i = 0; i < birdsData[questionNumber].length; i++) {
-    const anwsersBirds = birdsData[questionNumber][i]["name"];
+    const answersBirds = birdsData[questionNumber][i]["name"];
     const questionTemplate = `
       <li class="answer__bird">
         <input type="radio" class="answer" name="answer" id="radio-%number%" value="%number%">
@@ -95,17 +106,58 @@ function showQuestion() {
       </li>`;
 
     const answer = questionTemplate
-      .replace("%answer%", anwsersBirds)
+      .replace("%answer%", answersBirds)
       .replaceAll("%number%", i);
     listContainer.insertAdjacentHTML("beforeend", answer);
   }
+  
+  attachSongEvents();
 
-  choiseAnswer();
+  choiceAnswer();
+}
+
+function clearSongEvents() {
+  const playButton = document.querySelector(".button_play");
+  if (playButton) {
+    playButton.removeEventListener('click', toggleBtn);
+    playButton.removeEventListener("click", handlePlayClick);
+  }
+  
+  const audioPlayer = document.getElementById("audio_player");
+  const progressCont = document.querySelector('.audio__progress');
+  if (audioPlayer) {
+    const song = audioPlayer.querySelector('audio');
+    if (song) {
+      song.removeEventListener('timeupdate', updProgressAudio);
+      progressCont.removeEventListener('click', currentProgress);
+    }
+  }
+}
+
+function attachSongEvents() {
+  const playButton = document.querySelector(".button_play");
+  if (playButton) {
+    playButton.addEventListener('click', toggleBtn);
+    playButton.addEventListener("click", handlePlayClick);
+  }
+
+  const audioPlayer = document.getElementById("audio_player");
+  const progressCont = document.querySelector('.audio__progress');
+  if (audioPlayer) {
+    const song = audioPlayer.querySelector('audio');
+    if (song) {
+      song.addEventListener('timeupdate', updProgressAudio);
+      progressCont.addEventListener('click', currentProgress);
+    }
+  }
+  
 }
 
 showQuestion();
 
-function choiseAnswer() {
+
+
+function choiceAnswer() {
   const answerClick = listContainer.querySelectorAll("input");
 
   answerClick.forEach((elem) => {
@@ -131,10 +183,12 @@ function checkAnswer() {
     getCorrectAudio();
     showBird();
     nextSongButton.disabled = false;
+    pauseSong()
+
   } else {
     labelStyle.classList.add("uncorrect");
     unit = unit - 1;
-    getUncorrectAudio();
+    getIncorrectAudio();
   }
   score = unit;
   if (score < 0) {
@@ -161,7 +215,13 @@ function nextQuestion() {
 }
 
 function showBird() {
+  const audioPlayer = document.getElementById("audio_player");
+  const nameBirdTitle = audioPlayer.querySelector(".audio__bird");
+  const birdImg = audioPlayer.querySelector(".audio_image");
+
   birdContainer.textContent = "";
+  birdImg.textContent = "";
+  nameBirdTitle.textContent = "";
 
   const birdContentTemplate = `
   <div class="bird__content">
@@ -173,8 +233,11 @@ function showBird() {
     <img src=%image% alt="Parus major image" class="bird__image">
   </div>
   <p class="bird__description">%description%</p>
-</div> 
+  </div> 
   `;
+
+  const imgTemplate = `<img src="%image%" alt="bird image" alt="bird image" class="audio_image_bird">`;
+  const nameTemplate = `<p class="audio_bird_name">%name%</p>`;
 
   const correctAnswer = listContainer.querySelector(".correct");
   console.log(correctAnswer);
@@ -187,12 +250,23 @@ function showBird() {
   const imageBird = birdsData[questionNumber][id]["image"];
   const descriptionBird = birdsData[questionNumber][id]["description"];
 
+  console.log(imageBird);
+
   const birdHTML = birdContentTemplate
     .replace("%name%", nameBird)
     .replace("%species%", speciesBird)
     .replace("%image%", imageBird)
     .replace("%description%", descriptionBird);
   birdContainer.insertAdjacentHTML("beforeend", birdHTML);
+
+  const img = imgTemplate.replace("%image%", imageBird);
+  //console.log(img);
+  birdImg.insertAdjacentHTML("beforeend", img);
+
+  const nameTitle = nameTemplate.replace("%name%", nameBird);
+  console.log(nameTitle);
+  nameBirdTitle.insertAdjacentHTML("beforeend", nameTitle);
+  console.log(nameBirdTitle);
 }
 
 function showUnknown() {
@@ -207,40 +281,85 @@ function getCorrectAudio() {
   audioClick.play();
 }
 
-function getUncorrectAudio() {
+function getIncorrectAudio() {
   const audioClick = new Audio("../../assets/audio/uncorrect.mp3");
   audioClick.play();
 }
 
-//__________Audioplayer
 
-const audioPlayer = document.getElementById("audio_player");
-const playButton = document.getElementById("play");
-const song = document.getElementById("song"); //тут будет айди из даты
+//__________Audio player
 
-const progressContainer = document.getElementsByClassName("audio__progress");
-const progressAudio = document.getElementsByClassName("progress_val");
+// const audioPlayer = document.getElementById("audio_player");
 
-const nameBird = document.getElementsByClassName("audio__bird");
-const birdImg = document.getElementsByClassName("audio_image");
+// const progressContainer = document.getElementsByClassName("audio__progress");
 
-const icons = document.getElementsByClassName("img__src");
+
+// const nameBirdTitle = audioPlayer.querySelector(".audio__bird");
+// const birdImg = audioPlayer.querySelector(".audio_image");
+
+
+// const iconsDiv = document.getElementsByClassName("button_play");
+
 
 function playSong() {
+  const audioPlayer = document.getElementById("audio_player");
+  const song = audioPlayer.querySelector('audio');
   audioPlayer.classList.add("play");
-  audio.play();
+  song.play();
 }
 
 function pauseSong() {
+  const audioPlayer = document.getElementById("audio_player");
+  const song = audioPlayer.querySelector('audio');
   audioPlayer.classList.remove("play");
-  audio.pause();
+  song.pause();
 }
 
-playButton.addEventListener("click", () => {
+function toggleBtn() {
+  const audioPlayer = document.getElementById("audio_player");
+  console.log(audioPlayer);
+  if (audioPlayer) {
+    const icons = audioPlayer.querySelector(".button_play");
+    console.log(icons);
+    if (icons) {
+      console.log('toggle class');
+      icons.classList.toggle('pause');
+      icons.classList.toggle('img__src');
+    }
+  }
+}
+
+
+function handlePlayClick() {
+  const audioPlayer = document.getElementById("audio_player");
   const isPlay = audioPlayer.classList.contains("play");
   if (isPlay) {
     pauseSong();
   } else {
     playSong();
   }
-});
+}
+
+attachSongEvents();
+
+function updProgressAudio(event) {
+  const progressAudio = document.querySelector(".progress_val");
+
+ const { duration, currentTime } = event.srcElement;
+ const progressLength = (currentTime / duration) * 100;
+ progressAudio.style.width = `${progressLength}%`;
+}
+
+function currentProgress(event) {
+  const audioPlayer = document.getElementById("audio_player");
+  const song = audioPlayer.querySelector('audio');
+
+  const containerWidth = this.clientWidth;
+
+  const click = event.offsetX;
+  const duration = song.duration;
+
+  song.currentTime = (click / containerWidth) * duration;
+}
+
+

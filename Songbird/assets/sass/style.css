@@ -285,8 +285,29 @@ h1 {
   cursor: pointer;
 }
 
+.img__src {
+  width: 70px;
+  height: 70px;
+  background-image: url(../icons/play.svg);
+  background-size: contain;
+}
+
+.pause {
+  width: 70px;
+  height: 70px;
+  background-image: url(../icons/pause.svg);
+  background-size: contain;
+}
+
 .audio_image {
   padding: 20px;
+}
+
+.audio_image_bird {
+  display: block;
+  object-fit: cover;
+  width: 255px;
+  border-radius: 20px;
 }
 
 .audio__progress {
@@ -304,7 +325,45 @@ h1 {
   background: rgb(63, 48, 152);
   border-radius: 4px;
   height: 10px;
-  width: 50px;
+}
+
+.button_play {
+  width: 70px;
+  height: 70px;
+}
+
+.volume-container {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+.volume-container .volume-button {
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+.volume-container .volume-button .volume {
+  transform: scale(0.7);
+}
+.volume-container .volume-slider {
+  position: absolute;
+  left: -3px;
+  top: 15px;
+  z-index: -1;
+  width: 0;
+  height: 15px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6666666667);
+  transition: 0.25s;
+}
+.volume-container .volume-slider .volume-percentage {
+  background: coral;
+  height: 100%;
+  width: 75%;
+}
+.volume-container:hover .volume-slider {
+  left: -123px;
+  width: 120px;
 }
 
 .wrapper {
@@ -532,6 +591,8 @@ h1 {
 .quiz__cont {
   display: flex;
   margin: 20px 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .quiz__wrapper {
@@ -551,6 +612,7 @@ h1 {
   color: #3F3098;
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .counter__pages {
