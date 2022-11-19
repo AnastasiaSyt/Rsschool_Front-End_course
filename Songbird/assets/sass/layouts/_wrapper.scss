@@ -1,4 +1,8 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   max-width: $content-width;
   margin: auto;
   @include media-laptop {

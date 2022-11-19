@@ -77,14 +77,6 @@ function showQuestion() {
           <div class="audio__buttons">
               <audio src="%audio%" id="%id%" class="audio__song"></audio> 
               <div class="button_play img__src" id="play"></div>
-              <div class="volume-container">
-                <div class="volume-button">
-                  <div class="volume icono-volumeMedium"></div>
-                </div>
-                <div class="volume-slider">
-                <div class="volume-percentage"></div>
-                </div>
-              </div>
               <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
           </div>
           <div class="audio__progress">
@@ -179,26 +171,20 @@ function checkAnswer() {
   const labelStyle = document.getElementById(`label-${userAnswer}`);
   document.getElementById(`radio-${userAnswer}`).checked = false;
 
-  let unit = 0;
+  
   if (userAnswer + 1 === currentBird) {
-    unit = unit + 5;
     labelStyle.classList.add("correct");
-    console.log("score", score);
     getCorrectAudio();
     showBird();
     nextSongButton.disabled = false;
     pauseSong()
-
+    score = score + 5;
+    scoreHTML.textContent = `Score: ${score}`;
   } else {
     labelStyle.classList.add("uncorrect");
-    unit = unit - 1;
     getIncorrectAudio();
+    score = score - 1;
   }
-  score = unit;
-  if (score < 0) {
-    score = 0;
-  }
-  scoreHTML.textContent = `Score: ${score}`;
 }
 
 nextSongButton.addEventListener("click", nextQuestion);
@@ -236,6 +222,9 @@ function showBird() {
       <h3 class="bird__species">%species%</h3>
     </div>
     <img src=%image% alt="Parus major image" class="bird__image">
+
+  
+
   </div>
   <p class="bird__description">%description%</p>
   </div> 
@@ -295,6 +284,11 @@ function getCorrectAudio() {
 function getIncorrectAudio() {
   const audioClick = new Audio("../../assets/audio/uncorrect.mp3");
   audioClick.play();
+}
+
+function showResults() {
+  sessionStorage.setItem('score', score);
+  window.location.href = '../results/index.html';
 }
 
 

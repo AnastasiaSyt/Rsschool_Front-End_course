@@ -3,6 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 60px;
+  flex-direction: row;
+  
   @include media-mobile-middle {
     padding-bottom: 60px;
   }
@@ -24,6 +26,7 @@
 }
 
 .main__img {
+  margin-top: 102px;
   @include media-laptop {
     width: 80%;
   }

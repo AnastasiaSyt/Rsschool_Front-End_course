@@ -13,7 +13,16 @@ body {
   font-family: 'Exo 2', sans-serif;
   background: linear-gradient(346.45deg, #B2AAE9 31.75%, #FFFFFF 102.92%);
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
+// html, body {
+//   height: 100%;
+// }
+
+.content {
+  flex: 1 0 auto;
 }
 
 h1 {
