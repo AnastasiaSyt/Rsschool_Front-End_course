@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  max-width: $content-width;
+  margin: auto;
+  @include media-laptop {
+    padding: 0 40px;
+  }
+  @include media-tablet {
+    padding: 0 30px;
+  }
+  @include media-tablet-small {
+    padding: 0 25px;
+  }
+  @include media-mobile {
+    padding: 0 15px;
+  }
+  @include media-mobile-small {
+    padding: 0 12px;
+  }
+}

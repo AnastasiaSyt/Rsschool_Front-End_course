@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/sass/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <title>Quiz</title>
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <a href="../main/index.html" class="logo"><img src="../../assets/icons/Union.svg" alt="Songbird logo" class="logo-img"></a>
+      <nav class="header__navigation">
+        <ul class="navigation">
+          <li class="navigation_item"><a href="../main/index.html" class="navigation__link">Главная</a></li>
+          <li class="navigation_item"><a href="index.html" class="navigation__link">Викторина</a></li>
+          <li class="navigation_item"><a href="../birds/index.html" class="navigation__link">Все птицы</a></li>
+        </ul>
+      </nav>
+      <div class="burger_menu_container">
+        <div class="burger_icon" id="burger">
+          <span class="burger">
+            <span class="burger_line"></span>
+          </span>
+        </div>
+      </div>
+      <div class="background_burger" id="background_burger">
+        <div class="burger_menu" id="burger_menu">
+          <ul class="action_burger">
+            <li class="link_burger"><a href="../main/index.html" class="link_burger_text">Главная</a></li>
+            <li class="link_burger"><a href="index.html" class="link_burger_text">Викторина</a></li>
+            <li class="link_burger"><a href="../birds/index.html" class="link_burger_text">Птицы</a></li>
+            <span class="close_burger" id="close"></span>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="wrapper">
+      <div class="counter">
+        <div class="counter__pages">
+          <div class="progress" id="progress"></div>
+            <div class="circle active">1</div>
+            <div class="circle">2</div>
+            <div class="circle">3</div>
+            <div class="circle">4</div>
+            <div class="circle">5</div>
+            <div class="circle">6</div>
+        </div>
+        <div class="counter__score" id="score">Score: 0</div>
+      </div>
+      <div class="quiz__cont">
+        <div class="quiz__wrapper">
+          <div class="quiz" id="quiz">
+            <div class="quiz-header" id="header">
+              <!-- <div class="audio" id="audio_player">
+                <div class="audio__title">
+                    <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" id="audio_image"></div>
+                    <div class="audio__bird_content">
+                        <div class="audio__bird">*****</div>
+                        <div class="audio__buttons">
+                            <audio src="#" id="song"></audio>
+                            <div class="button_play" id="play"><img class="img__src" src="../../assets/icons/play.svg" alt="button play"></div>
+                            <div class="button_volume"><img class="img__src" src="../../assets/icons/volume.svg" alt="button volume"></div>
+                        </div>
+                        <div class="audio__progress">
+                            <div class="progress_val"></div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+              <!-- <audio id="audio" src="#" controls></audio> -->
+            </div>
+            <ul class="quiz-list" id="list">
+              <li>
+                <label for="">
+                  <input type="radio" class="answer" name="answer">
+                  <span>Ответ</span>
+                </label>
+              </li>
+              <li>
+                <label for="">
+                  <input type="radio" class="answer" name="answer">
+                  <span>Ответ</span>
+                </label>
+              </li>
+            </ul>
+            <button class="quiz-submit submit quiz-button" id="submit" disabled>Следующая птица</button>
+          </div>
+          <div class="bird" id="bird">
+            <p class="bird__text">Послушайте плеер.<br>Выберите птицу из списка</p>
+            <img src="../../assets/img/bird_question.png" alt="unknown bird" class="bird__unknown">
+          </div>
+      </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+      <div class="footer__content">
+        <p class="footer__text">© 2022</p>
+        <a href="https://github.com/AnastasiaSyt" class="footer__link">GitHub: Anastasia Syt</a>
+      </div>
+      <a href="https://rs.school/js/" class="rs_logo_footer"><img src="../../assets/icons/rs_school_js 1.svg" alt="rolling scopes school logo" class="rs-logo"></a>
+    </div>
+  </footer>
+  <script src="../../dist/bundle.js"></script>
+  <script src="../../src/js/burger.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+.button {
+  padding: 14px 67px 16px;
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 3.1rem;
+  color: $color-dark;
+  background: $color-secondary;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), inset 0px 2px 8px rgba(255, 247, 179, 0.5);
+  border-radius: 30px;
+  border: none;
+
+  transition: all .3s ease;
+  @include media-laptop {
+    padding: 10px 55px 12px;
+    font-size: 2.0rem;
+    line-height: 2.6rem;
+  }
+  @include laptop-small {
+    padding: 10px 35px 12px;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+  @include media-tablet {
+    padding: 8px 25px 10px;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+  @include media-mobile {
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+  }
+  @include media-mobile-middle {
+    padding: 10px 35px;
+    font-size: 1.6rem;
+    line-height: 1.7rem;
+  }
+  @include media-mobile-small {
+    padding: 10px 35px;
+    font-size: 1.6rem;
+    line-height: 1.7rem;
+  }
+}
+
+.button:hover {
+  background: $color-hover;
+}
+
+.button_span {
+  @include media-mobile-middle {
+    display: none;
+  }
+}

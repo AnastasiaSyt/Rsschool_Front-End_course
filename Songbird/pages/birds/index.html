@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/sass/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <title>Birds</title>
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <a href="../main/index.html" class="logo"><img src="../../assets/icons/Union.svg" alt="Songbird logo" class="logo-img"></a>
+      <nav class="header__navigation">
+        <ul class="navigation">
+          <li class="navigation_item"><a href="../main/index.html" class="navigation__link">Главная</a></li>
+          <li class="navigation_item"><a href="../quiz/index.html" class="navigation__link">Викторина</a></li>
+          <li class="navigation_item"><a href="index.html" class="navigation__link">Все птицы</a></li>
+        </ul>
+      </nav>
+      <div class="burger_menu_container">
+        <div class="burger_icon" id="burger">
+          <span class="burger">
+            <span class="burger_line"></span>
+          </span>
+        </div>
+      </div>
+      <div class="background_burger" id="background_burger">
+        <div class="burger_menu" id="burger_menu">
+          <ul class="action_burger">
+            <li class="link_burger"><a href="../main/index.html" class="link_burger_text">Главная</a></li>
+            <li class="link_burger"><a href="../quiz/index.html" class="link_burger_text">Викторина</a></li>
+            <li class="link_burger"><a href="index.html" class="link_burger_text">Птицы</a></li>
+            <span class="close_burger" id="close"></span>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="wrapper main__wrapper">
+      <div class="birds-birds" id="birdsss">
+        <!-- <div class="birds_information">
+          <img src="#" alt="birds image" class="birds-birds__image">
+          <h3>Bird</h3>
+          <audio src="#" controls></audio>
+        </div> -->
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+      <div class="footer__content">
+        <p class="footer__text">© 2022</p>
+        <a href="https://github.com/AnastasiaSyt" class="footer__link">GitHub: Anastasia Syt</a>
+      </div>
+      <a href="https://rs.school/js/" class="rs_logo_footer"><img src="../../assets/icons/rs_school_js 1.svg" alt="rolling scopes school logo" class="rs-logo"></a>
+    </div>
+  </footer>
+  <script src="../../src/renderBirds.js"></script>
+  <script src="../../src/js/burger.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Exo 2', sans-serif;
+  background: linear-gradient(346.45deg, #B2AAE9 31.75%, #FFFFFF 102.92%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+// html, body {
+//   height: 100%;
+// }
+
+.content {
+  flex: 1 0 auto;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 7.2rem;
+  line-height: 125%;
+  color: $color-primary;
+  margin-bottom: 30px;
+  @include media-laptop {
+    font-size: 5.2rem;
+  }
+  @include laptop-small {
+    font-size: 4.4rem;
+  }
+  @include media-tablet-small {
+    font-size: 3.8rem;
+  }
+  @include media-mobile {
+    font-size: 3.0rem;
+  }
+  @include media-mobile-middle {
+    font-size: 2.4rem;
+  }
+  @include media-mobile-small {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+}

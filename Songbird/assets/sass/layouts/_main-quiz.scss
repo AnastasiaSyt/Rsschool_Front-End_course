@@ -1,0 +1,367 @@
+.quiz__cont {
+    display: flex;
+    margin: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    @include media-tablet {
+        display: block;
+    }
+}
+
+.quiz__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter__score {
+    color: $color-primary;
+    font-size: 2.0rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+//counter pages
+
+.counter__pages {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 730px;
+}
+
+.counter__pages::before {
+    content: '';
+    background-color: $color-primary-transparent;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 100%;
+    z-index: -1;
+    transition: 1.5s ease;
+}
+
+.progress {
+    background-color: $color-primary;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: 2s ease;
+}
+
+.circle {
+    background-color: #E2DFF6;
+    color: $color-primary;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $color-primary-transparent;
+}
+
+.circle.active {
+    background-color: $color-primary;
+    color: $color-light;
+    box-shadow: 0px 4px 8px rgba(22, 10, 72, 0.15);
+}
+
+// answers
+
+.quiz-list {
+    list-style: none;
+    display: inline-block;
+	overflow: hidden;
+    font-size: 2.0rem;
+    padding: 30px 0;
+    text-align: center;
+    width: 70%;
+    @include laptop-small-small {
+        font-size: 1.8rem;
+        padding: 20px 0;
+    }
+}
+
+.answer__bird input[type=radio] {
+	display: none;
+}
+
+.answer__bird  label {
+	display: inline-block;
+	cursor: pointer;
+	padding: 10px 100px;
+    width: 100%;
+	line-height: 44px;
+	border: 2px solid $color-primary-transparent;
+	border-bottom: none;
+	user-select: none;
+
+    transition: all .3s ease;
+
+    text-align: center;
+    @include laptop-small-small {
+        line-height: 38px;
+        padding: 10px 55px;
+    }
+}
+
+.quiz-list .answer__bird:first-child label {
+	border-radius: 15px 15px 0 0;
+}
+.quiz-list .answer__bird:last-child label {
+	border-radius: 0 0 15px 15px;
+	border-bottom: 2px solid $color-primary-transparent;
+}
+
+/* Checked */
+.answer__bird input[type=radio]:checked + label {
+	background: $color-primary;
+}
+ 
+/* Hover */
+.answer__bird label:hover {
+	color: $color-light;
+    background-color: $color-primary-transparent;
+}
+
+/* Correct */
+.correct {
+    color: $color-light;
+    background: #7eeb8c;
+}
+
+.uncorrect {
+    color: $color-light;
+    background: #eb7ea8;
+}
+
+.quiz-button {
+    padding: 14px 52px 16px;
+    gap: 10px;
+
+    width: 350px;
+    height: 61px;
+    
+    background: #FCDF23;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), inset 0px 2px 8px rgba(255, 247, 179, 0.5);
+    border-radius: 40px;
+    border: none;
+
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+
+    color: $color-dark;
+    cursor: pointer;
+    transition: all .3s ease;
+    @include laptop-small-small {
+        width: 300px;
+        height: 50px;
+
+        font-size: 2.0rem;
+        padding: 0;
+    }
+    @include media-mobile-340 {
+        width: 280px;
+        height: 50px;
+
+        font-size: 1.8rem;
+    }
+}
+
+.quiz-button:hover {
+    background: $color-hover;
+}
+
+.quiz-button:disabled {
+    background: gray;
+    color: rgba(255, 255, 255, 0.638);
+    box-shadow: none;
+}
+
+//_____bird-content
+
+.bird {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.bird__content {
+  width: 540px;
+  height: 740px;
+
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  @include media-laptop {
+     width: 445px;
+  }
+  @include laptop-small-small {
+    width: 390px;
+  }
+  @include media-tablet {
+    display: none;
+  }
+
+  //margin-bottom: 30px;
+}
+
+.bird__name {
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  color: $color-dark;
+  @include laptop-small-small {
+    font-size: 3.0rem;
+    line-height: 3.6rem;
+  }
+}
+
+.bird__species {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  color: #987CB9;
+  @include laptop-small-small {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+}
+
+.bird__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 20px 20px;
+
+}
+
+.bird__image {
+  display: block;
+  object-fit: cover;
+    
+  width: 310px;
+  height: 220px;
+  border: none;
+  border-radius: 20px;
+  @include media-laptop {
+    width: 220px;
+    height: 158px;
+  }
+  @include laptop-small-small {
+    width: 200px;
+    height: 142px;
+  }
+}
+
+.bird__description { 
+  font-size: 2.4rem;
+  line-height: 142.5%;
+  color: $color-dark;
+
+  padding: 20px;
+  @include laptop-small-small {
+    font-size: 2.0rem;
+  line-height: 140%;
+  }
+}
+
+.bird__text {
+    color: $color-primary;
+    font-weight: 700;
+    font-size: 2.0rem;
+    text-align: center;
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.bird_table_text {
+    display: none;
+    @include media-tablet {
+        display: inline;
+        color: $color-primary;
+        font-weight: 700;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+}
+
+.bird__unknown {
+    @include media-laptop {
+        width: 80%;
+    }
+    @include media-tablet {
+        display: none;
+    }
+}
+
+.bird__description_tablet {
+    display: none;
+    @include media-tablet {
+        display: inline;
+    }
+}
+
+.bird__description_title {
+    display: flex;
+}
+
+//__volume 
+
+.volume {
+  appearance: none;
+  width: 85px;
+  height: 5px; 
+  background: $color-primary-transparent; 
+  outline: none; 
+  opacity: 0.7; 
+  transition: opacity .2s;
+  margin-right: 10px;
+  @include media-laptop {
+    
+  }
+}
+
+.volume_container {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    @include media-laptop {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
+
+.volume:hover {
+    opacity: 1;
+}
+
+.volume::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px; 
+    height: 10px; 
+    background: $color-primary; 
+    cursor: pointer; 
+  }

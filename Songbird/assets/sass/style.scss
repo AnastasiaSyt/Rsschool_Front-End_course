@@ -1,0 +1,19 @@
+
+@import "abstract/constants";
+@import "abstract/mixins";
+
+//Base
+@import "base/base";
+@import "base/buttons";
+@import "base/burger";
+@import "base/audioplayer";
+
+//Layouts
+@import "layouts/wrapper";
+@import "layouts/header";
+@import "layouts/main";
+@import "layouts/footer";
+@import "layouts/quiz-style";
+@import "layouts/main-quiz";
+@import "layouts/main_birds";
+@import "layouts/main_result";
