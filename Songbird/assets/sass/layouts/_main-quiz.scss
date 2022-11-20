@@ -325,3 +325,43 @@
 .bird__description_title {
     display: flex;
 }
+
+//__volume 
+
+.volume {
+  appearance: none;
+  width: 85px;
+  height: 5px; 
+  background: $color-primary-transparent; 
+  outline: none; 
+  opacity: 0.7; 
+  transition: opacity .2s;
+  margin-right: 10px;
+  @include media-laptop {
+    
+  }
+}
+
+.volume_container {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    @include media-laptop {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
+
+.volume:hover {
+    opacity: 1;
+}
+
+.volume::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px; 
+    height: 10px; 
+    background: $color-primary; 
+    cursor: pointer; 
+  }

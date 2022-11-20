@@ -77,7 +77,10 @@ function showQuestion() {
           <div class="audio__buttons">
               <audio src="%audio%" id="%id%" class="audio__song"></audio> 
               <div class="button_play img__src" id="play"></div>
+              <div class="volume_container">
               <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
+              <input id="volume" type="range" class="volume"></input>
+              </div>
           </div>
           <div class="audio__progress">
               <div class="progress_val"></div>
@@ -144,6 +147,7 @@ function attachSongEvents() {
     if (song) {
       song.addEventListener('timeupdate', updProgressAudio);
       progressCont.addEventListener('click', currentProgress);
+      currentVolume();
     }
   }
   
@@ -367,4 +371,13 @@ function currentProgress(event) {
   song.currentTime = (click / containerWidth) * duration;
 }
 
+function currentVolume() {
+  const volume = document.getElementById("volume");
+  volume.addEventListener('change', changeVolume);
+}
+
+function changeVolume(event) {
+  const song = document.querySelector('audio');
+  song.volume = event.currentTarget.value / 100;
+}
 
