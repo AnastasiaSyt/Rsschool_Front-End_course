@@ -17,10 +17,6 @@ body {
   background-position: center;
 }
 
-// html, body {
-//   height: 100%;
-// }
-
 .content {
   flex: 1 0 auto;
 }
@@ -32,6 +28,7 @@ h1 {
   line-height: 125%;
   color: $color-primary;
   margin-bottom: 30px;
+  
   @include media-laptop {
     font-size: 5.2rem;
   }

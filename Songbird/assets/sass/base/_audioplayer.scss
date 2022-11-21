@@ -1,102 +1,100 @@
 
 .audio {
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 30px;
-    max-width: 540px;
-    width: 100%;
-    @include media-laptop {
-        max-width: 445px;
-    }
-    @include media-mobile-middle {
-        max-width: 320px;
-    }
-    @include media-mobile-340 {
-        max-width: 300px;
-    }
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  max-width: 540px;
+  width: 100%;
+
+  @include media-laptop {
+    max-width: 445px;
+  }
+  @include media-mobile-middle {
+    max-width: 320px;
+  }
+  @include media-mobile-340 {
+    max-width: 300px;
+  }
 }
 
 .audio__title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    //padding-top: 20px;
-    @include media-tablet {
-        flex-direction: column;
-        padding: 20px;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media-tablet {
+    flex-direction: column;
+    padding: 20px;
+  }
 }
 
 .audio_wrap_table {
-    display: flex;
-    flex-direction: row;
-    //justify-content: center;
-    align-items: center;
-    @include media-tablet {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include media-tablet {
+    justify-content: space-between;
+  }
 }
 
 .audio__bird {
-    font-size: 40px;
-    margin-left: 20px;
-    width: 200px;
-    @include media-laptop {
-        width: 160px;
-    }
-    @include laptop-small-small {
-        width: 140px;
-    }
+  font-size: 40px;
+  margin-left: 20px;
+  width: 200px;
+
+  @include media-laptop {
+    width: 160px;
+  }
+  @include laptop-small-small {
+    width: 140px;
+  }
 }
 
 .audio_bird_name {
-    font-size: 2.6rem;
-    font-weight: 700;
-    padding-bottom: 15px;
-    @include laptop-small-small {
-        font-size: 2.2rem;
-    }
-    @include media-mobile-middle {
-        font-size: 1.8rem;
-    }
+  font-size: 2.6rem;
+  font-weight: 700;
+  padding-bottom: 15px;
+  
+  @include laptop-small-small {
+    font-size: 2.2rem;
+  }
+  @include media-mobile-middle {
+    font-size: 1.8rem;
+  }
 }
 
 .audio__buttons {
-    display: flex;
-    //justify-content: space-around;
-    align-items: center;
-    cursor: pointer;
-    
+  display: flex;
+  align-items: center;
+  cursor: pointer;  
 }
 
-
-.img__src {
-    width: 70px;
-    height: 70px;
-    background-image: url(../icons/play.svg);
-    background-size: contain;
+.img__src, .pause {
+  width: 70px;
+  height: 70px;
+  background-size: contain;
 }
 
 .pause {
-    width: 70px;
-    height: 70px;
-    background-image: url(../icons/pause.svg);
-    background-size: contain;
+  background-image: url(../icons/pause.svg);
+}
+
+.img__src {
+  background-image: url(../icons/play.svg);
 }
 
 .audio_image {
-    padding: 20px;
+  padding: 20px;
 }
 
 .audio_image_bird {
   display: block;
   object-fit: cover;
-
   width: 255px;
   height: 166px;
   border-radius: 20px;
+
   @include media-laptop {
     width: 200px;
     height: 142px;
@@ -112,55 +110,66 @@
 }
 
 .audio__progress {
-    background: $color-primary-transparent;
-    border-radius: 5px;
-    //width: 100%;
-    width: 190px;
-    height: 6px;
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    @include media-laptop {
-        width: 160px;
-        margin-top: 20px;
-    }
-    @include laptop-small-small {
-        width: 140px;
-        margin-top: 10px;
-    }
-    @include media-mobile-middle {
-        width: 100px;
-    }
+  background: $color-primary-transparent;
+  border-radius: 5px;
+  width: 190px;
+  height: 6px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  @include media-laptop {
+    width: 160px;
+    margin-top: 20px;
+  }
+  @include laptop-small-small {
+    width: 140px;
+    margin-top: 10px;
+  }
+  @include media-mobile-middle {
+    width: 100px;
+  }
 }
 
 .progress_val {
     background: $color-primary;
     border-radius: 5px;
     height: 6px;
-    // width: 50px;
-    
 }
-
 
 .button_play {
-    width: 70px;
-    height: 70px;
-    //padding-right: 20px;
-    @include media-laptop {
-        width: 60px;
-        height: 60px;
-    }
-    @include laptop-small-small {
-        width: 40px;
-        height: 40px;
-    }
-    @include media-mobile-middle {
-        width: 30px;
-        height: 30px;
-    }
+  width: 70px;
+  height: 70px;
+
+  @include media-laptop {
+    width: 60px;
+    height: 60px;
+  }
+  @include laptop-small-small {
+    width: 40px;
+    height: 40px;
+  }
+  @include media-mobile-middle {
+    width: 30px;
+    height: 30px;
+  }
 }
 
-// .button_volume {
-//     padding-left: 40px;
-// }
+.audio__buttons_description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.audio__progress_description {
+  width: 200px;  
+}
+
+.description_player {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

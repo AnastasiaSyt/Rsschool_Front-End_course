@@ -1,7 +1,6 @@
 .footer {
   background: $color-primary;
   padding: 21px 0;
-
   flex: 0 0 auto;
 }
 
@@ -10,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+
   @include media-mobile {
     flex-direction: column;
     justify-content: center;
@@ -20,6 +20,7 @@
   display: flex;
   color: $color-light;
   align-items: center;
+
   @include media-mobile {
     padding-bottom: 20px;
   }
@@ -32,13 +33,14 @@
   padding-left: 20px;
   color: $color-light;
   transition: all .3s ease;
+
   @include media-mobile-small {
     padding-left: 8px;
   }
 }
 
 .footer__link:hover {
-    color: $color-secondary;
+  color: $color-secondary;
 }
 
 .rs-logo {

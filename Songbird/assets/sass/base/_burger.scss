@@ -1,5 +1,6 @@
 .burger_menu_container {
   display: none;
+
   @include media-mobile {
     display: flex;
     justify-content: center;
@@ -12,6 +13,7 @@
   position: relative;
   width: 18px;
   height: 10px;
+  
   @include media-mobile {
     display: inline-block;
   }

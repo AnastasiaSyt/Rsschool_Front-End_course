@@ -16,9 +16,14 @@
       <a href="../../index.html" class="logo"><img src="../../assets/icons/Union.svg" alt="Songbird logo" class="logo-img"></a>
       <nav class="header__navigation">
         <ul class="navigation">
-          <li class="navigation_item"><a href="../../index.html" class="navigation__link">Главная</a></li>
-          <li class="navigation_item"><a href="../quiz/index.html" class="navigation__link">Викторина</a></li>
-          <li class="navigation_item"><a href="../quiz/index.html" class="navigation__link">Все птицы</a></li>
+          <li class="navigation_item"><a href="../../index.html" class="navigation__link lng-link-main">Главная</a></li>
+          <li class="navigation_item"><a href="../quiz/index.html" class="navigation__link lng-link-quiz">Викторина</a></li>
+          <li class="navigation_item"><a href="../quiz/index.html" class="navigation__link lng-link-birds">Все птицы</a></li>
+          <select name="" id="" class="change-languages">
+            <option value="by" selected>BY</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+          </select>
         </ul>
       </nav>
       <div class="burger_menu_container">
@@ -31,9 +36,9 @@
       <div class="background_burger" id="background_burger">
         <div class="burger_menu" id="burger_menu">
           <ul class="action_burger">
-            <li class="link_burger"><a href="../../index.html" class="link_burger_text">Главная</a></li>
-            <li class="link_burger"><a href="../quiz/index.html" class="link_burger_text">Викторина</a></li>
-            <li class="link_burger"><a href="../quiz/index.html" class="link_burger_text">Птицы</a></li>
+            <li class="link_burger"><a href="../../index.html" class="link_burger_text lng-link-main">Главная</a></li>
+            <li class="link_burger"><a href="../quiz/index.html" class="link_burger_text lng-link-quiz">Викторина</a></li>
+            <li class="link_burger"><a href="../quiz/index.html" class="link_burger_text lng-link-birds">Птицы</a></li>
             <span class="close_burger" id="close"></span>
           </ul>
         </div>
@@ -43,11 +48,11 @@
   <main class="main">
     <div class="wrapper main__wrapper main__result">
       <div class="content">
-        <p class="message">Поздравляем!<br>Вы завершили викторину.</p>
-        <p class="result">Ваш результат: 0 очков</p>
-        <form action="../quiz/index.html">
-          <button class="result_button">Попробовать снова</button>
-         </form>
+        <p class="message lng-message">Поздравляем!<br>Вы завершили викторину.</p>
+        <p class="result lng-result">Ваш результат: 0 очков</p>
+        <a href="../quiz/index.html">
+          <button class="result_button lng-result-button">Попробовать снова</button>
+        </a>
       </div>
     </div>
   </main>
@@ -62,5 +67,6 @@
   </footer>
   <script src="../../src/js/burger.js"></script>
   <script src="../../src/js/score.js"></script>
+  <script src="../../src/js/language.js"></script>
 </body>
 </html>
