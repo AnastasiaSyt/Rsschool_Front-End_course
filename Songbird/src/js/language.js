@@ -44,21 +44,6 @@ const langArr = {
         "en": "Listen to the player. Select a bird from the list",
         "by": "Паслухайце плэер. Выберыце птушку са спісу",
     },
-    "message": {
-        "ru": `Поздравляем! Вы завершили викторину.`,
-        "en": `Congratulations! You have completed the quiz.`,
-        "by": `Віншуем! Вы завяршылі віктарыну.`,   
-    },
-    "result": {
-        "ru": "Ваш результат: 0 очков",
-        "en": "Your score: 0 points",
-        "by": "Ваш вынік: 0 балаў",
-    },
-    "result-button": {
-        "ru": "Попробовать снова",
-        "en": "Try again",
-        "by": "Паспрабаваць зноў",
-    },
 }
 
 
@@ -77,7 +62,7 @@ function changeLanguage() {
     let hash = (window.location.hash).substring(1);
     console.log(hash);
     if (!allLang.includes(hash)) {
-        location.href = window.location.pathname + "#en";
+        location.href = window.location.pathname + "#ru";
         location.reload();
     }
     select.value = hash;
