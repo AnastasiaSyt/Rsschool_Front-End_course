@@ -11,7 +11,7 @@ const scoreHTML = document.getElementById("score");
 
 let score = 0;
 let questionNumber = 0;
-let data = birdsData;
+let data = {};
 
 function langBirds() {
   const select = document.querySelector(".change-languages");
@@ -406,7 +406,7 @@ function showBird() {
 function showUnknown() {
   birdContainer.textContent = "";
 
-  const unknownImage = `<p class="bird__text">Послушайте плеер.<br>Выберите птицу из списка</p>
+  const unknownImage = `<p class="bird__text lng-first-text">Послушайте плеер.<br>Выберите птицу из списка</p>
                        <img src="../../assets/img/bird_question.png" alt="unknown bird" class="bird__unknown">`;
   birdContainer.insertAdjacentHTML("beforeend", unknownImage);
 }

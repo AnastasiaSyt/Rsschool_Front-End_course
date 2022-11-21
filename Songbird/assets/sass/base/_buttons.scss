@@ -12,6 +12,7 @@
   border: none;
 
   transition: all .3s ease;
+  
   @include media-laptop {
     padding: 10px 55px 12px;
     font-size: 2.0rem;

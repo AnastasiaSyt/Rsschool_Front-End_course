@@ -27,6 +27,7 @@
 
 .main__img {
   margin-top: 102px;
+
   @include media-laptop {
     width: 80%;
   }
@@ -43,6 +44,7 @@
 
 .main__img_small {
   display: none;
+  
   @include media-mobile {
     display: block;
     overflow: hidden;
