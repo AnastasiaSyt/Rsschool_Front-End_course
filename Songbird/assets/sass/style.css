@@ -453,6 +453,24 @@ h1 {
   }
 }
 
+.audio__buttons_description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.audio__progress_description {
+  width: 200px;
+}
+
+.description_player {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

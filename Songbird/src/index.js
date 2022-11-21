@@ -165,6 +165,97 @@ function choiceAnswer() {
   });
 }
 
+function choiceAnswerNext() {
+  const answerClick = listContainer.querySelectorAll("input");
+  answerClick.forEach((elem) => {
+    elem.removeEventListener("click", checkAnswer);
+    elem.classList.add("current");
+    elem.addEventListener("click", checkAnswerNext);
+  });
+}
+
+function checkAnswerNext() {
+  const checkedAnswer = listContainer.querySelector("input:checked");
+  const userAnswer = +checkedAnswer.value;
+
+  const audioPlayer = document.getElementById("audio_player");
+  const nameBirdTitle = audioPlayer.querySelector(".audio__bird");
+  const birdImg = audioPlayer.querySelector(".audio_image");
+  const desriptTablet = document.querySelector(".audio__title");
+
+  birdContainer.textContent = "";
+  birdImg.textContent = "";
+  nameBirdTitle.textContent = "";
+
+  const birdContentTemplate = `
+  <div class="bird__content">
+  <div class="bird__title">
+    <div class="bird__title_text">
+      <h2 class="bird__name">%name%</h2>
+      <h3 class="bird__species">%species%</h3>
+    </div>
+    <img src=%image% alt="Parus major image" class="bird__image">
+
+  
+
+  </div>
+  <p class="bird__description">%description%</p>
+  <div class="description_player">
+  <div class="audio__buttons audio__buttons_description">
+              <audio src="%audio%" id="%id%" class="audio__song"></audio> 
+              <div class="button_play img__src" id="play"></div>
+              <div class="volume_container">
+              <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
+              <input id="volume" type="range" class="volume"></input>
+              </div>
+          </div>
+          <div class="audio__progress audio__progress_description">
+              <div class="progress_val"></div>
+          </div>
+          </div>
+  </div> 
+  `;
+
+  const imgTemplate = `<img src="%image%" alt="bird image" alt="bird image" class="audio_image_bird">`;
+  const nameTemplate = `<p class="audio_bird_name">%name%</p>`;
+
+  const descriptTabletTemplate = `<p class="bird__description_tablet">%description%</p>`
+
+  // const correctAnswer = listContainer.querySelector(".correct");
+  // console.log(correctAnswer);
+  // const numberBird = correctAnswer.id;
+  const id = userAnswer;
+  console.log(id);
+
+  const nameBird = birdsData[questionNumber][id]["name"];
+  const speciesBird = birdsData[questionNumber][id]["species"];
+  const imageBird = birdsData[questionNumber][id]["image"];
+  const descriptionBird = birdsData[questionNumber][id]["description"];
+  const songBird = birdsData[questionNumber][id]["audio"];
+
+  console.log(imageBird);
+
+  const birdHTML = birdContentTemplate
+    .replace("%name%", nameBird)
+    .replace("%species%", speciesBird)
+    .replace("%image%", imageBird)
+    .replace("%description%", descriptionBird)
+    .replace("%audio%", songBird);
+  birdContainer.insertAdjacentHTML("beforeend", birdHTML);
+
+  const img = imgTemplate.replace("%image%", imageBird);
+  //console.log(img);
+  birdImg.insertAdjacentHTML("beforeend", img);
+
+  const nameTitle = nameTemplate.replace("%name%", nameBird);
+  console.log(nameTitle);
+  nameBirdTitle.insertAdjacentHTML("beforeend", nameTitle);
+  console.log(nameBirdTitle);
+
+  const descrBirdTable = descriptTabletTemplate.replace("%description%", descriptionBird);
+  desriptTablet.insertAdjacentHTML("beforeend", descrBirdTable);
+}
+
 function checkAnswer() {
   const checkedAnswer = listContainer.querySelector("input:checked");
   const checkedQuestion = headerContainer.querySelector("audio");
@@ -184,6 +275,7 @@ function checkAnswer() {
     pauseSong()
     score = score + 5;
     scoreHTML.textContent = `Score: ${score}`;
+    choiceAnswerNext();
   } else {
     labelStyle.classList.add("uncorrect");
     getIncorrectAudio();
@@ -231,6 +323,19 @@ function showBird() {
 
   </div>
   <p class="bird__description">%description%</p>
+  <div class="description_player">
+  <div class="audio__buttons audio__buttons_description">
+              <audio src="%audio%" id="%id%" class="audio__song"></audio> 
+              <div class="button_play img__src" id="play"></div>
+              <div class="volume_container">
+              <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
+              <input id="volume" type="range" class="volume"></input>
+              </div>
+          </div>
+          <div class="audio__progress audio__progress_description">
+              <div class="progress_val"></div>
+          </div>
+          </div>
   </div> 
   `;
 
@@ -249,6 +354,7 @@ function showBird() {
   const speciesBird = birdsData[questionNumber][id]["species"];
   const imageBird = birdsData[questionNumber][id]["image"];
   const descriptionBird = birdsData[questionNumber][id]["description"];
+  const songBird = birdsData[questionNumber][id]["audio"];
 
   console.log(imageBird);
 
@@ -256,7 +362,8 @@ function showBird() {
     .replace("%name%", nameBird)
     .replace("%species%", speciesBird)
     .replace("%image%", imageBird)
-    .replace("%description%", descriptionBird);
+    .replace("%description%", descriptionBird)
+    .replace("%audio%", songBird);
   birdContainer.insertAdjacentHTML("beforeend", birdHTML);
 
   const img = imgTemplate.replace("%image%", imageBird);
@@ -271,6 +378,8 @@ function showBird() {
   const descrBirdTable = descriptTabletTemplate.replace("%description%", descriptionBird);
   desriptTablet.insertAdjacentHTML("beforeend", descrBirdTable);
 }
+
+
 
 function showUnknown() {
   birdContainer.textContent = "";
