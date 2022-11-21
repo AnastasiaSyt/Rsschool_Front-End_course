@@ -1,4 +1,6 @@
 import birdsData from "./js/birds-data";
+import birdsDataBY from './js/birdsDataBY';
+import birdsDataEn from './js/birdsDataEN';
 
 const headerContainer = document.getElementById("header");
 const listContainer = document.getElementById("list");
@@ -9,6 +11,26 @@ const scoreHTML = document.getElementById("score");
 
 let score = 0;
 let questionNumber = 0;
+let data = birdsData;
+
+function langBirds() {
+  const select = document.querySelector(".change-languages");
+  const hash = (window.location.hash).substring(1);
+  console.log(hash);
+  select.value = hash;
+  // renderBirds(birdsDataEn);
+  if (hash === 'en') {
+data = birdsDataEn;
+  } else if (hash == 'ru') {
+data = birdsData;
+  } else if (hash == 'by') {
+
+data = birdsDataBY
+  }
+  console.log(data);
+}
+
+langBirds();
 
 function getRandomNum(min, max) {
   min = Math.ceil(min);
@@ -63,8 +85,8 @@ function showQuestion() {
   clearPage();
 
   const numberBird = getRandomNum(0, 5);
-  const audioPath = birdsData[questionNumber][numberBird]["audio"];
-  const idBird = birdsData[questionNumber][numberBird]["id"];
+  const audioPath = data[questionNumber][numberBird]["audio"];
+  const idBird = data[questionNumber][numberBird]["id"];
 
   // const headerTemplate = `<audio id="%id%" src="%audio%" controls></audio>`;
   const headerTemplate = `<div class="audio" id="audio_player">
@@ -96,8 +118,8 @@ function showQuestion() {
   
   headerContainer.insertAdjacentHTML("afterbegin", audio);
 
-  for (let i = 0; i < birdsData[questionNumber].length; i++) {
-    const answersBirds = birdsData[questionNumber][i]["name"];
+  for (let i = 0; i < data[questionNumber].length; i++) {
+    const answersBirds = data[questionNumber][i]["name"];
     const questionTemplate = `
       <li class="answer__bird">
         <input type="radio" class="answer" name="answer" id="radio-%number%" value="%number%">
@@ -227,11 +249,11 @@ function checkAnswerNext() {
   const id = userAnswer;
   console.log(id);
 
-  const nameBird = birdsData[questionNumber][id]["name"];
-  const speciesBird = birdsData[questionNumber][id]["species"];
-  const imageBird = birdsData[questionNumber][id]["image"];
-  const descriptionBird = birdsData[questionNumber][id]["description"];
-  const songBird = birdsData[questionNumber][id]["audio"];
+  const nameBird = data[questionNumber][id]["name"];
+  const speciesBird = data[questionNumber][id]["species"];
+  const imageBird = data[questionNumber][id]["image"];
+  const descriptionBird = data[questionNumber][id]["description"];
+  const songBird = data[questionNumber][id]["audio"];
 
   console.log(imageBird);
 
@@ -350,11 +372,11 @@ function showBird() {
   const id = parseInt(numberBird.match(/\d+/));
   console.log(id);
 
-  const nameBird = birdsData[questionNumber][id]["name"];
-  const speciesBird = birdsData[questionNumber][id]["species"];
-  const imageBird = birdsData[questionNumber][id]["image"];
-  const descriptionBird = birdsData[questionNumber][id]["description"];
-  const songBird = birdsData[questionNumber][id]["audio"];
+  const nameBird = data[questionNumber][id]["name"];
+  const speciesBird = data[questionNumber][id]["species"];
+  const imageBird = data[questionNumber][id]["image"];
+  const descriptionBird = data[questionNumber][id]["description"];
+  const songBird = data[questionNumber][id]["audio"];
 
   console.log(imageBird);
 
@@ -400,7 +422,7 @@ function getIncorrectAudio() {
 }
 
 function showResults() {
-  sessionStorage.setItem('score', score);
+  localStorage.setItem('score', score);
   window.location.href = '../results/index.html';
 }
 

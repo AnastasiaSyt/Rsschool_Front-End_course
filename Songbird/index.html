@@ -16,9 +16,14 @@
       <a href="index.html" class="logo"><img src="./assets/icons/Union.svg" alt="Songbird logo" class="logo-img"></a>
       <nav class="header__navigation">
         <ul class="navigation">
-          <li class="navigation_item"><a href="index.html" class="navigation__link">Главная</a></li>
-          <li class="navigation_item"><a href="./pages/quiz/index.html" class="navigation__link">Викторина</a></li>
-          <li class="navigation_item"><a href="./pages/birds/index.html" class="navigation__link">Все птицы</a></li>
+          <li class="navigation_item"><a href="index.html" class="navigation__link lng-link-main">Главная</a></li>
+          <li class="navigation_item"><a href="./pages/quiz/index.html" class="navigation__link lng-link-quiz">Викторина</a></li>
+          <li class="navigation_item"><a href="./pages/birds/index.html" class="navigation__link lng-link-birds">Все птицы</a></li>
+          <select name="" id="" class="change-languages">
+            <option value="by" selected>BY</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+          </select>
         </ul>
       </nav>
       <div class="burger_menu_container">
@@ -31,9 +36,9 @@
       <div class="background_burger" id="background_burger">
         <div class="burger_menu" id="burger_menu">
           <ul class="action_burger">
-            <li class="link_burger"><a href="index.html" class="link_burger_text">Главная</a></li>
-            <li class="link_burger"><a href="./pages/quiz/index.html" class="link_burger_text">Викторина</a></li>
-            <li class="link_burger"><a href="./pages/birds/index.html" class="link_burger_text">Птицы</a></li>
+            <li class="link_burger"><a href="index.html" class="link_burger_text lng-link-main">Главная</a></li>
+            <li class="link_burger"><a href="./pages/quiz/index.html" class="link_burger_text lng-link-quiz">Викторина</a></li>
+            <li class="link_burger"><a href="./pages/birds/index.html" class="link_burger_text lng-link-birds">Птицы</a></li>
             <span class="close_burger" id="close"></span>
           </ul>
         </div>
@@ -43,10 +48,11 @@
   <main class="main main__notes">
     <div class="wrapper main__wrapper">
       <div class="main__content">
-        <h1 class="main__title">Сможешь угадать всех птиц?</h1>
-        <form action="./pages/quiz/index.html">
-          <button class="main__button button">Начать <span class="button_span">викторину</span></button>
-         </form>
+        <h1 class="main__title lng-main-question">Сможешь угадать всех птиц?</h1>
+      
+        <a href="./pages/quiz/index.html" class="href_quiz">
+        <button class="main__button button lng-button">Начать <span class="button_span">викторину</span></button>
+      </a>
       </div>
       <img src="./assets/img/bird.png" alt="flying bird" class="main__img">
       <img src="./assets/img/bird-flying.png" alt="flying bird small" class="main__img_small">
@@ -62,5 +68,6 @@
     </div>
   </footer>
   <script src="./src/js/burger.js"></script>
+  <script src="./src/js/language.js"></script>
 </body>
 </html>

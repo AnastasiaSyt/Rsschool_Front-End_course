@@ -1,7 +1,7 @@
 const repeatButton = document.querySelector(".result_button");
 
 function getScore() {
-  const data = sessionStorage.getItem('score');
+  const data = localStorage.getItem('score');
   const result = document.querySelector('.result');
   const message = document.querySelector('.message');
 console.log(data);
@@ -19,8 +19,8 @@ console.log(data);
 getScore()
 
 function clearStorage() {
-    sessionStorage.removeItem('score');
-    sessionStorage.clear();
+    localStorage.removeItem('score');
+    localStorage.clear();
 }
 
 repeatButton.addEventListener('click', clearStorage);

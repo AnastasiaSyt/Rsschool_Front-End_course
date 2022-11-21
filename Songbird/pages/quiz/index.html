@@ -16,9 +16,14 @@
       <a href="../../index.html" class="logo"><img src="../../assets/icons/Union.svg" alt="Songbird logo" class="logo-img"></a>
       <nav class="header__navigation">
         <ul class="navigation">
-          <li class="navigation_item"><a href="../../index.html" class="navigation__link">Главная</a></li>
-          <li class="navigation_item"><a href="index.html" class="navigation__link">Викторина</a></li>
-          <li class="navigation_item"><a href="../birds/index.html" class="navigation__link">Все птицы</a></li>
+          <li class="navigation_item"><a href="../../index.html" class="navigation__link lng-link-main">Главная</a></li>
+          <li class="navigation_item"><a href="./index.html" class="navigation__link lng-link-quiz">Викторина</a></li>
+          <li class="navigation_item"><a href="../birds/index.html" class="navigation__link lng-link-birds">Все птицы</a></li>
+          <select name="" id="" class="change-languages">
+            <option value="by">BY</option>
+            <option value="en" selected>EN</option>
+            <option value="ru">RU</option>
+          </select>
         </ul>
       </nav>
       <div class="burger_menu_container">
@@ -31,9 +36,9 @@
       <div class="background_burger" id="background_burger">
         <div class="burger_menu" id="burger_menu">
           <ul class="action_burger">
-            <li class="link_burger"><a href="../../index.html" class="link_burger_text">Главная</a></li>
-            <li class="link_burger"><a href="index.html" class="link_burger_text">Викторина</a></li>
-            <li class="link_burger"><a href="../birds/index.html" class="link_burger_text">Птицы</a></li>
+            <li class="link_burger"><a href="../../index.html" class="link_burger_text lng-link-main">Главная</a></li>
+            <li class="link_burger"><a href="./index.html" class="link_burger_text lng-link-quiz">Викторина</a></li>
+            <li class="link_burger"><a href="../birds/index.html" class="link_burger_text lng-link-birds">Птицы</a></li>
             <span class="close_burger" id="close"></span>
           </ul>
         </div>
@@ -52,7 +57,7 @@
             <div class="circle">5</div>
             <div class="circle">6</div>
         </div>
-        <div class="counter__score" id="score">Score: 0</div>
+        <div class="counter__score lng-score" id="score">Score: 0</div>
       </div>
       <div class="quiz__cont">
         <div class="quiz__wrapper">
@@ -90,10 +95,10 @@
                 </label>
               </li>
             </ul>
-            <button class="quiz-submit submit quiz-button" id="submit" disabled>Следующая птица</button>
+            <button class="quiz-submit submit quiz-button lng-button-next" id="submit" disabled>Следующая птица</button>
           </div>
           <div class="bird" id="bird">
-            <p class="bird__text">Послушайте плеер.<br>Выберите птицу из списка</p>
+            <p class="bird__text lng-first-text">Послушайте плеер.<br class="lng-second-text">Выберите птицу из списка</p>
             <img src="../../assets/img/bird_question.png" alt="unknown bird" class="bird__unknown">
           </div>
       </div>
@@ -111,5 +116,6 @@
   </footer>
   <script src="../../dist/bundle.js"></script>
   <script src="../../src/js/burger.js"></script>
+  <script src="../../src/js/language.js"></script>
 </body>
 </html>
