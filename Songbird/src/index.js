@@ -13,24 +13,21 @@ let score = 0;
 let questionNumber = 0;
 let data = {};
 
-function langBirds() {
+function languageBirds() {
   const select = document.querySelector(".change-languages");
   const hash = (window.location.hash).substring(1);
-  console.log(hash);
   select.value = hash;
-  // renderBirds(birdsDataEn);
+  
   if (hash === 'en') {
-data = birdsDataEn;
+    data = birdsDataEn;
   } else if (hash == 'ru') {
-data = birdsData;
+    data = birdsData;
   } else if (hash == 'by') {
-
-data = birdsDataBY
+    data = birdsDataBY
   }
-  console.log(data);
 }
 
-langBirds();
+languageBirds();
 
 function getRandomNum(min, max) {
   min = Math.ceil(min);
@@ -40,7 +37,7 @@ function getRandomNum(min, max) {
 
 
 
-//____Progress bar__________
+//__________Progress bar__________
 
 const progress = document.getElementById("progress");
 const circles = document.querySelectorAll(".circle");
@@ -62,9 +59,11 @@ function updateProgress() {
       circle.classList.remove("active");
     }
   });
+
   const actives = document.querySelectorAll(".active");
   progress.style.width =
-    ((actives.length - 1) / (circles.length - 1)) * 100 + "%";
+    ((actives.length - 1) / 
+    (circles.length - 1)) * 100 + "%";
 
   if (currentActive === circles.length) {
     nextSongButton.disabled = true;
@@ -88,57 +87,56 @@ function showQuestion() {
   const audioPath = data[questionNumber][numberBird]["audio"];
   const idBird = data[questionNumber][numberBird]["id"];
 
-  // const headerTemplate = `<audio id="%id%" src="%audio%" controls></audio>`;
   const headerTemplate = `<div class="audio" id="audio_player">
-  <div class="audio__title">
-    <div class="bird_table_text">Послушайте плеер.<br>Выберите птицу из списка</div>
-    <div class="audio_wrap_table">
-      <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" class="audio_image_bird"></div>
-      <div class="audio__bird_content">
-          <div class="audio__bird"><p class="audio_bird_name">*****</p></div>
-          <div class="audio__buttons">
-              <audio src="%audio%" id="%id%" class="audio__song"></audio> 
-              <div class="button_play img__src" id="play"></div>
-              <div class="volume_container">
-              <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
-              <input id="volume" type="range" class="volume"></input>
-              </div>
-          </div>
-          <div class="audio__progress">
-              <div class="progress_val"></div>
-          </div>
-      </div>
-    </div>
-    <p class="bird__description_tablet"></p>
-  </div>`;
+                            <div class="audio__title">
+                              <div class="bird_table_text">Послушайте плеер.<br>Выберите птицу из списка</div>
+                              <div class="audio_wrap_table">
+                                <div class="audio_image"><img src="../../assets/img/Mask group (3).png" alt="bird image" class="audio_image_bird"></div>
+                                <div class="audio__bird_content">
+                                  <div class="audio__bird"><p class="audio_bird_name">*****</p></div>
+                                  <div class="audio__buttons">
+                                      <audio src="%audio%" id="%id%" class="audio__song"></audio> 
+                                      <div class="button_play img__src" id="play"></div>
+                                      <div class="volume_container">
+                                        <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
+                                        <input id="volume" type="range" class="volume"></input>
+                                      </div>
+                                  </div>
+                                  <div class="audio__progress">
+                                    <div class="progress_val"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <p class="bird__description_tablet"></p>
+                          </div>`;
   const audio = headerTemplate
     .replace("%audio%", audioPath)
     .replace("%id%", idBird);
-  console.log(audio);
   
   headerContainer.insertAdjacentHTML("afterbegin", audio);
 
   for (let i = 0; i < data[questionNumber].length; i++) {
     const answersBirds = data[questionNumber][i]["name"];
-    const questionTemplate = `
-      <li class="answer__bird">
-        <input type="radio" class="answer" name="answer" id="radio-%number%" value="%number%">
-        <label for="radio-%number%" id="label-%number%">%answer%</label>
-      </li>`;
+    const questionTemplate = 
+    `<li class="answer__bird">
+      <input type="radio" class="answer" name="answer" id="radio-%number%" value="%number%">
+      <label for="radio-%number%" id="label-%number%">%answer%</label>
+    </li>`;
 
     const answer = questionTemplate
       .replace("%answer%", answersBirds)
       .replaceAll("%number%", i);
+
     listContainer.insertAdjacentHTML("beforeend", answer);
   }
   
   attachSongEvents();
-
   choiceAnswer();
 }
 
 function clearSongEvents() {
   const playButton = document.querySelector(".button_play");
+
   if (playButton) {
     playButton.removeEventListener('click', toggleBtn);
     playButton.removeEventListener("click", handlePlayClick);
@@ -146,8 +144,10 @@ function clearSongEvents() {
   
   const audioPlayer = document.getElementById("audio_player");
   const progressCont = document.querySelector('.audio__progress');
+
   if (audioPlayer) {
     const song = audioPlayer.querySelector('audio');
+
     if (song) {
       song.removeEventListener('timeupdate', updProgressAudio);
       progressCont.removeEventListener('click', currentProgress);
@@ -157,6 +157,7 @@ function clearSongEvents() {
 
 function attachSongEvents() {
   const playButton = document.querySelector(".button_play");
+
   if (playButton) {
     playButton.addEventListener('click', toggleBtn);
     playButton.addEventListener("click", handlePlayClick);
@@ -164,24 +165,22 @@ function attachSongEvents() {
 
   const audioPlayer = document.getElementById("audio_player");
   const progressCont = document.querySelector('.audio__progress');
+
   if (audioPlayer) {
     const song = audioPlayer.querySelector('audio');
+
     if (song) {
       song.addEventListener('timeupdate', updProgressAudio);
       progressCont.addEventListener('click', currentProgress);
       currentVolume();
     }
-  }
-  
+  } 
 }
 
 showQuestion();
 
-
-
 function choiceAnswer() {
   const answerClick = listContainer.querySelectorAll("input");
-
   answerClick.forEach((elem) => {
     elem.addEventListener("click", checkAnswer);
   });
@@ -209,45 +208,36 @@ function checkAnswerNext() {
   birdImg.textContent = "";
   nameBirdTitle.textContent = "";
 
-  const birdContentTemplate = `
-  <div class="bird__content">
-  <div class="bird__title">
-    <div class="bird__title_text">
-      <h2 class="bird__name">%name%</h2>
-      <h3 class="bird__species">%species%</h3>
-    </div>
-    <img src=%image% alt="Parus major image" class="bird__image">
-
-  
-
-  </div>
-  <p class="bird__description">%description%</p>
-  <div class="description_player">
-  <div class="audio__buttons audio__buttons_description">
-              <audio src="%audio%" id="%id%" class="audio__song"></audio> 
-              <div class="button_play img__src" id="play"></div>
-              <div class="volume_container">
-              <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
-              <input id="volume" type="range" class="volume"></input>
-              </div>
-          </div>
-          <div class="audio__progress audio__progress_description">
-              <div class="progress_val"></div>
-          </div>
-          </div>
-  </div> 
-  `;
+  const birdContentTemplate = 
+                              `<div class="bird__content">
+                                <div class="bird__title">
+                                  <div class="bird__title_text">
+                                    <h2 class="bird__name">%name%</h2>
+                                    <h3 class="bird__species">%species%</h3>
+                                  </div>
+                                  <img src=%image% alt="birds image" class="bird__image">
+                                </div>
+                                <p class="bird__description">%description%</p>
+                                <div class="description_player">
+                                  <div class="audio__buttons audio__buttons_description">
+                                    <audio src="%audio%" id="%id%" class="audio__song"></audio> 
+                                    <div class="button_play img__src" id="play"></div>
+                                    <div class="volume_container">
+                                      <div class="button_volume"><img src="../../assets/icons/volume.svg" alt="button volume"></div>
+                                      <input id="volume" type="range" class="volume"></input>
+                                    </div>
+                                  </div>
+                                <div class="audio__progress audio__progress_description">
+                                  <div class="progress_val"></div>
+                                </div>
+                                </div>
+                              </div> `;
 
   const imgTemplate = `<img src="%image%" alt="bird image" alt="bird image" class="audio_image_bird">`;
   const nameTemplate = `<p class="audio_bird_name">%name%</p>`;
-
   const descriptTabletTemplate = `<p class="bird__description_tablet">%description%</p>`
 
-  // const correctAnswer = listContainer.querySelector(".correct");
-  // console.log(correctAnswer);
-  // const numberBird = correctAnswer.id;
   const id = userAnswer;
-  console.log(id);
 
   const nameBird = data[questionNumber][id]["name"];
   const speciesBird = data[questionNumber][id]["species"];
@@ -255,24 +245,20 @@ function checkAnswerNext() {
   const descriptionBird = data[questionNumber][id]["description"];
   const songBird = data[questionNumber][id]["audio"];
 
-  console.log(imageBird);
-
   const birdHTML = birdContentTemplate
     .replace("%name%", nameBird)
     .replace("%species%", speciesBird)
     .replace("%image%", imageBird)
     .replace("%description%", descriptionBird)
     .replace("%audio%", songBird);
+
   birdContainer.insertAdjacentHTML("beforeend", birdHTML);
 
   const img = imgTemplate.replace("%image%", imageBird);
-  //console.log(img);
   birdImg.insertAdjacentHTML("beforeend", img);
 
   const nameTitle = nameTemplate.replace("%name%", nameBird);
-  console.log(nameTitle);
   nameBirdTitle.insertAdjacentHTML("beforeend", nameTitle);
-  console.log(nameBirdTitle);
 
   const descrBirdTable = descriptTabletTemplate.replace("%description%", descriptionBird);
   desriptTablet.insertAdjacentHTML("beforeend", descrBirdTable);
@@ -281,14 +267,11 @@ function checkAnswerNext() {
 function checkAnswer() {
   const checkedAnswer = listContainer.querySelector("input:checked");
   const checkedQuestion = headerContainer.querySelector("audio");
-
   const userAnswer = +checkedAnswer.value;
   const currentBird = +checkedQuestion.id;
-
   const labelStyle = document.getElementById(`label-${userAnswer}`);
   document.getElementById(`radio-${userAnswer}`).checked = false;
 
-  
   if (userAnswer + 1 === currentBird) {
     labelStyle.classList.add("correct");
     getCorrectAudio();
@@ -309,14 +292,12 @@ nextSongButton.addEventListener("click", nextQuestion);
 
 function nextQuestion() {
   if (questionNumber !== birdsData.length - 1) {
-    console.log("это не последний вопрос");
     questionNumber++;
     clearPage();
     showQuestion();
     showUnknown();
     nextSongButton.disabled = true;
   } else {
-    console.log("А теперь результат");
     clearPage();
     showResults();
   }
@@ -389,13 +370,12 @@ function showBird() {
   birdContainer.insertAdjacentHTML("beforeend", birdHTML);
 
   const img = imgTemplate.replace("%image%", imageBird);
-  //console.log(img);
   birdImg.insertAdjacentHTML("beforeend", img);
 
   const nameTitle = nameTemplate.replace("%name%", nameBird);
-  console.log(nameTitle);
+  
   nameBirdTitle.insertAdjacentHTML("beforeend", nameTitle);
-  console.log(nameBirdTitle);
+
 
   const descrBirdTable = descriptTabletTemplate.replace("%description%", descriptionBird);
   desriptTablet.insertAdjacentHTML("beforeend", descrBirdTable);
@@ -428,18 +408,6 @@ function showResults() {
 
 
 //__________Audio player
-
-// const audioPlayer = document.getElementById("audio_player");
-
-// const progressContainer = document.getElementsByClassName("audio__progress");
-
-
-// const nameBirdTitle = audioPlayer.querySelector(".audio__bird");
-// const birdImg = audioPlayer.querySelector(".audio_image");
-
-
-// const iconsDiv = document.getElementsByClassName("button_play");
-
 
 function playSong() {
   const audioPlayer = document.getElementById("audio_player");

@@ -1051,23 +1051,21 @@ const birdsDataEn = [
   ]
 ];
 
+
 //________Page with birds__________
-
-// const nameBird = birdsData[1];
-// console.log(nameBird);
-
 
 
 function renderBirds(value) {
   const birdBirdContainer = document.getElementById("birdsss");
+
   for (let item of value) {
     for (let data of item) {
-      const birdTemplate = `
-          <div class="birds_information">
-            <img src="%image%" alt="birds image" class="birds-birds__image">
-            <h3 class="bird-name">%name%</h3>
-            <audio src="%audio%" controls class="birds-audio"></audio>
-          </div>`;
+      const birdTemplate = 
+        `<div class="birds_information">
+          <img src="%image%" alt="birds image" class="birds-birds__image">
+          <h3 class="bird-name">%name%</h3>
+          <audio src="%audio%" controls class="birds-audio"></audio>
+        </div>`;
 
       const bird = birdTemplate
         .replace("%name%", data.name)
@@ -1079,21 +1077,19 @@ function renderBirds(value) {
   }
 }
 
-//renderBirds();
 
 function langBirds() {
   const select = document.querySelector(".change-languages");
   const hash = (window.location.hash).substring(1);
-  console.log(hash);
-  select.value = hash;
-  renderBirds(birdsDataEn);
-  if (hash === 'en') {
-renderBirds(birdsDataEn);
-  } else if (hash == 'ru') {
-renderBirds(birdsData);
-  } else {
 
-renderBirds(birdsDataBY);
+  select.value = hash;
+  //renderBirds(birdsDataEn);
+  if (hash === 'en') {
+    renderBirds(birdsDataEn);
+  } else if (hash == 'ru') {
+    renderBirds(birdsData);
+  } else if (hash == 'by') {
+    renderBirds(birdsDataBY);
   }
 }
 
