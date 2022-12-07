@@ -1,6 +1,6 @@
 import { Endpoints, ResponseConfig, UrlMethods } from "./loaderTypes";
 
-const defaultCallback = () => {
+const defaultCallback: (data?: any) => void = () => {
     console.error('No callback for GET response');
 };
 
