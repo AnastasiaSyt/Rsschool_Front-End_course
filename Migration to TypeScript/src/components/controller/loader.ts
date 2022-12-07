@@ -1,7 +1,8 @@
-// interface LoaderProperties  {
-//   baseLink: string;
-//   options: string;
-// }
+import { Endpoints, ResponseConfig, UrlMethods } from "./loaderTypes";
+
+const defaultCallback = () => {
+    console.error('No callback for GET response');
+};
 
 class Loader {
     _baseLink: string;
@@ -12,15 +13,14 @@ class Loader {
     }
 
     getResp(
-        { endpoint: 'everything' | 'source', options = {} },
-        callback = () => {
-            console.error('No callback for GET response');
-        }
+        config: ResponseConfig,
+        callback = defaultCallback
     ) {
-        this.load('GET', endpoint, callback, options);
+        const { endpoint, options } = config;
+        this.load(UrlMethods.GET, endpoint, callback, options);
     }
 
-    errorHandler(res) {
+    errorHandler(res: Response): Response {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -30,9 +30,9 @@ class Loader {
         return res;
     }
 
-    makeUrl(options, endpoint): string {
+    makeUrl(options: any, endpoint: Endpoints): string {
         const urlOptions = { ...this._options, ...options };
-        let url: string = `${this._baseLink}${endpoint}?`;
+        let url = `${this._baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
@@ -41,7 +41,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method, endpoint, callback, options = {}) {
+    load(method: UrlMethods, endpoint: Endpoints, callback: (data: any) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
