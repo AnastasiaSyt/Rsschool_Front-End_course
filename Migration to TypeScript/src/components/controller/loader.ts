@@ -1,11 +1,18 @@
+// interface LoaderProperties  {
+//   baseLink: string;
+//   options: string;
+// }
+
 class Loader {
-    constructor(baseLink, options) {
-        this.baseLink = baseLink;
-        this.options = options;
+    _baseLink: string;
+    _options: {apiKey: string};
+    constructor(baseLink: string, options: {apiKey: string}) {
+        this._baseLink = baseLink;
+        this._options = options;
     }
 
     getResp(
-        { endpoint, options = {} },
+        { endpoint: 'everything' | 'source', options = {} },
         callback = () => {
             console.error('No callback for GET response');
         }
@@ -23,9 +30,9 @@ class Loader {
         return res;
     }
 
-    makeUrl(options, endpoint) {
-        const urlOptions = { ...this.options, ...options };
-        let url = `${this.baseLink}${endpoint}?`;
+    makeUrl(options, endpoint): string {
+        const urlOptions = { ...this._options, ...options };
+        let url: string = `${this._baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
