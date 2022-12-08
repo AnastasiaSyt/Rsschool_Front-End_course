@@ -35,3 +35,10 @@ export interface NewsAPI {
 
 export type GenericCallback<T> = (data: T) => void;
 
+export type DataNews = {
+    articles: any[];
+} 
+
+export type DataSources = {
+    sources: any[];
+} 
