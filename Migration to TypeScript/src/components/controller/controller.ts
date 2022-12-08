@@ -1,24 +1,24 @@
 import AppLoader from './appLoader';
-import { Endpoints } from './loaderTypes';
+import { Endpoints, GenericCallback } from './loaderTypes';
 
 class AppController extends AppLoader {
-    getSources(callback: (data?: any) => void) {
+    getSources(callback: GenericCallback<any>) {
         super.getResp(
             {
-                endpoint: Endpoints.SOURCE,
+                endpoint: Endpoints.SOURCES,
             },
             callback
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    getNews(e: Event, callback: GenericCallback<any>) {
+        let target = e.target as HTMLElement;
+        const newsContainer = e.currentTarget as HTMLElement;
 
         while (target !== newsContainer) {
-            if (target.classList.contains('source__item')) {
+            if (target?.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
+                if (newsContainer.getAttribute('data-source') !== sourceId && sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
                         {
@@ -32,7 +32,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = target?.parentNode as HTMLElement;
         }
     }
 }
