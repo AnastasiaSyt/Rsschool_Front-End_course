@@ -1,13 +1,13 @@
-import { Endpoints, ResponseConfig, UrlMethods } from "./loaderTypes";
+import { Endpoints, GenericCallback, LoaderOptions, Options, ResponseConfig, UrlMethods } from "./loaderTypes";
 
-const defaultCallback: (data?: any) => void = () => {
+const defaultCallback: GenericCallback<any> = () => {
     console.error('No callback for GET response');
 };
 
 class Loader {
     _baseLink: string;
-    _options: {apiKey: string};
-    constructor(baseLink: string, options: {apiKey: string}) {
+    _options: LoaderOptions;
+    constructor(baseLink: string, options: LoaderOptions) {
         this._baseLink = baseLink;
         this._options = options;
     }
@@ -30,18 +30,17 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: any, endpoint: Endpoints): string {
+    makeUrl(options: Options, endpoint: Endpoints): string {
         const urlOptions = { ...this._options, ...options };
         let url = `${this._baseLink}${endpoint}?`;
 
-        Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`;
+        Object.entries(urlOptions).forEach(([key, value]) => {
+            url += `${key}=${value}&`;
         });
-
         return url.slice(0, -1);
     }
 
-    load(method: UrlMethods, endpoint: Endpoints, callback: (data: any) => void, options = {}) {
+    load(method: UrlMethods, endpoint: Endpoints, callback: GenericCallback<any>, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

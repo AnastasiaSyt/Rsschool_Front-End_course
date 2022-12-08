@@ -1,6 +1,6 @@
 export enum Endpoints {
     EVERYTHING = 'everything',
-    SOURCE = 'source'
+    SOURCES = 'sources'
 }
 
 export enum UrlMethods {
@@ -10,7 +10,11 @@ export enum UrlMethods {
 }
 
 export type Options = {
-    [key: string]: string
+    sources?: string;
+}
+
+export type LoaderOptions = {
+    apiKey: string;
 }
 
 export type ResponseConfig = {
@@ -28,3 +32,6 @@ export interface NewsAPI {
     publishedAt: string;
     content: string;
 }
+
+export type GenericCallback<T> = (data: T) => void;
+
