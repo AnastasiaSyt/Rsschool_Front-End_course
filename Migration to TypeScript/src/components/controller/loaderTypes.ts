@@ -33,6 +33,16 @@ export interface NewsAPI {
     content: string;
 }
 
+export interface SourcesAPI {
+    id: string;
+    name: string;
+    description: string;
+    url: string;
+    category: string;
+    language: string;
+    country: string;
+}
+
 export type GenericCallback<T> = (data: T) => void;
 
 export type DataNews = {
