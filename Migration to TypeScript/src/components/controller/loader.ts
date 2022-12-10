@@ -1,8 +1,10 @@
-import { Endpoints, GenericCallback, LoaderOptions, Options, ResponseConfig, UrlMethods } from "./loaderTypes";
+import { DataNews, DataSources, Endpoints, GenericCallback, LoaderOptions, Options, ResponseConfig, UrlMethods } from "./loaderTypes";
 
-const defaultCallback: GenericCallback<any> = () => {
+const defaultCallback: GenericCallback<DataNews> | GenericCallback<DataSources> = () => {
     console.error('No callback for GET response');
 };
+
+console.log(defaultCallback);
 
 class Loader {
     _baseLink: string;
@@ -40,7 +42,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: UrlMethods, endpoint: Endpoints, callback: GenericCallback<any>, options = {}) {
+    load(method: UrlMethods, endpoint: Endpoints, callback: GenericCallback<DataNews> | GenericCallback<DataSources>, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
