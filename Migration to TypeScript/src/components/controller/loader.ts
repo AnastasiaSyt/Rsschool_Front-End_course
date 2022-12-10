@@ -4,8 +4,6 @@ const defaultCallback: GenericCallback<DataNews> | GenericCallback<DataSources> 
     console.error('No callback for GET response');
 };
 
-console.log(defaultCallback);
-
 class Loader {
     _baseLink: string;
     _options: LoaderOptions;
