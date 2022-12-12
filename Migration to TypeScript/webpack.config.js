@@ -2,6 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
     devtool: 'eval-source-map',
@@ -16,7 +17,7 @@ const baseConfig = {
             {
                 test: /\.ts$/,
                 use: 'ts-loader',
-                include: [path.resolve(__dirname, 'src')]
+                include: [path.resolve(__dirname, 'src')],
             },
         ],
     },
@@ -32,6 +33,14 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './src/images'),
+                    to: path.resolve(__dirname, 'dist/images'),
+                },
+            ],
         }),
         new CleanWebpackPlugin(),
     ],
