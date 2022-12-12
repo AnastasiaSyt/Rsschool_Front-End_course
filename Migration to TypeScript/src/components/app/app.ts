@@ -1,5 +1,5 @@
 import AppController from '../controller/controller';
-import { DataNews, DataSources } from '../controller/loaderTypes';
+import { DataNews, DataSources } from '../Types';
 import { AppView } from '../view/appView';
 
 class App {

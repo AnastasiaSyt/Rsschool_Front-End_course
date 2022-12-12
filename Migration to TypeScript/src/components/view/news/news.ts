@@ -1,4 +1,4 @@
-import { NewsAPI } from '../../controller/loaderTypes';
+import { NewsAPI } from '../../Types';
 import './news.css';
 
 class News {

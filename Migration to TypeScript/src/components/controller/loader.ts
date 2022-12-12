@@ -1,4 +1,4 @@
-import { DataNews, DataSources, Endpoints, GenericCallback, LoaderOptions, Options, ResponseConfig, UrlMethods } from "./loaderTypes";
+import { DataNews, DataSources, Endpoints, GenericCallback, LoaderOptions, Options, ResponseConfig, UrlMethods } from "../Types";
 
 const defaultCallback: GenericCallback<DataNews> | GenericCallback<DataSources> = () => {
     console.error('No callback for GET response');

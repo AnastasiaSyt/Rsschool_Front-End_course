@@ -1,4 +1,4 @@
-import { DataNews, DataSources } from '../controller/loaderTypes';
+import { DataNews, DataSources } from '../Types';
 import News from './news/news';
 import Sources from './sources/sources';
 

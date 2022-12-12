@@ -1,4 +1,4 @@
-import { SourcesAPI } from '../../controller/loaderTypes';
+import { SourcesAPI } from '../../Types';
 import './sources.css';
 
 class Sources {
