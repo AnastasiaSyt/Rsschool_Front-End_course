@@ -2,8 +2,10 @@ import { NewsAPI } from '../../Types';
 import './news.css';
 
 class News {
+    countNews = 10;
+    dateSize = 10;
     draw(data: NewsAPI[]) {
-        const news = data.length >= 10 ? data.filter((_item: NewsAPI, idx: number) => idx < 10) : data;
+        const news = data.length >= this.countNews ? data.filter((_item: NewsAPI, idx: number) => idx < this.countNews) : data;
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp: Element | null = document.querySelector('#newsItemTemp');
@@ -28,7 +30,7 @@ class News {
                 const metaDate = newsClone.querySelector('.news__meta-date');
                 if (metaDate) {
                     metaDate.textContent = item.publishedAt
-                    .slice(0, 10)
+                    .slice(0, this.dateSize)
                     .split('-')
                     .reverse()
                     .join('-');
