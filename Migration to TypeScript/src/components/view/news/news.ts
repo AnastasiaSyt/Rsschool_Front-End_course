@@ -1,7 +1,13 @@
 import { NewsAPI } from '../../Types';
 import './news.css';
 
-class News {
+interface INews {
+    countNews: number,
+    dateSize: number,
+    draw: (data: NewsAPI[]) => void
+}
+
+class News implements INews {
     countNews = 10;
     dateSize = 10;
     draw(data: NewsAPI[]) {

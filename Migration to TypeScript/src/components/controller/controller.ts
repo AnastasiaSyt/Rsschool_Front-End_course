@@ -1,7 +1,12 @@
 import AppLoader from './appLoader';
 import { DataNews, DataSources, Endpoints, GenericCallback } from '../Types';
 
-class AppController extends AppLoader {
+interface IAppController {
+    getSources: (callback: GenericCallback<DataSources>) => void,
+    getNews: (e: Event, callback: GenericCallback<DataNews>) => void
+}
+
+class AppController extends AppLoader implements IAppController {
     getSources(callback: GenericCallback<DataSources>) {
         super.getResp(
             {

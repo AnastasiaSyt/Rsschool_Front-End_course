@@ -1,7 +1,11 @@
 import { SourcesAPI } from '../../Types';
 import './sources.css';
 
-class Sources {
+interface ISources {
+    draw: (data: SourcesAPI[]) => void
+}
+
+class Sources implements ISources {
     draw(data: SourcesAPI[]) {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp');

@@ -2,7 +2,13 @@ import AppController from '../controller/controller';
 import { DataNews, DataSources } from '../Types';
 import { AppView } from '../view/appView';
 
-class App {
+interface IApp {
+    controller: AppController,
+    view: AppView,
+    start: () => void
+}
+
+class App implements IApp {
     controller: AppController;
     view: AppView;
     constructor() {

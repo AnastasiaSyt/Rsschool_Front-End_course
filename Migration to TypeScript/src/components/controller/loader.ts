@@ -4,7 +4,19 @@ const defaultCallback: GenericCallback<DataNews> | GenericCallback<DataSources> 
     console.error('No callback for GET response');
 };
 
-class Loader {
+interface ILoader {
+    _baseLink: string,
+    _options: LoaderOptions,
+    getResp: (
+        config: ResponseConfig,
+        defaultCallback: GenericCallback<DataNews> | GenericCallback<DataSources>
+    ) => void,
+    errorHandler: (res: Response) => Response,
+    makeUrl: (options: Options, endpoint: Endpoints) => string,
+    load: (method: UrlMethods, endpoint: Endpoints, callback: GenericCallback<DataNews> | GenericCallback<DataSources>, options: Options) => void
+}
+
+class Loader implements ILoader {
     _baseLink: string;
     _options: LoaderOptions;
     constructor(baseLink: string, options: LoaderOptions) {
