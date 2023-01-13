@@ -1,76 +1,56 @@
 const path = require('path');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-const devServer = (isDev) => !isDev ? {} : {
-    devServer: {
-        open: true,
-        hot: true,
-        port: 8080,
-        contentBase: path.join(__dirname, 'public'),
-        // static: {
-        //     directory: path.join(__dirname, "./")
-        //   },
-    }
-}
+const baseConfig = {
+    devtool: 'eval-source-map',
+    entry: path.resolve(__dirname, './src/index.ts'),
+    mode: 'development',
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                include: [path.resolve(__dirname, 'src')],
+            },
+        ],
+    },
+    resolve: {
+        extensions: ['.js', '.ts'],
+    },
+    output: {
+        //publicPath: 'dist',
+        filename: 'index.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/index.html'),
+            filename: 'index.html',
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './src/assets'),
+                    to: path.resolve(__dirname, 'dist/img'),
+                },
+            ],
+        }),
+        new CleanWebpackPlugin(),
+        new ESLintPlugin( {extensions: ['.ts', '.js'] }),
+    ],
+};
 
-const eslintPlugin = (isDev) => isDev ? [] : [ new ESLintPlugin({ extensions: ['ts', 'js'] }) ];
+module.exports = ({ mode }) => {
+    const isProductionMode = mode === 'prod';
+    const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
 
-module.exports = ({develop}) => ({
-  mode: develop ? 'development' : 'production',
-  devtool: develop ? 'inline-source-map' : false,
-  entry: './src/index.ts',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    assetModuleFilename: 'assets/[hash][ext]',
-  },
-  module: {
-    rules: [
-        {
-            test: /\.ts$/,
-            use: 'ts-loader',
-            include: [path.resolve(__dirname, 'src')],
-        },
-        {
-            test: /\.(?:ico|gif|png|ipg|jpeg|svg)$/i,
-            type: 'asset/resource',
-        },
-        {
-            test: /\.(woff(2)?|eot|ttf|otf)$/i,
-            type: 'asset/resource',
-        },
-        {
-            test: /\.css$/i,
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
-        },
-        {
-            test: /\.s[ac]ss$/i,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-        }
-    ]
-  },
- resolve: {
-    extensions: ['.ts', '.js']
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, './src/index.html'),
-        filename: 'index.html',
-    }),
-    new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',
-    }),
-    // new CopyPlugin({
-    //     patterns: [
-    //         { from: '.public'}
-    //     ]
-    // }),
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}), 
-    ...eslintPlugin(develop),
-],
-...devServer(develop),
-}); 
+    return merge(baseConfig, envConfig);
+};

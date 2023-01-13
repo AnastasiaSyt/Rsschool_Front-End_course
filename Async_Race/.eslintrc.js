@@ -3,19 +3,19 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: [
-        'airbnb-typescript/base',
+    extends: ['airbnb-typescript/base', 
         'eslint:recommended', 
-        'plugin:@typescript-eslint/recommended'
+        'plugin:@typescript-eslint/recommended',
+        'plugin:import/recommended'
     ],
     overrides: [],
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        project: './tsconfig.json',
         ecmaVersion: 'latest',
         sourceType: 'module',
+        project: './tsconfig.json'
     },
-    plugins: ['@typescript-eslint'],
+    plugins: ['@typescript-eslint', 'import'],
     // rules: {
     //     '@typescript-eslint/no-explicit-any': 2,
     // },
