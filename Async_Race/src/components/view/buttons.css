@@ -1,0 +1,39 @@
+.button,
+.button_race {
+  background: #3DDEF4;
+  box-shadow: 0px -2px 0px #A2FDFF, 0px 4px 0px #35AED6, 0px 8px 0px #032835;
+  border-radius: 5px;
+  border: none;
+
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  padding: 5px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+
+  transition: ease 0.4s;
+}
+
+.button_race:hover {
+  background: #0091B1;
+  box-shadow: 0px -2px 0px #436A6B, 0px 4px 0px #A3E8FF, 0px 8px 0px #032835;
+  border-radius: 5px;
+}
+
+.button_draw,
+.input_submit {
+  background: #78F3D6;
+  box-shadow: 0px -2px 0px #A2FFE9, 0px 4px 0px #35D6AF, 0px 8px 0px #032835;
+  border-radius: 5px;
+  border: none;
+  transition: ease 0.4s;
+}
+
+.button_draw:hover,
+.input_submit:hover {
+  background: #149F7E;
+  box-shadow: 0px -2px 0px #1E6554, 0px 4px 0px #B7FFEE, 0px 8px 0px #032835;
+  border-radius: 5px;
+}

@@ -1,0 +1,80 @@
+/* _____Inputs_____ */
+
+
+.input_text {
+  width: 270px;
+  height: 33px;
+  
+  background: #032835;
+  border: 2px solid #3DDEF4;
+  border-radius: 5px;
+  
+  color: white;
+  padding: 5px;
+  
+  margin-right: 30px;
+}
+
+.input_color {
+    background: #78F3D6;
+    box-shadow: 0px -2px 0px #A2FFE9, 0px 4px 0px #35D6AF, 0px 8px 0px #032835;
+    border-radius: 5px;
+    border: none;
+    
+    width: 40px;
+    height: 24px;
+  padding: 0 5px;
+  margin-right: 10px;
+  
+  cursor: pointer;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.inputs_container_buttons {
+    margin-top: 25px;
+    margin-bottom: 100px;
+}
+
+
+
+/* _____Garage_____ */
+
+
+.track {
+  background: #165167;
+  position: relative;
+}
+
+.line {
+  border: 2px dashed #BFF9FF;
+}
+
+.title {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: white;
+
+  margin-bottom: 10px;
+}
+
+.page {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(255, 255, 255, 0.8);
+
+  margin-bottom: 20px;
+}
+
+.finish_line {
+    position: absolute;
+    right: 0px;
+}

@@ -39,7 +39,7 @@ const baseConfig = {
             patterns: [
                 {
                     from: path.resolve(__dirname, './src/assets'),
-                    to: path.resolve(__dirname, 'dist/img'),
+                    to: path.resolve(__dirname, 'dist/assets'),
                 },
             ],
         }),
