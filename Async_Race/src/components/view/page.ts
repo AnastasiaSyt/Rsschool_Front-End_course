@@ -1,6 +1,7 @@
 import Button from './buttons';
-import GaragePage from './garage/garagePage';
+// import GaragePage from './garage/garagePage';
 import './navigation.css';
+import Winners from './winners/winners';
 
 export default class Page {
   getPage(pageName?: string): HTMLElement {
@@ -27,11 +28,14 @@ export default class Page {
     main.classList.add('wrapper');
     main.appendChild(this.getNavigation());
 
-    const garageInputs = new GaragePage().getInputs();
-    main.appendChild(garageInputs);
+    // const garageInputs = new GaragePage().getInputs();
+    // main.appendChild(garageInputs);
 
-    const garage = new GaragePage().getGarage();
-    main.appendChild(garage);
+    // const garage = new GaragePage().getGarage();
+    // main.appendChild(garage);
+
+    const winners = new Winners().getWinners();
+    main.appendChild(winners);
 
     page.appendChild(main);
 

@@ -48,33 +48,60 @@ form {
 .track {
   background: #165167;
   position: relative;
+  height: 156px;
 }
 
-.line {
-  border: 2px dashed #BFF9FF;
-}
+.track_race {
+  border-top: 2px dashed #BFF9FF;
+  border-bottom: 2px dashed #BFF9FF;
 
-.title {
-  font-style: italic;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-  color: white;
-
-  margin-bottom: 10px;
-}
-
-.page {
-  font-style: italic;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 21px;
-  color: rgba(255, 255, 255, 0.8);
-
-  margin-bottom: 20px;
+  margin-top: 15px;
+  padding: 15px 15px;
 }
 
 .finish_line {
-    position: absolute;
-    right: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.track_control {
+  display: flex;
+  align-items: baseline;
+  margin-left: 15px;
+}
+
+.control_button {
+  margin-top: 13px;
+}
+
+.button_start_stop {
+  padding: 2px 8px;
+  width: 34px;
+  height: 34px;
+
+  border: 2px solid #3DF44F;
+  border-radius: 5px;
+  background: #165167;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+
+.button_start_stop:hover {
+  border: 2px solid #00fffb;
+}
+
+.car_name {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin-left: 20px;
+}
+
+.pagination_container {
+  margin-top: 50px;
 }

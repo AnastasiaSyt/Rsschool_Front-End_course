@@ -1,0 +1,21 @@
+.winners_table {
+  border-collapse: collapse; 
+  /* width: 100%;  */
+  border: 2px solid #3DDEF4;
+  font-size: 18px;
+  color: white; 
+  margin-bottom: 50px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+}
+
+tr {
+  border-bottom: 1px solid #3DDEF4;
+}
+
+.string_text {
+    font-weight: 400;
+}

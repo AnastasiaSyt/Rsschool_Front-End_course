@@ -77,28 +77,33 @@ export default class GaragePage {
     page.classList.add('page');
     page.textContent = `Page #${this.countPage}`;
     garageTextContent.appendChild(page);
-
+    
     const carTrack = this.getTrack();
     garage.appendChild(carTrack);
-
+    
     const pagination = new Pagination();
     garage.appendChild(pagination as Node);
-
+    
     return garage;
   }
-
+  
   getTrack(): HTMLDivElement {
     const track = document.createElement('div');
     track.classList.add('track');
+    
+    const finish = document.createElement('img');
+    finish.classList.add('finish_line');
+    finish.src = '../../assets/finish.svg';
+    track.appendChild(finish);
 
     const control = document.createElement('div');
     control.classList.add('track_control');
     track.appendChild(control);
 
-    const selectCar = new Button('select', 'race');
+    const selectCar = new Button('select', 'race', 'control_button');
     control.appendChild(selectCar as Node);
 
-    const resetCar = new Button('remove', 'race');
+    const resetCar = new Button('remove', 'race', 'control_button');
     control.appendChild(resetCar as Node);
 
     const start = document.createElement('button');
@@ -118,20 +123,11 @@ export default class GaragePage {
 
     const trackRace = document.createElement('div');
     trackRace.classList.add('track_race');
-    trackRace.appendChild(track);
-    
-    const line = document.createElement('span');
-    line.classList.add('line');
-    trackRace.appendChild(line);
-
-    const finish = document.createElement('img');
-    finish.classList.add('finish_line');
-    finish.src = '../../assets/finish.svg';
-    track.appendChild(finish);
+    track.appendChild(trackRace);
 
     const car = document.createElement('img');
     car.classList.add('car');
-    car.src = '../../car.svg';
+    car.src = '../../assets/car.svg';
     trackRace.appendChild(car);
 
     return track;
