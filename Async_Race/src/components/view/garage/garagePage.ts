@@ -2,12 +2,36 @@ import Button from '../buttons';
 import Pagination from '../pagination';
 import './garage.css';
 
-export default class GaragePage {
+interface IGaragePage {
+  count: number,
+  countPage: number,
+  carName: string,
+  getInputs: () => HTMLDivElement,
+  createInput: (type: string, value?: string, classNAme?: string) => HTMLInputElement,
+  getGarage: () => HTMLDivElement,
+  getTrack: () => HTMLDivElement,
+}
+
+export default class GaragePage implements IGaragePage {
   count = 0;
 
   countPage = 0;
 
   carName = 'Tesla Model X';
+  
+  getPage(): HTMLDivElement {
+    const garagePage = document.createElement('div');
+    garagePage.classList.add('garagePage');
+    garagePage.id = 'garagePage';
+
+    const inputs = this.getInputs();
+    garagePage.appendChild(inputs);
+
+    const garage = this.getGarage();
+    garagePage.appendChild(garage);
+
+    return garage;
+  }
 
   getInputs(): HTMLDivElement {
     const inputs = document.createElement('div');
@@ -83,7 +107,7 @@ export default class GaragePage {
     
     const pagination = new Pagination();
     garage.appendChild(pagination as Node);
-    
+
     return garage;
   }
   

@@ -24,3 +24,8 @@ export enum Tags {
   TH = 'th',
   TD = 'td',
 }
+
+export enum PageIDs {
+  GaragePage = 'garagePage',
+  WinnersPage = 'winnersPage',
+}
