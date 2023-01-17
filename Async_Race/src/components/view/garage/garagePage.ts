@@ -7,8 +7,9 @@ import './garage.css';
 interface IGaragePage {
   //count: number,
   //countPage: number,
-  carName: string,
-  getInputs: () => HTMLDivElement,
+  //carName: string,
+  getPage: () => Promise<HTMLDivElement>,
+  getInputs: () => Promise<HTMLDivElement>,
   createInput: (type: string, value?: string, classNAme?: string) => HTMLInputElement,
   getGarage: () => Promise<HTMLDivElement>,
   getTrack: (carName: string, id: string, color: string) => Promise<HTMLDivElement>,
@@ -21,7 +22,7 @@ export default class GaragePage implements IGaragePage {
 
   countPage = 0;
 
-  carName = 'Tesla Model X';
+  //carName = 'Tesla Model X';
 
   controller: ControllerGarage;
 
@@ -50,16 +51,17 @@ export default class GaragePage implements IGaragePage {
     garagePage.classList.add('garagePage');
     garagePage.id = 'garagePage';
 
-    const inputs = this.getInputs();
+    const inputs = await this.getInputs();
     garagePage.appendChild(inputs);
+    console.log(inputs);
 
     const garage = await this.getGarage();
     garagePage.appendChild(garage);
 
-    return garage;
+    return garagePage;
   }
 
-  getInputs(): HTMLDivElement {
+  async getInputs(): Promise<HTMLDivElement> {
     const inputs = document.createElement('div');
     inputs.classList.add('inputs_container');
 
@@ -71,6 +73,11 @@ export default class GaragePage implements IGaragePage {
     formCreate.appendChild(inputColorCreate);
     const inputSubmitCreate = this.createInput('submit', 'create', 'button');
     formCreate.appendChild(inputSubmitCreate);
+
+    const car = { name: inputTextCreate.value, color: inputColorCreate.value };
+
+    await this.controller.createNewCar(car);
+    //await updateGarage();
 
     const formUpdate = document.createElement('form');
     inputs.appendChild(formUpdate);

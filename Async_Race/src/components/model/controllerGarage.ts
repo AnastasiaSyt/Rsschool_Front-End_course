@@ -1,3 +1,4 @@
+import { Car } from '../types';
 import ModelGarage from './modelGarage';
 
 type CarsItems = [
@@ -29,11 +30,20 @@ export default class ControllerGarage {
   async carsItems(): Promise<CarsItems> {
     try {
       const carsItems = await this.model.getCarsItems(1);
-      console.log(`controller items ${carsItems}`);
-      //console.log(carsItems);
+      //console.log(`controller items ${carsItems}`);
+      console.log(carsItems);
       return carsItems;
     } catch (err) {
       throw new Error('this is error');
     }
   }
+
+  async createNewCar(car: Car) {
+    try {
+      await this.model.createCar(car);
+      
+    } catch (err) {
+      throw new Error('this is error');
+    }
+  } 
 }

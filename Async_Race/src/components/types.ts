@@ -12,6 +12,11 @@ export type TableElementConfig = {
   title?: string
 };
 
+export type Car = {
+  name: string, 
+  color: string,
+};
+
 export enum Tags {
   IMG = 'img',
   DIV = 'div',

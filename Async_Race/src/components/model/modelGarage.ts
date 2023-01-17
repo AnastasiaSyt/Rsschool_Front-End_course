@@ -1,3 +1,5 @@
+import { Car } from '../types';
+
 
 export default class ModelGarage {
   carsCount: number;
@@ -22,7 +24,22 @@ export default class ModelGarage {
   async getCarsItems(page: number, limit = 7) {
     const response = await fetch(`${this.garage}?_page=${page}&_limit=${limit}`);
     const items = await response.json();
-    console.log(`model items ${items}`);
+    //console.log(`model items ${items}`);
     return items;
+  }
+
+  async getCar(id: string) {
+    (await fetch(`${this.garage}/${id}`)).json();
+  }
+
+  async createCar(car: Car) {
+    (await fetch(`${this.garage}`, {
+      method: 'POST',
+      body: JSON.stringify(car),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    ).json();
   }
 }
