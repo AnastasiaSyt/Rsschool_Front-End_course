@@ -1,5 +1,6 @@
 import ControllerGarage from '../../model/controllerGarage';
 import Button from '../buttons';
+import { coloredCarImg } from '../cars/car';
 import Pagination from '../pagination';
 import './garage.css';
 
@@ -10,7 +11,7 @@ interface IGaragePage {
   getInputs: () => HTMLDivElement,
   createInput: (type: string, value?: string, classNAme?: string) => HTMLInputElement,
   getGarage: () => Promise<HTMLDivElement>,
-  getTrack: (carName: string) => Promise<HTMLDivElement>,
+  getTrack: (carName: string, id: string, color: string) => Promise<HTMLDivElement>,
 }
 
 export default class GaragePage implements IGaragePage {
@@ -24,7 +25,10 @@ export default class GaragePage implements IGaragePage {
 
   controller: ControllerGarage;
 
+  // color: string;
+
   constructor() {
+    // this.color = coloredCarImg(color);
     this.controller = new ControllerGarage();
     // this.countTest = this.controller.carsCount();
     // this.count = 0;
@@ -135,14 +139,13 @@ export default class GaragePage implements IGaragePage {
     garageTextContent.appendChild(page);
     
     const carItems = await this.controller.carsItems();
-    const nameCar = carItems[0].name;
-    console.log(nameCar);
+    console.log(carItems[0].color);
     //console.log(Object.values(carItems[0]));
     // carItems.forEach((item) => {
 
     // })
     for (let i = 0; i < carItems.length; i += 1) {
-      const carTrack = await this.getTrack(carItems[i].name);
+      const carTrack = await this.getTrack(carItems[i].name, carItems[i].id, carItems[i].color);
       garage.appendChild(carTrack);
     }
     
@@ -152,7 +155,7 @@ export default class GaragePage implements IGaragePage {
     return garage;
   }
   
-  async getTrack(carName: string): Promise<HTMLDivElement> {
+  async getTrack(carName: string, id: string, color: string): Promise<HTMLDivElement> {
     const track = document.createElement('div');
     track.classList.add('track');
     track.classList.add(`track_${carName}`);
@@ -191,9 +194,14 @@ export default class GaragePage implements IGaragePage {
     trackRace.classList.add('track_race');
     track.appendChild(trackRace);
 
-    const car = document.createElement('img');
+    // const car = document.createElement('img');
+    // car.classList.add('car');
+    // car.src = '../../assets/car.svg';
+    // trackRace.appendChild(car);
+    const car = document.createElement('div');
     car.classList.add('car');
-    car.src = '../../assets/car.svg';
+    car.id = `car-${id}`;
+    car.insertAdjacentHTML('beforeend', coloredCarImg(color));
     trackRace.appendChild(car);
 
     return track;
