@@ -49,6 +49,8 @@ form {
   background: #165167;
   position: relative;
   height: 156px;
+
+  margin-bottom: 20px;
 }
 
 .track_race {

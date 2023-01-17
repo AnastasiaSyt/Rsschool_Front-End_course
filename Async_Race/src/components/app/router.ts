@@ -23,21 +23,19 @@ export default class Router {
     });
   }
 
-  renderNewPage(id: PageIDs) {
+  async renderNewPage(id: PageIDs) {
 
     this.container?.childNodes.forEach((node) => this.container.removeChild(node));
-    let newPage; 
+    let newPage: HTMLDivElement | null = null;
 
     if (id === PageIDs.GaragePage) {
-      newPage = new GaragePage().getPage();
-
+      newPage = await new GaragePage().getPage();
     } else if (id === PageIDs.WinnersPage) {
       newPage = new Winners().getWinners();
     } 
 
     if (newPage) {
-      const pageHTML = newPage;
-      this.container.append(pageHTML);
+      this.container.append(newPage);
     }
   }
 
@@ -71,6 +69,8 @@ export default class Router {
     if (url !== PageIDs.GaragePage &&
       url !== PageIDs.WinnersPage
     ) {
+      console.log('error');
+    } else {
       this.renderNewPage(url);
     }
   }

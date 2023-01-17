@@ -3,6 +3,7 @@ import Button from './buttons';
 // import GaragePage from './garage/garagePage';
 import './navigation.css';
 //import Winners from './winners/winners';
+import { PageIDs } from '../types';
 
 export default class Page {
   getPage(pageName?: string): HTMLElement {
@@ -22,6 +23,7 @@ export default class Page {
     const logo = document.createElement('img');
     logo.src = '../../assets/logo.svg';
     logo.classList.add('header_logo');
+    logo.id = `${PageIDs.GaragePage}`;
     wrapper.appendChild(logo);
 
     const main = document.createElement('main');
@@ -59,9 +61,21 @@ export default class Page {
     navigation.appendChild(toGarage as Node);
     console.log(toGarage);
 
+    (toGarage as Node).addEventListener('click', () => {
+      window.history.pushState({}, '', `${PageIDs.GaragePage}`);
+      const event = new Event('popstate');
+      window.dispatchEvent(event);
+    });
+
     const toWinners = new Button('to winners', 'race', '', 'winnersPage');
     navigation.appendChild(toWinners as Node);
     console.log(navigation);
+
+    (toWinners as Node).addEventListener('click', () => {
+      window.history.pushState({}, '', `${PageIDs.WinnersPage}`);
+      const event = new Event('popstate');
+      window.dispatchEvent(event);
+    });
 
     return navigation;
   }
