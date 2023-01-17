@@ -5,9 +5,6 @@ import Pagination from '../elements/pagination';
 import './styles/garage.css';
 
 interface IGaragePage {
-  //count: number,
-  //countPage: number,
-  //carName: string,
   getPage: () => Promise<HTMLDivElement>,
   getInputs: () => Promise<HTMLDivElement>,
   createInput: (type: string, value?: string, classNAme?: string) => HTMLInputElement,
@@ -16,34 +13,13 @@ interface IGaragePage {
 }
 
 export default class GaragePage implements IGaragePage {
-  //count: number;
-
-  //countTest: Promise<number>;
 
   countPage = 0;
 
-  //carName = 'Tesla Model X';
-
   controller: ControllerGarage;
 
-  // color: string;
-
   constructor() {
-    // this.color = coloredCarImg(color);
     this.controller = new ControllerGarage();
-    // this.countTest = this.controller.carsCount();
-    // this.count = 0;
-    // console.log(this.countTest);
-    // this.countTest.then((carsCount) => {
-    //   console.log('promise resolved', carsCount);
-    //   this.count = carsCount;
-    //   return this.count;
-    // }).catch((err) => (console.log(err)));
-    // console.log(this.countTest);
-    // this.countTest.then((result) => {return result;}).catch((err) => (console.log(err)));
-    // console.log(this.countTest);
-    //async const count = await this.controller.carsCount();
-    //this.controller.carsCount().then((res)=>{}).catch((e)=>{}).finally(()=>{});
   }
   
   async getPage(): Promise<HTMLDivElement> {
@@ -127,14 +103,6 @@ export default class GaragePage implements IGaragePage {
     const title = document.createElement('p');
     title.classList.add('title');
 
-    // const test = async () => {
-    //   const a = await this.controller.carsCount();
-    //   return a;
-    // };
-
-    // const test1 = test();
-    // console.log(`test ${test1}`);
-    // console.log(test1);
     const count = await this.controller.carsCount();
     title.textContent = `Garage(${count})`;
     garageTextContent.appendChild(title);
@@ -146,10 +114,7 @@ export default class GaragePage implements IGaragePage {
     
     const carItems = await this.controller.carsItems();
     console.log(carItems[0].color);
-    //console.log(Object.values(carItems[0]));
-    // carItems.forEach((item) => {
 
-    // })
     for (let i = 0; i < carItems.length; i += 1) {
       const carTrack = await this.getTrack(carItems[i].name, carItems[i].id, carItems[i].color);
       garage.appendChild(carTrack);
@@ -200,10 +165,6 @@ export default class GaragePage implements IGaragePage {
     trackRace.classList.add('track_race');
     track.appendChild(trackRace);
 
-    // const car = document.createElement('img');
-    // car.classList.add('car');
-    // car.src = '../../assets/car.svg';
-    // trackRace.appendChild(car);
     const car = document.createElement('div');
     car.classList.add('car');
     car.id = `car-${id}`;
