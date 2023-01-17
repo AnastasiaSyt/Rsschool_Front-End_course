@@ -1,7 +1,7 @@
 //import Router from '../app/router';
-import Button from './buttons';
+import Button from './elements/buttons';
 // import GaragePage from './garage/garagePage';
-import './navigation.css';
+import './elements/navigation.css';
 //import Winners from './winners/winners';
 import { PageIDs } from '../types';
 

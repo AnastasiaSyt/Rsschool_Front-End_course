@@ -1,6 +1,6 @@
 import { TableElementConfig, Tags } from '../../types';
-import Pagination from '../pagination';
-import './winners.css';
+import Pagination from '../elements/pagination';
+import './styles/winners.css';
 
 export default class Winners {
   getWinners() {

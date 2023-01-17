@@ -1,8 +1,8 @@
-import ControllerGarage from '../../model/controllerGarage';
-import Button from '../buttons';
+import ControllerGarage from '../../controllers/controllerGarage';
+import Button from '../elements/buttons';
 import { coloredCarImg } from '../cars/car';
-import Pagination from '../pagination';
-import './garage.css';
+import Pagination from '../elements/pagination';
+import './styles/garage.css';
 
 interface IGaragePage {
   //count: number,

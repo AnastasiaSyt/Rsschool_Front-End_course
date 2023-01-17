@@ -1,5 +1,5 @@
-import ModelGarage from './modelGarage';
-import { TCars, TNewCar } from './typesModel';
+import ModelGarage from '../models/modelGarage';
+import { TCars, TNewCar } from '../models/typesModel';
 
 // type CarsItems = [
 //   {
