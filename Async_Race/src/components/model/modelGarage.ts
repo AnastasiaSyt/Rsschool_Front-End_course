@@ -1,5 +1,4 @@
-import { Car } from '../types';
-
+import { TCars, TNewCar } from './typesModel';
 
 export default class ModelGarage {
   carsCount: number;
@@ -8,38 +7,91 @@ export default class ModelGarage {
 
   garage: string;
 
+  carsItems: TCars[];
+
   constructor() {
     this.carsCount = 0;
+    this.carsItems = [];
     this.baseUrl = 'http://127.0.0.1:3000';
     this.garage = `${this.baseUrl}/garage`;
   }
 
-  async getCarsCount(page: number, limit = 7) {
-    const response = await fetch(`${this.garage}?_page=${page}&_limit=${limit}`);
-    const count = await response.json();
-    //console.log(`model ${count.length}`);
-    return count.length;
+  async getCars(page?: number, limit = 7): Promise<void> {
+    let url = this.garage;
+    if (page) {
+      url = `${url}?_page=${page}&_limit=${limit}`;
+    }
+    try {
+      const result: TCars[] = await fetch(url).then((response) => response.json());
+      this.carsCount = result.length;
+      this.carsItems = result;
+    } catch (err) {
+      this.carsCount = 0;
+      this.carsItems = [];
+      console.error(err);
+    } finally {
+      console.log('request completed');
+    }
   }
 
-  async getCarsItems(page: number, limit = 7) {
-    const response = await fetch(`${this.garage}?_page=${page}&_limit=${limit}`);
-    const items = await response.json();
-    //console.log(`model items ${items}`);
-    return items;
+  async getCarsCount(page?: number, limit = 7): Promise<number> {
+    await this.getCars(page, limit);
+    return this.carsCount;
   }
 
-  async getCar(id: string) {
-    (await fetch(`${this.garage}/${id}`)).json();
+  async getCarsItems(page: number, limit = 7): Promise<TCars[]> {
+    await this.getCars(page, limit);
+    return this.carsItems;
   }
 
-  async createCar(car: Car) {
-    (await fetch(`${this.garage}`, {
-      method: 'POST',
-      body: JSON.stringify(car),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    ).json();
+  async getCar(id: number) {
+    const url = `${this.garage}/${id}`;
+    try {
+      await fetch(url).then((response) => response.json());
+    } catch (err) {
+      console.error(err);
+    }
   }
+
+  async createCar(car: TNewCar) {
+    const url = this.garage;
+    try {
+      await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(car),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((response) => response.json());
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async deleteCar(id: number) {
+    const url = `${this.garage}/${id}`;
+    try {
+      await fetch(url, {
+        method: 'DELETE',
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async updateCar(id: number) {
+    const url = `${this.garage}/${id}`;
+    try {
+      await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((response) => response.json());
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+
 }

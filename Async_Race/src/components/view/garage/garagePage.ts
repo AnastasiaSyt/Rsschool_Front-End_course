@@ -12,7 +12,7 @@ interface IGaragePage {
   getInputs: () => Promise<HTMLDivElement>,
   createInput: (type: string, value?: string, classNAme?: string) => HTMLInputElement,
   getGarage: () => Promise<HTMLDivElement>,
-  getTrack: (carName: string, id: string, color: string) => Promise<HTMLDivElement>,
+  getTrack: (carName: string, id: number, color: string) => Promise<HTMLDivElement>,
 }
 
 export default class GaragePage implements IGaragePage {
@@ -77,7 +77,6 @@ export default class GaragePage implements IGaragePage {
     const car = { name: inputTextCreate.value, color: inputColorCreate.value };
 
     await this.controller.createNewCar(car);
-    //await updateGarage();
 
     const formUpdate = document.createElement('form');
     inputs.appendChild(formUpdate);
@@ -162,7 +161,7 @@ export default class GaragePage implements IGaragePage {
     return garage;
   }
   
-  async getTrack(carName: string, id: string, color: string): Promise<HTMLDivElement> {
+  async getTrack(carName: string, id: number, color: string): Promise<HTMLDivElement> {
     const track = document.createElement('div');
     track.classList.add('track');
     track.classList.add(`track_${carName}`);

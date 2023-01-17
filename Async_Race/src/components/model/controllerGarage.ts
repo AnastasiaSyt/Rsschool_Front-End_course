@@ -1,13 +1,13 @@
-import { Car } from '../types';
 import ModelGarage from './modelGarage';
+import { TCars, TNewCar } from './typesModel';
 
-type CarsItems = [
-  {
-    name: string,
-    color:string,
-    id: string,
-  },
-];
+// type CarsItems = [
+//   {
+//     name: string,
+//     color:string,
+//     id: string,
+//   },
+// ];
 
 export default class ControllerGarage {
   model: ModelGarage;
@@ -17,17 +17,19 @@ export default class ControllerGarage {
   }
 
   async carsCount(): Promise<number> {
-    try {
-      const carsCount = await this.model.getCarsCount(1);
-      //console.log(`controller ${carsCount}`);
-      //console.log(carsCount);
-      return carsCount;
-    } catch (err) {
-      throw new Error('this is error');
-    }
+    // try {
+    //   const carsCount = await this.model.getCarsCount(1);
+    //   //console.log(`controller ${carsCount}`);
+    //   //console.log(carsCount);
+    //   return carsCount;
+    // } catch (err) {
+    //   throw new Error('this is error');
+    // }
+    const carsCount = await this.model.getCarsCount();
+    return carsCount;
   }
 
-  async carsItems(): Promise<CarsItems> {
+  async carsItems(): Promise<TCars[]> {
     try {
       const carsItems = await this.model.getCarsItems(1);
       //console.log(`controller items ${carsItems}`);
@@ -38,12 +40,14 @@ export default class ControllerGarage {
     }
   }
 
-  async createNewCar(car: Car) {
+  async createNewCar(car: TNewCar) {
     try {
       await this.model.createCar(car);
       
     } catch (err) {
       throw new Error('this is error');
     }
-  } 
+  }
+  
+  
 }
