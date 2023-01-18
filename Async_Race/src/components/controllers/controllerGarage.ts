@@ -1,14 +1,6 @@
 import ModelGarage from '../models/modelGarage';
 import { TCars, TNewCar } from '../models/typesModel';
 
-// type CarsItems = [
-//   {
-//     name: string,
-//     color:string,
-//     id: string,
-//   },
-// ];
-
 export default class ControllerGarage {
   model: ModelGarage;
 
@@ -17,22 +9,13 @@ export default class ControllerGarage {
   }
 
   async carsCount(): Promise<number> {
-    // try {
-    //   const carsCount = await this.model.getCarsCount(1);
-    //   //console.log(`controller ${carsCount}`);
-    //   //console.log(carsCount);
-    //   return carsCount;
-    // } catch (err) {
-    //   throw new Error('this is error');
-    // }
     const carsCount = await this.model.getCarsCount();
     return carsCount;
   }
 
-  async carsItems(): Promise<TCars[]> {
+  async carsItems(page: number): Promise<TCars[]> {
     try {
-      const carsItems = await this.model.getCarsItems(1);
-      //console.log(`controller items ${carsItems}`);
+      const carsItems = await this.model.getCarsItems(page);
       console.log(carsItems);
       return carsItems;
     } catch (err) {
@@ -47,6 +30,10 @@ export default class ControllerGarage {
     } catch (err) {
       throw new Error('this is error');
     }
+  }
+
+  async deleteCar(id: number) {
+    await this.model.deleteCar(id);
   }
   
   

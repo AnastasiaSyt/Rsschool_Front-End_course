@@ -27,8 +27,8 @@ export default class Winners {
     //const table = this.getWinnersTable();
     winners.appendChild(this.getWinnersTable());
 
-    const pagination = new Pagination();
-    winners.appendChild(pagination as Node);
+    const pagination = new Pagination().getPagination();
+    winners.appendChild(pagination);
 
     return winners;
   }

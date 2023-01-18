@@ -19,8 +19,14 @@ export default class GaragePage implements IGaragePage {
 
   controller: ControllerGarage;
 
+  page: number;
+
+  pagination: Pagination;
+
   constructor() {
     this.controller = new ControllerGarage();
+    this.pagination = new Pagination();
+    this.page = this.pagination.page;
   }
   
   async getPage(): Promise<HTMLDivElement> {
@@ -122,19 +128,19 @@ export default class GaragePage implements IGaragePage {
 
     const page = document.createElement('p');
     page.classList.add('page');
-    page.textContent = `Page #${this.countPage}`;
+    page.id = 'page';
+    page.textContent = `Page #${this.page}`;
     garageTextContent.appendChild(page);
     
-    const carItems = await this.controller.carsItems();
-    console.log(carItems[0].color);
+    const carItems = await this.controller.carsItems(this.page);
 
     for (let i = 0; i < carItems.length; i += 1) {
       const carTrack = await this.getTrack(carItems[i].name, carItems[i].id, carItems[i].color);
       garage.appendChild(carTrack);
     }
     
-    const pagination = new Pagination();
-    garage.appendChild(pagination as Node);
+    const pagination = new Pagination().getPagination();
+    garage.appendChild(pagination);
 
     return garage;
   }
@@ -158,6 +164,10 @@ export default class GaragePage implements IGaragePage {
 
     const resetCar = new Button('remove', 'race', 'control_button');
     control.appendChild(resetCar as Node);
+    (resetCar as Node).addEventListener('click', () => {
+      console.log('delete');
+      this.controller.deleteCar(id);
+    });
 
     const start = document.createElement('button');
     start.classList.add('button_start_stop');

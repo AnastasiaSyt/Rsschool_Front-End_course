@@ -37,3 +37,11 @@
   box-shadow: 0px -2px 0px #1E6554, 0px 4px 0px #B7FFEE, 0px 8px 0px #032835;
   border-radius: 5px;
 }
+
+.button_draw.disabled,
+.input_submit.disabled,
+.button.disabled {
+  background: #a1a1a1;
+  box-shadow: 0px -2px 0px #565656, 0px 4px 0px #686868, 0px 8px 0px #292929;
+  color:#565656;
+}
