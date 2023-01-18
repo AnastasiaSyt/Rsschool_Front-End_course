@@ -83,7 +83,7 @@ export default class ModelGarage {
     const url = `${this.garage}/${id}`;
     try {
       await fetch(url, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -92,6 +92,4 @@ export default class ModelGarage {
       console.error(err);
     }
   }
-
-
 }
