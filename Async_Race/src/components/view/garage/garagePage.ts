@@ -3,6 +3,7 @@ import Button from '../elements/buttons';
 import { coloredCarImg } from '../cars/car';
 import Pagination from '../elements/pagination';
 import './styles/garage.css';
+import { ButtonsNames, ButtonTypes, ContainersClassNames, InputsTypes, TButtonInputs } from '../../types';
 
 interface IGaragePage {
   getPage: () => Promise<HTMLDivElement>,
@@ -24,8 +25,8 @@ export default class GaragePage implements IGaragePage {
   
   async getPage(): Promise<HTMLDivElement> {
     const garagePage = document.createElement('div');
-    garagePage.classList.add('garagePage');
-    garagePage.id = 'garagePage';
+    garagePage.classList.add(ContainersClassNames.GARAGE_PAGE);
+    garagePage.id = ContainersClassNames.GARAGE_PAGE;
 
     const inputs = await this.getInputs();
     garagePage.appendChild(inputs);
@@ -39,72 +40,84 @@ export default class GaragePage implements IGaragePage {
 
   async getInputs(): Promise<HTMLDivElement> {
     const inputs = document.createElement('div');
-    inputs.classList.add('inputs_container');
+    inputs.classList.add(ContainersClassNames.INPUT_CONTAINER);
 
-    const formCreate = document.createElement('form');
+    const formCreate = await this.createForm('create');
+    const formUpdate = await this.createForm('update');
+
     inputs.appendChild(formCreate);
-    const inputTextCreate = this.createInput('text');
-    formCreate.appendChild(inputTextCreate);
-    const inputColorCreate = this.createInput('color', '#0B63FF');
-    formCreate.appendChild(inputColorCreate);
-    const inputSubmitCreate = this.createInput('submit', 'create', 'button');
-    formCreate.appendChild(inputSubmitCreate);
-
-    const car = { name: inputTextCreate.value, color: inputColorCreate.value };
-
-    await this.controller.createNewCar(car);
-
-    const formUpdate = document.createElement('form');
     inputs.appendChild(formUpdate);
-    const inputTextUpdate = this.createInput('text');
-    formUpdate.appendChild(inputTextUpdate);
-    const inputColorUpdate = this.createInput('color', '#680BFF');
-    formUpdate.appendChild(inputColorUpdate);
-    const inputSubmitUpdate = this.createInput('submit', 'update', 'button');
-    formUpdate.appendChild(inputSubmitUpdate);
 
-    const inputsContainerButtons = document.createElement('div');
-    inputsContainerButtons.classList.add('inputs_container_buttons');
+    const inputsContainerButtons = this.getButtons(); 
     inputs.appendChild(inputsContainerButtons);
-
-    const race = new Button('race', 'race');
-    inputsContainerButtons.appendChild(race as Node);
-
-    const reset = new Button('reset', 'race');
-    inputsContainerButtons.appendChild(reset as Node);
-
-    const generate = new Button('generate cars', 'draw');
-    inputsContainerButtons.appendChild(generate as Node);
 
     return inputs;
   }
 
-  createInput(type: string, value?: string, classNAme?: string): HTMLInputElement {
+  getButtons() {
+    const inputsContainerButtons = document.createElement('div');
+    inputsContainerButtons.classList.add(ContainersClassNames.INPUT_CONTAINER_BTN);
+    
+
+    const race = new Button(ButtonsNames.race, ButtonTypes.RACE);
+    inputsContainerButtons.appendChild(race as Node);
+
+    const reset = new Button(ButtonsNames.reset, ButtonTypes.RACE);
+    inputsContainerButtons.appendChild(reset as Node);
+
+    const generate = new Button(ButtonsNames.generate, ButtonTypes.DRAW);
+    inputsContainerButtons.appendChild(generate as Node);
+
+    return inputsContainerButtons;
+  }
+
+  async createForm(value: TButtonInputs) {
+    const defaultColor = '#0B63FF';
+    const classNameInputs = 'button';
+
+    const form = document.createElement('form');
+    const inputTextCreate = this.createInput(InputsTypes.TEXT);
+    form.appendChild(inputTextCreate);
+    const inputColorCreate = this.createInput(InputsTypes.COLOR, defaultColor);
+    form.appendChild(inputColorCreate);
+    const inputSubmitCreate = this.createInput(InputsTypes.SUBMIT, value, classNameInputs);
+    form.appendChild(inputSubmitCreate);
+
+    const car = { name: inputTextCreate.value, color: inputColorCreate.value };
+    await this.controller.createNewCar(car);
+
+    return form;
+  }
+
+  createInput(type: string, value?: string, className?: string): HTMLInputElement {
     const input = document.createElement('input');
-    input.classList.add(`input_${type}`);
+    const inputsClassName = `input_${type}`;
+    input.classList.add(inputsClassName);
     input.type = type;
     if (value) {
       input.value = value;
     }
-    if (classNAme) {
-      input.classList.add(classNAme);
+    if (className) {
+      input.classList.add(className);
     }
     return input;
   }
 
-  async getGarage() {
+  async getGarage(): Promise<HTMLDivElement> {
     const garage = document.createElement('div');
-    garage.classList.add('garage');
+    garage.classList.add(ContainersClassNames.GARAGE);
 
     const garageTextContent = document.createElement('div');
-    garageTextContent.classList.add('garage_text_content');
+    garageTextContent.classList.add(ContainersClassNames.GARAGE_TEXT);
     garage.appendChild(garageTextContent);
 
     const title = document.createElement('p');
-    title.classList.add('title');
+    title.classList.add(ContainersClassNames.TITLE);
 
     const count = await this.controller.carsCount();
-    title.textContent = `Garage(${count})`;
+
+    const carsCurrentCount = `Garage(${count})`;
+    title.textContent = carsCurrentCount;
     garageTextContent.appendChild(title);
 
     const page = document.createElement('p');
