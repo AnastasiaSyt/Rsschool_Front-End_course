@@ -9,9 +9,12 @@ export default class ModelGarage {
 
   carsItems: TCars[];
 
+  prevUrl: string;
+
   constructor() {
     this.carsCount = 0;
     this.carsItems = [];
+    this.prevUrl = '';
     this.baseUrl = 'http://127.0.0.1:3000';
     this.garage = `${this.baseUrl}/garage`;
   }
@@ -21,16 +24,18 @@ export default class ModelGarage {
     if (page) {
       url = `${url}?_page=${page}&_limit=${limit}`;
     }
-    try {
-      const result: TCars[] = await fetch(url).then((response) => response.json());
-      this.carsCount = result.length;
-      this.carsItems = result;
-    } catch (err) {
-      this.carsCount = 0;
-      this.carsItems = [];
-      console.error(err);
-    } finally {
-      console.log('request completed');
+    if (url !== this.prevUrl) {
+      try {
+        const result: TCars[] = await fetch(url).then((response) => response.json());
+        this.carsCount = result.length;
+        this.carsItems = result;
+      } catch (err) {
+        this.carsCount = 0;
+        this.carsItems = [];
+        console.error(err);
+      } finally {
+        console.log('request completed');
+      }
     }
   }
 

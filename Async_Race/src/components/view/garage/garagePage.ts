@@ -4,13 +4,14 @@ import { coloredCarImg } from '../cars/car';
 import Pagination from '../elements/pagination';
 import './styles/garage.css';
 import { ButtonsNames, ButtonTypes, ContainersClassNames, InputsTypes, TButtonInputs } from '../../types';
+import store from '../../app/store';
 
 interface IGaragePage {
   getPage: () => Promise<HTMLDivElement>,
   getInputs: () => Promise<HTMLDivElement>,
   createInput: (type: string, value?: string, classNAme?: string) => HTMLInputElement,
   getGarage: () => Promise<HTMLDivElement>,
-  getTrack: (carName: string, id: number, color: string) => Promise<HTMLDivElement>,
+  getTrack: (carName: string, id: number, color: string) => HTMLDivElement,
 }
 
 export default class GaragePage implements IGaragePage {
@@ -120,7 +121,8 @@ export default class GaragePage implements IGaragePage {
     const title = document.createElement('p');
     title.classList.add(ContainersClassNames.TITLE);
 
-    const count = await this.controller.carsCount();
+    //const count = await this.controller.carsCount();
+    const count = store.carsCount;
 
     const carsCurrentCount = `Garage(${count})`;
     title.textContent = carsCurrentCount;
@@ -132,7 +134,8 @@ export default class GaragePage implements IGaragePage {
     page.textContent = `Page #${this.page}`;
     garageTextContent.appendChild(page);
     
-    const carItems = await this.controller.carsItems(this.page);
+    const pageTest = store.garagePage;
+    const carItems = await this.controller.carsItems(pageTest);
 
     for (let i = 0; i < carItems.length; i += 1) {
       const carTrack = await this.getTrack(carItems[i].name, carItems[i].id, carItems[i].color);
@@ -145,7 +148,7 @@ export default class GaragePage implements IGaragePage {
     return garage;
   }
   
-  async getTrack(carName: string, id: number, color: string): Promise<HTMLDivElement> {
+  getTrack(carName: string, id: number, color: string) {
     const track = document.createElement('div');
     track.classList.add('track');
     track.classList.add(`track_${carName}`);
