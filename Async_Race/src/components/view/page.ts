@@ -1,56 +1,84 @@
-//import Router from '../app/router';
 import Button from './elements/buttons';
-// import GaragePage from './garage/garagePage';
 import './elements/navigation.css';
-//import Winners from './winners/winners';
 import { PageIDs } from '../types';
 
 export default class Page {
-  getPage(pageName?: string): HTMLElement {
-    const page = document.createElement('div');
-    if (pageName) {
-      page.classList.add(pageName);
-    }
+  #baseView: HTMLDivElement;
 
+  #main: HTMLElement;
+
+  #content: HTMLDivElement;
+
+  onNavigateClick: (id: PageIDs) => void;
+
+  constructor(onNavigateClick: (id: PageIDs) => void) {
+    this.#baseView = this.createBase();
+    this.#content = this.createContent();
+    this.#main = this.createMain();
+    this.createPage();
+
+    this.onNavigateClick = onNavigateClick;
+  }
+
+  get page(): HTMLDivElement {
+    return this.#baseView;
+  }
+
+  get content(): HTMLDivElement {
+    return this.#content;
+  }
+
+  clearContent() {
+    this.#content.childNodes.forEach((node) => this.#content.removeChild(node));
+  }
+
+  private createPage(): void {
+    const header = this.createHeader();
+    this.#baseView.appendChild(header);
+    this.#baseView.appendChild(this.#main);
+  }
+
+  private createBase(): HTMLDivElement {
+    return document.createElement('div');
+  }
+
+  private createHeader(): HTMLElement {
+    const wrapper = this.createWrapper();
     const header = document.createElement('header');
     header.classList.add('header');
-    page.appendChild(header);
+    header.appendChild(wrapper);
+    return header;
+  }
 
+  private createWrapper(): HTMLDivElement {
+    const logo = this.createLogo();
     const wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
-    header.appendChild(wrapper);
+    wrapper.appendChild(logo);
+    return wrapper;
+  }
 
+  private createLogo(): HTMLImageElement {
     const logo = document.createElement('img');
     logo.src = '../../assets/logo.svg';
     logo.classList.add('header_logo');
     logo.id = `${PageIDs.GaragePage}`;
-    wrapper.appendChild(logo);
+    return logo;
+  }
 
+  private createMain(): HTMLElement {
     const main = document.createElement('main');
     main.id = 'main';
-    main.classList.add('main_garage');
     main.classList.add('wrapper');
     main.appendChild(this.getNavigation());
+    main.appendChild(this.#content);
+    return main;
+  }
 
-    // const garageInputs = new GaragePage().getInputs();
-    // main.appendChild(garageInputs);
-
-    // const garage = new GaragePage().getGarage();
-    // main.appendChild(garage);
-
-    // const winners = new Winners().getWinners();
-    // main.appendChild(winners);
-    //const content = document.body;
-
-    //new Router(main);
-
+  private createContent(): HTMLDivElement {
     const content = document.createElement('div');
     content.id = 'content';
-    main.appendChild(content);
-
-    page.appendChild(main);
-
-    return page;
+    return content;
   }
 
   getNavigation() {
@@ -62,9 +90,7 @@ export default class Page {
     console.log(toGarage);
 
     (toGarage as Node).addEventListener('click', () => {
-      window.history.pushState({}, '', `${PageIDs.GaragePage}`);
-      const event = new Event('popstate');
-      window.dispatchEvent(event);
+      this.onNavigateClick(PageIDs.GaragePage);
     });
 
     const toWinners = new Button('to winners', 'race', '', 'winnersPage');
@@ -72,9 +98,7 @@ export default class Page {
     console.log(navigation);
 
     (toWinners as Node).addEventListener('click', () => {
-      window.history.pushState({}, '', `${PageIDs.WinnersPage}`);
-      const event = new Event('popstate');
-      window.dispatchEvent(event);
+      this.onNavigateClick(PageIDs.WinnersPage);
     });
 
     return navigation;
