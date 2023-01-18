@@ -188,12 +188,17 @@ export default class GaragePage implements IGaragePage {
     trackRace.classList.add('track_race');
     track.appendChild(trackRace);
 
+    const car = this.getCar(id, color);
+    trackRace.appendChild(car);
+
+    return track;
+  }
+
+  private getCar(id: number, color: string) {
     const car = document.createElement('div');
     car.classList.add('car');
     car.id = `car-${id}`;
     car.insertAdjacentHTML('beforeend', coloredCarImg(color));
-    trackRace.appendChild(car);
-
-    return track;
+    return car;
   }
 }
