@@ -1,30 +1,33 @@
-import { TableElementConfig, Tags } from '../../types';
+import { TableElementConfig } from '../../types';
 import Pagination from '../elements/pagination';
+import { DOMElements } from './DOMElements';
 import './styles/winners.css';
+import store from '../../app/store';
 
 export default class Winners {
-  getWinners() {
-    const count = 0;
-    const countPage = 1;
+  winnersCount: number;
 
+  winnersPageCount: number;
+
+  #winners: HTMLDivElement;
+
+  constructor() {
+    this.winnersCount = store.winnersCount;
+    this.winnersPageCount = store.winnersPage;
+    this.#winners = this.getWinners();
+  }
+
+  get pageWinners(): HTMLDivElement {
+    return this.#winners;
+  }
+  
+  private getWinners() {
     const winners = document.createElement('div');
     winners.classList.add('winners_content');
 
-    const winnersTextContent = document.createElement('div');
-    winnersTextContent.classList.add('winners_text_content');
+    const winnersTextContent = this.getWinnersTextContent();
     winners.appendChild(winnersTextContent);
 
-    const title = document.createElement('p');
-    title.classList.add('title');
-    title.textContent = `Winners(${count})`;
-    winnersTextContent.appendChild(title);
-
-    const page = document.createElement('p');
-    page.classList.add('page');
-    page.textContent = `Page #${countPage}`;
-    winnersTextContent.appendChild(page);
-
-    //const table = this.getWinnersTable();
     winners.appendChild(this.getWinnersTable());
 
     const pagination = new Pagination().getPagination();
@@ -33,14 +36,41 @@ export default class Winners {
     return winners;
   }
 
-  getWinnersTable() {
+  private getWinnersTextContent() {
+    const winnersTextContent = document.createElement('div');
+    winnersTextContent.classList.add('winners_text_content');
+
+    const title = this.getWinnersTitle();
+    winnersTextContent.appendChild(title);
+
+    const pages = this.getWinnersPage();
+    winnersTextContent.appendChild(pages);
+
+    return winnersTextContent;
+  }
+
+  private getWinnersPage() {
+    const page = document.createElement('p');
+    page.classList.add('page');
+    page.textContent = `Page #${this.winnersPageCount}`;
+    return page;
+  }
+
+  private getWinnersTitle() {
+    const title = document.createElement('p');
+    title.classList.add('title');
+    title.textContent = `Winners(${this.winnersCount})`;
+    return title;
+  }
+
+  private getWinnersTable(): HTMLTableElement {
     const table = document.createElement('table');
     table.classList.add('winners_table');
     this.drawItems(table, this.getDOMTableElements());
     return table;
   }
 
-  drawItems(parent: HTMLElement, configs: TableElementConfig[]) {
+  private drawItems(parent: HTMLElement, configs: TableElementConfig[]): void {
     configs.forEach((config) => {
       const node = this.createElement(config);
       if (config.children) {
@@ -50,7 +80,7 @@ export default class Winners {
     });
   }
 
-  createElement(config: TableElementConfig): HTMLElement {
+  private createElement(config: TableElementConfig): HTMLElement {
     const node = document.createElement(config.tag);
     config.classes.forEach((className) => {
       node.classList.add(className);
@@ -64,72 +94,8 @@ export default class Winners {
     return node;
   }
 
-  getDOMTableElements(): TableElementConfig[] {
-    const modalDOMElements: TableElementConfig[] =
-      [
-        {
-          tag: Tags.TR,
-          classes: ['table_header'],
-          children: [
-            {
-              tag: Tags.TH,
-              classes: ['table_header_title'],
-              label: 'Number',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['table_header_title'],
-              label: 'Car',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['table_header_title'],
-              label: 'Name',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['table_header_title'],
-              label: 'Wins',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['table_header_title'],
-              label: 'Best time (seconds)',
-            },
-          ],
-        },
-        {
-          tag: Tags.TR,
-          classes: ['table_string'],
-          children: [
-            {
-              tag: Tags.TH,
-              classes: ['string_text'],
-              label: '1',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['string_text'],
-              label: 'image',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['string_text'],
-              label: 'Tesla',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['string_text'],
-              label: '1',
-            },
-            {
-              tag: Tags.TH,
-              classes: ['string_text'],
-              label: '10',
-            },
-          ],
-        },
-      ];
+  private getDOMTableElements(): TableElementConfig[] {
+    const modalDOMElements: TableElementConfig[] = DOMElements;
     return modalDOMElements;
   }
 }
