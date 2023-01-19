@@ -21,7 +21,7 @@ export default class App {
     let newPage;
     const view = store.view;
     if (view === PageIDs.GaragePage) {
-      newPage = await new GaragePage().getPage();
+      newPage = await new GaragePage().pageGarage;
     } else if (view === PageIDs.WinnersPage) {
       newPage = new Winners().getWinners();
     }
