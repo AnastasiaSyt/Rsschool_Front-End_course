@@ -1,4 +1,4 @@
-import './buttons.css';
+import './style/buttons.css';
 
 export default class Button {
   constructor(text: string, name?: string, className?: string, id?: string) {

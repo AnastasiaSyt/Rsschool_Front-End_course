@@ -1,5 +1,5 @@
 import Button from './elements/buttons';
-import './elements/navigation.css';
+import './elements/style/navigation.css';
 import { PageIDs } from '../types';
 
 export default class Page {
@@ -81,26 +81,34 @@ export default class Page {
     return content;
   }
 
-  getNavigation() {
+  private getNavigation() {
     const navigation = document.createElement('div');
     navigation.classList.add('navigation');
 
-    const toGarage = new Button('to garage', 'race', '', 'garagePage');
+    const toGarage = this.getGarageButton();
     navigation.appendChild(toGarage as Node);
-    console.log(toGarage);
+
+    const toWinners = this.getWinnersButton();
+    navigation.appendChild(toWinners as Node);
+
+    return navigation;
+  }
+
+  private getGarageButton() {
+    const toGarage = new Button('to garage', 'race', '', 'garagePage');
 
     (toGarage as Node).addEventListener('click', () => {
       this.onNavigateClick(PageIDs.GaragePage);
     });
+    return toGarage;
+  }
 
+  private getWinnersButton() {
     const toWinners = new Button('to winners', 'race', '', 'winnersPage');
-    navigation.appendChild(toWinners as Node);
-    console.log(navigation);
 
     (toWinners as Node).addEventListener('click', () => {
       this.onNavigateClick(PageIDs.WinnersPage);
     });
-
-    return navigation;
+    return toWinners;
   }
 }
