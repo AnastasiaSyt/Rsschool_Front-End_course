@@ -23,7 +23,7 @@ export default class App {
     if (view === PageIDs.GaragePage) {
       newPage = await new GaragePage().pageGarage;
     } else if (view === PageIDs.WinnersPage) {
-      newPage = new Winners().getWinners();
+      newPage = new Winners().pageWinners;
     }
     if (newPage) {
       const content = this.pageInstance.content;
