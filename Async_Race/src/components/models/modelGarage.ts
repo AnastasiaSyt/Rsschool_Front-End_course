@@ -1,4 +1,4 @@
-import { TCars, TNewCar } from './typesModel';
+import { TCars, TCar } from './typesModel';
 
 export default class ModelGarage {
   carsCount: number;
@@ -58,7 +58,7 @@ export default class ModelGarage {
     }
   }
 
-  async createCar(car: TNewCar) {
+  async createCar(car: TCar) {
     this.prevUrl = '';
     const url = this.garage;
     try {
@@ -86,7 +86,7 @@ export default class ModelGarage {
     }
   }
 
-  async updateCar(id: number, car: TNewCar) {
+  async updateCar(id: number, car: TCar) {
     this.prevUrl = '';
     const url = `${this.garage}/${id}`;
     try {

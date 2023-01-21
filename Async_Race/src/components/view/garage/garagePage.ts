@@ -7,6 +7,8 @@ import { ButtonsNames, ButtonTypes, ContainersClassNames } from '../../types';
 import store from '../../app/store';
 import { TCars } from '../../models/typesModel';
 import Form from '../elements/form';
+import StartStopButton from '../elements/start_stop_button';
+import ControllerEngine from '../../controllers/controllerEngine';
 
 // interface IGaragePage {
 //   getPage: () => Promise<HTMLDivElement>,
@@ -21,6 +23,8 @@ export default class GaragePage {
   countPage = 0;
 
   controller: ControllerGarage;
+
+  controllerEngine: ControllerEngine;
 
   page: number;
 
@@ -38,6 +42,7 @@ export default class GaragePage {
 
   constructor() {
     this.controller = new ControllerGarage();
+    this.controllerEngine = new ControllerEngine();
 
     this.formUpdate = new Form('update', async (carName, color, id) => {
       if (id) {
@@ -113,6 +118,7 @@ export default class GaragePage {
 
     const formCreate = new Form('create', (carName, color) => {
       this.controller.createNewCar({ name: carName, color: color });
+      this.loadCars();
     }).formElement;
 
 
@@ -219,11 +225,16 @@ export default class GaragePage {
     const resetCar = this.getDeleteButton(id);
     control.appendChild(resetCar as Node);
 
-    const start = this.getStartStopButton('a');
+    // const start = this.getStartStopButton('a');
+    const start = new StartStopButton('a').startStopButton;
+    start.addEventListener('click', () => {
+      this.controllerEngine.startEngine(id);
+      //start.disabled = true;
+    });
     control.appendChild(start);
 
-    const stop = this.getStartStopButton('b');
-    control.appendChild(stop);
+    // const stop = this.getStartStopButton('b');
+    // control.appendChild(stop);
 
     const carName = this.getCarName(name);
     control.appendChild(carName);
@@ -255,12 +266,12 @@ export default class GaragePage {
     return finish;
   }
 
-  private getStartStopButton(value: string) {
-    const button = document.createElement('button');
-    button.classList.add('button_start_stop');
-    button.textContent = value;
-    return button;
-  }
+  // private getStartStopButton(value: string) {
+  //   const button = document.createElement('button');
+  //   button.classList.add('button_start_stop');
+  //   button.textContent = value;
+  //   return button;
+  // }
 
   private getCarName(name: string) {
     const carName = document.createElement('div');

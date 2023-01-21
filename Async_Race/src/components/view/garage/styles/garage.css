@@ -95,6 +95,11 @@ form {
   border: 2px solid #00fffb;
 }
 
+.button_start_stop.disable {
+  border: 2px solid #646464;
+  color: #646464;
+}
+
 .car_name {
   font-style: italic;
   font-weight: 500;

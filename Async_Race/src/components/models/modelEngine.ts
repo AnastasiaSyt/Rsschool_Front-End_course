@@ -1,4 +1,4 @@
-import { status, TEngine } from "./typesModel";
+import { status } from './typesModel';
 
 
 export default class ModelEngine {
@@ -11,26 +11,28 @@ export default class ModelEngine {
     this.engine = `${this.baseUrl}/engine`;
   }
 
-  async startStopEngineCar(id: number, status: status): Promise<void> {
-    let url = `${this.engine}?id=${id}&status=${status}`;
+  async startStopEngineCar(id: number, statusEngine: status) {
+    const url = `${this.engine}?id=${id}&status=${statusEngine}`;
     try {
-        await fetch(url, {method: 'PATCH'}).then((response) => response.json());
-      } catch (err) {
-        console.error(err);
-      } finally {
-        console.log('request completed');
-      }
+      const result = await fetch(url, { method: 'PATCH' }).then((response) => response.json());
+      console.log(result);
+      return result;
+    } catch (err) {
+      console.error(err);
+    } finally {
+      console.log('request completed');
+    }  
   }
 
   async switchCarsEngineDriveMode(id: number) {
-    let url = `${this.engine}?id=${id}&status=drive`;
+    const url = `${this.engine}?id=${id}&status=drive`;
     try {
-        const result = await fetch(url, {method: 'PATCH'}).then((response) => response.json());
-        return result.status;
-      } catch (err) {
-        console.error(err);
-      } finally {
-        console.log('request completed');
-      }
+      const result = await fetch(url, { method: 'PATCH' }).then((response) => response.json());
+      return result;
+    } catch (err) {
+      console.log(err);
+    } finally {
+      console.log('request completed');
+    }
   }
 }

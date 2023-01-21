@@ -4,7 +4,7 @@ export type TCars = {
   id: number
 }
 
-export type TNewCar = {
+export type TCar = {
   name: string,
   color: string
 }
@@ -14,7 +14,7 @@ export type TEngine = {
   distance: number
 }
 
-export type status = 'started'|'stopped';
+export type status = 'started'|'stopped'|'drive';
 
 export type sort = ['id'|'wins'|'time'];
 

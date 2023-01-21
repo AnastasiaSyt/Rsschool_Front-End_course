@@ -1,5 +1,5 @@
 import ModelGarage from '../models/modelGarage';
-import { TCars, TNewCar } from '../models/typesModel';
+import { TCars, TCar } from '../models/typesModel';
 import RandomCars from '../utils/getRandomCar';
 
 export default class ControllerGarage {
@@ -27,7 +27,7 @@ export default class ControllerGarage {
     }
   }
 
-  async createNewCar(car: TNewCar) {
+  async createNewCar(car: TCar) {
     try {
       await this.model.createCar(car);
     } catch (err) {
@@ -48,7 +48,7 @@ export default class ControllerGarage {
     }
   }
 
-  async updateCar(id: number, car: TNewCar) {
+  async updateCar(id: number, car: TCar) {
     await this.model.updateCar(id, car);
   }
   

@@ -1,8 +1,8 @@
-import { TNewCar } from '../models/typesModel';
+import { TCar } from '../models/typesModel';
 import { carBrands, carModels } from './RandomCars_const';
 
 export default class RandomCars {
-  getArray(): Array<TNewCar> {
+  getArray(): Array<TCar> {
     const countCars = 100;
     const generatedNewArray = new Array(countCars);
     generatedNewArray.fill(1);

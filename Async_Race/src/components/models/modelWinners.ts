@@ -1,4 +1,4 @@
-import { TNewCar, TWinners, TWinnersData } from "./typesModel";
+import { TCar, TWinners, TWinnersData } from "./typesModel";
 
 export default class ModelWinners {
   baseUrl: string;
@@ -43,7 +43,7 @@ export default class ModelWinners {
       }
   }
   
-  async createWinners(winner: TNewCar) {
+  async createWinners(winner: TCar) {
     const url = this.winners;
     try {
       await fetch(url, {
