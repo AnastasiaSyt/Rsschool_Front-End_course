@@ -7,7 +7,6 @@ export default class RandomCars {
     const generatedNewArray = new Array(countCars);
     generatedNewArray.fill(1);
     const generatedCars = generatedNewArray.map(() => ({ name: this.randomCarName(), color: this.randomColor() }));
-    //console.log(generatedCars);
     return generatedCars;
   }
 
@@ -22,7 +21,7 @@ export default class RandomCars {
   private randomColor(): string {
     const colorWhiteDecimalSystem = 16777215;
     const hexadecimalBase = 16;
-    const randomNumber = Math.floor(Math.random() * colorWhiteDecimalSystem).toString(hexadecimalBase);
+    const randomNumber = Math.round(Math.random() * colorWhiteDecimalSystem).toString(hexadecimalBase);
     const randomColor = `#${randomNumber}`;
     return randomColor;
   }

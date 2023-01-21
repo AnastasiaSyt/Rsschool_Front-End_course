@@ -5,6 +5,7 @@ import Pagination from '../elements/pagination';
 import './styles/garage.css';
 import { ButtonsNames, ButtonTypes, ContainersClassNames, InputsTypes, TButtonInputs } from '../../types';
 import store from '../../app/store';
+import { TCars } from '../../models/typesModel';
 
 // interface IGaragePage {
 //   getPage: () => Promise<HTMLDivElement>,
@@ -24,20 +25,64 @@ export default class GaragePage {
 
   pagination: Pagination;
 
-  #garage: Promise<HTMLDivElement>;
+  #garage: HTMLDivElement;
+
+  #title: HTMLParagraphElement;
+
+  #pageNumber: HTMLParagraphElement;
+
+  #carsContainer: HTMLDivElement;
 
   constructor() {
     this.controller = new ControllerGarage();
-    this.pagination = new Pagination();
-    this.page = this.pagination.page;
+    this.pagination = new Pagination(() => {
+      this.updatePageNumber();
+      this.loadCars();
+    });
+    this.page = store.garagePage;
+    this.#title = this.createTitleItem();
+    this.#pageNumber = this.createPageNumber();
+    this.#carsContainer = this.createCarsContainer();
+
     this.#garage = this.getPage();
+    this.updateTitle();
+    this.loadCars();
+
   }
 
-  get pageGarage(): Promise<HTMLDivElement> {
+  get pageGarage(): HTMLDivElement {
     return this.#garage;
   }
-  
-  private async getPage(): Promise<HTMLDivElement> {
+
+  updateTitle(): void {
+    this.controller.count.then((count) => {
+      const carsCurrentCount = `Garage(${count})`;
+      this.#title.textContent = carsCurrentCount;
+    });
+  }
+
+  updateCarsInGarage(cars: TCars[]): void {
+    while (this.#carsContainer.lastElementChild) {
+      this.#carsContainer.removeChild(this.#carsContainer.lastElementChild);
+    }
+    cars.forEach((car) => {
+      const carTrack = this.getTrack(car.name, car.id, car.color);
+      this.#carsContainer.appendChild(carTrack);
+    });
+    this.updateTitle();
+    this.pagination.updatePageButtons();
+  }
+
+  loadCars() {
+    this.controller.carsItems(store.garagePage, this.updateCarsInGarage.bind(this));
+  }
+
+  updatePageNumber(): void {
+    this.#pageNumber.textContent = `Page #${store.garagePage}`;
+  }
+
+
+  private getPage(): HTMLDivElement {
     const garagePage = document.createElement('div');
     garagePage.classList.add(ContainersClassNames.GARAGE_PAGE);
     garagePage.id = ContainersClassNames.GARAGE_PAGE;
@@ -45,7 +90,7 @@ export default class GaragePage {
     const inputs = this.getInputs();
     garagePage.appendChild(inputs);
 
-    const garage = await this.getGarage();
+    const garage = this.getGarage();
     garagePage.appendChild(garage);
 
     return garagePage;
@@ -60,6 +105,19 @@ export default class GaragePage {
 
     inputs.appendChild(formCreate);
     inputs.appendChild(formUpdate);
+
+  
+
+    // formCreate.addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   // const formData = new FormData(formCreate);
+      
+    //   // const carName = String(formData.get('carName'));
+    //   // const color = String(formData.get('color'));
+    //   // console.log(carName, color);
+
+    //   this.controller.createNewCar({ name: carName, color: color });      
+    // });
 
     const inputsContainerButtons = this.getButtons(); 
     inputs.appendChild(inputsContainerButtons);
@@ -80,20 +138,39 @@ export default class GaragePage {
     const generate = new Button(ButtonsNames.generate, ButtonTypes.DRAW);
     inputsContainerButtons.appendChild(generate as Node);
 
+    
+    (generate as Node).addEventListener('click', async () => {
+      await this.controller.generateCars();
+      this.loadCars();
+      
+    });
+
     return inputsContainerButtons;
   }
 
   private createForm(value: TButtonInputs) {
     const defaultColor = '#0B63FF';
     const classNameInputs = 'button';
-
     const form = document.createElement('form');
     const inputTextCreate = this.createInput(InputsTypes.TEXT);
+    inputTextCreate.setAttribute('name', 'carName');
     form.appendChild(inputTextCreate);
     const inputColorCreate = this.createInput(InputsTypes.COLOR, defaultColor);
+    inputTextCreate.setAttribute('name', 'color');
     form.appendChild(inputColorCreate);
     const inputSubmitCreate = this.createInput(InputsTypes.SUBMIT, value, classNameInputs);
     form.appendChild(inputSubmitCreate);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // const formData = new FormData(formCreate);
+      
+      // const carName = String(formData.get('carName'));
+      // const color = String(formData.get('color'));
+      // console.log(carName, color);
+
+      this.controller.createNewCar({ name: inputTextCreate.value, color: inputColorCreate.value });      
+    });
 
     return form;
   }
@@ -112,51 +189,43 @@ export default class GaragePage {
     return input;
   }
 
-  async getGarage(): Promise<HTMLDivElement> {
+  getGarage(): HTMLDivElement {
     const garage = document.createElement('div');
     garage.classList.add(ContainersClassNames.GARAGE);
 
     const garageTextContent = this.getGarageTextContent();
     garage.appendChild(garageTextContent);
-    
-    const pageTest = store.garagePage;
-    const carItems = await this.controller.carsItems(pageTest);
+    garage.appendChild(this.#carsContainer);
 
-    for (let i = 0; i < carItems.length; i += 1) {
-      const carTrack = this.getTrack(carItems[i].name, carItems[i].id, carItems[i].color);
-      garage.appendChild(carTrack);
-    }
-    
-    const pagination = new Pagination().getPagination();
+    const pagination = this.pagination.getPagination();
     garage.appendChild(pagination);
 
     return garage;
+  }
+
+  private createCarsContainer(): HTMLDivElement {
+    const carsContainer = document.createElement('div');
+    return carsContainer;
   }
 
   private getGarageTextContent() {
     const garageTextContent = document.createElement('div');
     garageTextContent.classList.add(ContainersClassNames.GARAGE_TEXT);
 
-    const title = this.getTitle();
-    garageTextContent.appendChild(title);
-
-    const page = this.getPageNumber();
-    garageTextContent.appendChild(page);
+    garageTextContent.appendChild(this.#title);
+    garageTextContent.appendChild(this.#pageNumber);
 
     return garageTextContent;
   }
 
-  private getTitle() {
+  private createTitleItem() {
     const title = document.createElement('p');
     title.classList.add(ContainersClassNames.TITLE);
 
-    const count = store.carsCount;
-    const carsCurrentCount = `Garage(${count})`;
-    title.textContent = carsCurrentCount;
     return title;
   }
 
-  private getPageNumber() {
+  private createPageNumber(): HTMLParagraphElement {
     const page = document.createElement('p');
     page.classList.add('page');
     page.id = 'page';
@@ -167,7 +236,7 @@ export default class GaragePage {
   private getTrack(name: string, id: number, color: string) {
     const track = document.createElement('div');
     track.classList.add('track');
-    track.classList.add(`track_${name}`);
+    //track.classList.add(`track_${name}`);
     
     const finish = this.getFinish();
     track.appendChild(finish);
@@ -210,9 +279,9 @@ export default class GaragePage {
 
   private getDeleteButton(id: number) {
     const resetCar = new Button('remove', 'race', 'control_button');
-    (resetCar as Node).addEventListener('click', () => {
-      console.log('delete');
-      this.controller.deleteCar(id);
+    (resetCar as Node).addEventListener('click', async () => {
+      await this.controller.deleteCar(id);
+      this.loadCars();
     });
     return resetCar;
   }

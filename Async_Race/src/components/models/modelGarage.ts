@@ -59,6 +59,7 @@ export default class ModelGarage {
   }
 
   async createCar(car: TNewCar) {
+    this.prevUrl = '';
     const url = this.garage;
     try {
       await fetch(url, {
@@ -74,6 +75,7 @@ export default class ModelGarage {
   }
 
   async deleteCar(id: number) {
+    this.prevUrl = '';
     const url = `${this.garage}/${id}`;
     try {
       await fetch(url, {
@@ -85,6 +87,7 @@ export default class ModelGarage {
   }
 
   async updateCar(id: number) {
+    this.prevUrl = '';
     const url = `${this.garage}/${id}`;
     try {
       await fetch(url, {

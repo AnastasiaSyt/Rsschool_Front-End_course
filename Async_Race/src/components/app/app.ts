@@ -16,12 +16,12 @@ export default class App {
     this.drawContent();
   }
 
-  async drawContent() {
+  drawContent() {
     this.pageInstance.clearContent();
     let newPage;
     const view = store.view;
     if (view === PageIDs.GaragePage) {
-      newPage = await new GaragePage().pageGarage;
+      newPage = new GaragePage().pageGarage;
     } else if (view === PageIDs.WinnersPage) {
       newPage = new Winners().pageWinners;
     }

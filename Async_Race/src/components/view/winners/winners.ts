@@ -1,5 +1,5 @@
 import { TableElementConfig } from '../../types';
-import Pagination from '../elements/pagination';
+//import Pagination from '../elements/pagination';
 import { DOMElements } from './DOMElements';
 import './styles/winners.css';
 import store from '../../app/store';
@@ -30,8 +30,8 @@ export default class Winners {
 
     winners.appendChild(this.getWinnersTable());
 
-    const pagination = new Pagination().getPagination();
-    winners.appendChild(pagination);
+    //const pagination = new Pagination().getPagination();
+    //winners.appendChild(pagination);
 
     return winners;
   }
