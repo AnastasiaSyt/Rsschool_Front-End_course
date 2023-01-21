@@ -3,9 +3,10 @@ import Button from '../elements/buttons';
 import { coloredCarImg } from '../cars/car';
 import Pagination from '../elements/pagination';
 import './styles/garage.css';
-import { ButtonsNames, ButtonTypes, ContainersClassNames, InputsTypes, TButtonInputs } from '../../types';
+import { ButtonsNames, ButtonTypes, ContainersClassNames } from '../../types';
 import store from '../../app/store';
 import { TCars } from '../../models/typesModel';
+import Form from '../elements/form';
 
 // interface IGaragePage {
 //   getPage: () => Promise<HTMLDivElement>,
@@ -33,8 +34,18 @@ export default class GaragePage {
 
   #carsContainer: HTMLDivElement;
 
+  formUpdate: Form;
+
   constructor() {
     this.controller = new ControllerGarage();
+
+    this.formUpdate = new Form('update', async (carName, color, id) => {
+      if (id) {
+        await this.controller.updateCar(id, { name: carName, color: color });
+        this.loadCars();
+      }
+    });
+
     this.pagination = new Pagination(() => {
       this.updatePageNumber();
       this.loadCars();
@@ -66,7 +77,7 @@ export default class GaragePage {
       this.#carsContainer.removeChild(this.#carsContainer.lastElementChild);
     }
     cars.forEach((car) => {
-      const carTrack = this.getTrack(car.name, car.id, car.color);
+      const carTrack = this.getTrack(car.name, car.color, car.id);
       this.#carsContainer.appendChild(carTrack);
     });
     this.updateTitle();
@@ -100,24 +111,15 @@ export default class GaragePage {
     const inputs = document.createElement('div');
     inputs.classList.add(ContainersClassNames.INPUT_CONTAINER);
 
-    const formCreate = this.createForm('create');
-    const formUpdate = this.createForm('update');
+    const formCreate = new Form('create', (carName, color) => {
+      this.controller.createNewCar({ name: carName, color: color });
+    }).formElement;
+
+
+    const formUpdate = this.formUpdate.formElement;
 
     inputs.appendChild(formCreate);
     inputs.appendChild(formUpdate);
-
-  
-
-    // formCreate.addEventListener('submit', (e) => {
-    //   e.preventDefault();
-    //   // const formData = new FormData(formCreate);
-      
-    //   // const carName = String(formData.get('carName'));
-    //   // const color = String(formData.get('color'));
-    //   // console.log(carName, color);
-
-    //   this.controller.createNewCar({ name: carName, color: color });      
-    // });
 
     const inputsContainerButtons = this.getButtons(); 
     inputs.appendChild(inputsContainerButtons);
@@ -138,55 +140,12 @@ export default class GaragePage {
     const generate = new Button(ButtonsNames.generate, ButtonTypes.DRAW);
     inputsContainerButtons.appendChild(generate as Node);
 
-    
     (generate as Node).addEventListener('click', async () => {
       await this.controller.generateCars();
       this.loadCars();
-      
     });
 
     return inputsContainerButtons;
-  }
-
-  private createForm(value: TButtonInputs) {
-    const defaultColor = '#0B63FF';
-    const classNameInputs = 'button';
-    const form = document.createElement('form');
-    const inputTextCreate = this.createInput(InputsTypes.TEXT);
-    inputTextCreate.setAttribute('name', 'carName');
-    form.appendChild(inputTextCreate);
-    const inputColorCreate = this.createInput(InputsTypes.COLOR, defaultColor);
-    inputTextCreate.setAttribute('name', 'color');
-    form.appendChild(inputColorCreate);
-    const inputSubmitCreate = this.createInput(InputsTypes.SUBMIT, value, classNameInputs);
-    form.appendChild(inputSubmitCreate);
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // const formData = new FormData(formCreate);
-      
-      // const carName = String(formData.get('carName'));
-      // const color = String(formData.get('color'));
-      // console.log(carName, color);
-
-      this.controller.createNewCar({ name: inputTextCreate.value, color: inputColorCreate.value });      
-    });
-
-    return form;
-  }
-
-  private createInput(type: string, value?: string, className?: string): HTMLInputElement {
-    const input = document.createElement('input');
-    const inputsClassName = `input_${type}`;
-    input.classList.add(inputsClassName);
-    input.type = type;
-    if (value) {
-      input.value = value;
-    }
-    if (className) {
-      input.classList.add(className);
-    }
-    return input;
   }
 
   getGarage(): HTMLDivElement {
@@ -233,7 +192,7 @@ export default class GaragePage {
     return page;
   }
   
-  private getTrack(name: string, id: number, color: string) {
+  private getTrack(name: string, color: string, id: number) {
     const track = document.createElement('div');
     track.classList.add('track');
     //track.classList.add(`track_${name}`);
@@ -241,7 +200,7 @@ export default class GaragePage {
     const finish = this.getFinish();
     track.appendChild(finish);
 
-    const control = this.getControl(id, name);
+    const control = this.getControl(name, color, id);
     track.appendChild(control);
 
     const trackRace = this.getTrackRace(id, color);
@@ -250,11 +209,11 @@ export default class GaragePage {
     return track;
   }
 
-  private getControl(id: number, name: string) {
+  private getControl(name: string, color: string, id: number) {
     const control = document.createElement('div');
     control.classList.add('track_control');
     
-    const selectCar = this.getSelectButtons();
+    const selectCar = this.getSelectButtons(name, color, id);
     control.appendChild(selectCar as Node);
 
     const resetCar = this.getDeleteButton(id);
@@ -272,8 +231,11 @@ export default class GaragePage {
     return control;
   }
 
-  private getSelectButtons() {
+  private getSelectButtons(carName: string, color: string, id: number) {
     const selectCar = new Button('select', 'race', 'control_button');
+    (selectCar as Node).addEventListener('click', () => {
+      this.formUpdate.updateInputs(carName, color, id);
+    });
     return selectCar;
   }
 

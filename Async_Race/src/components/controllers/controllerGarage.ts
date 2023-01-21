@@ -1,7 +1,6 @@
 import ModelGarage from '../models/modelGarage';
 import { TCars, TNewCar } from '../models/typesModel';
 import RandomCars from '../utils/getRandomCar';
-//import store from '../app/store';
 
 export default class ControllerGarage {
   model: ModelGarage;
@@ -16,7 +15,6 @@ export default class ControllerGarage {
 
   async carsCount(): Promise<number> {
     const carsCount = await this.model.getCarsCount();
-    //store.carsCount = carsCount;
     return carsCount;
   }
 
@@ -32,7 +30,6 @@ export default class ControllerGarage {
   async createNewCar(car: TNewCar) {
     try {
       await this.model.createCar(car);
-      
     } catch (err) {
       console.log(err);
     }
@@ -50,6 +47,9 @@ export default class ControllerGarage {
       console.log(err);
     }
   }
-  
+
+  async updateCar(id: number, car: TNewCar) {
+    await this.model.updateCar(id, car);
+  }
   
 }

@@ -86,12 +86,13 @@ export default class ModelGarage {
     }
   }
 
-  async updateCar(id: number) {
+  async updateCar(id: number, car: TNewCar) {
     this.prevUrl = '';
     const url = `${this.garage}/${id}`;
     try {
       await fetch(url, {
         method: 'PUT',
+        body: JSON.stringify(car),
         headers: {
           'Content-Type': 'application/json',
         },
