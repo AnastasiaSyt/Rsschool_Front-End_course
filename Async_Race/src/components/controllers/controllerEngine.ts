@@ -1,6 +1,7 @@
 import ModelEngine from '../models/modelEngine';
 import { TCars } from '../models/typesModel';
 import AnimationCar from '../utils/animation';
+import ControllerWinners from './controllerWinners';
 
 export default class ControllerEngine {
   model: ModelEngine;
@@ -11,11 +12,14 @@ export default class ControllerEngine {
 
   cars: { [id: number]: TCars };
 
+  controllerWinners: ControllerWinners;
+
   constructor() {
     this.cars = {};
     this.animations = {};
     this.model = new ModelEngine();
     this.finishList = [];
+    this.controllerWinners = new ControllerWinners;
   }
 
   get trackWidth() {
@@ -31,12 +35,14 @@ export default class ControllerEngine {
   }
 
   getAnimation(id: number, time: number) {
-    this.animations[id] = new AnimationCar(id, () => {
+    this.animations[id] = new AnimationCar(id, async () => {
       this.finishList.push(id);
       if (this.finishList.length === 1 && Object.keys(this.cars).length) {
         const car = this.cars[id];
-        alert(`Winner is ${car.name}`);
+        alert(`Winner is ${car.name} and time is ${(time / 1000).toFixed(2)} s`);
         this.cars = {};
+        const winner = { id: id, wins: 1, time: time };
+        this.controllerWinners.recordWinner(winner.id, winner.wins, winner.time);
       }
     });
     this.animations[id].animatePosition(this.trackWidth, time);
