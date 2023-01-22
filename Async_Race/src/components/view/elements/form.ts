@@ -1,5 +1,5 @@
 import { InputsTypes } from '../../types';
-
+const defaultColor = '#0B63FF';
 export default class Form {
   onClick: (car: string, color: string, id?: number) => void;
 
@@ -13,7 +13,6 @@ export default class Form {
 
   constructor(name: string, onClick: (car: string, color: string, id?: number) => void) {
     this.onClick = onClick;
-    const defaultColor = '#0B63FF';
     const classNameInputs = 'button';
     this.form = document.createElement('form');
     this.inputText = this.createInput(InputsTypes.TEXT);
@@ -35,6 +34,11 @@ export default class Form {
 
   get formElement() {
     return this.form;
+  }
+
+  resetInputs(): void {
+    this.inputColor.value = defaultColor;
+    this.inputText.value = '';
   }
 
   updateInputs(carName: string, color: string, id: number) {

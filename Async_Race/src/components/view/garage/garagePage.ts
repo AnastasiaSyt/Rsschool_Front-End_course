@@ -47,6 +47,7 @@ export default class GaragePage {
     this.formUpdate = new Form('update', async (carName, color, id) => {
       if (id) {
         await this.controller.updateCar(id, { name: carName, color: color });
+        this.formUpdate.resetInputs();
         this.loadCars();
       }
     });
@@ -116,15 +117,16 @@ export default class GaragePage {
     const inputs = document.createElement('div');
     inputs.classList.add(ContainersClassNames.INPUT_CONTAINER);
 
-    const formCreate = new Form('create', (carName, color) => {
-      this.controller.createNewCar({ name: carName, color: color });
+    const formCreate = new Form('create', async (carName, color) => {
+      await this.controller.createNewCar({ name: carName, color: color });
+      formCreate.resetInputs();
       this.loadCars();
-    }).formElement;
+    });
 
 
     const formUpdate = this.formUpdate.formElement;
 
-    inputs.appendChild(formCreate);
+    inputs.appendChild(formCreate.formElement);
     inputs.appendChild(formUpdate);
 
     const inputsContainerButtons = this.getButtons(); 
@@ -228,7 +230,7 @@ export default class GaragePage {
     // const start = this.getStartStopButton('a');
     const start = new StartStopButton('a').startStopButton;
     start.addEventListener('click', () => {
-      this.controllerEngine.startEngine(id);
+      this.controllerEngine.driveCar(id);
       //start.disabled = true;
     });
     control.appendChild(start);
