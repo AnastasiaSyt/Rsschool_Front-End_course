@@ -34,3 +34,7 @@ export type TWinnersData = {
   wins: number,
   time: number,
 }
+
+export type TSuccess = { 
+  success: boolean 
+}

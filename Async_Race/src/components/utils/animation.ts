@@ -1,29 +1,51 @@
 export default class AnimationCar {
   car:  HTMLElement | null;
 
+  request: number;
+
+  cancelled: boolean;
+
   constructor(id: number) {
-    console.log(id);
     this.car = document.getElementById(`car-${id}`);
-    console.log(this.car);
+    this.request = 0;
+    this.cancelled = false;
   }
 
   animatePosition(endX: number, duration: number) {
     if (this.car) {
-      let currentX = this.car.offsetLeft;
-      const framesCount = duration / 1000 * 60;
-      const dX = (endX - currentX) / framesCount;
+      this.cancelled = false;
+      const currentX = this.car.offsetLeft;
+      const refreshRate = 60;
+      const ms = 1000;
+      const framesCount = duration / ms * refreshRate;
+      const offset = (endX - currentX) / framesCount;
+      this.tick(currentX, offset, endX); 
+    }
+  }
 
-      const tick = () => {
-        currentX += dX;
-        if (this.car)
-          this.car.style.transform = `translateX(${currentX}px)`;
+  tick(current: number, offset: number, endX: number) {
+    current += offset;
+    if (this.car)
+      this.car.style.transform = `translateX(${current}px)`;
 
-        if (currentX < endX) {
-          requestAnimationFrame(tick);
-        }
-      };
+    if (current < endX && !this.cancelled) {
+      this.request = requestAnimationFrame(() => {this.tick(current, offset, endX);});
+    }
 
-      tick();
+    if (current >= endX) {
+      this.cancelled = false;
+    }
+  }
+
+  cancel() {
+    cancelAnimationFrame(this.request);
+    this.cancelled = true;
+  }
+
+  carPosition() {
+    const startPosition = 'translateX(0)';
+    if (this.car) {
+      this.car.style.transform = startPosition;
     }
   }
 }

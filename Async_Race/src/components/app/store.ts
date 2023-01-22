@@ -1,7 +1,5 @@
-// import ModelGarage from '../models/modelGarage';
 import ControllerGarage from '../controllers/controllerGarage';
 import { PageIDs } from '../types';
-//import Pagination from '../view/elements/pagination';
 
 const pageDefault = 1;
 const viewDefault = PageIDs.GaragePage;
@@ -14,14 +12,6 @@ async function updateCarsCount() {
 const carsCount = updateCarsCount();
 const winnersCount = 1;
 
-// async function updateGaragePage() {
-//   const pagination = new Pagination();
-//   const pageNumber = await pagination.changePage();
-//   return pageNumber;
-// }
-
-// const garagePage = updateGaragePage();
-
 
 export default {
   garagePage: pageDefault,
@@ -33,5 +23,3 @@ export default {
   sortBy: null,
   sortOrder: null,
 };
-
-//TODO animation
