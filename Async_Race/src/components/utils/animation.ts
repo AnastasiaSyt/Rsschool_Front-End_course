@@ -5,10 +5,13 @@ export default class AnimationCar {
 
   cancelled: boolean;
 
-  constructor(id: number) {
+  onFinish: () => void;
+
+  constructor(id: number, onFinish: () => void) {
     this.car = document.getElementById(`car-${id}`);
     this.request = 0;
     this.cancelled = false;
+    this.onFinish = onFinish;
   }
 
   animatePosition(endX: number, duration: number) {
@@ -34,6 +37,7 @@ export default class AnimationCar {
 
     if (current >= endX) {
       this.cancelled = false;
+      this.onFinish();
     }
   }
 

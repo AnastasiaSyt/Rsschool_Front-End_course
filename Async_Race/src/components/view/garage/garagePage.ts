@@ -40,9 +40,13 @@ export default class GaragePage {
 
   formUpdate: Form;
 
+  carsOnPage: TCars[];
+
   constructor() {
     this.controller = new ControllerGarage();
     this.controllerEngine = new ControllerEngine();
+
+    this.carsOnPage = [];
 
     this.formUpdate = new Form('update', async (carName, color, id) => {
       if (id) {
@@ -86,6 +90,7 @@ export default class GaragePage {
       const carTrack = this.getTrack(car.name, car.color, car.id);
       this.#carsContainer.appendChild(carTrack);
     });
+    this.carsOnPage = cars;
     this.updateTitle();
     this.pagination.updatePageButtons();
   }
@@ -97,7 +102,6 @@ export default class GaragePage {
   updatePageNumber(): void {
     this.#pageNumber.textContent = `Page #${store.garagePage}`;
   }
-
 
   private getPage(): HTMLDivElement {
     const garagePage = document.createElement('div');
@@ -123,7 +127,6 @@ export default class GaragePage {
       this.loadCars();
     });
 
-
     const formUpdate = this.formUpdate.formElement;
 
     inputs.appendChild(formCreate.formElement);
@@ -142,8 +145,17 @@ export default class GaragePage {
     const race = new Button(ButtonsNames.race, ButtonTypes.RACE);
     inputsContainerButtons.appendChild(race as Node);
 
+    (race as Node).addEventListener('click', () => {
+      this.controllerEngine.raceAllCars(this.carsOnPage);
+    });
+
     const reset = new Button(ButtonsNames.reset, ButtonTypes.RACE);
     inputsContainerButtons.appendChild(reset as Node);
+
+    (reset as Node).addEventListener('click', () => {
+      this.controllerEngine.resetAll(this.carsOnPage);
+      
+    });
 
     const generate = new Button(ButtonsNames.generate, ButtonTypes.DRAW);
     inputsContainerButtons.appendChild(generate as Node);
@@ -188,7 +200,6 @@ export default class GaragePage {
   private createTitleItem() {
     const title = document.createElement('p');
     title.classList.add(ContainersClassNames.TITLE);
-
     return title;
   }
 
@@ -203,7 +214,6 @@ export default class GaragePage {
   private getTrack(name: string, color: string, id: number) {
     const track = document.createElement('div');
     track.classList.add('track');
-    //track.classList.add(`track_${name}`);
     
     const finish = this.getFinish();
     track.appendChild(finish);
@@ -227,16 +237,17 @@ export default class GaragePage {
     const resetCar = this.getDeleteButton(id);
     control.appendChild(resetCar as Node);
 
-    // const start = this.getStartStopButton('a');
     const start = new StartStopButton('a').startStopButton;
     start.addEventListener('click', () => {
       this.controllerEngine.driveCar(id);
-      //start.disabled = true;
     });
     control.appendChild(start);
 
-    // const stop = this.getStartStopButton('b');
-    // control.appendChild(stop);
+    const stop = new StartStopButton('b').startStopButton;
+    stop.addEventListener('click', () => {
+      this.controllerEngine.stopCar(id);
+    });
+    control.appendChild(stop);
 
     const carName = this.getCarName(name);
     control.appendChild(carName);
@@ -267,13 +278,6 @@ export default class GaragePage {
     finish.src = '../../assets/finish.svg';
     return finish;
   }
-
-  // private getStartStopButton(value: string) {
-  //   const button = document.createElement('button');
-  //   button.classList.add('button_start_stop');
-  //   button.textContent = value;
-  //   return button;
-  // }
 
   private getCarName(name: string) {
     const carName = document.createElement('div');

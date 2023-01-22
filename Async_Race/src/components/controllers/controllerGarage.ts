@@ -13,6 +13,7 @@ export default class ControllerGarage {
     return this.carsCount();
   }
 
+
   async carsCount(): Promise<number> {
     const carsCount = await this.model.getCarsCount();
     return carsCount;

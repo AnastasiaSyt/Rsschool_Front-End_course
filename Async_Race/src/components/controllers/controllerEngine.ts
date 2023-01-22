@@ -1,4 +1,5 @@
 import ModelEngine from '../models/modelEngine';
+import { TCars } from '../models/typesModel';
 import AnimationCar from '../utils/animation';
 
 export default class ControllerEngine {
@@ -6,9 +7,15 @@ export default class ControllerEngine {
 
   animations: { [id: number]: AnimationCar };
 
+  finishList: number[];
+
+  cars: { [id: number]: TCars };
+
   constructor() {
+    this.cars = {};
     this.animations = {};
     this.model = new ModelEngine();
+    this.finishList = [];
   }
 
   get trackWidth() {
@@ -19,17 +26,23 @@ export default class ControllerEngine {
     const result = await this.model.startStopEngineCar(id, 'started');
     const velocity = result.velocity;
     const distance = result.distance;
-    console.log(velocity);
     const time = distance / velocity;
     return time;
   }
 
   getAnimation(id: number, time: number) {
-    this.animations[id] = new AnimationCar(id);
+    this.animations[id] = new AnimationCar(id, () => {
+      this.finishList.push(id);
+      if (this.finishList.length === 1 && Object.keys(this.cars).length) {
+        const car = this.cars[id];
+        alert(`Winner is ${car.name}`);
+        this.cars = {};
+      }
+    });
     this.animations[id].animatePosition(this.trackWidth, time);
   }
 
-  async switchCarsEngineDriveMode(id: number) {
+  async switchCarsEngineDriveMode(id: number): Promise<void> {
     const driveMode = await this.model.switchCarsEngineDriveMode(id);
     if (driveMode.success === false) {
       this.animations[id].cancel();
@@ -54,5 +67,21 @@ export default class ControllerEngine {
     this.animations[id].carPosition();
   }
 
+  raceAllCars(cars: TCars[]) {
+    this.finishList = [];
+    this.cars = {};
+    cars.forEach(car => {
+      this.cars[car.id] = car;
+      this.driveCar(car.id);
+    });
+  }
+
+  resetAll(cars: TCars[]) {
+    this.finishList = [];
+    this.cars = {};
+    cars.forEach(car => {
+      this.stopCar(car.id);
+    });
+  }
 
 }
