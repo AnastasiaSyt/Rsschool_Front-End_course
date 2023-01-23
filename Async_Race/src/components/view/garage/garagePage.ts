@@ -237,15 +237,22 @@ export default class GaragePage implements IGaragePage {
     control.appendChild(resetCar as Node);
 
     const start = new StartStopButton('a').startStopButton;
+    const stop = new StartStopButton('b').startStopButton;
+    stop.disabled = true;
+
     start.addEventListener('click', () => {
       this.controllerEngine.driveCar(id);
+      start.disabled = true;
+      stop.disabled = false;
     });
     control.appendChild(start);
 
-    const stop = new StartStopButton('b').startStopButton;
     stop.addEventListener('click', () => {
       this.controllerEngine.stopCar(id);
+      stop.disabled = true;
+      start.disabled = false;
     });
+    
     control.appendChild(stop);
 
     const carName = this.getCarName(name);

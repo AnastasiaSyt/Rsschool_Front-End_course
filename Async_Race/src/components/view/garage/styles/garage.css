@@ -81,7 +81,6 @@ form {
   width: 34px;
   height: 34px;
 
-  border: 2px solid #3DF44F;
   border-radius: 5px;
   background: #165167;
   color: white;
@@ -91,11 +90,27 @@ form {
   transition: all ease 0.4s;
 }
 
-.button_start_stop:hover {
-  border: 2px solid #00fffb;
+.button_start_stop_a {
+  border: 2px solid #3DF44F;
+  color: #3DF44F;
 }
 
-.button_start_stop.disable {
+.button_start_stop_b {
+  border: 2px solid #F43D3D;
+  color: #F43D3D;
+}
+
+.button_start_stop_a:hover {
+  color: #165167;
+  background: #3DF44F;
+}
+
+.button_start_stop_b:hover {
+  color: #165167;
+  background: #F43D3D;
+}
+
+.button_start_stop:disabled {
   border: 2px solid #646464;
   color: #646464;
 }
