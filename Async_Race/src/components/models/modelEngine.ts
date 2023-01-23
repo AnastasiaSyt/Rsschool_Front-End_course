@@ -15,7 +15,6 @@ export default class ModelEngine {
     const url = `${this.engine}?id=${id}&status=${statusEngine}`;
     try {
       const result = await fetch(url, { method: 'PATCH' }).then((response) => response.json());
-      console.log(result);
       return result;
     } catch (err) {
       console.log(err);

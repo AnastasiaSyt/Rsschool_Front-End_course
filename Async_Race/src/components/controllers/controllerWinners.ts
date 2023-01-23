@@ -87,7 +87,6 @@ export default class ControllerWinners {
     });
 
     const resultArr = Object.values(resultObj);
-    console.log(resultArr);
     callback(resultArr);
   }
 
