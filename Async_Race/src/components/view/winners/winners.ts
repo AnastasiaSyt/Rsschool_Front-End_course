@@ -4,7 +4,7 @@ import ControllerWinners from '../../controllers/controllerWinners';
 import { TData } from '../../models/typesModel';
 
 export default class Winners {
-  winnersCount: number;
+  //winnersCount: number;
 
   winnersPageCount: number;
 
@@ -18,7 +18,7 @@ export default class Winners {
 
   constructor() {
     this.#winnersTableContainer = this.getTableBody();
-    this.winnersCount = store.winnersCount;
+    //this.winnersCount = store.winnersCount;
     this.winnersPageCount = store.winnersPage;
     this.controllerWinners = new ControllerWinners();
     this.#title = this.getWinnersTitle();
@@ -33,7 +33,7 @@ export default class Winners {
 
   updateTitle(): void {
     this.controllerWinners.count.then((count) => {
-      const winnersCurrentCount = `Garage(${count})`;
+      const winnersCurrentCount = `Winners(${count})`;
       this.#title.textContent = winnersCurrentCount;
     });
   }

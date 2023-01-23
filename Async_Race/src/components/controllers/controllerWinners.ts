@@ -39,8 +39,8 @@ export default class ControllerWinners {
     return result;
   }
 
-  async getWinnerItems(): Promise<TWinners[]> {
-    const result = await this.model.getWinnersItems();
+  async getWinnerItems(page?: number, sort?: string, order?: string, limit = 10): Promise<TWinners[]> {
+    const result = await this.model.getWinnersItems(page, sort, order, limit);
     return result;
   }
 
@@ -64,8 +64,8 @@ export default class ControllerWinners {
     return car;
   }
   
-  async getRowData(callback: (data: TData[]) => void) {
-    const winners = await this.getWinnerItems();
+  async getRowData(callback: (data: TData[]) => void, page?: number, sort?: string, order?: string, limit = 10) {
+    const winners = await this.getWinnerItems(page, sort, order, limit);
     const cars = await Promise.all(winners.map((win) => this.getCar(win.id)));
 
     const resultObj: { [id: number]: { num?: number, name?: string, color?: string, wins?: number, time?: number } } = {};
