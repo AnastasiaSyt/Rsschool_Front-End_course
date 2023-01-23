@@ -10,6 +10,7 @@ import Form from '../elements/form';
 import StartStopButton from '../elements/start_stop_button';
 import ControllerEngine from '../../controllers/controllerEngine';
 import IGaragePage from './InterfaceGaragePage';
+import ControllerWinners from '../../controllers/controllerWinners';
 
 
 
@@ -20,6 +21,8 @@ export default class GaragePage implements IGaragePage {
   controller: ControllerGarage;
 
   controllerEngine: ControllerEngine;
+
+  controllerWinners: ControllerWinners;
 
   page: number;
 
@@ -40,6 +43,7 @@ export default class GaragePage implements IGaragePage {
   constructor() {
     this.controller = new ControllerGarage();
     this.controllerEngine = new ControllerEngine();
+    this.controllerWinners = new ControllerWinners();
 
     this.carsOnPage = [];
 
@@ -262,6 +266,7 @@ export default class GaragePage implements IGaragePage {
     const resetCar = new Button('remove', 'race', 'control_button');
     (resetCar as Node).addEventListener('click', async () => {
       await this.controller.deleteCar(id);
+      await this.controllerWinners.deleteWinner(id);
       this.loadCars();
     });
     return resetCar;

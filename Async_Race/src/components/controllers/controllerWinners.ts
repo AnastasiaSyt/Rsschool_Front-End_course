@@ -90,4 +90,8 @@ export default class ControllerWinners {
     console.log(resultArr);
     callback(resultArr);
   }
+
+  async deleteWinner(id: number): Promise<void> {
+    await this.model.deleteWinner(id);
+  }
 }
