@@ -2,9 +2,12 @@ import './styles/winners.css';
 import store from '../../app/store';
 import ControllerWinners from '../../controllers/controllerWinners';
 import { TData } from '../../models/typesModel';
+import Pagination from '../elements/pagination';
 
 export default class Winners {
   //winnersCount: number;
+
+  page: number;
 
   winnersPageCount: number;
 
@@ -16,11 +19,23 @@ export default class Winners {
 
   controllerWinners: ControllerWinners;
 
+  pagination: Pagination;
+
+  #pageNumber: HTMLParagraphElement;
+
   constructor() {
     this.#winnersTableContainer = this.getTableBody();
     //this.winnersCount = store.winnersCount;
     this.winnersPageCount = store.winnersPage;
     this.controllerWinners = new ControllerWinners();
+    this.page = store.winnersPage;
+    
+    this.pagination = new Pagination(() => {
+      this.updatePageNumber();
+      this.loadWinners();
+    }, 'winners');
+    
+    this.#pageNumber = this.getWinnersPage();
     this.#title = this.getWinnersTitle();
     this.#winners = this.getWinners();
     this.updateTitle();
@@ -48,10 +63,15 @@ export default class Winners {
       console.log(tableString);
       this.#winnersTableContainer.appendChild(tableString);
     });
+    this.pagination.updatePageButtons();
   }
 
   loadWinners(): void {
-    this.controllerWinners.getRowData(this.updateTableWinners.bind(this));
+    this.controllerWinners.getRowData(this.updateTableWinners.bind(this), store.winnersPage);
+  }
+
+  updatePageNumber(): void {
+    this.#pageNumber.textContent = `Page #${store.winnersPage}`;
   }
   
   getWinners() {
@@ -63,8 +83,8 @@ export default class Winners {
 
     winners.appendChild(this.getWinnersTable());
 
-    //const pagination = new Pagination().getPagination();
-    //winners.appendChild(pagination);
+    const pagination = this.pagination.getPagination();
+    winners.appendChild(pagination);
 
     return winners;
   }
@@ -75,8 +95,9 @@ export default class Winners {
 
     winnersTextContent.appendChild(this.#title);
 
-    const pages = this.getWinnersPage();
-    winnersTextContent.appendChild(pages);
+    //const pages = this.getWinnersPage();
+    console.log(this.#pageNumber);
+    winnersTextContent.appendChild(this.#pageNumber);
 
     return winnersTextContent;
   }
@@ -84,7 +105,7 @@ export default class Winners {
   private getWinnersPage() {
     const page = document.createElement('p');
     page.classList.add('page');
-    page.textContent = `Page #${this.winnersPageCount}`;
+    page.textContent = `Page #${this.page}`;
     return page;
   }
 

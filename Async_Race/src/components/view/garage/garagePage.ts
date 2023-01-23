@@ -58,7 +58,7 @@ export default class GaragePage implements IGaragePage {
     this.pagination = new Pagination(() => {
       this.updatePageNumber();
       this.loadCars();
-    });
+    }, 'garage');
     this.page = store.garagePage;
     this.#title = this.createTitleItem();
     this.#pageNumber = this.createPageNumber();
