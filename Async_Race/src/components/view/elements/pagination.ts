@@ -27,10 +27,10 @@ export default class Pagination {
       this.limit = 10;
     }
 
-    this.prevButton = new Button(ButtonsNames.prev, ButtonTypes.DRAW);
+    this.prevButton = new Button(ButtonsNames.prev, ButtonTypes.DRAW, 'bottom_button');
     (this.prevButton as Node).addEventListener('click', () => this.changePage(ButtonsNames.prev));
 
-    this.nextButton = new Button(ButtonsNames.next, ButtonTypes.DRAW);
+    this.nextButton = new Button(ButtonsNames.next, ButtonTypes.DRAW, 'bottom_button');
     (this.nextButton as Node).addEventListener('click', () => this.changePage(ButtonsNames.next));
     this.updatePageButtons();
 
