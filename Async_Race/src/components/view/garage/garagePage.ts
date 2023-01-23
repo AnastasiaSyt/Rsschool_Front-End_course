@@ -144,16 +144,21 @@ export default class GaragePage implements IGaragePage {
     const race = new Button(ButtonsNames.race, ButtonTypes.RACE);
     inputsContainerButtons.appendChild(race as Node);
 
-    (race as Node).addEventListener('click', () => {
-      this.controllerEngine.raceAllCars(this.carsOnPage);
-    });
-
     const reset = new Button(ButtonsNames.reset, ButtonTypes.RACE);
     inputsContainerButtons.appendChild(reset as Node);
+    (reset as HTMLButtonElement).disabled = true;
+
+    (race as Node).addEventListener('click', () => {
+      this.controllerEngine.raceAllCars(this.carsOnPage);
+      (race as HTMLButtonElement).disabled = true;
+      (reset as HTMLButtonElement).disabled = false;
+    });
+
 
     (reset as Node).addEventListener('click', () => {
       this.controllerEngine.resetAll(this.carsOnPage);
-      
+      (race as HTMLButtonElement).disabled = false;
+      (reset as HTMLButtonElement).disabled = true;
     });
 
     const generate = new Button(ButtonsNames.generate, ButtonTypes.DRAW);
