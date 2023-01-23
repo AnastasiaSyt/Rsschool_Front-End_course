@@ -3,9 +3,9 @@ import store from '../../app/store';
 import ControllerWinners from '../../controllers/controllerWinners';
 import { TData } from '../../models/typesModel';
 import Pagination from '../elements/pagination';
+import { coloredCarImgSmall } from '../cars/car';
 
 export default class Winners {
-  //winnersCount: number;
 
   page: number;
 
@@ -25,7 +25,6 @@ export default class Winners {
 
   constructor() {
     this.#winnersTableContainer = this.getTableBody();
-    //this.winnersCount = store.winnersCount;
     this.winnersPageCount = store.winnersPage;
     this.controllerWinners = new ControllerWinners();
     this.page = store.winnersPage;
@@ -57,10 +56,15 @@ export default class Winners {
     while (this.#winnersTableContainer.lastElementChild) {
       this.#winnersTableContainer.removeChild(this.#winnersTableContainer.lastElementChild);
     }
-    console.log(data);
-    data.forEach((element: TData) => {
-      const tableString = this.getTableString(element);
-      console.log(tableString);
+    data.forEach((element: TData, index: number) => {
+      let number;
+      const currentPage = store.winnersPage;
+      if (currentPage === 1) {
+        number = index;
+      } else {
+        number = index + (currentPage - 1) * 10;
+      }
+      const tableString = this.getTableString(element, number);
       this.#winnersTableContainer.appendChild(tableString);
     });
     this.pagination.updatePageButtons();
@@ -92,13 +96,8 @@ export default class Winners {
   private getWinnersTextContent() {
     const winnersTextContent = document.createElement('div');
     winnersTextContent.classList.add('winners_text_content');
-
     winnersTextContent.appendChild(this.#title);
-
-    //const pages = this.getWinnersPage();
-    console.log(this.#pageNumber);
     winnersTextContent.appendChild(this.#pageNumber);
-
     return winnersTextContent;
   }
 
@@ -153,21 +152,49 @@ export default class Winners {
     return tableHeaderTitle;
   }
 
-  private getTableString(elem: TData) {
+  private getTableString(elem: TData, index: number) {
     const tableString = document.createElement('tr');
     tableString.classList.add('table_string');
-    const cells = Object.values(elem);
-    cells.forEach(text => {
-      const cell = this.getTableStringText(String(text));
-      tableString.appendChild(cell);
-    });
+    this.getCells(String(index + 1), elem.color, elem.name, String(elem.wins), String(elem.time), tableString);
+    // const cells = Object.values(elem);
+    // cells.forEach(text => {
+    //   const cell = this.getTableStringText(String(text));
+    //   tableString.appendChild(cell);
+    // });
+    
     return tableString;
   }
 
-  private getTableStringText(content: string): HTMLTableCellElement {
+  private getCells(num: string, color: string | undefined, winsName: string | undefined, win: string | undefined, time: string | undefined, node: Node) {
+    const number = this.getTableStringText(num);
+    node.appendChild(number);
+    const car = this.getTableStringText('', color);
+    node.appendChild(car);
+    const carName = this.getTableStringText(winsName);
+    node.appendChild(carName);
+    const wins = this.getTableStringText(win);
+    node.appendChild(wins);
+    const bestTime = this.getTableStringText(time);
+    node.appendChild(bestTime);
+  }
+
+  private getTableStringText(content?: string, color?: string): HTMLTableCellElement {
     const stringText = document.createElement('td');
     stringText.classList.add('string_text');
-    stringText.textContent = content;
+    if (content) {
+      stringText.textContent = content;
+    }
+    if (color) {
+      const car = this.getCarImage(color);
+      stringText.appendChild(car);
+    }
     return stringText;
+  }
+
+  private getCarImage(color:string) {
+    const car = document.createElement('div');
+    car.classList.add('car_small');
+    car.insertAdjacentHTML('beforeend', coloredCarImgSmall(color));
+    return car;
   }
 }
