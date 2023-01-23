@@ -9,16 +9,11 @@ import { TCars } from '../../models/typesModel';
 import Form from '../elements/form';
 import StartStopButton from '../elements/start_stop_button';
 import ControllerEngine from '../../controllers/controllerEngine';
+import IGaragePage from './InterfaceGaragePage';
 
-// interface IGaragePage {
-//   getPage: () => Promise<HTMLDivElement>,
-//   getInputs: () => Promise<HTMLDivElement>,
-//   createInput: (type: string, value?: string, classNAme?: string) => HTMLInputElement,
-//   getGarage: () => Promise<HTMLDivElement>,
-//   getTrack: (carName: string, id: number, color: string) => HTMLDivElement,
-// }
 
-export default class GaragePage {
+
+export default class GaragePage implements IGaragePage {
 
   countPage = 0;
 
@@ -95,7 +90,7 @@ export default class GaragePage {
     this.pagination.updatePageButtons();
   }
 
-  loadCars() {
+  loadCars(): void {
     this.controller.carsItems(store.garagePage, this.updateCarsInGarage.bind(this));
   }
 
@@ -138,7 +133,7 @@ export default class GaragePage {
     return inputs;
   }
 
-  private getButtons() {
+  private getButtons(): HTMLDivElement {
     const inputsContainerButtons = document.createElement('div');
     inputsContainerButtons.classList.add(ContainersClassNames.INPUT_CONTAINER_BTN);
 
@@ -168,7 +163,7 @@ export default class GaragePage {
     return inputsContainerButtons;
   }
 
-  getGarage(): HTMLDivElement {
+  private getGarage(): HTMLDivElement {
     const garage = document.createElement('div');
     garage.classList.add(ContainersClassNames.GARAGE);
 
@@ -187,7 +182,7 @@ export default class GaragePage {
     return carsContainer;
   }
 
-  private getGarageTextContent() {
+  private getGarageTextContent(): HTMLDivElement {
     const garageTextContent = document.createElement('div');
     garageTextContent.classList.add(ContainersClassNames.GARAGE_TEXT);
 
@@ -197,7 +192,7 @@ export default class GaragePage {
     return garageTextContent;
   }
 
-  private createTitleItem() {
+  private createTitleItem(): HTMLParagraphElement {
     const title = document.createElement('p');
     title.classList.add(ContainersClassNames.TITLE);
     return title;
@@ -211,7 +206,7 @@ export default class GaragePage {
     return page;
   }
   
-  private getTrack(name: string, color: string, id: number) {
+  private getTrack(name: string, color: string, id: number): HTMLDivElement {
     const track = document.createElement('div');
     track.classList.add('track');
     
@@ -227,7 +222,7 @@ export default class GaragePage {
     return track;
   }
 
-  private getControl(name: string, color: string, id: number) {
+  private getControl(name: string, color: string, id: number): HTMLDivElement {
     const control = document.createElement('div');
     control.classList.add('track_control');
     
@@ -255,7 +250,7 @@ export default class GaragePage {
     return control;
   }
 
-  private getSelectButtons(carName: string, color: string, id: number) {
+  private getSelectButtons(carName: string, color: string, id: number): Button {
     const selectCar = new Button('select', 'race', 'control_button');
     (selectCar as Node).addEventListener('click', () => {
       this.formUpdate.updateInputs(carName, color, id);
@@ -263,7 +258,7 @@ export default class GaragePage {
     return selectCar;
   }
 
-  private getDeleteButton(id: number) {
+  private getDeleteButton(id: number): Button {
     const resetCar = new Button('remove', 'race', 'control_button');
     (resetCar as Node).addEventListener('click', async () => {
       await this.controller.deleteCar(id);
@@ -272,21 +267,21 @@ export default class GaragePage {
     return resetCar;
   }
 
-  private getFinish() {
+  private getFinish(): HTMLImageElement {
     const finish = document.createElement('img');
     finish.classList.add('finish_line');
     finish.src = '../../assets/finish.svg';
     return finish;
   }
 
-  private getCarName(name: string) {
+  private getCarName(name: string): HTMLDivElement {
     const carName = document.createElement('div');
     carName.classList.add('car_name');
     carName.textContent = `${name}`;
     return carName;
   }
 
-  private getTrackRace(id: number, color: string) {
+  private getTrackRace(id: number, color: string): HTMLDivElement {
     const trackRace = document.createElement('div');
     trackRace.classList.add('track_race');
     const car = this.getCar(id, color);
@@ -294,7 +289,7 @@ export default class GaragePage {
     return trackRace;
   }
 
-  private getCar(id: number, color: string) {
+  private getCar(id: number, color: string): HTMLDivElement {
     const car = document.createElement('div');
     car.classList.add('car');
     car.id = `car-${id}`;

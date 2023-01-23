@@ -49,16 +49,13 @@ export default class ModelGarage {
     return this.carsItems;
   }
 
-  async getCar(id: number) {
+  async getCar(id: number): Promise<TCars> {
     const url = `${this.garage}/${id}`;
-    try {
-      await fetch(url).then((response) => response.json());
-    } catch (err) {
-      console.error(err);
-    }
+    const car = await fetch(url).then((response) => response.json());
+    return car;
   }
 
-  async createCar(car: TCar) {
+  async createCar(car: TCar): Promise<void> {
     this.prevUrl = '';
     const url = this.garage;
     try {
@@ -74,7 +71,7 @@ export default class ModelGarage {
     }
   }
 
-  async deleteCar(id: number) {
+  async deleteCar(id: number): Promise<void> {
     this.prevUrl = '';
     const url = `${this.garage}/${id}`;
     try {
@@ -86,7 +83,7 @@ export default class ModelGarage {
     }
   }
 
-  async updateCar(id: number, car: TCar) {
+  async updateCar(id: number, car: TCar): Promise<void> {
     this.prevUrl = '';
     const url = `${this.garage}/${id}`;
     try {

@@ -1,9 +1,7 @@
-//import { TableElementConfig } from '../../types';
-//import Pagination from '../elements/pagination';
-//import { DOMElements } from './DOMElements';
 import './styles/winners.css';
 import store from '../../app/store';
 import ControllerWinners from '../../controllers/controllerWinners';
+import { TData } from '../../models/typesModel';
 
 export default class Winners {
   winnersCount: number;
@@ -12,20 +10,51 @@ export default class Winners {
 
   #winners: HTMLDivElement;
 
+  #title: HTMLParagraphElement;
+
+  #winnersTableContainer: HTMLTableSectionElement;
+
   controllerWinners: ControllerWinners;
 
   constructor() {
+    this.#winnersTableContainer = this.getTableBody();
     this.winnersCount = store.winnersCount;
     this.winnersPageCount = store.winnersPage;
     this.controllerWinners = new ControllerWinners();
+    this.#title = this.getWinnersTitle();
     this.#winners = this.getWinners();
+    this.updateTitle();
+    this.loadWinners();
   }
 
   get pageWinners(): HTMLDivElement {
     return this.#winners;
   }
+
+  updateTitle(): void {
+    this.controllerWinners.count.then((count) => {
+      const winnersCurrentCount = `Garage(${count})`;
+      this.#title.textContent = winnersCurrentCount;
+    });
+  }
+
+  updateTableWinners(data: TData[]): void {
+    while (this.#winnersTableContainer.lastElementChild) {
+      this.#winnersTableContainer.removeChild(this.#winnersTableContainer.lastElementChild);
+    }
+    console.log(data);
+    data.forEach((element: TData) => {
+      const tableString = this.getTableString(element);
+      console.log(tableString);
+      this.#winnersTableContainer.appendChild(tableString);
+    });
+  }
+
+  loadWinners(): void {
+    this.controllerWinners.getRowData(this.updateTableWinners.bind(this));
+  }
   
-  private getWinners() {
+  getWinners() {
     const winners = document.createElement('div');
     winners.classList.add('winners_content');
 
@@ -44,8 +73,7 @@ export default class Winners {
     const winnersTextContent = document.createElement('div');
     winnersTextContent.classList.add('winners_text_content');
 
-    const title = this.getWinnersTitle();
-    winnersTextContent.appendChild(title);
+    winnersTextContent.appendChild(this.#title);
 
     const pages = this.getWinnersPage();
     winnersTextContent.appendChild(pages);
@@ -60,51 +88,29 @@ export default class Winners {
     return page;
   }
 
-  private getWinnersTitle() {
+  private getWinnersTitle(): HTMLParagraphElement {
     const title = document.createElement('p');
     title.classList.add('title');
-    title.textContent = `Winners(${this.winnersCount})`;
     return title;
   }
 
-  private getWinnersTable(): HTMLTableElement {
+  private getWinnersTable() {
     const table = document.createElement('table');
     table.classList.add('winners_table');
 
     const tableHeaderTitle = this.getTableHeader();
     table.appendChild(tableHeaderTitle);
-    //this.drawItems(table, this.getDOMTableElements());
+
+    table.appendChild(this.#winnersTableContainer);
+
     return table;
   }
 
-  // private drawItems(parent: HTMLElement, configs: TableElementConfig[]): void {
-  //   configs.forEach((config) => {
-  //     const node = this.createElement(config);
-  //     if (config.children) {
-  //       this.drawItems(node, config.children);
-  //     }
-  //     parent.appendChild(node);
-  //   });
-  // }
-
-  // private createElement(config: TableElementConfig): HTMLElement {
-  //   const node = document.createElement(config.tag);
-  //   config.classes.forEach((className) => {
-  //     node.classList.add(className);
-  //   });
-  //   if (config.label) {
-  //     node.textContent = config.label;
-  //   }
-  //   if (config.id) {
-  //     (node as HTMLElement).id = config.id;
-  //   }
-  //   return node;
-  // }
-
-  // private getDOMTableElements(): TableElementConfig[] {
-  //   const modalDOMElements: TableElementConfig[] = DOMElements;
-  //   return modalDOMElements;
-  // }
+  private getTableBody(): HTMLTableSectionElement {
+    const tableBody = document.createElement('tbody');
+    tableBody.classList.add('table_body');
+    return tableBody;
+  }
 
   private getTableHeader() {
     const tableHeader = document.createElement('tr');
@@ -124,5 +130,23 @@ export default class Winners {
     tableHeaderTitle.classList.add('table_header_title');
     tableHeaderTitle.textContent = title;
     return tableHeaderTitle;
+  }
+
+  private getTableString(elem: TData) {
+    const tableString = document.createElement('tr');
+    tableString.classList.add('table_string');
+    const cells = Object.values(elem);
+    cells.forEach(text => {
+      const cell = this.getTableStringText(String(text));
+      tableString.appendChild(cell);
+    });
+    return tableString;
+  }
+
+  private getTableStringText(content: string): HTMLTableCellElement {
+    const stringText = document.createElement('td');
+    stringText.classList.add('string_text');
+    stringText.textContent = content;
+    return stringText;
   }
 }

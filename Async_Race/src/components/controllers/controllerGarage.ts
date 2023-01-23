@@ -28,7 +28,7 @@ export default class ControllerGarage {
     }
   }
 
-  async createNewCar(car: TCar) {
+  async createNewCar(car: TCar): Promise<void> {
     try {
       await this.model.createCar(car);
     } catch (err) {
@@ -36,11 +36,11 @@ export default class ControllerGarage {
     }
   }
 
-  async deleteCar(id: number) {
+  async deleteCar(id: number): Promise<void> {
     await this.model.deleteCar(id);
   }
 
-  async generateCars() {
+  async generateCars(): Promise<void> {
     const carArray = new RandomCars().getArray();
     try {
       await Promise.all(carArray.map(car => this.createNewCar(car)));
@@ -49,7 +49,7 @@ export default class ControllerGarage {
     }
   }
 
-  async updateCar(id: number, car: TCar) {
+  async updateCar(id: number, car: TCar): Promise<void> {
     await this.model.updateCar(id, car);
   }
   

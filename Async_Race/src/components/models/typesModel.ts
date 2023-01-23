@@ -38,3 +38,10 @@ export type TWinnersData = {
 export type TSuccess = { 
   success: boolean 
 }
+
+export type TData = {
+  name?: string | undefined;
+  color?: string | undefined;
+  wins?: number | undefined;
+  time?: number | undefined;
+}

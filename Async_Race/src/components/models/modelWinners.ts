@@ -1,16 +1,19 @@
-import { TCar, TWinners, TWinnersData } from "./typesModel";
+import { TWinners, TWinnersData } from './typesModel';
 
 export default class ModelWinners {
   baseUrl: string;
 
   winners: string;
 
-  winnersCount: string;
+  winnersCount: number;
+
+  winnersItems: TWinners[];
 
   constructor() {
     this.baseUrl = 'http://127.0.0.1:3000';
     this.winners = `${this.baseUrl}/winners`;
-    this.winnersCount = '0';
+    this.winnersCount = 0;
+    this.winnersItems = [];
   }
 
   async getWinners(page?: number, sort?: string, order?: string, limit = 10) {
@@ -24,26 +27,39 @@ export default class ModelWinners {
       }
     }
     try {
-      const result = await fetch(url).then((response) => response.json());
-      this.winnersCount = result.headers.get('X-Total-Count') || '0'
+      const result: TWinners[] = await fetch(url).then((response) => response.json());
+      this.winnersCount = result.length;
+      this.winnersItems = result;
     } catch (err) {
-      this.winnersCount = '0';
+      this.winnersCount = 0;
       console.error(err);
     } finally {
       console.log('request completed');
     }
   }
 
-  async getWinner(id: number) {
+  async getWinnersItems(page?: number, sort?: string, order?: string, limit = 10): Promise<TWinners[]> {
+    await this.getWinners(page, sort, order, limit);
+    return this.winnersItems;
+  }
+
+  async getWinnersCount(page?: number, sort?: string, order?: string, limit = 10): Promise<number> {
+    await this.getWinners(page, sort, order, limit);
+    return this.winnersCount;
+  }
+
+  async getWinner(id: number): Promise<TWinners> {
     const url = `${this.winners}/${id}`;
-    try {
-        await fetch(url).then((response) => response.json());
-      } catch (err) {
-        console.error(err);
-      }
+    const result = await fetch(url).then((response) => response.json());
+    return result;
+  }
+
+  async getWinnerStatus(id: number): Promise<number> {
+    const url = `${this.winners}/${id}`;
+    return (await fetch(url)).status;
   }
   
-  async createWinners(winner: TCar) {
+  async createWinner(winner: TWinners) {
     const url = this.winners;
     try {
       await fetch(url, {
