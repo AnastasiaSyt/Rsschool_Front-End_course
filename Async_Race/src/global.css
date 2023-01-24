@@ -56,3 +56,21 @@ body {
   
     margin-bottom: 20px;
   }
+
+  @media (max-width: 1350px) {
+    .wrapper {
+      padding: 0 30px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    .wrapper {
+      padding: 0 20px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .wrapper {
+      padding: 0 10px;
+    }
+  }
