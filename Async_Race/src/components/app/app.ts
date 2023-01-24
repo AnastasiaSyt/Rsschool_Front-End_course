@@ -3,8 +3,9 @@ import store from './store';
 import GaragePage from '../view/garage/garagePage';
 import Winners from '../view/winners/winners';
 import { PageIDs } from '../types';
+import IApp from './Interfaces/InterfaceApp';
 
-export default class App {
+export default class App implements IApp {
   view: HTMLElement;
 
   pageInstance: Page;
@@ -16,7 +17,7 @@ export default class App {
     this.drawContent();
   }
 
-  drawContent() {
+  drawContent(): void {
     this.pageInstance.clearContent();
     let newPage;
     const view = store.view;
