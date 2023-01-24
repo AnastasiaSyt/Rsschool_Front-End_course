@@ -2,8 +2,9 @@ import ModelEngine from '../models/modelEngine';
 import { TCars } from '../models/typesModel';
 import AnimationCar from '../utils/animation';
 import ControllerWinners from './controllerWinners';
+import IControllerEngine from './Interfaces/InterfaceControllerEngine';
 
-export default class ControllerEngine {
+export default class ControllerEngine implements IControllerEngine {
   model: ModelEngine;
 
   animations: { [id: number]: AnimationCar };
@@ -22,7 +23,7 @@ export default class ControllerEngine {
     this.controllerWinners = new ControllerWinners;
   }
 
-  get trackWidth() {
+  get trackWidth(): number {
     return (document.getElementsByClassName('car')[0] as HTMLDivElement)?.clientWidth || 1;
   }
 
@@ -34,7 +35,7 @@ export default class ControllerEngine {
     return time;
   }
 
-  getAnimation(id: number, time: number) {
+  getAnimation(id: number, time: number): void {
     this.animations[id] = new AnimationCar(id, async () => {
       this.finishList.push(id);
       if (this.finishList.length === 1 && Object.keys(this.cars).length) {
@@ -55,17 +56,17 @@ export default class ControllerEngine {
     }
   }
 
-  async driveCar(id: number) {
+  async driveCar(id: number): Promise<void> {
     const time = await this.startEngine(id);
     this.switchCarsEngineDriveMode(id);
     this.getAnimation(id, time);
   }
 
-  async stopEngine(id: number) {
+  async stopEngine(id: number): Promise<void> {
     await this.model.startStopEngineCar(id, 'stopped');
   }
 
-  async stopCar(id: number) {
+  async stopCar(id: number): Promise<void> {
     this.stopEngine(id);
     if (this.animations[id]) {
       this.animations[id].cancel();
@@ -73,7 +74,7 @@ export default class ControllerEngine {
     this.animations[id].carPosition();
   }
 
-  raceAllCars(cars: TCars[]) {
+  raceAllCars(cars: TCars[]): void {
     this.finishList = [];
     this.cars = {};
     cars.forEach(car => {
@@ -82,12 +83,11 @@ export default class ControllerEngine {
     });
   }
 
-  resetAll(cars: TCars[]) {
+  resetAll(cars: TCars[]): void {
     this.finishList = [];
     this.cars = {};
     cars.forEach(car => {
       this.stopCar(car.id);
     });
   }
-
 }
