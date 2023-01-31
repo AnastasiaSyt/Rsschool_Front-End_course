@@ -13,14 +13,25 @@ export default class Form {
 
   constructor(name: string, onClick: (car: string, color: string, id?: number) => void) {
     this.onClick = onClick;
-    const classNameInputs = 'button';
-    this.form = document.createElement('form');
-    this.inputText = this.createInput(InputsTypes.TEXT);
-    this.inputText.setAttribute('name', 'carName');
-    this.form.appendChild(this.inputText);
+    this.id = 0;
     this.inputColor = this.createInput(InputsTypes.COLOR, defaultColor);
+    this.inputText = this.createInput(InputsTypes.TEXT);
+    this.form = this.getForm(name);
+  }
+
+  get formElement() {
+    return this.form;
+  }
+
+  getForm(name: string) {
+    const classNameInputs = 'button';
+    const form = document.createElement('form');
+    this.inputText.setAttribute('name', 'carName');
+    form.appendChild(this.inputText);
+
     this.inputColor .setAttribute('name', 'color');
-    this.form.appendChild(this.inputColor);
+    form.appendChild(this.inputColor);
+
     const inputSubmit = this.createInput(InputsTypes.SUBMIT, name, classNameInputs);
     inputSubmit.addEventListener('click', (ev) => {
       ev.preventDefault();
@@ -28,12 +39,8 @@ export default class Form {
       const color =  this.inputColor.value;
       this.onClick(carName, color, this.id);
     });
-    this.form.appendChild(inputSubmit);
-    this.id = 0;
-  }
-
-  get formElement() {
-    return this.form;
+    form.appendChild(inputSubmit);
+    return form;
   }
 
   resetInputs(): void {
