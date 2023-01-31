@@ -1,4 +1,4 @@
-import { TCars, TCar } from './typesModel';
+import { TCars, TCar, TGarageConfig } from './typesModel';
 
 export default class ModelGarage {
   carsCount: number;
@@ -11,16 +11,16 @@ export default class ModelGarage {
 
   prevUrl: string;
 
-  constructor() {
-    this.carsCount = 0;
-    this.carsItems = [];
-    this.prevUrl = '';
-    this.baseUrl = 'http://127.0.0.1:3000';
-    this.garage = `${this.baseUrl}/garage`;
+  constructor(config: TGarageConfig) {
+    this.carsCount = config.carsCount;
+    this.carsItems = config.carsItems;
+    this.prevUrl = config.prevUrl;
+    this.baseUrl = config.baseUrl;
+    this.garage = config.garage;
   }
 
   async getCars(page?: number, limit = 7): Promise<void> {
-    let url = this.garage;
+    let url = `${this.baseUrl}${this.garage}`;
     if (page) {
       url = `${url}?_page=${page}&_limit=${limit}`;
     }
@@ -50,14 +50,14 @@ export default class ModelGarage {
   }
 
   async getCar(id: number): Promise<TCars> {
-    const url = `${this.garage}/${id}`;
+    const url = `${this.baseUrl}${this.garage}/${id}`;
     const car = await fetch(url).then((response) => response.json());
     return car;
   }
 
   async createCar(car: TCar): Promise<void> {
     this.prevUrl = '';
-    const url = this.garage;
+    const url = `${this.baseUrl}${this.garage}`;
     try {
       await fetch(url, {
         method: 'POST',
@@ -73,7 +73,7 @@ export default class ModelGarage {
 
   async deleteCar(id: number): Promise<void> {
     this.prevUrl = '';
-    const url = `${this.garage}/${id}`;
+    const url = `${this.baseUrl}${this.garage}/${id}`;
     try {
       await fetch(url, {
         method: 'DELETE',
@@ -85,7 +85,7 @@ export default class ModelGarage {
 
   async updateCar(id: number, car: TCar): Promise<void> {
     this.prevUrl = '';
-    const url = `${this.garage}/${id}`;
+    const url = `${this.baseUrl}${this.garage}/${id}`;
     try {
       await fetch(url, {
         method: 'PUT',

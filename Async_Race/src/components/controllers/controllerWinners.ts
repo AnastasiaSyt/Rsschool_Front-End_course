@@ -1,3 +1,4 @@
+import { garageConfig, winnersConfig } from '../models/constants';
 import ModelGarage from '../models/modelGarage';
 import ModelWinners from '../models/modelWinners';
 import { TCars, TData, TWinners, TWinnersData } from '../models/typesModel';
@@ -8,8 +9,8 @@ export default class ControllerWinners {
   modelGarage: ModelGarage;
 
   constructor() {
-    this.model = new ModelWinners();
-    this.modelGarage = new ModelGarage();
+    this.model = new ModelWinners(winnersConfig);
+    this.modelGarage = new ModelGarage(garageConfig);
   }
 
   get count() {

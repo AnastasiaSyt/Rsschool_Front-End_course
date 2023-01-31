@@ -1,7 +1,7 @@
 export type TCars = {
   name: string,
   color: string,
-  id: number
+  id: number,
 }
 
 export type TCar = {
@@ -11,7 +11,7 @@ export type TCar = {
 
 export type TEngine = {
   velocity: number,
-  distance: number
+  distance: number,
 }
 
 export type status = 'started'|'stopped'|'drive';
@@ -36,12 +36,32 @@ export type TWinnersData = {
 }
 
 export type TSuccess = { 
-  success: boolean 
+  success: boolean,
 }
 
 export type TData = {
-  name?: string | undefined;
-  color?: string | undefined;
-  wins?: number | undefined;
-  time?: number | undefined;
+  name?: string | undefined,
+  color?: string | undefined,
+  wins?: number | undefined,
+  time?: number | undefined,
+}
+
+export type TGarageConfig = {    
+  carsCount: number,
+  carsItems: TCars[],
+  prevUrl: string,
+  baseUrl: string,
+  garage: string,
+}
+
+export type TWinnersConfig = {
+  baseUrl: string,
+  winners: string,
+  winnersCount: number,
+  winnersItems: TWinners[],
+}
+
+export type TEngineConfig = {
+  baseUrl: string,
+  engine: string,
 }

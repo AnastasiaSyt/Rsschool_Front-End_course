@@ -1,18 +1,17 @@
-import { status, TSuccess } from './typesModel';
-
+import { status, TEngineConfig, TSuccess } from './typesModel';
 
 export default class ModelEngine {
   baseUrl: string;
 
   engine: string;
 
-  constructor() {
-    this.baseUrl = 'http://127.0.0.1:3000';
-    this.engine = `${this.baseUrl}/engine`;
+  constructor(config: TEngineConfig) {
+    this.baseUrl = config.baseUrl;
+    this.engine = config.engine;
   }
 
   async startStopEngineCar(id: number, statusEngine: status) {
-    const url = `${this.engine}?id=${id}&status=${statusEngine}`;
+    const url = `${this.baseUrl}${this.engine}?id=${id}&status=${statusEngine}`;
     try {
       const result = await fetch(url, { method: 'PATCH' }).then((response) => response.json());
       return result;
@@ -24,7 +23,7 @@ export default class ModelEngine {
   }
 
   async switchCarsEngineDriveMode(id: number): Promise<TSuccess>  {
-    const url = `${this.engine}?id=${id}&status=drive`;
+    const url = `${this.baseUrl}${this.engine}?id=${id}&status=drive`;
     //const result = await fetch(url, { method: 'PATCH' }).catch((err) => console.log(err));
     const result = await fetch(url, { method: 'PATCH' }).catch();
     return result.status !== 200 ? { success: false } : { ...(await result.json()) };

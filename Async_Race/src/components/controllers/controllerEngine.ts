@@ -1,3 +1,4 @@
+import { engineConfig } from '../models/constants';
 import ModelEngine from '../models/modelEngine';
 import { TCars } from '../models/typesModel';
 import AnimationCar from '../utils/animation';
@@ -18,7 +19,7 @@ export default class ControllerEngine implements IControllerEngine {
   constructor() {
     this.cars = {};
     this.animations = {};
-    this.model = new ModelEngine();
+    this.model = new ModelEngine(engineConfig);
     this.finishList = [];
     this.controllerWinners = new ControllerWinners;
   }

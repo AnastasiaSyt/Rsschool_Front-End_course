@@ -1,3 +1,4 @@
+import { garageConfig } from '../models/constants';
 import ModelGarage from '../models/modelGarage';
 import { TCars, TCar } from '../models/typesModel';
 import RandomCars from '../utils/getRandomCar';
@@ -6,7 +7,7 @@ export default class ControllerGarage {
   model: ModelGarage;
 
   constructor() {
-    this.model = new ModelGarage();
+    this.model = new ModelGarage(garageConfig);
   }
 
   get count() {

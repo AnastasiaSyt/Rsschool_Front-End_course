@@ -1,4 +1,4 @@
-import { TWinners, TWinnersData } from './typesModel';
+import { TWinners, TWinnersConfig, TWinnersData } from './typesModel';
 
 export default class ModelWinners {
   baseUrl: string;
@@ -9,15 +9,15 @@ export default class ModelWinners {
 
   winnersItems: TWinners[];
 
-  constructor() {
-    this.baseUrl = 'http://127.0.0.1:3000';
-    this.winners = `${this.baseUrl}/winners`;
-    this.winnersCount = 0;
-    this.winnersItems = [];
+  constructor(config: TWinnersConfig) {
+    this.baseUrl = config.baseUrl;
+    this.winners = config.winners;
+    this.winnersCount = config.winnersCount;
+    this.winnersItems = config.winnersItems;
   }
 
   async getWinners(page?: number, sort?: string, order?: string, limit = 10) {
-    let url = this.winners;
+    let url = `${this.baseUrl}${this.winners}`;
     if (page) {
       url = `${url}?_page=${page}&_limit=${limit}`;
       if (sort) {
@@ -49,18 +49,18 @@ export default class ModelWinners {
   }
 
   async getWinner(id: number): Promise<TWinners> {
-    const url = `${this.winners}/${id}`;
+    const url = `${this.baseUrl}${this.winners}/${id}`;
     const result = await fetch(url).then((response) => response.json());
     return result;
   }
 
   async getWinnerStatus(id: number): Promise<number> {
-    const url = `${this.winners}/${id}`;
+    const url = `${this.baseUrl}${this.winners}/${id}`;
     return (await fetch(url)).status;
   }
   
   async createWinner(winner: TWinners) {
-    const url = this.winners;
+    const url = `${this.baseUrl}${this.winners}`;
     try {
       await fetch(url, {
         method: 'POST',
@@ -75,7 +75,7 @@ export default class ModelWinners {
   }
 
   async deleteWinner(id: number) {
-    const url = `${this.winners}/${id}`;
+    const url = `${this.baseUrl}${this.winners}/${id}`;
     try {
       await fetch(url, {
         method: 'DELETE',
@@ -86,7 +86,7 @@ export default class ModelWinners {
   }
 
   async updateWinner(id: number, winnerData: TWinnersData) {
-    const url = `${this.winners}/${id}`;
+    const url = `${this.baseUrl}${this.winners}/${id}`;
     try {
       await fetch(url, {
         method: 'PUT',
