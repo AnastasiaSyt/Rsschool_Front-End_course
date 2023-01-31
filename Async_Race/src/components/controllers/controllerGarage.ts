@@ -23,16 +23,16 @@ export default class ControllerGarage {
     try {
       const carsItems = await this.model.getCarsItems(page);
       callback(carsItems);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.error(error);
     }
   }
 
   async createNewCar(car: TCar): Promise<void> {
     try {
       await this.model.createCar(car);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -44,8 +44,8 @@ export default class ControllerGarage {
     const carArray = new RandomCars().getArray();
     try {
       await Promise.all(carArray.map(car => this.createNewCar(car)));
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.error(error);
     }
   }
 

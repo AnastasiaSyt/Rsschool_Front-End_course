@@ -17,7 +17,7 @@ export default class ModelEngine {
       const result = await fetch(url, { method: 'PATCH' }).then((response) => response.json());
       return result;
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       console.log('request startStopEngineCar completed');
     }  
