@@ -156,12 +156,6 @@ export default class Winners {
     const tableString = document.createElement('tr');
     tableString.classList.add('table_string');
     this.getCells(String(index + 1), elem.color, elem.name, String(elem.wins), String(elem.time), tableString);
-    // const cells = Object.values(elem);
-    // cells.forEach(text => {
-    //   const cell = this.getTableStringText(String(text));
-    //   tableString.appendChild(cell);
-    // });
-    
     return tableString;
   }
 
